@@ -427,8 +427,8 @@ class TestV8Backup(unittest.TestCase):
         self.assertEqual(r["status"], "OK")
 
     def test_pass_existing_with_backup(self):
-        # AGENTS.md 存在；用 .harness_backup 内副本模拟
-        backup_path = ".harness_backup/20260725-190233/AGENTS.md"
+        # AGENTS.md 存在；用同仓内已知文件模拟备份存在
+        backup_path = "LICENSE"
         r = v.v8_backup(_payload(
             write_target="AGENTS.md",
             backup_path=backup_path,

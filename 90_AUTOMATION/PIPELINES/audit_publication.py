@@ -40,6 +40,7 @@ EXCLUDED_DIR_PREFIXES = (
 
 EXCLUDED_FILE_NAMES = {
     ".DS_Store",
+    "settings.local.json",
 }
 
 EXCLUDED_SUFFIXES = (
@@ -163,7 +164,7 @@ def _fail(code, message, evidence=None):
 
 def _is_excluded(rel_path):
     """路径是否被排除（不扫描、不发布）。"""
-    if rel_path in EXCLUDED_FILE_NAMES:
+    if os.path.basename(rel_path) in EXCLUDED_FILE_NAMES:
         return True
     for suffix in EXCLUDED_SUFFIXES:
         if rel_path.endswith(suffix):

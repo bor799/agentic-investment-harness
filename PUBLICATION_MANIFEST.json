@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "generated_at": "2026-08-05",
   "repo": "bor799/agentic-investment-harness",
-  "total_files": 1586,
+  "total_files": 1581,
   "files": [
     {
       "path": ".claude/agents/investment-reviewer.md",
@@ -37,7 +37,7 @@
       "include": true,
       "rights": "own",
       "reason": "Original content by Murphy or AI-assisted through author interactions",
-      "sha256": "d9d79caf22f55561c48d04af2dd8c67387afee9c4c1e1c2eb8a4f9acf9c366a9"
+      "sha256": "cb2715e1124025b384ee36c65ea5cd67d0f5d1a3acae86c046f95ecaa2f5933f"
     },
     {
       "path": "00_HOME/CONTENT_ROUTER.md",
@@ -5735,7 +5735,7 @@
       "include": true,
       "rights": "own",
       "reason": "Original content by Murphy or AI-assisted through author interactions",
-      "sha256": "6058bbf7e559a71aee9dd9512407dc993f839ef12dce43c00465ea8932311f14"
+      "sha256": "a2ee32477a5345cf37ed39a5f66542755e3c4c555a0e2ad85cb7a62ccbe8b73c"
     },
     {
       "path": "90_AUTOMATION/PIPELINES/phase2_build_migration_backlog.py",
@@ -6589,7 +6589,7 @@
       "include": true,
       "rights": "own",
       "reason": "Original content by Murphy or AI-assisted through author interactions",
-      "sha256": "31ac18d62e7c7d43658e94d9e55589c564eec1e4a474a1496a198dce2c2d6e9f"
+      "sha256": "4e1386d60875684c72dcb1a86ebbdf25bc26225c25b45baca4cc98342dd0c289"
     },
     {
       "path": "99_ARCHIVE/LEGACY_LAYOUT/README.md",
@@ -6655,6 +6655,13 @@
       "sha256": "e8a6bddca2f16696c0862522e28ed956e3a0e4b708eb4c0bb32382e21f3fe8d5"
     },
     {
+      "path": "PUBLICATION_MANIFEST.json",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "2c433426235aa1c1f74c5158f91f0fa37c2570b3cf0bfa41fcb180f7a8d4259d"
+    },
+    {
       "path": "README.md",
       "include": true,
       "rights": "own",
@@ -6674,13 +6681,6 @@
       "rights": "own",
       "reason": "Original content by Murphy or AI-assisted through author interactions",
       "sha256": "36c120bf7f064bb54c67c8fd72da27b2139f02dbc419991e606829f562ee4987"
-    },
-    {
-      "path": "归档/AI周期探索/.DS_Store",
-      "include": true,
-      "rights": "own",
-      "reason": "Original content by Murphy or AI-assisted through author interactions",
-      "sha256": "0abef459b8053f4045901453b0cffca7502c15e188cccb3c87ef839a0e2a882b"
     },
     {
       "path": "归档/AI周期探索/01_赛道研究/A_AI企业效率与上下文入口.md",
@@ -6716,13 +6716,6 @@
       "rights": "own",
       "reason": "Original content by Murphy or AI-assisted through author interactions",
       "sha256": "109e84069626eba1b7d421b207f9ff32a7a851caa1facb7ba28d1839216b6458"
-    },
-    {
-      "path": "归档/AI周期探索/02_公司研究/.DS_Store",
-      "include": true,
-      "rights": "own",
-      "reason": "Original content by Murphy or AI-assisted through author interactions",
-      "sha256": "3d86c8744d85fe11d67b8adfa9ed69ab6df323d35544313ff103f1d35ce08773"
     },
     {
       "path": "归档/AI周期探索/02_公司研究/Alibaba/PROMPT.md",
@@ -9924,13 +9917,6 @@
       "sha256": "e86833f9e839cc4c6410fa64f090028c9c09b2a1f2c0f9cdfac2a3e4c9c070b0"
     },
     {
-      "path": "归档/分析报告/.DS_Store",
-      "include": true,
-      "rights": "own",
-      "reason": "Original content by Murphy or AI-assisted through author interactions",
-      "sha256": "c4962a194a314b50f77a193825c9739399d1b4bae5b449ad6b96a745f6addcbc"
-    },
-    {
       "path": "归档/分析报告/20260331-铜资源+AI基础设施+苹果供应链供给价值合并版.md",
       "include": true,
       "rights": "own",
@@ -10617,13 +10603,6 @@
       "sha256": "05d43269c4bfd6fbae92b1719fdb43245bc00d7a81ed4c271827720737fb8818"
     },
     {
-      "path": "归档/基础概念/.DS_Store",
-      "include": true,
-      "rights": "own",
-      "reason": "Original content by Murphy or AI-assisted through author interactions",
-      "sha256": "68e056ef797c671bcb7b79eafc27bb959a48828407a0f48c59d460d3bf8a46af"
-    },
-    {
       "path": "归档/基础概念/IP 消费类/IP 价值&泡泡.md",
       "include": true,
       "rights": "own",
@@ -10825,20 +10804,6 @@
       "rights": "own",
       "reason": "Original content by Murphy or AI-assisted through author interactions",
       "sha256": "24cf497719b71511b6761838fedfbf9e26119b22e405783aa21a132a8c23e331"
-    },
-    {
-      "path": "归档/基础概念/实体商/.DS_Store",
-      "include": true,
-      "rights": "own",
-      "reason": "Original content by Murphy or AI-assisted through author interactions",
-      "sha256": "7248b3ffc68cf075b116e2eaba40f0ed415af6fbcf400ca5868182b09897ff31"
-    },
-    {
-      "path": "归档/基础概念/实体商/.claude/settings.local.json",
-      "include": true,
-      "rights": "own",
-      "reason": "Original content by Murphy or AI-assisted through author interactions",
-      "sha256": "9f88a967a53f8f1671fd50bbac8e2e13457ec62c1b214bc9e811c6ee2df29e57"
     },
     {
       "path": "归档/基础概念/实体商/.codepilot-uploads/1777528651722-SKILL_3.md",

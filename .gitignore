@@ -6,3 +6,4 @@ __pycache__/
 90_AUTOMATION/RUNTIME/STAGING/
 *.swp
 *~
+settings.local.json
