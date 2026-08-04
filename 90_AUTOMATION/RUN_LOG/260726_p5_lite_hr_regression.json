@@ -1,0 +1,143 @@
+{
+  "run_id": "P5-LITE-20260726-HR",
+  "harness_task": {
+    "lane": "JUDGE",
+    "input_type": "THESIS",
+    "scope": "single",
+    "response_mode": "concise",
+    "process_depth": "reviewed",
+    "target_ids": [
+      "09896.HK"
+    ],
+    "state_status": "legacy_only",
+    "write_intent": "chat_only",
+    "review_required": true,
+    "loaded_skills": [
+      "COMPANY_FUNDAMENTALS",
+      "EXPECTATIONS_VALUATION",
+      "BEHAVIOR_REVIEW"
+    ],
+    "reviewer_agent_mode": "native"
+  },
+  "today": "2026-07-26",
+  "user_input_raw": "名创从低价零售进化为全球 IP 零售平台，海外和 IP 产品带来毛利改善；已有持仓处于较大浮亏。",
+  "thesis_state": {
+    "data_cutoff": "2026-02-26",
+    "expires_at": "2026-03-31",
+    "review_date": "2026-03-31"
+  },
+  "judgment": {
+    "one_line": "这是“授权 IP 零售能否进化为自有 IP 平台”的经营验证机会，不是跌幅驱动的抄底机会；经营和赔率都未通过，当前不加仓。",
+    "money_path": "海外直营与自有/独家 IP 占比提升，先改善单店毛利和经营现金流，再让市场从渠道零售估值切换到拥有 IP 控制权的平台估值。",
+    "operating_delivery": "未确认。原 Case 明确缺少国内同店、海外直营单店模型、自有/独家/授权 IP 单位经济与资本配置证据。",
+    "odds_and_expectations": "uncalibrated：仅凭 HK$24.48 及相对成本下跌约 32% 不能反推市场隐含的同店、海外直营利润率或 IP 经济假设，也不能声称便宜。",
+    "cycle_and_timing": "验证窗口在下一份财报；消费环境、海外开店资本开支、IP 授权续约与治理风险仍在。",
+    "action_and_trigger": "不加仓。只有经营三组数字补齐，并用同日价格和一致口径利润/现金流重新反推市场预期后，才重做 H_R。",
+    "bear_unknown_risk": "最大反方是名创仍主要赚渠道与授权零售的钱，海外直营资本开支吞掉毛利，自有 IP 控制权不足，当前价格仍含平台型溢价。",
+    "next_evidence": "下一份财报的国内同店、海外直营利润率、自有/独家/授权 IP 收入与毛利拆分；取得数据后用同日价格、股本和一致口径利润/FCF 反推估值。"
+  },
+  "action": "不加仓",
+  "H_B": "unknown",
+  "H_R": "unknown",
+  "H_L": "soft_warn",
+  "H_C": "pass_with_caveat",
+  "odds_calibration": {
+    "status": "uncalibrated",
+    "market_implied_expectation": "仅凭 HK$24.48 与相对成本下跌约 32% 无法可靠反推市场隐含的同店、海外直营利润率或 IP 经济假设。",
+    "basis_or_boundary": "价格下跌只能说明赔率输入变化；缺少同期一致口径利润/FCF、分部单位经济与估值分母，不能给出便宜或安全边际结论。",
+    "missing_evidence": [
+      "同日价格、股本及一致口径利润或 FCF 分母",
+      "国内同店与海外直营利润率",
+      "自有、独家、授权 IP 收入与毛利拆分"
+    ]
+  },
+  "review_result": {
+    "verdict": "PASS",
+    "agent_mode": "native",
+    "source_traceability": {
+      "root_sources": [
+        {
+          "path_or_url": "04_CASE_GYM/TRADE_LOG/260226_miniso_ip_thesis_case.md",
+          "published_at": "2026-07-23",
+          "data_as_of": "2026-07-15",
+          "data_caliber": "P0 human-reviewed case"
+        },
+        {
+          "path_or_url": "90_AUTOMATION/RUN_LOG/baseline_20260726/case_miniso.yaml",
+          "published_at": "2026-07-26",
+          "data_as_of": "2026-07-15",
+          "data_caliber": "local reviewed baseline"
+        }
+      ],
+      "missing_fields": [
+        "同店、海外直营利润率与 IP 单位经济仍缺失"
+      ]
+    },
+    "fact_inference_separation": {
+      "facts": [
+        "Case 记录 HK$24.48，较成本下跌约 32%",
+        "Case 明确列出国内同店、海外直营单店模型、IP 自有/授权经济为缺失证据"
+      ],
+      "inferences": [
+        "绝对跌幅不能反推经营兑现或安全边际"
+      ],
+      "narratives": [
+        "跌很多所以赔率改善"
+      ]
+    },
+    "causal_breaks": [
+      "无关键断点；新契约明确阻断“价格下跌→赔率已校准”"
+    ],
+    "alternative_explanations": [
+      "跌幅可能来自渠道型估值语法重定价，并非市场恐慌或错杀"
+    ],
+    "market_may_be_right_because": "当前价格仍可能反映同店、海外直营利润率与 IP 经济尚未兑现。",
+    "odds_calibration_check": {
+      "status": "uncalibrated",
+      "internally_consistent": true,
+      "reason": "缺少可复核的经营分母、估值反推与兑现路径，因此 H_R 保持 unknown，动作不加仓。"
+    },
+    "dao_and_skill_alignment": {
+      "constitution_conflicts": [],
+      "mindset_conflicts": [],
+      "skill_conflicts": [],
+      "decision_contract_conflicts": []
+    },
+    "incremental_value": "NEW_MECHANISM",
+    "weakest_link": "当前校验只约束 uncalibrated 与 H_R 的标签一致性，不能判断 missing_evidence 是否足以覆盖具体估值分母。",
+    "best_bear_case": "名创仍是渠道扩张加授权零售，海外直营利润与自有 IP 经济不成立，HK$24.48 仍含平台型溢价。",
+    "material_disagreement": "none",
+    "allowed_write_route": ""
+  },
+  "state_expiry_scan": {
+    "expired": [],
+    "due_for_review": [],
+    "missing_time_fields": [],
+    "inconsistent": []
+  },
+  "risk_freeze_acknowledged": true,
+  "trajectory": {
+    "principles_read": [
+      "01_道/CONSTITUTION.md",
+      "01_道/MINDSET.md",
+      "02_术/TRADING_SYSTEM/00_DECISION_CONTRACT.md"
+    ],
+    "skills_read_and_executed": [
+      "02_术/SKILLS/COMPANY_FUNDAMENTALS.md",
+      "02_术/SKILLS/EXPECTATIONS_VALUATION.md",
+      "02_术/SKILLS/BEHAVIOR_REVIEW.md"
+    ],
+    "case_and_evidence_read": [
+      "04_CASE_GYM/TRADE_LOG/260226_miniso_ip_thesis_case.md",
+      "05_EVIDENCE_META/EVIDENCE/COMPANIES/Miniso/README.md",
+      "90_AUTOMATION/RUN_LOG/baseline_20260726/case_miniso.yaml"
+    ],
+    "why_relevant": "公司 Skill 检查利润留存，估值 Skill 反推市场预期，行为 Skill 阻断浮亏后加风险；Case 与 dossier 提供同一真实输入、已知事实和证据缺口。"
+  },
+  "regression": {
+    "before": "H_R=mixed，同时正文承认 uncalibrated；跌幅被写成“提供一定空间”，却没有市场隐含预期、估值分母或赔率侧验证信号。",
+    "after": "H_R=unknown + odds_calibration.status=uncalibrated；明确不能从跌幅推出便宜，列出完成反推所需的三个最小输入。",
+    "new_side_effect": "历史 JUDGE 输出缺少 odds_calibration，或 uncalibrated 仍标 H_R=mixed，将被 V-16 拒绝。"
+  },
+  "next_failure": "BEHAVIOR_REVIEW 虽被路由，但真实案例常只识别触发词，没有完整执行九问反方审查；本轮记录，不继续施工。"
+}

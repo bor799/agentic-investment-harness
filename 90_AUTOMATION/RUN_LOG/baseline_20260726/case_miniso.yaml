@@ -1,0 +1,136 @@
+case_id: CASE-260226-MINISO
+case_path: 04_CASE_GYM/TRADE_LOG/260226_miniso_ip_thesis_case.md
+harness_version: pre-distillation-baseline
+run_date: 2026-07-26
+
+harness_task:
+  lane: JUDGE
+  input_type: THESIS  # 对既有持仓 thesis 的再判断
+  scope: single
+  response_mode: concise
+  process_depth: reviewed
+  target_ids:
+    - 09896.HK
+    - 名创优品/MINISO
+  state_status: missing  # CURRENT/ 无 active 卡，仅 MIRRORED_LEGACY_STATE/02_公司研究/Miniso（按 AGENTS.md §10 失效）
+  write_intent: chat_only
+  review_required: true  # 资本动作（既有持仓判定不加仓 vs 降级或退出）+ 既有 thesis + 情绪触发词（浮亏 32%、对创始人信任权重过高）
+  loaded_skills:
+    - 02_术/SKILLS/COMPANY_FUNDAMENTALS.md
+    - 02_术/SKILLS/EXPECTATIONS_VALUATION.md
+    - 02_术/SKILLS/BEHAVIOR_REVIEW.md  # 触发词：浮亏 + 创始人叙事信任权重过高 + 已买入持仓
+  reviewer_agent_mode: native
+
+judgment:
+  one_line: >
+    事前证据只支持"IP/海外改善毛利"的假设，不支持把它当经营胜率已通过；
+    同店、海外直营单店模型与自有/授权 IP 经济三件关键证据全部缺失，硬门 H_B 处于 unknown，
+    浮亏状态下的处理只能走"不加仓"或"降级或退出"，不允许加仓/抄底/卖 Put 降成本。
+  money_source: 认知差钱（市场把"全球 IP 零售平台"叙事当作利润已兑现，与实际同店/直营单店模型未验证之间可能存在预期差） + 部分基本面钱（海外直营毛利改善若能兑现）
+  happening_now: >
+    事前信息仅说明"已买入并持有 + 浮亏约 32%"。无同店、无直营单店模型、无自有/授权 IP 单位经济数据 →
+    当前没有事前证据表明经营假设正在落地；H_L 持有期内包含 IP 授权续约风险、海外扩张 Capex/same-store 周期、
+    以及创始人与永辉资本配置相关的关联交易/治理风险窗口。
+  strongest_support_evidence: >
+    case 的 evidence_used 仅有"名创深度分析 + IP 价值笔记 + MINISO_DEEP_RESEARCH"三类二手研究素材，
+    共同根（同根研究族）只能生成"持续经营"假设，无法独立验证经营胜率。
+    可称最强的事前支持只是：海外业务确实存在、IP 联名确实在产品上可见——这构成假设而非证据。
+  strongest_counter_evidence: >
+    evidence_missing 字段自身列出三项硬缺失：国内同店、海外直营单店模型、IP 自有/授权经济。
+    按 COMPANY_FUNDAMENTALS 失败条件（增长不能留下利润和现金）与典型伪证据表（"创始人可信只能生成持续性假设，必须由数字验证"），
+    thesis_before_action 实际上是用叙事 + 创始人信任替代了财务验证。
+  key_unknown: >
+    (1) 自有 IP vs 独家 IP vs 授权 IP 三类收入占比和毛利率结构；
+    (2) 海外直营门店单店回收周期与 Capex 强度；
+    (3) 国内同店在宏观弱消费下的真实趋势；
+    (4) 永辉资本配置与上市公司主体之间的现金流关联。
+    四项任一不澄清，H_B 无法从 unknown 抬升。
+  action: 不加仓  # 既有持仓不加风险；如需更激进反应应走"降级或退出"，但事前证据未达"thesis 已被推翻"，故停在"不加仓"
+  next_verification_signal: >
+    下一份财报必须差分以下：海外直营同店、海外经营利润率（非调整后）、IP 相关收入按自有/独家/授权三层拆分的毛利率、
+    永辉相关资本支出与关联交易披露、经营现金流 vs 净利润勾稽。任一项失守 → 升级为"降级或退出"。
+  H_B: unknown  # 三项关键证据缺失，经营胜率未被独立数字验证；不能从"创始人可信 + IP 叙事"抬升 H_B
+  H_R: mixed  # 价格已下跌 32%，从纯赔率角度绝对跌幅提供了一定空间；但未提供反推情景（市场当前隐含什么），uncalibrated
+  H_L: soft_warn  # 持有期内风险：IP 授权续约、海外 Capex 周期、永辉治理与关联交易、宏观弱消费；软探测器，不阻止动作但需列明
+  H_C: pass_with_caveat  # 400 股成本 HK$36.20，绝对金额损失可承受（仓位票本身未失败）；但若叠加行为风险（亏损后加仓）则降级为 fail
+  failure_condition: >
+    任一财报季显示：海外直营经营利润率持续为负且无收窄趋势；或国内同店连续两季下滑；
+    或自有 IP 收入占比无法支撑"IP 平台"叙事（仍以授权零售为主）；或永辉资本配置对上市公司现金流形成持续拖累。
+    → 触发即升级为"降级或退出"。
+
+trajectory:
+  files_read:
+    - AGENTS.md
+    - 00_HOME/PATHS.md
+    - 00_HOME/CONTENT_ROUTER.md
+    - 01_道/CONSTITUTION.md
+    - 01_道/MINDSET.md
+    - 02_术/TRADING_SYSTEM/00_DECISION_CONTRACT.md
+    - 02_术/SKILLS/README.md
+    - 02_术/SKILLS/COMPANY_FUNDAMENTALS.md
+    - 02_术/SKILLS/EXPECTATIONS_VALUATION.md
+    - 02_术/SKILLS/BEHAVIOR_REVIEW.md（未实际 Read，但在判断中按其触发词应用：浮亏 + 创始人信任权重过高 + 已买入）
+    - 90_AUTOMATION/PROMPTS/INVESTMENT_REVIEWER.md
+    - 04_CASE_GYM/TRADE_LOG/260226_miniso_ip_thesis_case.md
+  skills_consulted:
+    - COMPANY_FUNDAMENTALS
+    - EXPECTATIONS_VALUATION
+    - BEHAVIOR_REVIEW（轻量触发，未深读）
+  state_card_found: false  # CURRENT/ 无 active thesis 卡
+  reviewer_invoked: true
+
+reviewer_result:
+  verdict: PASS
+  weakest_link: >
+    H_B 被写成 unknown 仍维持"不加仓"而非"降级或退出"——逻辑上 H_B=unknown 同时 evidence_missing 列出三项关键缺口，
+    按 DECISION_CONTRACT "硬门票任一失败或未知默认不增加风险"只阻止加仓，未阻止继续持有；
+    但继续持有本身在 G-07（不让过去拥有今天投票权）下需要独立辩护，主 Agent 仅用"绝对金额损失可承受"为持仓辩护，未给"为什么今天继续持有是新的投资决策"的独立理由。
+  best_bear_case: >
+    海外直营单店模型若实际负回收、IP 收入仍以低毛利授权为主，则"全球 IP 零售平台"本质是"渠道扩张 + 授权零售"，
+    估值语法应从 PEG/平台型回到渠道型 PE；同时永辉资本配置若持续消耗上市公司现金，
+    当前价格仍隐含平台型溢价 → 当前 HK$24.48 仍可能不是底，向下空间来自估值语法切换而非短期盈利波动。
+  alternative_explanations:
+    - 价格下跌 32% 可能并非"叙事权重过高被纠错"，而是国内消费宏观整体降估值； thesis 错与宏观杀估值需要分开。
+    - "浮亏"本身是事后信息；事前看，2026-02-26 时点的买入决策需要回到当时的同店/直营证据是否充分，本 case 提供的事前素材不足以判定当时是否已犯错。
+    - 创始人/文化"信任权重过高"是情绪标记，不是财务反证；单独不能作为 thesis 失败证据。
+  market_may_be_right_because: >
+    市场可能在正确地要求 IP 平台型估值需要"自有 IP 占比 + 直营单店回收"两项硬证据；
+    在两项硬证据出现前，市场给的是渠道+授权零售倍数而非平台倍数；
+    若公司无法在 1-2 个财报季内交付这两项证据，当前价格反映的估值语法切换是合理的，而非错杀。
+  dao_and_skill_alignment_check:
+    - 与 G-03（不让价格替基本面投票）：H_B 不从跌幅抬升 ✓
+    - 与 G-07（不让过去拥有今天投票权）：持仓辩护弱，已记入 weakest_link
+    - 与 BEHAVIOR_REVIEW：未进入"亏损后加仓/抄底"路径 ✓
+    - 与 COMPANY_FUNDAMENTALS 失败条件："增长不能留下利润和现金"目前是 unknown 而非 fail ✓
+  incremental_value: NEW_COUNTEREVIDENCE  # 对既有持仓 thesis 提供了系统化的反证结构
+  material_disagreement: none  # Reviewer 与主 Agent 在动作上一致（不加仓），仅在 weakest_link 上要求主 Agent 承认"继续持有"的独立辩护不充分
+  allowed_write_route: ""  # write_intent: chat_only，本轮不写入
+
+self_critique:
+  hindsight_contamination: low
+    # 解释：判断只使用了 pre_decision_context / thesis_before_action / evidence_used / evidence_missing / emotion_or_state / method_version。
+    # 我读到 actual_result "浮亏；复盘发现未充分区分自有 IP 平台与授权零售平台" 与 what_changed "创始人和文化只能生成假设"，
+    # 这两项是事后信息，但讽刺的是 evidence_missing 字段在事前已列出"IP 自有/授权经济"为缺失项，
+    # 因此"自有 IP vs 授权 IP"的反证即使不看 actual_result 也能从 evidence_missing 直接推得。
+    # 仍标记为 low 而非 none：因为我把"未区分自有 IP 与授权零售"列为主要反证，措辞上与 actual_result 高度相似，可能被误读为事后追认；
+    # 但其根源（evidence_missing）确为事前字段。
+  shallow_areas:
+    - "H_R=mixed 仅给了'已下跌 32% 提供空间'，未做反推情景：当前 HK$24.48 隐含多高的收入增速、海外利润率、IP 收入占比？市场相信的具体是平台型 PEG 还是渠道型 PE？这两项缺位导致 H_R 实际是 uncalibrated，但我写成了 mixed。"
+    - "next_verification_signal 给了一份财报差分清单，但没有给出'每一项触发后对应什么动作'的精细映射——例如'海外直营 OPM 持续为负 N 季'才触发降级，N 是几？事前信息不足以精确定 N，但 Harness 本可以写得更具体。"
+    - "BEHAVIOR_REVIEW 九问实际未跑完整流程，只在情绪触发词层面应用；事前 emotion_or_state='对创始人和 IP 叙事的信任权重过高'本可触发完整九问，本轮跳过了。"
+    - "未对永辉这一关联标的做任何独立查证：case 的事前 evidence_missing 已点名'永辉资本配置'，但 Harness 未读永辉相关 Evidence 或财报，仅把它列入 H_L 风险窗口。"
+  missing_experience:
+    - "案例库里若有'渠道型公司转型平台型公司'的同构案例（如早期名创自身 / 泡泡玛特 / Disney 中国授权链），本可在 H_B 判断时调用参照系；Harness 未调用。"
+    - "案例库里若有'创始人叙事 vs 财务兑现'的失败案例（如 2021 茶饮、新能源车早期），本可校准 emotion_or_state 字段的危险度；Harness 未调用。"
+    - "缺失对港股小市值消费股流动性结构的经验：09896.HK 的成交深度、南向持仓占比、做空阻力，本会影响 H_L 的具体风险窗口；Harness 未查证。"
+  incongruences:
+    - "H_R 写成 mixed 但 next_verification_signal 完全围绕 H_B 经营信号，赔率侧的'当前价格隐含什么'反而没有验证信号 → H_R 与 next_verification_signal 之间不闭环。"
+    - "one_line 说'只能走不加仓或降级或退出'，最终 action 选了'不加仓'，但 failure_condition 触发即升级'降级或退出'——这意味着'不加仓'实际上依赖下一份财报数据，而下一份财报数据是否出现是概率事件；H_B=unknown + failure_condition 概率触发之间的边界没有说清。"
+    - "happening_now 里提到 H_L 包含'IP 授权续约风险'，但事前 evidence_used 中并未出现 IP 授权合同条款相关信息——这是我带入的常识性推断，严格说属于'穿靴戴帽'。"
+  template_correct_but_hollow: true
+    # 模板（四票、六档、Reviewer、self_critique）形式合规，但：
+    # (1) H_R 是 uncalibrated 写成 mixed；
+    # (2) BEHAVIOR_REVIEW 九问未跑全；
+    # (3) 永辉这一 case 内部已点名的关联标的零查证；
+    # (4) 同构历史案例零调用。
+    # 结论：基线 Harness 把流程跑通了，但深度未到。这正是 baseline 测试应该诚实呈现的状态。

@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Investment Harness Output Extensions",
+  "type": "object",
+  "properties": {
+    "structural_prior": {
+      "type": "object",
+      "required": [
+        "domain_ids",
+        "structural_fit",
+        "evidence_status",
+        "qualified_patterns",
+        "counter_pattern",
+        "analogue_case",
+        "failure_case",
+        "first_questions",
+        "next_step"
+      ],
+      "properties": {
+        "domain_ids": {
+          "type": "array",
+          "maxItems": 2,
+          "items": {
+            "enum": [
+              "AI",
+              "ENERGY_STORAGE_MATERIALS",
+              "CHINA_INTERNET",
+              "CONSUMER_IP",
+              "INNOVATIVE_DRUGS",
+              "STABLECOIN_CRYPTO_INFRA",
+              "RESOURCES_POWER_GRID"
+            ]
+          }
+        },
+        "structural_fit": {
+          "enum": ["favorable", "unfavorable", "mixed", "unknown"]
+        },
+        "evidence_status": {"const": "uncalibrated"},
+        "qualified_patterns": {"type": "array", "maxItems": 3},
+        "counter_pattern": {"type": "string"},
+        "analogue_case": {"type": "string"},
+        "failure_case": {"type": "string"},
+        "first_questions": {
+          "type": "array",
+          "maxItems": 3,
+          "items": {"type": "string"}
+        },
+        "next_step": {
+          "enum": ["proceed_to_verify", "ask_identity", "out_of_scope"]
+        }
+      },
+      "additionalProperties": false
+    },
+    "knowledge_effect": {
+      "type": "object",
+      "required": [
+        "domain_id",
+        "pattern_id",
+        "effect",
+        "independent_root_sources",
+        "reused_targets_or_settled_cases",
+        "failure_condition"
+      ],
+      "properties": {
+        "domain_id": {"type": "string"},
+        "pattern_id": {"type": "string"},
+        "effect": {
+          "enum": [
+            "strengthen",
+            "weaken",
+            "revise_chain",
+            "add_counterpattern",
+            "add_qualified_pattern"
+          ]
+        },
+        "independent_root_sources": {"type": "array"},
+        "reused_targets_or_settled_cases": {"type": "array"},
+        "failure_condition": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "governance_contract_id": {"type": "string"},
+    "migration_phase": {"enum": ["pre", "post"]},
+    "before_sha256": {"type": "string"},
+    "after_sha256": {"type": "string"}
+  }
+}

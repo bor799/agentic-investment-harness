@@ -1,0 +1,42 @@
+{"logged_at": "2026-07-21T16:55:46+00:00", "event": "claim_failed", "object_id": "lmnd", "status": "retry", "error": "invalid_outcome: queue error: existing holdings must read the portfolio ledger "}
+{"logged_at": "2026-07-21T16:58:57+00:00", "event": "claim_failed", "object_id": "lmnd", "status": "retry", "error": "invalid_outcome: queue error: existing holdings must read the portfolio ledger "}
+{"logged_at": "2026-07-21T17:02:13+00:00", "event": "claim_failed", "object_id": "lmnd", "status": "failed_after_retries", "error": "invalid_outcome: queue error: existing holdings must read the portfolio ledger "}
+{"logged_at": "2026-07-21T17:12:41+00:00", "event": "claim_failed", "object_id": "horizon", "status": "retry", "error": "invalid_outcome: queue error: at least two independent filing/official root sources are required "}
+{"logged_at": "2026-07-21T17:25:50+00:00", "event": "outcome_applied", "object_id": "horizon", "status": "completed"}
+{"logged_at": "2026-07-21T17:34:17+00:00", "event": "outcome_applied", "object_id": "miniso", "status": "completed"}
+{"logged_at": "2026-07-21T17:42:20+00:00", "event": "outcome_applied", "object_id": "zijin", "status": "completed"}
+{"logged_at": "2026-07-21T17:47:46+00:00", "event": "outcome_applied", "object_id": "tianci", "status": "completed"}
+{"logged_at": "2026-07-21T17:56:19+00:00", "event": "outcome_applied", "object_id": "hengtong", "status": "completed"}
+{"logged_at": "2026-07-21T18:04:21+00:00", "event": "claim_failed", "object_id": "sf", "status": "retry", "error": "invalid_outcome: queue error: no-new-facts outcome must explicitly record 判断未变 "}
+{"logged_at": "2026-07-21T18:08:37+00:00", "event": "outcome_applied", "object_id": "sf", "status": "completed"}
+{"logged_at": "2026-07-21T18:12:29+00:00", "event": "outcome_applied", "object_id": "star50-etf", "status": "retry"}
+{"logged_at": "2026-07-21T18:14:34+00:00", "event": "outcome_applied", "object_id": "star50-etf", "status": "retry"}
+{"logged_at": "2026-07-21T18:18:05+00:00", "event": "outcome_applied", "object_id": "star50-etf", "status": "failed_after_retries"}
+{"logged_at": "2026-07-21T18:22:07+00:00", "event": "outcome_applied", "object_id": "optical-etf", "status": "retry"}
+{"logged_at": "2026-07-21T18:24:48+00:00", "event": "outcome_applied", "object_id": "optical-etf", "status": "retry"}
+{"logged_at": "2026-07-21T18:28:54+00:00", "event": "outcome_applied", "object_id": "optical-etf", "status": "failed_after_retries"}
+{"logged_at": "2026-07-21T18:32:40+00:00", "event": "outcome_applied", "object_id": "battery-etf", "status": "retry"}
+{"logged_at": "2026-07-21T18:34:51+00:00", "event": "outcome_applied", "object_id": "battery-etf", "status": "retry"}
+{"logged_at": "2026-07-21T18:38:22+00:00", "event": "outcome_applied", "object_id": "battery-etf", "status": "failed_after_retries"}
+{"logged_at": "2026-07-21T18:41:33+00:00", "event": "outcome_applied", "object_id": "meta", "status": "retry"}
+{"logged_at": "2026-07-21T18:45:04+00:00", "event": "outcome_applied", "object_id": "meta", "status": "retry"}
+{"logged_at": "2026-07-21T20:39:06+00:00", "event": "outcome_applied", "object_id": "meta", "status": "failed_after_retries"}
+{"logged_at": "2026-07-21T20:41:22+00:00", "event": "outcome_applied", "object_id": "google", "status": "retry"}
+{"logged_at": "2026-07-21T20:43:38+00:00", "event": "outcome_applied", "object_id": "google", "status": "retry"}
+{"logged_at": "2026-07-21T20:45:23+00:00", "event": "outcome_applied", "object_id": "google", "status": "failed_after_retries"}
+{"logged_at": "2026-07-21T20:50:20+00:00", "event": "outcome_applied", "object_id": "oracle", "status": "completed"}
+{"logged_at": "2026-07-21T20:53:36+00:00", "event": "outcome_applied", "object_id": "crcl", "status": "retry"}
+{"logged_at": "2026-07-21T20:55:32+00:00", "event": "outcome_applied", "object_id": "crcl", "status": "retry"}
+{"logged_at": "2026-07-21T20:56:57+00:00", "event": "outcome_applied", "object_id": "crcl", "status": "failed_after_retries"}
+{"logged_at": "2026-07-21T20:58:48+00:00", "event": "outcome_applied", "object_id": "nbis", "status": "retry"}
+{"logged_at": "2026-07-21T21:00:09+00:00", "event": "outcome_applied", "object_id": "nbis", "status": "retry"}
+{"logged_at": "2026-07-21T21:01:29+00:00", "event": "outcome_applied", "object_id": "nbis", "status": "failed_after_retries"}
+{"logged_at": "2026-07-21T21:03:45+00:00", "event": "outcome_applied", "object_id": "mstr", "status": "retry"}
+{"logged_at": "2026-07-21T21:05:21+00:00", "event": "outcome_applied", "object_id": "mstr", "status": "retry"}
+{"logged_at": "2026-07-21T21:07:01+00:00", "event": "outcome_applied", "object_id": "mstr", "status": "failed_after_retries"}
+{"logged_at": "2026-07-21T21:08:47+00:00", "event": "outcome_applied", "object_id": "btgo", "status": "retry"}
+{"logged_at": "2026-07-21T21:10:38+00:00", "event": "outcome_applied", "object_id": "btgo", "status": "retry"}
+{"logged_at": "2026-07-21T21:12:23+00:00", "event": "outcome_applied", "object_id": "btgo", "status": "failed_after_retries"}
+{"logged_at": "2026-07-21T21:14:44+00:00", "event": "outcome_applied", "object_id": "pop-mart", "status": "retry"}
+{"logged_at": "2026-07-21T21:16:15+00:00", "event": "outcome_applied", "object_id": "pop-mart", "status": "retry"}
+{"logged_at": "2026-07-21T21:22:37+00:00", "event": "outcome_applied", "object_id": "pop-mart", "status": "completed"}

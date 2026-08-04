@@ -1,0 +1,112 @@
+case_id: CASE-260709-TINCI
+case_path: 04_CASE_GYM/TRADE_LOG/260709_tinci_unfilled_order_case.md
+harness_version: pre-distillation-baseline
+run_date: 2026-07-26
+
+harness_task:
+  lane: REVIEW
+  input_type: THESIS
+  scope: single
+  response_mode: concise
+  process_depth: reviewed
+  target_ids:
+    - 002709.SZ
+  state_status: legacy_only
+  write_intent: chat_only
+  review_required: true
+  loaded_skills:
+    - BEHAVIOR_REVIEW
+    - EXPECTATIONS_VALUATION
+    - COMPANY_FUNDAMENTALS
+  reviewer_agent_mode: injected
+
+judgment:
+  one_line: >-
+    一个"未追价"的正向过程样本——价格纪律阻止了 FOMO，但 39.2 元锚本身未经验证，旧储能/电解液框架在现金流和应收存货上仍未闭环。
+  money_source: >-
+    事件跳变钱（H1 预告 + Q3 排产）+ 周期利润修复钱 + 市场低估利润持续性的认知差钱；不是稳定现金流资产的钱。
+  happening_now: >-
+    部分发生：储能招标 + H1 预告利润穿透已兑现，但现金流 / 应收 / 存货 / 单吨利润尚未在正式中报落地，Q3 排产证据为产业链口径而非公司正式披露。
+  strongest_support_evidence: >-
+    天赐 H1 预告归母 27-30 亿、同比 +907%-1019%；6 月电解液和六氟产能利用率接近满产；7 月排产约 9.32 万吨、环比 +10.95%、高于行业平均 +6.8%；储能招标链仍在。
+  strongest_counter_evidence: >-
+    Q1 经营现金流仍为负、应收账款和存货增长较快；行业接近成本线、出现"盈利倒挂"；六氟 9.5-10.0 万元/吨仅维持、未现趋势性涨价；H1 现金流和毛利率均未正式披露。
+  key_unknown: >-
+    H1 正式中报的三个数字：经营现金流是否转正、应收/存货增速是否放缓、毛利率是否守住 30%-33%。
+  action: 继续观察
+  next_verification_signal: >-
+    2026-08-21 附近正式中报披露日的现金流、应收、存货、毛利率；同时关注资金连续 2 日净流入 + 滚动 3 日合计转正是否出现。
+  H_B: unknown
+  H_R: unknown
+  H_L: unknown
+  H_C: unknown
+  failure_condition: >-
+    正式 H1 利润强但经营现金流继续明显为负；应收/存货继续快于收入；六氟持续跌破 8-9 万元/吨；Q3 利润明显低于 Q2；价格放量跌破 33.41 元且资金连续净流出。
+
+trajectory:
+  files_read:
+    - AGENTS.md
+    - 00_HOME/PATHS.md
+    - 00_HOME/CONTENT_ROUTER.md
+    - 01_道/CONSTITUTION.md
+    - 01_道/MINDSET.md
+    - 02_术/TRADING_SYSTEM/00_DECISION_CONTRACT.md
+    - 02_术/SKILLS/README.md
+    - 02_术/SKILLS/BEHAVIOR_REVIEW.md
+    - 90_AUTOMATION/PROMPTS/INVESTMENT_HARNESS.md
+    - 90_AUTOMATION/PROMPTS/INVESTMENT_REVIEWER.md
+    - 05_EVIDENCE_META/EVIDENCE/COMPANIES/MIRRORED_LEGACY_EVIDENCE/.../260709天赐材料_挂单价格与PE安全边界.md
+    - 05_EVIDENCE_META/EVIDENCE/COMPANIES/MIRRORED_LEGACY_EVIDENCE/.../260709天赐材料_储能假设交叉验证与贝叶斯交易结论.md
+    - 05_EVIDENCE_META/EVIDENCE/COMPANIES/MIRRORED_LEGACY_EVIDENCE/.../260722天赐材料_证据状态刷新.md
+  skills_consulted:
+    - BEHAVIOR_REVIEW
+    - EXPECTATIONS_VALUATION
+    - COMPANY_FUNDAMENTALS
+  state_card_found: false
+  reviewer_invoked: true
+
+reviewer_result:
+  verdict: PASS
+  weakest_link: >-
+    39.2 元锚依赖 H1 利润 55-60 亿 × 14-15x PE 的基准情景；但 55-60 亿本身是基于 H1 预告的 Q3/Q4 线性外推，未经验证，且现金流/应收/存货三件套缺失，整个估值锚漂浮在利润表上、未沉到现金。
+  best_bear_case: >-
+    行业接近成本线 + "盈利倒挂" + 六氟仅维持不涨，说明这次 H1 利润是 LFP 电解液产能利用率脉冲而非结构性的定价权恢复；正式中报现金流若仍为负、应收继续快于收入，则 39.2 元对应 14-15x PE 是给周期顶部利润的估值，下跌中继而非左侧。
+  alternative_explanations:
+    - >-
+      7/21 单日 +8.02% 反弹不是公司变强，而是下跌后流动性修复 + 风险偏好回升；4 个交易日资金口径仍净流出，"承接未真正出现"。
+    - >-
+      排产 +10.95% 高于行业，可能反映客户压价切到保供的短期切换，而非天赐的稀缺性定价权；行业 +6.8% 也在涨，不是天赐独占信号。
+    - >-
+      H1 预告归母同比 +907%-1019% 看似惊艳，但基数来自 2025H1 行业底部，应优先看绝对利润和现金质量，而非同比百分比。
+  market_may_be_right_because: >-
+    市场可能在用周期顶部利润给 PE 折价：电解液环节扩产门槛低、过去三年多次出现"满产→过剩→杀价"循环；市场有理由不把 H1 利润外推到 2027，并要求现金流和长协锁价证据，再给 15x 以上 PE。
+
+self_critique:
+  hindsight_contamination: moderate
+  hindsight_evidence:
+    - >-
+      案例的 actual_result（未成交）和 lesson_type（observation）已在 case 文件里写明；BASELINE 必须只用 pre_decision_context / thesis_before_action / evidence_used 等事前字段。
+    - >-
+      本判断未引用 actual_result / what_changed / what_would_have_prove_wrong / lesson_type / write_to 任何事后字段；但承认读到了文件头尾的元信息，无法完全屏蔽。
+    - >-
+      引用了 260722 证据刷新文件中的资金 / 价格表，技术上略晚于决策日（260709），但作为"现有 Evidence 中可获取的最近一份"使用，不影响事前字段边界。
+  shallow_areas:
+    - >-
+      failure_condition 沿用了旧 Evidence 的失败条件列表，没有针对"未成交"这个动作本身设计独立的失效信号——例如"若上调挂单价后仍有更好赔率和现金流证据，未追价可能过保守"只引用了 case 的事后字段，未在事前重写。
+    - >-
+      H_B / H_R / H_L / H_C 都标 unknown，但 260709 当天已有足够信息对 H_R（39.2 对应 13-15x PE）和 H_L（连续跌停期间不做左侧）做有方向判断；BASELINE 没有把这两个票真正承保，停留在"unknown"层是偷懒。
+    - >-
+      没有真正调用 BEHAVIOR_REVIEW 的九问；只是把 BEHAVIOR_REVIEW 列入 loaded_skills。九问输出（市场为什么可能是对的 / 最坏代价 / 更低风险表达）应当完整呈现，而不是只在 judgment 字段里散落。
+  missing_experience:
+    - >-
+      没有看 7/9 当天的资金 / 价格盘面（260722 文件里 7/17 之后的资金流向是事后窗口）；BASELINE 应当承认这个时间盲区，而不是用 7/22 数据回填 7/9 判断。
+    - >-
+      没有评估"未成交"这个结果对反方证据的强化作用——价格没有给到 39.2 元，本身就是 H_R 还不够的证据；BASELINE 只把它写成 neutral observation。
+  incongruences:
+    - >-
+      case 文件里 thesis_before_action 写的是"事件跳变 + 周期利润修复 + 储能需求 + 电解液利润可能穿透"——四个独立的赚钱逻辑混在一句里，违反 MINDSET "说清赚什么钱"的单一来源原则；BASELINE 应当先拆分再承保，但本轮没有拆。
+    - >-
+      case 标的写的是"002709.SZ 天赐材料"，但归档路径在"湖南裕能/天赐材料"目录下——目录结构混乱，BASELINE 没有处理这个不一致。
+  template_correct_but_hollow: true
+  template_correct_but_hollow_reason: >-
+    四票、六档动作、Reviewer schema、concise 输出模板都对齐了；但 H_B/H_R/H_L/H_C 都停在 unknown、BEHAVIOR_REVIEW 九问没展开、money_source 四类钱混着用——形式合规、内容空转。BASELINE 的核心问题是"承认看过模板但没真正承保"。

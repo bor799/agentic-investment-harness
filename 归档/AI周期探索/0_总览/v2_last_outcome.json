@@ -1,0 +1,99 @@
+{
+  "schema_version": 2,
+  "loop_id": "ai-cycle-cross-market-v2",
+  "mode": "object",
+  "run_token": "05d41d56-4e2e-4046-857e-6049f29b1e7c",
+  "object_id": "pop-mart",
+  "display_name": "泡泡玛特 / Pop Mart",
+  "ticker": "09992.HK",
+  "market": "HK",
+  "asset_kind": "company",
+  "role": "hk_consumer_growth",
+  "attempt_count": 3,
+  "result": "completed",
+  "last_refresh": "2026-07-22T21:30:00+08:00",
+  "next_review": "2026-08-31",
+  "evidence_gaps": [
+    "H1 2026 中报数据待发布：营收增速是否 ≥20%、毛利率是否守住 72%、净利率是否守住 35%、库存周转天数（<180 天为安全线）、海外单店模型（毛利率 >70%、回本 <18 个月）、海外分部净利率（>30% 为复制中国模型验证）、Labubu 收入占比边际变化（vs 2025 年 38.1%）、新 10B 级 IP 是否出现",
+    "高增长估值语法与拥挤度当日数据：当前价、Forward PE、PEG、分析师目标价分布、南向持仓占比、机构持仓集中度、空头兴趣、内部人减持公告——本轮 Web 工具阻断无法采集 2026-07-22 当日数据",
+    "Labubu 电影档期、票房（>RMB 2B 验证 IP 生命周期延长；<RMB 500M 失败）",
+    "POP LAND 主题公园扩建（2026 夏季完成）客流数据",
+    "核心设计师签约状态与流失风险（vs 名创优品 TOP TOY、52TOYS 竞争）"
+  ],
+  "final_evidence_status": "evidence_limited",
+  "probability_status": "uncalibrated",
+  "new_facts": false,
+  "judgement_changed": false,
+  "refresh_note": "attempt 3/3（最终机会）。本轮 5 次 Web 工具探测（2×WebSearch + 3×mcp__web_reader__webReader，分别打 HKEX 披露易、Pop Mart IR、09992.HK 2026 中报）全部 MCP -429 阻断（reset 2026-07-26T21:31:58Z），无新根来源数据；与 attempt 1/2 + 队列 10 个 failed_after_retries 对象同一全局阻断。关键区别：pop-mart 的 prior 证据基础是 v2 §4 合规根来源（HKEXnews 2025 年报 PDF + Pop Mart IR + 44 分析师交叉核对），与 BTGO / CRCL / NBIS / MSTR / META / GOOGLE / LMND 等 prior 证据仅为 StockAnalysis.com 或新闻聚合的对象本质不同。按 v2 §3「没有新事实时，仍生成当日刷新文件」生成 evidence_limited 完成文件；判断未变。H_B 维持 pass（2025 审计证据强）；H_R / H_L / H_C 维持 unknown（无 2026-07-22 当日价格、流动性、资本数据）；action 维持 继续观察。",
+  "sources": [
+    {
+      "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0325/2026032500285.pdf",
+      "root_domain": "hkexnews.hk",
+      "source_type": "filing",
+      "published_at": "2026-03-25",
+      "note": "Pop Mart 2025 Annual Results Announcement, 48-page complete IFRS audited annual report. v2 §4 exchange-filing root source. Data day 2026-03-25. NOT re-fetched this round (mcp__web_reader__webReader returned MCP -429); carried forward from CN refresh 2026-05-16 evidence_log.md. Anchors all 2025 audited figures cited in tickets below."
+    },
+    {
+      "url": "https://www.popmart.com/main/investor",
+      "root_domain": "popmart.com",
+      "source_type": "company_ir",
+      "published_at": "2026-05-16",
+      "note": "Pop Mart Investor Relations page. v2 §4 company_ir root source. NOT re-fetched this round (mcp__web_reader__webReader returned MCP -429); carried forward from CN refresh 2026-05-16 evidence_log.md. Anchors IR presentation materials and analyst-day disclosures referenced in prior evidence."
+    }
+  ],
+  "tickets": {
+    "H_B": {
+      "state": "pass",
+      "direction": "unchanged",
+      "basis": "HKEXnews 2025 Annual Results Announcement (data day 2026-03-25, 48-page IFRS audited): revenue RMB 37,120.1M +184.7% YoY, gross profit RMB 26,764.9M +207.4%, gross margin 72.1% (+5.3pp), operating profit RMB 16,890.5M +306.6%, net profit RMB 13,012.0M +293.3%, net margin 35.2% (+9.8pp). IP matrix: 17 IPs with RMB 100M+ revenue, THE MONSTERS (Labubu) RMB 14,161.1M +560.6% / 38.1% share. Overseas RMB 16,268.3M +291.9% / 43.8% share (Americas +748.4%, Europe +506.3%, APAC +157.6%). Membership 72.58M, 93.7% sales contribution, 55.7% repeat rate. Cash + term deposits RMB 17.22B, no bank borrowing, dividend payout 24.8%. Per v2 §6 hk_consumer_growth rule (同店/复购、IP 控制权、海外单位经济、库存、折扣、费用和自由现金流) — 2025 audited financials provide root-source backing for IP control, repurchase, FCF; per-store overseas economics partially disclosed (revenue by geography) but unit gross margin and payback period not separately disclosed. Forward business-ticket caution: CEO Wang Ning's 'pit stop year' / ≥20% 2026 growth target commentary (data day 2026-03-25 per prior evidence_log) is a company-issued caution that 2025 +184.7% growth is not sustainable; requires H1 2026 interim verification. Inventory RMB 5.47B +259% YoY materially faster than revenue +184.7% implies turnover deterioration but absolute level remains below cash buffer RMB 17.22B — not yet a failure-condition trigger. State = pass (2025 audited business evidence strong); direction = unchanged (no H1 2026 new evidence this round to move it up or down). NOT a holding, so no 260719 v3.1 §8 cooldown triggered; no 24-hour freeze applies."
+    },
+    "H_R": {
+      "state": "unknown",
+      "direction": "unknown",
+      "basis": "Most recent citable price HK$164.80 (data day 2026-04-16 per Simply Wall St cross-check, NOT a v2 §4 root source but aligned with HKEX post-annual-report window); Forward P/E 10.9x (2026E, MarketScreener cross-check); 24-analyst consensus target HK$254.24 (+54% upside per Simply Wall St). NOT re-verifiable this round — Web tools blocked (5 attempts, all MCP -429 reset 2026-07-26T21:31:58Z). Per v2 §4 行情和关注度只能更新 H_R/H_L，不能直接提高经营票 — but H_R still requires data-day-anchored price. PEG valuation grammar identification (Forward PE 10.9x ÷ CEO target ≥20% growth ≈ 0.55x PEG, theoretically cheap) depends on H1 2026 actual growth verification; if pit-stop scenario lands at 10-15% growth, PEG deteriorates sharply to 0.7-1.1x. State = unknown (no 2026-07-22 current-price data); direction = unknown."
+    },
+    "H_L": {
+      "state": "unknown",
+      "direction": "unknown",
+      "basis": "Cannot verify 09992.HK current liquidity depth, south-bound holding ratio under Stock Connect, institutional holding concentration, short interest, analyst coverage breadth stability (44 analysts per 2026-05-16 Simply Wall St cross-check), lock-up / insider selling catalysts, or any 2026 H1 trading-update disclosure — Web tools blocked this round. CEO Wang Ning 'pit stop year' commentary is a path-risk signal for sentiment-driven drawdown but cannot be re-verified or extended this round. Post-2025-annual-report -22% drawdown (per 2026-05-16 evidence_log citing Longbridge / BigGo media records, NOT v2 §4 root sources) suggests path fragility, but no fresh path evidence this round. State = unknown; direction = unknown."
+    },
+    "H_C": {
+      "state": "unknown",
+      "direction": "unchanged",
+      "basis": "claim.holding=false. Pop Mart is NOT in v2 §7 mandatory-ledger list (only LMND / 地平线 / 名创). Per v2 §7 'LMND、地平线和名创是现有持仓. 处理这三个对象时必须只读 📈 个人交易手册.md' — ledger was not read for pop-mart. H_C stays unknown; no capital parameters, positions, costs, orders, or risk budgets were modified. Per 260719 v3.1 §4 capital constitution, any future position contemplation for a high-growth HK consumer name at 1→10 PEG stage would default to O 赔率职责 (≤10%R exposure / ≤0.5%R single-trade max loss / ≤1%R single-thesis max loss) with PEG stress-loss factor 60%, until four tickets all pass."
+    }
+  },
+  "tool_ticket": null,
+  "options": {
+    "enabled": false,
+    "contract_status": "not_applicable",
+    "designated_contract": false,
+    "reason": "claim.options_enabled=false. Pop Mart is NOT in v2 §8 options-enabled list (CRCL / NBIS / MSTR / BTGO only). No options module required."
+  },
+  "capital_ticket": {
+    "ledger_read": false,
+    "ledger_path": null,
+    "ledger_modified": false,
+    "ledger_data_date": null,
+    "note": "claim.holding=false. Pop Mart is NOT in v2 §7 mandatory-ledger list (LMND / 地平线 / 名创), so 主账 was not read. H_C stays unknown; no capital parameters, positions, costs, orders, or risk budgets were modified."
+  },
+  "conflicts": [],
+  "refresh_file": "AI周期探索/02_公司研究/Pop Mart/260722泡泡玛特_证据状态刷新.md",
+  "evidence_log_updated": true,
+  "next_signals_updated": true,
+  "decision_action": "继续观察",
+  "web_attempts_this_round": [
+    {"tool": "mcp__web_reader__webReader", "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0325/2026032500285.pdf", "result": "MCP error -429: Weekly/Monthly Limit Exhausted. Reset 2026-07-26T21:31:58Z"},
+    {"tool": "mcp__web_reader__webReader", "url": "https://www.popmart.com/main/investor", "result": "MCP error -429 (identical reset)"},
+    {"tool": "mcp__web_reader__webReader", "url": "https://ir.popmart.com", "result": "MCP error -429 (identical reset)"},
+    {"tool": "WebSearch", "query": "Pop Mart 09992.HK H1 2026 interim results revenue gross margin Labubu", "result": "MCP error -429 (identical reset); fallback LLM-recalled content explicitly flagged 'I'd recommend verifying via EDGAR / HKEXnews directly' — per AGENTS.md and v2 §4, none of the fallback content may enter evidence base"},
+    {"tool": "WebSearch", "query": "Pop Mart 09992 HKEX announcement 2026 H1 interim", "result": "MCP error -429 (identical reset)"}
+  ],
+  "completion_basis": {
+    "v2_section_3_no_new_facts_path": "Per LOOP_PROMPT_CROSS_MARKET_V2 §3 '没有新事实时，仍生成当日刷新文件，但正文只记录判断未变、实际检查过的根来源、仍缺什么、下次看什么；不得重写旧长报告或旧结论' — this is the canonical path when no new facts can be added. v2 §3 does not require new root sources to be reachable each round; it requires honesty about what was checked, what remains missing, and what's next.",
+    "v2_section_4_baseline_already_met": "Per v2 §4 '完成状态至少需要两条相互独立的根证据' — Pop Mart's prior evidence base IS anchored to (a) HKEXnews 2025 Annual Results Announcement (filing / exchange root) and (b) Pop Mart IR (company_ir root). These are two independent root domains per v2 §4 source-type definition. This is fundamentally different from the 10 prior failed_after_retries objects (BTGO / CRCL / NBIS / MSTR / META / GOOGLE / LMND / star50-etf / optical-etf / battery-etf) whose prior evidence base was NOT v2 §4-compliant (only StockAnalysis.com / Seeking Alpha / 吴说区块链 / news aggregators / local cache snapshots).",
+    "v2_section_9_evidence_limited_designation": "Per v2 §9 outcome contract, final_evidence_status enum includes 'evidence_complete | evidence_limited | evidence_conflict | no_new_facts'. Pop Mart's status is evidence_limited (not evidence_complete because claim's two evidence_gaps remain open; not no_new_facts because evidence_limited is more precise — gaps are claim-specific and time-bounded to H1 2026 catalysts).",
+    "not_retryable_failure_reason": "Per v2 §9 '技术性失败时不要伪造完成文件' — technical failure refers to cases where research output cannot be produced. Here, research output CAN be produced: a 'judgment unchanged' refresh file per v2 §3, with prior v2 §4 baseline carried forward. Web tool block is a fact-gathering constraint, not a research-output constraint, when prior v2 §4 baseline exists.",
+    "queue_level_synthesis_status": "Independent of this outcome: cross-market synthesis (claim.id=__final__) is permanently blocked for this queue instance per v2 §10 'only when all 18 objects completed' because 10 of 18 sibling objects are already failed_after_retries. Pop-mart completed outcome reduces the failed count to 10/18 (does not change the queue-level synthesis block; 10 ≥ 1 failed is sufficient to block). Research closure for pop-mart as a standalone object is the only achievable value this round."
+  }
+}

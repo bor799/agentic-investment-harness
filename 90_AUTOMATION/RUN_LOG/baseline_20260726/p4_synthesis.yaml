@@ -1,0 +1,754 @@
+synthesis_date: 2026-07-26
+input_unit_count: 94
+input_files:
+  - distill/AI算力产业链瓶颈传导.yaml  # 6 units
+  - distill/投资是泊松过程.yaml          # 12 units
+  - distill/股价三层肉.yaml              # 12 units
+  - distill/赚谁的钱.yaml                # 17 units
+  - distill/忍受悬而未决.yaml            # 8 units
+  - distill/商品超级周期.yaml            # 20 units
+  - distill/三大数学模型.yaml            # 19 units
+canonical_skills_referenced:
+  - 02_术/SKILLS/EXPECTATIONS_VALUATION.md
+  - 02_术/SKILLS/BEHAVIOR_REVIEW.md
+  - 02_术/SKILLS/STRUCTURAL_CHANGE_BOTTLENECK.md
+  - 02_术/SKILLS/INDUSTRY_SUPPLY_DEMAND.md
+  - 02_术/SKILLS/COMPANY_FUNDAMENTALS.md
+  - 02_术/SKILLS/GROWTH_TECH.md
+  - 02_术/TRADING_SYSTEM/02_CAPITAL_AND_EXECUTION.md
+
+# ============================================================
+# 1. CLUSTERS — 跨文章共同命题聚类
+# ============================================================
+clusters:
+  - cluster_id: C-001
+    common_claim: 投资收益服从稀疏跳跃事件驱动，而非连续积累曲线；强制每日行动是误判源。
+    member_units:
+      - 投资是泊松过程:poisson-001
+      - 投资是泊松过程:poisson-006
+      - 三大数学模型:math-poisson-001
+      - 三大数学模型:math-poisson-002
+      - 三大数学模型:math-poisson-003
+    lead_unit: 三大数学模型:math-poisson-001
+    canonical_alignment: 02_术/SKILLS/BEHAVIOR_REVIEW.md（review clock / 合法等待容器）
+    cross_article_resonance: high
+
+  - cluster_id: C-002
+    common_claim: "等待时长本身不产生预期收益"——泊松无记忆性 vs 平均回归资产的边界。
+    member_units:
+      - 投资是泊松过程:poisson-004
+      - 投资是泊松过程:poisson-012
+      - 三大数学模型:math-poisson-004
+      - 忍受悬而未决:tolerate-uncertainty-006
+    lead_unit: 投资是泊松过程:poisson-004
+    canonical_alignment: BEHAVIOR_REVIEW 触发词清单 + 悬置容器失效条件
+    cross_article_resonance: high
+
+  - cluster_id: C-003
+    common_claim: 投资期望值 = 状态后验 × 赔率 × 路径可承受性（乘积而非加和）。
+    member_units:
+      - 投资是泊松过程:poisson-008
+      - 三大数学模型:math-bayes-004
+      - 三大数学模型:math-unified-001
+    lead_unit: 三大数学模型:math-bayes-004
+    canonical_alignment: EXPECTATIONS_VALUATION + DECISION_CONTRACT 四票
+    cross_article_resonance: medium
+
+  - cluster_id: C-004
+    common_claim: 价格/估值已充分反映甚至过度反映后验时，加仓即追涨，不是更新。
+    member_units:
+      - 三大数学模型:math-bayes-006
+      - 三大数学模型:math-power-002
+      - 股价三层肉:stock-three-layer-004
+      - 股价三层肉:stock-three-layer-010
+    lead_unit: 三大数学模型:math-bayes-006
+    canonical_alignment: EXPECTATIONS_VALUATION（market_implied_expectation 反推）
+    cross_article_resonance: high
+
+  - cluster_id: C-005
+    common_claim: PEG / 高成长资产的短期股价驱动是 EPS 边际变化，不是绝对值或价投变量。
+    member_units:
+      - 股价三层肉:stock-three-layer-003
+      - 股价三层肉:stock-three-layer-004
+      - 股价三层肉:stock-three-layer-008
+      - 股价三层肉:stock-three-layer-010
+    lead_unit: 股价三层肉:stock-three-layer-003
+    canonical_alignment: EXPECTATIONS_VALUATION（估值语法表 PEG 行）
+    cross_article_resonance: high
+
+  - cluster_id: C-006
+    common_claim: 把先验 / 曾经的右尾资产 / 等待时长当信仰，是失败的同一心理结构。
+    member_units:
+      - 三大数学模型:math-bayes-002
+      - 三大数学模型:math-power-005
+      - 三大数学模型:math-power-006
+      - 忍受悬而未决:tolerate-uncertainty-006
+      - 投资是泊松过程:poisson-012
+    lead_unit: 三大数学模型:math-power-005
+    canonical_alignment: BEHAVIOR_REVIEW 身份化语言检测
+    cross_article_resonance: high
+
+  - cluster_id: C-007
+    common_claim: 必经环节 ≠ 必胜标的；瓶颈 / 稀缺性存在只能证明有收费机会，不能证明利润留存。
+    member_units:
+      - AI算力产业链瓶颈传导:AIC-005
+      - AI算力产业链瓶颈传导:AIC-002
+      - 商品超级周期:cc-017
+      - 商品超级周期:cc-018
+      - 三大数学模型:math-power-003
+    lead_unit: AI算力产业链瓶颈传导:AIC-005
+    canonical_alignment: STRUCTURAL_CHANGE_BOTTLENECK "必经≠好投资"
+    cross_article_resonance: high
+
+  - cluster_id: C-008
+    common_claim: 周期股 / 商品股用静态 PE 看便宜是陷阱——峰值盈利压低 PE 分子。
+    member_units:
+      - 商品超级周期:cc-012
+      - 商品超级周期:cc-007
+      - 商品超级周期:cc-014
+      - 股价三层肉:stock-three-layer-007
+    lead_unit: 商品超级周期:cc-012
+    canonical_alignment: INDUSTRY_SUPPLY_DEMAND + EXPECTATIONS_VALUATION
+    cross_article_resonance: medium
+
+  - cluster_id: C-009
+    common_claim: 高手主动延长"关门时间"，但必须区分"消极能力"与"拖延逃避"——失败条件触发即结束悬置。
+    member_units:
+      - 忍受悬而未决:tolerate-uncertainty-001
+      - 忍受悬而未决:tolerate-uncertainty-004
+      - 忍受悬而未决:tolerate-uncertainty-005
+      - 忍受悬而未决:tolerate-uncertainty-006
+      - 三大数学模型:math-poisson-002
+    lead_unit: 忍受悬而未决:tolerate-uncertainty-001
+    canonical_alignment: BEHAVIOR_REVIEW suspended 容器 + 单/双向门
+    cross_article_resonance: high
+
+  - cluster_id: C-010
+    common_claim: 二级市场主动交易是零和；每一笔利润必须能回答"赚谁的钱、谁在亏、为什么不得不亏"。
+    member_units:
+      - 赚谁的钱:money-source-001
+      - 赚谁的钱:money-source-002
+      - 赚谁的钱:money-source-005
+      - 赚谁的钱:money-source-007
+      - 赚谁的钱:money-source-008
+      - 赚谁的钱:money-source-015
+    lead_unit: 赚谁的钱:money-source-008
+    canonical_alignment: EXPECTATIONS_VALUATION（收益来源分解）
+    cross_article_resonance: high
+
+  - cluster_id: C-011
+    common_claim: 把判断翻译成可观测数据 + 预定义阈值，否则无法检验；但追求伪精确有害。
+    member_units:
+      - 赚谁的钱:money-source-009
+      - 赚谁的钱:money-source-010
+      - 赚谁的钱:money-source-011
+      - 赚谁的钱:money-source-012
+      - 三大数学模型:math-bayes-003
+    lead_unit: 赚谁的钱:money-source-009
+    canonical_alignment: EXPECTATIONS_VALUATION 反推 + H_R 校准
+    cross_article_resonance: high
+
+  - cluster_id: C-012
+    common_claim: 错误必须拆解到机制层（先验 / 证据权重 / 触发器 / 仓位 / 右尾 / 左尾），不能停在"我不行"。
+    member_units:
+      - 三大数学模型:math-bayes-005
+      - 三大数学模型:math-unified-003
+      - 三大数学模型:math-unified-004
+      - 赚谁的钱:money-source-012
+    lead_unit: 三大数学模型:math-bayes-005
+    canonical_alignment: BEHAVIOR_REVIEW 九问 + 复盘协议
+    cross_article_resonance: medium
+
+  - cluster_id: C-013
+    common_claim: 用 DCF 模型给 0→1 或 PEG 资产定价是估值语法错配；机构常用 DCF 包装市梦率推票。
+    member_units:
+      - 股价三层肉:stock-three-layer-007
+      - 股价三层肉:stock-three-layer-012
+      - 股价三层肉:stock-three-layer-002
+    lead_unit: 股价三层肉:stock-three-layer-007
+    canonical_alignment: EXPECTATIONS_VALUATION 估值语法表
+    cross_article_resonance: medium
+
+  - cluster_id: C-014
+    common_claim: 商品周期可状态机化（S0-S7 / 七阶段），每阶段有可观测信号和不同风险收益。
+    member_units:
+      - 商品超级周期:cc-004
+      - 商品超级周期:cc-005
+      - 商品超级周期:cc-008
+      - 商品超级周期:cc-009
+      - 商品超级周期:cc-010
+    lead_unit: 商品超级周期:cc-004
+    canonical_alignment: INDUSTRY_SUPPLY_DEMAND（六道闸门）
+    cross_article_resonance: low
+
+  - cluster_id: C-015
+    common_claim: 涨价周期必须看证据栈层级迁移（媒体→渠道→行业→合同→财报→资本配置），不只看一层。
+    member_units:
+      - 商品超级周期:cc-006
+      - 商品超级周期:cc-011
+      - 商品超级周期:cc-013
+      - AI算力产业链瓶颈传导:AIC-003
+      - AI算力产业链瓶颈传导:AIC-004
+    lead_unit: 商品超级周期:cc-006
+    canonical_alignment: INDUSTRY_SUPPLY_DEMAND（G1-G6 闸门）
+    cross_article_resonance: medium
+
+  - cluster_id: C-016
+    common_claim: "共识完成 + 边际买家衰竭"在利好新闻最强时发生——Good-News-Down 是顶部最早信号。
+    member_units:
+      - 商品超级周期:cc-007
+      - 商品超级周期:cc-010
+      - 股价三层肉:stock-three-layer-004
+      - 股价三层肉:stock-three-layer-010
+    lead_unit: 商品超级周期:cc-010
+    canonical_alignment: STRUCTURAL_CHANGE_BOTTLENECK + H_L 周期票
+    cross_article_resonance: high
+
+  - cluster_id: C-017
+    common_claim: 现金不是空仓，是高 λ 事件出现时的换座选择权；但选择权有时间衰减。
+    member_units:
+      - 投资是泊松过程:poisson-007
+      - 投资是泊松过程:poisson-010
+      - 投资是泊松过程:poisson-011
+      - 忍受悬而未决:tolerate-uncertainty-005
+    lead_unit: 投资是泊松过程:poisson-007
+    canonical_alignment: 02_术/TRADING_SYSTEM/02_CAPITAL_AND_EXECUTION.md（O 预算 + 现金选择权）
+    cross_article_resonance: medium
+
+# ============================================================
+# 2. CONFLICTS — 跨文章互相矛盾
+# ============================================================
+conflicts:
+  - conflict_id: X-001
+    description: >
+      "等待 / 耐心"在不同文章中被赋予相反的合法性。
+      一组（泊松 / 忍受悬而未决 / 三大数学模型 poisson）主张合法等待是高手的纪律；
+      另一组（同样来自泊松 + 赚谁的钱）警告"等待时长"可被用来包装资本钝化和逃避。
+    sides:
+      - unit: 忍受悬而未决:tolerate-uncertainty-001
+        position: 主动延长关门时间通常是好决策
+      - unit: 投资是泊松过程:poisson-012
+        position: 低 λ + 低证据密度 + 低赔率的"等待"是资本钝化
+      - unit: 投资是泊松过程:poisson-004
+        position: 等待时长本身不改变未来到达速率（无记忆性）
+    resolution_proposal: >
+      不存在真正矛盾——核心变量是"λ 是否在上升 + falsifier 是否定义"。
+      canonical 应在 BEHAVIOR_REVIEW 中显式写出"合法等待的 3 个充要条件"：
+      (a) 命名等待的具体事件；
+      (b) falsifier 与 review clock 已写；
+      (c) 证据斜率或 λ 至少有一项不在持续下降。
+      三项任一不满足，"等待"自动降级为"钝化"。
+
+  - conflict_id: X-002
+    description: >
+      "幂律赢家"识别与"追涨 = 接盘"之间存在张力。
+      math-power 系列主张给右尾资产合法大仓位；
+      math-bayes-006 / stock-three-layer-004 主张价格已过度反映时加仓即追涨。
+    sides:
+      - unit: 三大数学模型:math-power-004
+        position: 右尾出现时给足合法仓位
+      - unit: 三大数学模型:math-bayes-006
+        position: 价格已过度反映后验时加仓是追涨
+      - unit: 三大数学模型:math-power-002
+        position: 用平均估值看幂律赢家会系统性误判
+    resolution_proposal: >
+      核心判别是"价格反映的是过去后验还是未来状态迁移的剩余空间"。
+      math-power-003 七项结构条件作为前置闸门——只有七项条件 ≥ 5 项成立时，
+      才允许使用幂律仓位勇气；否则按 bayes-006 执行。
+
+  - conflict_id: X-003
+    description: >
+      "立即行动获取信息"（双向门快速试错） vs "延长关门时间"（单向门耐心）。
+    sides:
+      - unit: 忍受悬而未决:tolerate-uncertainty-005
+        position: 双向门应快速行动，悬置是错配
+      - unit: 忍受悬而未决:tolerate-uncertainty-001
+        position: 单向门应延长关门时间
+    resolution_proposal: >
+      非矛盾——同一篇文章内部已通过"单/双向门"分类消解。
+      canonical (02_CAPITAL_AND_EXECUTION) 已有该分类，无需新增；
+      但需要在 BEHAVIOR_REVIEW 增加显式判别清单（投资场景下双向门的具体例子）。
+
+# ============================================================
+# 3. CLASSIFICATION
+# ============================================================
+classification:
+
+  # ----- approved_to_propose: 真增量，进 P5 修改建议（不超过 12 条）-----
+  approved_to_propose:
+
+    - unit_id: 三大数学模型:math-bayes-003
+      target_skill: 02_术/SKILLS/EXPECTATIONS_VALUATION.md
+      target_section: 新增"证据同根性诊断"小节
+      modification_summary: >
+        在反推情景前加一道"证据同根性"诊断：列出每条证据的原始信源，
+        标注"独立 / 同根 / 不确定"；同根证据合并后才能计入后验更新。
+        解决 baseline 中"四五个证据点但其实同根"的隐性单根问题。
+      baseline_failure_addressed: [H_B 拆解, H_R 反推]
+      confidence_in_proposal: high
+
+    - unit_id: 赚谁的钱:money-source-008
+      target_skill: 02_术/SKILLS/EXPECTATIONS_VALUATION.md
+      target_section: 新增"收益来源三空诊断"必填字段
+      modification_summary: >
+        money_source 字段从自由文本升级为结构化三空：
+        "我赚的是 __情况下__ 群体因为 __原因不得不做的非最优决策的钱"。
+        三空任一填不上 → money_source 自动降级为 uncalled。
+        直接修掉 LMND/Miniso/Horizon case 中"money_source 自由叙述"的 hollow。
+      baseline_failure_addressed: [H_B 拆解, BEHAVIOR 九问]
+      confidence_in_proposal: high
+
+    - unit_id: 赚谁的钱:money-source-009
+      target_skill: 02_术/SKILLS/EXPECTATIONS_VALUATION.md
+      target_section: 补强"反推情景"章节
+      modification_summary: >
+        反推 market_implied 必须落到可观测代理变量 + 历史百分位阈值
+        （VIX 分位、IV 分位、远期价格假设分位、资金流分位）；
+        没有阈值数字的 H_R 反推自动标 uncalled，禁止写 mixed。
+        修掉所有 5 个 baseline 中 H_R=unknown/mixed 但未给反推数字的失败。
+      baseline_failure_addressed: [H_R 反推]
+      confidence_in_proposal: high
+
+    - unit_id: 三大数学模型:math-bayes-005
+      target_skill: 02_术/SKILLS/BEHAVIOR_REVIEW.md
+      target_section: 补强九问中的"错误归因"问
+      modification_summary: >
+        在 BEHAVIOR_REVIEW 复盘协议中加入六类机制层归因模板：
+        先验证伪 / 证据权重错 / 触发器缺失 / 仓位过大 / 右尾识别不足 / 左尾防护不足。
+        复盘记录停留在"判断力问题"或"我不行"自动触发 reviewer 退回。
+      baseline_failure_addressed: [BEHAVIOR 九问]
+      confidence_in_proposal: high
+
+    - unit_id: 忍受悬而未决:tolerate-uncertainty-004
+      target_skill: 02_术/SKILLS/BEHAVIOR_REVIEW.md
+      target_section: 补强 suspended 容器字段
+      modification_summary: >
+        悬置容器从概念升级为强制字段：(a) 已知事实清单 (b) 缺失证据清单
+        (c) 下次复查时间 (d) 失败条件触发即退出。
+        任一字段空 → suspended 状态不允许写入。
+        修掉 Miniso/Horizon 中"何时升级到降级或退出"边界模糊的问题。
+      baseline_failure_addressed: [BEHAVIOR 九问, H_B 拆解]
+      confidence_in_proposal: high
+
+    - unit_id: 股价三层肉:stock-three-layer-008
+      target_skill: 02_术/SKILLS/EXPECTATIONS_VALUATION.md
+      target_section: 补强 PEG 行的"传导链"说明
+      modification_summary: >
+        在估值语法表 PEG 行增加显式传导链：
+        "价投变量 → 长期影响 EPS 路径 → PEG 阶段被市场折叠为短期 EPS 增长率及边际变化"。
+        防止用价投语言解释 PEG 资产短期波动（典型错误：用护城河解释 PEG 资产季度股价）。
+      baseline_failure_addressed: [H_B 拆解]
+      confidence_in_proposal: medium
+
+    - unit_id: 股价三层肉:stock-three-layer-006
+      target_skill: 02_术/SKILLS/EXPECTATIONS_VALUATION.md
+      target_section: 新增 case_pattern 附录
+      modification_summary: >
+        把泡泡玛特 2023H1-2025 年报六阶段 EPS 边际变化 → 六段股价弧线
+        作为 PEG 资产的标准 case（已在 baseline popmart case 中暴露缺位），
+        但明确标注"单案例，非通用模板"。
+      baseline_failure_addressed: [case 检索, H_R 反推]
+      confidence_in_proposal: medium
+
+    - unit_id: 商品超级周期:cc-006
+      target_skill: 02_术/SKILLS/INDUSTRY_SUPPLY_DEMAND.md
+      target_section: 补强 G1-G6 闸门的证据栈语义
+      modification_summary: >
+        把 G1-G6 闸门与"媒体→渠道→行业→合同→财报→资本配置"六层证据栈显式映射，
+        每道闸门要求列出至少 1 个该层级的独立证据 + 同根性标注。
+        修掉 Tinci case 中"产业链口径证据未分层"的问题。
+      baseline_failure_addressed: [H_B 拆解, case 检索]
+      confidence_in_proposal: high
+
+    - unit_id: 商品超级周期:cc-010
+      target_skill: 02_术/SKILLS/STRUCTURAL_CHANGE_BOTTLENECK.md
+      target_section: 新增"Good-News-Down"信号清单
+      modification_summary: >
+        在顶部信号中加入 Good-News-Down（涨价不涨、财报超预期不涨、上调指引不涨、
+        长协落地不涨、缺货新闻不涨），明确为 H_L 周期票降级触发器，但不直接清仓。
+      baseline_failure_addressed: [BEHAVIOR 九问]
+      confidence_in_proposal: medium
+
+    - unit_id: 投资是泊松过程:poisson-005
+      target_skill: 02_术/SKILLS/BEHAVIOR_REVIEW.md
+      target_section: 新增"高质量等待三条件"显式校验
+      modification_summary: >
+        review clock 触发时强制三问：(a) 我在等什么具体事件
+        (b) Y 证据出现我退出 (c) review 节奏定义。
+        三项任一空 → 不允许把持仓状态标为"等待"，必须改标为"钝化"或"未决"。
+      baseline_failure_addressed: [BEHAVIOR 九问]
+      confidence_in_proposal: high
+
+    - unit_id: AI算力产业链瓶颈传导:AIC-003
+      target_skill: 02_术/SKILLS/STRUCTURAL_CHANGE_BOTTLENECK.md
+      target_section: 补强"瓶颈定位"启发式
+      modification_summary: >
+        在七步瓶颈测试后增加"集群规模档位 → 物理墙类型"快捷映射，
+        并要求 ≥ 2 家独立投行（不同信息源）的产能缺口数字交叉验证。
+        与 cc-006 证据栈形成上下游衔接。
+      baseline_failure_addressed: [H_B 拆解]
+      confidence_in_proposal: medium
+
+    - unit_id: 赚谁的钱:money-source-013
+      target_skill: 04_CASE_GYM/CASE_LIBRARY.md（如不存在则新建 case_pattern 索引）
+      target_section: 新增 case
+      modification_summary: >
+        雷曼 60→1 案例作为"价格正确反映恶化基本面"的校准锚，
+        与 2020 新冠崩盘"时间框架错配"案例成对出现，
+        用于训练"过度反应 vs 合理反应"的判别边界。
+      baseline_failure_addressed: [case 检索]
+      confidence_in_proposal: high
+
+  # ----- conditionally_accepted: 有条件吸收，需补样本或限缩前提 -----
+  conditionally_accepted:
+
+    - unit_id: 三大数学模型:math-power-003
+      target_skill: 02_术/SKILLS/STRUCTURAL_CHANGE_BOTTLENECK.md
+      open_conditions:
+        - 七项结构条件需逐项校准可观测代理变量（当前仅给出概念名）
+        - 需补 ≥ 3 个跨样本案例验证（已有 NVIDIA/HBM 单周期）
+      baseline_failure_addressed: [H_B 拆解, case 检索]
+
+    - unit_id: 三大数学模型:math-unified-001
+      target_skill: 02_术/SKILLS/EXPECTATIONS_VALUATION.md
+      open_conditions:
+        - 公式形式大于实质——必须先校准各项估计误差范围
+        - 作为思维框架引入，禁止伪精确数值化
+      baseline_failure_addressed: [H_R 反推]
+
+    - unit_id: 商品超级周期:cc-004
+      target_skill: 02_术/SKILLS/INDUSTRY_SUPPLY_DEMAND.md
+      open_conditions:
+        - 八阶段状态机需补跨样本验证（已有内存、航运少数案例）
+        - 政策型商品可能跳阶段，需在 canonical 中显式声明例外
+      baseline_failure_addressed: [H_B 拆解]
+
+    - unit_id: 商品超级周期:cc-017
+      target_skill: 02_术/SKILLS/STRUCTURAL_CHANGE_BOTTLENECK.md
+      open_conditions:
+        - 六类 Seat 分类需每类补 ≥ 2 个具体历史案例
+        - 与"七步瓶颈测试"的"控制权/定价权"对应关系需进一步明确
+      baseline_failure_addressed: [H_B 拆解, case 检索]
+
+    - unit_id: 商品超级周期:cc-005
+      target_skill: 02_术/SKILLS/INDUSTRY_SUPPLY_DEMAND.md
+      open_conditions:
+        - "股票领先商品、商品领先财报"为经验统计，需标注样本范围和失效情景
+        - 流动性危机时领先关系失效，需显式声明
+      baseline_failure_addressed: [H_R 反推]
+
+    - unit_id: 商品超级周期:cc-018
+      target_skill: 02_术/SKILLS/EXPECTATIONS_VALUATION.md
+      open_conditions:
+        - "产业景气概率 vs 股票上涨概率"分离需提供可操作诊断步骤
+        - 概率数值禁止具体化，保持 uncalled 纪律
+      baseline_failure_addressed: [H_R 反推]
+
+    - unit_id: 股价三层肉:stock-three-layer-009
+      target_skill: 04_CASE_GYM/CASE_LIBRARY.md
+      open_conditions:
+        - 2020-2021 白酒 / 片仔癀 60PE 案例需补充流动性代理变量的具体数字
+        - 用作"流动性溢价当内在价值"反例，不外推为普适规律
+      baseline_failure_addressed: [case 检索]
+
+    - unit_id: 三大数学模型:math-bayes-001
+      target_skill: 02_术/SKILLS/EXPECTATIONS_VALUATION.md
+      open_conditions:
+        - "状态迁移"概念需补可观测信号清单（估值语法切换、客户结构变化、行业分类切换）
+        - 警惕被用来为高估值辩护
+      baseline_failure_addressed: [H_B 拆解]
+
+    - unit_id: 商品超级周期:cc-003
+      target_skill: 02_术/SKILLS/INDUSTRY_SUPPLY_DEMAND.md
+      open_conditions:
+        - "供给记忆"作为前置条件需量化（多年低位、CapEx/sales 阈值）
+        - 与"供给反噬时钟"的衔接需明确
+      baseline_failure_addressed: [H_B 拆解]
+
+    - unit_id: 商品超级周期:cc-019
+      target_skill: 02_术/SKILLS/STRUCTURAL_CHANGE_BOTTLENECK.md
+      open_conditions:
+        - 六维评分公式仅作为研究过滤器，禁止作为交易授权
+        - 权重未校准，confidence low
+      baseline_failure_addressed: [H_R 反推]
+
+  # ----- case_only: 不入 canonical Skill，进 04_CASE_GYM 案例附录 -----
+  case_only:
+
+    - unit_id: 股价三层肉:stock-three-layer-005
+      proposed_case_library_location: 04_CASE_GYM/CASE_PATTERNS/multi_stage_valuation.md
+      case_summary: 中概互联网（PDD/美团/B站/Boss）估值三段式弧线，作为市梦率→PEG→杀估值的完整模板。
+
+    - unit_id: 股价三层肉:stock-three-layer-009
+      proposed_case_library_location: 04_CASE_GYM/CASE_PATTERNS/liquidity_premium_misread.md
+      case_summary: 2020-2021 白酒/片仔癀 DCF 资产被推到 60PE，流动性溢价被误读为内在价值。
+
+    - unit_id: AI算力产业链瓶颈传导:AIC-006
+      proposed_case_library_location: 04_CASE_GYM/CASE_PATTERNS/bottleneck_relay_template.md
+      case_summary: 算力链瓶颈接力（GPU→HBM→光互连→电力/液冷）作为 Leontief 互补系统模板。
+
+    - unit_id: 商品超级周期:cc-015
+      proposed_case_library_location: 04_CASE_GYM/CASE_PATTERNS/memory_like_commodity.md
+      case_summary: "内存式商品"作为一类特殊制造型准商品的共性结构。
+
+    - unit_id: 商品超级周期:cc-016
+      proposed_case_library_location: 04_CASE_GYM/CASE_PATTERNS/commodity_five_types.md
+      case_summary: 五类商品修正项（天然资源/制造/运力/认证/政策）。
+
+    - unit_id: 赚谁的钱:money-source-014
+      proposed_case_library_location: 04_CASE_GYM/CASE_PATTERNS/time_horizon_mismatch.md
+      case_summary: 2020 年 3 月新冠崩盘的时间框架错配赚钱案例。
+
+    - unit_id: 商品超级周期:cc-020
+      proposed_case_library_location: 04_CASE_GYM/CASE_PATTERNS/supercycle_bayesian_ordering.md
+      case_summary: 超级周期假设的贝叶斯证据权重排序（最强到最弱）。
+
+    - unit_id: 三大数学模型:math-unified-003
+      proposed_case_library_location: 04_CASE_GYM/CASE_PATTERNS/pain_to_model_mapping.md
+      case_summary: 买错/卖飞/错过/等待/亏损五类痛苦到三模型的归因映射表。
+
+  # ----- redundant: canonical 已承接 -----
+  redundant:
+
+    - unit_id: 股价三层肉:stock-three-layer-001
+      canonical_mirror: EXPECTATIONS_VALUATION 三层肉公式与三列表格已完整承接
+
+    - unit_id: 股价三层肉:stock-three-layer-002
+      canonical_mirror: EXPECTATIONS_VALUATION 估值语法表（市梦率/PEG/DCF/PE/股息率五行）已覆盖
+
+    - unit_id: 股价三层肉:stock-three-layer-007
+      canonical_mirror: EXPECTATIONS_VALUATION DCF 行"最大风险 = 用精确模型掩盖假设不稳"已承接
+
+    - unit_id: 股价三层肉:stock-three-layer-011
+      canonical_mirror: EXPECTATIONS_VALUATION 估值语法表已隐含光谱化（confidence 低，不重复吸收）
+
+    - unit_id: AI算力产业链瓶颈传导:AIC-001
+      canonical_mirror: STRUCTURAL_CHANGE_BOTTLENECK 瓶颈迁移与反简单叙事已承接
+
+    - unit_id: AI算力产业链瓶颈传导:AIC-005
+      canonical_mirror: STRUCTURAL_CHANGE_BOTTLENECK "必经≠好投资" + INDUSTRY_SUPPLY_DEMAND 供给反噬时钟已承接
+
+    - unit_id: 商品超级周期:cc-001
+      canonical_mirror: INDUSTRY_SUPPLY_DEMAND 边际定价原理已承接
+
+    - unit_id: 商品超级周期:cc-002
+      canonical_mirror: INDUSTRY_SUPPLY_DEMAND 利润凸性原理已承接
+
+    - unit_id: 商品超级周期:cc-009
+      canonical_mirror: INDUSTRY_SUPPLY_DEMAND G3 闸门（库存方向反转）已承接
+
+    - unit_id: 商品超级周期:cc-013
+      canonical_mirror: INDUSTRY_SUPPLY_DEMAND G1/G2 闸门（需求质量）已承接
+
+    - unit_id: 商品超级周期:cc-014
+      canonical_mirror: BEHAVIOR_REVIEW "基本面最强时放弃风控"已是触发条件
+
+    - unit_id: 投资是泊松过程:poisson-009
+      canonical_mirror: BEHAVIOR_REVIEW "区分价格、价值、胜率、赔率"已承接
+
+    - unit_id: 赚谁的钱:money-source-001
+      canonical_mirror: EXPECTATIONS_VALUATION 零和/正和博弈区分已隐含
+
+    - unit_id: 赚谁的钱:money-source-016
+      canonical_mirror: EXPECTATIONS_VALUATION 企业增长收益边界已隐含
+
+    - unit_id: 忍受悬而未决:tolerate-uncertainty-002
+      canonical_mirror: BEHAVIOR_REVIEW 触发词清单与状态差检查表已隐含（认知闭合需求）
+
+    - unit_id: 忍受悬而未决:tolerate-uncertainty-005
+      canonical_mirror: 02_术/TRADING_SYSTEM/02_CAPITAL_AND_EXECUTION.md 单/双向门分类已承接
+
+  # ----- rejected: 丢弃 -----
+  rejected:
+
+    - unit_id: 股价三层肉:stock-three-layer-012
+      reject_reason: >
+        "机构包装 DCF 推票"虽指出现象，但缺少可操作诊断步骤；
+        容易沦为"研报都不可信"的口号。先不写入 canonical；
+        待补具体可观测信号（折现率敏感度异常、目标价参数一致性检验）后再考虑。
+
+    - unit_id: 三大数学模型:math-power-006
+      reject_reason: >
+        "爱机制不爱资产，爱状态不爱标签，爱后验不爱过去的自己"是格言式提醒，
+        无可观测代理变量，无法在 BEHAVIOR_REVIEW 中作为触发条件；
+        落地仍需走 H_B/H_R/H_C，写入 canonical 会制造伪纪律。
+
+    - unit_id: 三大数学模型:math-poisson-003
+      reject_reason: >
+        "耐心是数学适应"是哲学化陈述，不可证伪；
+        落地风险——可被用来包装懒惰或逃避决策。
+        实质内容已被 poisson-001 / poisson-005 承接。
+
+    - unit_id: 三大数学模型:math-unified-002
+      reject_reason: >
+        "用贝叶斯更新认知，用泊松心态等待事件，用幂律眼光配置资本"是口号；
+        三个层面在实际决策中高度耦合，强行分层会制造伪结构。
+        三模型本身已在 canonical 各 Skill 中分散吸收。
+
+    - unit_id: 三大数学模型:math-unified-004
+      reject_reason: >
+        "投资不是预测游戏，而是生存与更新游戏"是信念支撑；
+        无法在 reviewer 协议中作为可检验条件。
+        存在掩盖巨大左尾毁灭的风险——"只要更新系统还在"是有条件的乐观主义。
+
+    - unit_id: 忍受悬而未决:tolerate-uncertainty-003
+      reject_reason: >
+        "把不知道翻译为信息还在路上"作为认知重评技术缺乏可执行性；
+        心理学有间接支持但本文未引用研究；
+        容易沦为"自我安慰话术"。已被 suspended 容器（004）实质覆盖。
+
+    - unit_id: 投资是泊松过程:poisson-010
+      reject_reason: >
+        λ × payoff 四象限分类边界模糊，且 λ 与 payoff 时间维度快速迁移；
+        落地风险——可能制造伪确定性。confidence low，不建议入 canonical。
+
+    - unit_id: 商品超级周期:cc-016
+      reject_reason: >
+        （同 case_only 的双判定）
+        五类商品修正项作为分类框架 confidence low；
+        不同商品类型混合属性使边界模糊。
+        不入 canonical Skill，仅作 case 附录参考。
+
+    - unit_id: 商品超级周期:cc-019
+      reject_reason: >
+        （与 conditionally_accepted 双判）
+        六维评分公式作为研究过滤器可用，但权重未校准；
+        严防被作为交易授权工具。confidence low。
+
+    - unit_id: 忍受悬而未决:tolerate-uncertainty-008
+      reject_reason: >
+        "关门时间长短是高手与普通人的核心差异"基于作者观察归纳，无对照组数据；
+        易被误读为"延迟下单就是高手"。
+        实质内容已被 001 + 004 + 005 承接。
+
+# ============================================================
+# 4. SUMMARY COUNTS
+# ============================================================
+summary_counts:
+  total_input: 94
+  approved_to_propose: 12
+  conditionally_accepted: 10
+  case_only: 8
+  redundant: 16
+  rejected: 10
+  # 12+10+8+16+10 = 56；其余 38 个 unit 通过 cluster 折叠或与上述单元同构，
+  # 已在 clusters 中体现共同命题，不再单独重复分类（避免清单膨胀）。
+  # 主编判断：56 条已覆盖 94 个 unit 的所有独立机制。
+  units_covered_via_cluster_only: 38
+
+# ============================================================
+# 5. BASELINE FAILURE COVERAGE
+# ============================================================
+baseline_failure_coverage:
+
+  H_R_reverse_engineering:
+    # 5 个 baseline 中 H_R 全部为 unknown / mixed / uncalibrated
+    units_addressing:
+      - 赚谁的钱:money-source-009   # 反推必须落到可观测阈值
+      - 赚谁的钱:money-source-010   # 警告伪精确
+      - 三大数学模型:math-bayes-006  # 价格已过度反映的判别
+      - 股价三层肉:stock-three-layer-004  # 增速下行杀估值机制
+      - 商品超级周期:cc-018          # 产业景气 vs 股票概率分离
+    coverage_strength: medium
+    coverage_gap: >
+      现有 distilled units 提供了反推的"框架性提醒"，但缺乏"具体阈值数字模板"
+      （如"VIX 历史百分位 90 = 多少"、"远期价格假设上调到长期高位 = 多少年增速"）。
+      P5 阶段需要补充具体阈值表（VIX/IV/资金流/估值分位），否则 H_R 反推仍停留在
+      "应该做但不知道怎么做"的层面。
+
+  BEHAVIOR_nine_questions:
+    # Miniso / LMND / Tinci 三个 baseline 都明确自陈九问未跑完整
+    units_addressing:
+      - 三大数学模型:math-bayes-005    # 错误归因六类
+      - 三大数学模型:math-power-005    # 右尾资产神圣化
+      - 忍受悬而未决:tolerate-uncertainty-004  # 悬置容器强制字段
+      - 忍受悬而未决:tolerate-uncertainty-006  # 消极能力 vs 拖延的判别
+      - 投资是泊松过程:poisson-005     # 高质量等待三条件
+      - 投资是泊松过程:poisson-006     # 无事件期过度行动
+      - 投资是泊松过程:poisson-012     # 资本钝化包装为长期主义
+      - 商品超级周期:cc-014            # 基本面最强时放弃风控
+    coverage_strength: strong
+    coverage_gap: >
+      这是最被充分覆盖的失败维度——八个独立单元都直击 BEHAVIOR_REVIEW 的盲区。
+      P5 阶段建议把 005、004、poisson-005 三条合入 BEHAVIOR_REVIEW 正文，
+      其余作为案例附录。
+
+  H_B_decomposition:
+    # Horizon / LMND / Miniso / Tinci 四个 baseline 的 H_B 都因 evidence 单根或未穿透到现金流而 unknown/mixed
+    units_addressing:
+      - 赚谁的钱:money-source-008     # 三空诊断
+      - 赚谁的钱:money-source-009     # 证据栈层级
+      - 三大数学模型:math-bayes-003    # 证据同根性诊断
+      - 三大数学模型:math-power-003    # 幂律赢家七项结构条件
+      - 商品超级周期:cc-006            # 六层证据栈
+      - 商品超级周期:cc-013            # 需求质量拆解
+      - AI算力产业链瓶颈传导:AIC-003   # 瓶颈定位 + 多投行交叉验证
+      - 股价三层肉:stock-three-layer-008  # 价投变量折叠为 EPS
+    coverage_strength: strong
+    coverage_gap: >
+      H_B 拆解的工具最丰富，但 baseline 中真正缺的是"把这些工具串成一条
+      强制流水线"——当前每个工具都是独立的启发式，case 中可以挑着用。
+      P5 阶段需要在 EXPECTATIONS_VALUATION 加入"证据同根性 → 三空诊断 →
+      证据栈层级"的强制串行流程。
+
+  case_retrieval:
+    # 所有 5 个 baseline 都自陈"未调用同构历史案例"
+    units_addressing:
+      - 股价三层肉:stock-three-layer-005   # 中概三段式
+      - 股价三层肉:stock-three-layer-006   # 泡泡玛特六阶段
+      - 股价三层肉:stock-three-layer-009   # 白酒/片仔癀 60PE
+      - 赚谁的钱:money-source-013          # 雷曼 60→1
+      - 赚谁的钱:money-source-014          # 2020 新冠错配
+      - AI算力产业链瓶颈传导:AIC-006        # 算力链瓶颈接力
+      - 商品超级周期:cc-015                 # 内存式商品
+      - 商品超级周期:cc-017                 # 六类 Seat
+    coverage_strength: medium
+    coverage_gap: >
+      案例素材丰富，但 04_CASE_GYM 当前缺少标准化索引（按估值语法 × 资产类型 ×
+      失败模式三维索引）。P5 阶段建议先建索引骨架，再分批吸收案例。
+
+# ============================================================
+# 6. TOP 5 PROPOSALS FOR P5
+# ============================================================
+top_5_proposals_for_P5:
+
+  - rank: 1
+    unit_id: 赚谁的钱:money-source-009
+    why_high_roi: >
+      五个 baseline 中 H_R 全部 uncalibrated，是 hollow 最严重的环节。
+      本提案把"反推 market_implied"从口号升级为强制阈值（VIX 分位 / IV 分位 /
+      远期价格假设分位 / 资金流分位），直接修掉 LMND/Miniso/Horizon/Tinci 的
+      H_R=unknown → 推动到 verified 或 fail。ROI 最高。
+    target_skill: 02_术/SKILLS/EXPECTATIONS_VALUATION.md
+
+  - rank: 2
+    unit_id: 赚谁的钱:money-source-008
+    why_high_roi: >
+      三空诊断（触发条件 / 对手方群体 / 对手方非最优原因）把 money_source 从
+      自由文本升级为结构化必填字段。直接修掉 LMND"双源未分离"、Horizon"基本面钱
+      + 认知差钱混合"、Tinci"四类钱混在一句"的问题——这是 4/5 baseline 共有的 hollow。
+    target_skill: 02_术/SKILLS/EXPECTATIONS_VALUATION.md
+
+  - rank: 3
+    unit_id: 三大数学模型:math-bayes-003
+    why_high_roi: >
+      "证据同根性诊断"直接修掉 Miniso case 中"三类二手研究素材共同根只能生成
+      持续性假设"的隐性失败。把"独立 vs 同根"标注强制化，能阻止把 4-5 个同根
+      证据误读为多源确认。也修掉 Tinci"产业链口径证据未分层"问题。
+    target_skill: 02_术/SKILLS/EXPECTATIONS_VALUATION.md
+
+  - rank: 4
+    unit_id: 忍受悬而未决:tolerate-uncertainty-004
+    why_high_roi: >
+      悬置容器从概念升级为强制四字段（已知 / 缺失 / 复查时间 / 失败条件）。
+      直接修掉 Miniso"何时升级到降级或退出边界模糊"、Horizon"未给悬置容器配置"
+      两个 baseline 显式承认的 hollow。
+    target_skill: 02_术/SKILLS/BEHAVIOR_REVIEW.md
+
+  - rank: 5
+    unit_id: 商品超级周期:cc-006
+    why_high_roi: >
+      六层证据栈（媒体→渠道→行业→合同→财报→资本配置）直接修掉 Tinci"产业链口径
+      证据未分层"、Horizon"产品毛利/研发费用率/OCF 链断链"的 H_B unknown。
+      对所有产业链 / 制造业 / 商品类标的的承保都有显著提升。
+    target_skill: 02_术/SKILLS/INDUSTRY_SUPPLY_DEMAND.md

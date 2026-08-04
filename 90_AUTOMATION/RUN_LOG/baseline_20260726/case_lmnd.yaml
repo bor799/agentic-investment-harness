@@ -1,0 +1,119 @@
+case_id: CASE-260224-LMND
+case_path: 04_CASE_GYM/TRADE_LOG/260224_lmnd_small_probe_case.md
+harness_version: pre-distillation-baseline
+run_date: 2026-07-26
+
+harness_task:
+  lane: JUDGE
+  input_type: trade_behavior_case_retrospective
+  scope: single
+  response_mode: concise
+  process_depth: reviewed
+  target_ids:
+    - LMND
+  state_status: no_current_state_card
+  write_intent: chat_only
+  review_required: true
+  loaded_skills:
+    - GROWTH_TECH
+    - BEHAVIOR_REVIEW
+    - EXPECTATIONS_VALUATION
+  reviewer_agent_mode: native
+
+judgment:
+  one_line: 极小仓本身的体量不构成违规风险，但 thesis 表达停在“AI 驱动保险科技”一句话，缺兑现阶梯、缺 H_R 隐含预期分母、缺加仓与退出条件，按当前合同只能给“不加仓 + 补研究”，而不是“升级确认仓”。
+  money_source: 认知差 + 经营（双源未分离）。事前 thesis 写“长期盈利路径可能改善”，混合了基本面钱和预期差钱，但未指出当前价格已经隐含什么。
+  happening_now: 案例时点（2026-02-24 买入；2026-07-15 盘中约 US$67.80，浮盈）。当前 review_date 未定义，没有 current state card，happening_now 在系统视角下为 unknown。
+  strongest_support_evidence: |
+    evidence_used 中包含 LMND 深度研究底稿 v2（2026-04-30）和 Q4 2025 / Q1 2026 财报八维分析两份独立时点证据；多家外部研究路径覆盖 AI 保险科技叙事；
+    H_B 路径上“承保 + 理赔数字化”是 GROWTH_TECH 兑现阶梯上“需求→付费客户→收入”这一段的合理叙事起点。
+  strongest_counter_evidence: |
+    evidence_missing 自报：连续 GLR、GAAP OCF/FCF、费用与客户单位经济、SBC 稀释、Hannover Re 协议细节全部缺失。
+    按 GROWTH_TECH 兑现阶梯，这等于在“毛利 / take rate → 经营费用与 SBC → OCF → FCF → 完全稀释每股价值”链条上缺了四步；H_B 现在只能是 mixed/unknown，不能 pass。
+    按 EXPECTATIONS_VALUATION，市场当前在“市梦率”语法下，没有写 market_implied_expectation 与 reality_needed_to_justify_price；H_R 未校准。
+  key_unknown: |
+    1) 当前价格 US$67.80 隐含了多少保费增速、综合成本率（GLR）和 FCF 转正时点？
+    2) Hannover Re 协议是否限制 LMND 承保杠杆上限，从而封死“经营杠杆释放”这条路径？
+    3) 仓位意图到底是探索、验证还是没信心？案例本身自陈“研究深度与仓位意图不清”。
+  action: 不加仓
+  next_verification_signal: |
+    连续 2 个季度的 GLR（事故率 + 费用率）< 100 且趋势改善；
+    GAAP OCF 单季度转正或单季度 FCF 亏损收窄 >= 30%；
+    Hannover Re 协议续约条款 / 比例变化；
+    SBC 占收入比同比下降；
+    这些信号出现前不允许升级到“建立验证仓/确认仓”。
+  H_B: mixed
+  H_R: unknown
+  H_L: unknown
+  H_C: pass
+  failure_condition: |
+    连续 2 个季度 GLR > 100 且无费用率改善；
+    GAAP OCF 持续为负且环比扩大；
+    Hannover Re 续约时大幅削减比例或要求保单重组；
+    SBC 占收入比上行；
+    任一触发 → 降级或退出。
+
+trajectory:
+  files_read:
+    - AGENTS.md
+    - 00_HOME/PATHS.md
+    - 00_HOME/CONTENT_ROUTER.md
+    - 01_道/CONSTITUTION.md
+    - 01_道/MINDSET.md
+    - 02_术/TRADING_SYSTEM/00_DECISION_CONTRACT.md
+    - 02_术/SKILLS/README.md
+    - 02_术/SKILLS/GROWTH_TECH.md
+    - 02_术/SKILLS/BEHAVIOR_REVIEW.md
+    - 02_术/SKILLS/EXPECTATIONS_VALUATION.md
+    - 90_AUTOMATION/PROMPTS/INVESTMENT_REVIEWER.md
+  skills_consulted:
+    - GROWTH_TECH
+    - EXPECTATIONS_VALUATION
+    - BEHAVIOR_REVIEW
+  state_card_found: false
+  reviewer_invoked: true
+
+reviewer_result:
+  verdict: PASS
+  weakest_link: |
+    thesis 与仓位意图脱节：事前 thesis 是“AI 驱动保险科技，长期盈利路径可能改善”，但既没有给兑现阶梯上“收入→毛利→经营利润→OCF→FCF”任何一档独立证据，也没有定义“小仓是为了验证什么”；
+    案例自陈 emotion_or_state = “小仓试探，研究深度与仓位意图不清”，等于主 Agent 自己声明 H_B 与 H_C 的仓位动机未通过。
+  best_bear_case: |
+    LMND 仍是 GAAP 亏损公司，Q1/Q4 财报八维分析若剔除调整项，自由现金流大概率仍为负；
+    Hannover Re 的存在意味着再保人拿走承保杠杆最厚的那段利润，LMND 留下的可能是费用型收入而非承保利润；
+    US$67.80 的价格在市梦率语法下隐含的是“持续高增长 + 路径兑现”，任何一个季度的 GLR 跳升都会让市场重新定价到 PE 语法甚至杀估值。
+    在这个 bear case 下，当前的浮盈只是水位 + 风险偏好，不是经营验证。
+  alternative_explanations:
+    - 价格从 US$52.50 涨到 US$67.80（约 +29%）是流动性溢价与风险偏好抬升，而非经营改善（三层肉：流动性 + 风险偏好层）。
+    - AI 保险科技叙事在 2026 上半年随整个 AI 板块共振上涨，与 LMND 自身经营无关。
+    - 浮盈被“仓位太小”放大了相对幅度，单股 +US$15.30 不构成可以忽略 H_B 链条缺失的理由。
+  market_may_be_right_because: |
+    保险是强监管 + 长尾理赔业务，市场可能比个体投资者更熟悉“AI 替换人工承保 + 理赔”在精算上的真实节流速度；
+    Hannover Re 作为专业再保人，其续约比例和条款本身就是市场信息汇聚的结果；
+    若 Hannover 续约且 GLR 持续改善，市场对 2027-2028 FCF 转正的定价并不疯狂。
+    即便如此，“市场可能正确”不等于“我的小仓有 H_B 独立证据”，两者在合同里要分开。
+
+self_critique:
+  hindsight_contamination: low
+  hindsight_notes: |
+    严格只读 pre_decision_context / thesis_before_action / evidence_used / evidence_missing / emotion_or_state / method_version；
+    actual_result（价格浮盈、仓位太小难区分意图）只在“仓位意图未定义”这一点上构成事前可观察的事实（持仓规模本身就事前可知），未用作 H_B 的反证；
+    what_would_have_prove_wrong / lesson_type / write_to 完全未读。
+  shallow_areas:
+    - 没有真正调阅 LMND 深度研究底稿 v2 与 Q1 2026 八维分析的具体数字，只引用了文件存在；这是 BASELINE 真实状态，不掩饰。
+    - H_R 没有给反推目标价或隐含预期分母，停在 unknown；按 EXPECTATIONS_VALUATION，本应给出 market_implied_premium、loss_ratio_path、fcf_turn_year 三件事的反推，当前 baseline 做不到。
+    - H_L 没有给具体宏观微观风险清单（利率、监管、AI 板块 beta、保险周期），只是空泛标 unknown。
+    - 没有把案例自陈的“研究深度与仓位意图不清”展开成 BEHAVIOR_REVIEW 的九问反方审查；情绪触发词“小仓试探”应触发但 baseline 只是引用未走流程。
+  missing_experience:
+    - 没有 Hannover Re 协议条款的事前证据，无法判断承保杠杆是否被再保封顶；
+    - 没有连续 GLR 序列数据，无法判断 H_B 是否进入兑现阶梯第二档（毛利/take rate）；
+    - 没有 GAAP 与调整项的差异披露，SBC 稀释程度只能用 unknown。
+  incongruences:
+    - method_version 字段写“旧保险科技/DCF/期权计划”，但 case 的 thesis 是“AI 驱动保险科技”，两套叙事框架并轨，合同视角下应该明确当前 thesis 走 GROWTH_TECH 还是 DCF，目前是混合的。
+    - 1 股的仓位在 H_C 上是 pass 的（错了能活下来），但它“不需要四票通过”这一事实不能反向豁免 thesis 必须通过 H_B / H_R 的论证结构；案例文档有把“小仓”当成免审查理由的隐含倾向，需要明确否定。
+  template_correct_but_hollow: true
+  hollow_notes: |
+    YAML 模板字段填得完整、动作落在六档之一、Reviewer 三段都有，但 H_R / H_L 是 unknown 不是 verified；
+    failure_condition 列了清单但缺触发阈值（例如 GLR > 多少、OCF 单季度亏多少）；
+    next_verification_signal 写了方向但没写 review_date；
+    这是 BASELINE 的真实水平：形式合规、内容偏空，需要在 distillation 阶段补三层肉反推、九问反方审查、和具体阈值。

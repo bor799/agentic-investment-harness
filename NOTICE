@@ -1,0 +1,35 @@
+NOTICE for agentic-investment-harness
+======================================
+
+Copyright 2026 Murphy
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at:
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+
+License Scope
+-------------
+
+| Layer    | License     | Scope                                          |
+|----------|-------------|------------------------------------------------|
+| Code     | Apache-2.0  | .py, .sh, .yml, .json pipeline & config files  |
+| Content  | CC BY 4.0   | .md, .org documentation and research notes     |
+
+
+Third-Party Content
+-------------------
+
+This repository contains references to external sources (earnings reports,
+news articles, research reports, regulatory filings). These references are
+citations, links, and pointers — not full-text reproductions. All
+third-party content remains the property of its respective owners.
+
+Historical analysis reports in 归档/ and 05_EVIDENCE_META/ARCHIVE/ are
+original works by the repository author, or AI-assisted content generated
+through the author's own interactions with AI tools.
+
+If you believe any content in this repository infringes your copyright,
+please contact the repository owner directly. Do not open a public issue.

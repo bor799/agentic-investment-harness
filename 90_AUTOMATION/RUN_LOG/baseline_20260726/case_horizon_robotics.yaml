@@ -1,0 +1,86 @@
+case_id: CASE-260624-HORIZON
+case_path: 04_CASE_GYM/TRADE_LOG/260624_horizon_robotics_position_case.md
+harness_version: pre-distillation-baseline
+run_date: 2026-07-26
+
+harness_task:
+  lane: JUDGE
+  input_type: CAPITAL
+  scope: single
+  response_mode: concise
+  process_depth: reviewed
+  target_ids: [09660.HK]
+  state_status: legacy_only
+  write_intent: chat_only
+  review_required: true
+  loaded_skills: [GROWTH_TECH, EXPECTATIONS_VALUATION, BEHAVIOR_REVIEW]
+  reviewer_agent_mode: injected
+
+judgment:
+  one_line: 已建仓浮盈中，业务票据 H_B 仍未过——加仓不合法，本轮回chat_only不加仓。
+  money_source: 基本面钱（HSD/平台软件收费权兑现）+ 认知差钱（市场仍按"智驾芯片供应商"定价）。
+  happening_now: 持仓 11,400 股 @ HK$4.10 已存在；浮盈约 7.80%；价格回升但产品毛利、研发费用率、调整亏损与 OCF 尚未独立披露验证。
+  strongest_support_evidence: 旧 dossier 中 2025 ADAS 计算芯片份额 47.66%（第一）、城区 NOA 份额 17.88%（第三）、Journey 车规硬件出货 401 万套、ASP +75%、Starry 6 已发布获十余家车企合作意向——产业位置与出货节奏真实。
+  strongest_counter_evidence: 2025 产品方案毛利率从 46.4% 降至 34.5%、R&D/收入 137.1%、调整净亏损 RMB 28.12 亿、经营现金流仍为负——兑现阶梯在"收入→毛利→亏损收窄→现金流"段断链。
+  key_unknown: 1H26 全文财报三项硬数——产品方案毛利率是否修复 ≥38%、研发费用率是否下行、调整亏损是否由扩转收。
+  action: 不加仓
+  next_verification_signal: 2026 H1 全文业绩公告（预计 2026-08 下旬）三硬数同向验证；Starry 6 首个主流车企正式定点+SOP。
+  H_B: unknown
+  H_R: fail
+  H_L: pass
+  H_C: pass
+  failure_condition: 产品方案毛利率连续两个半年报 <35%；调整亏损同比未收窄；License 占比跌破 30%；Starry 6 12 个月内无主流定点。
+
+trajectory:
+  files_read:
+    - AGENTS.md
+    - 00_HOME/PATHS.md
+    - 00_HOME/CONTENT_ROUTER.md
+    - 01_道/CONSTITUTION.md
+    - 01_道/MINDSET.md
+    - 02_术/TRADING_SYSTEM/00_DECISION_CONTRACT.md
+    - 02_术/SKILLS/README.md
+    - 02_术/SKILLS/GROWTH_TECH.md
+    - 02_术/SKILLS/BEHAVIOR_REVIEW.md
+    - 05_EVIDENCE_META/EVIDENCE/COMPANIES/Horizon Robotics/README.md
+  skills_consulted: [GROWTH_TECH, EXPECTATIONS_VALUATION, BEHAVIOR_REVIEW]
+  state_card_found: false   # 03_STATE/HYPOTHESIS_QUEUE/CURRENT/ 为空目录，state_status = legacy_only
+  reviewer_invoked: true
+
+reviewer_result:
+  verdict: PASS
+  weakest_link: H_B 状态 unknown——价格浮盈无法穿透到产品毛利、研发费用率和现金流的独立经营证据；GROWTH_TECH 兑现阶梯在"收入→毛利→亏损收窄→OCF"段断链。
+  best_bear_case: 智驾芯片被 OEM 自研（BYD 模式扩散）压成纯硬件供应商，产品方案毛利率长期 <35%，P/S 退回 8-10x "亏损硬件供应商" 估值，相对 HK$4.10 成本浮亏 20-35%。
+  alternative_explanations:
+    - 6-29 至 7 月中旬 HK$3.61→HK$4.4 的修复是超跌回补+板块 Beta+主题风险偏好回升，非基本面确认。
+    - 板块热度与政策顺风改善 H_R/H_L，不直接抬高 H_B；不可混淆。
+    - 浮盈状态容易把"价格暂时顺利"误读为"业务已拐点"——典型 BEHAVIOR_REVIEW 触发。
+  market_may_be_right_because: 智驾平权+国产替代产业链预期真实存在；地平线 4 月装机份额跃居第二；Horizon HSD 平台若按主流价位 NOA 操作系统重估，市场仍可能继续给收入倍数。
+
+self_critique:
+  hindsight_contamination: low
+  hindsight_notes: |
+    严格遵守 BASELINE 规则——只使用 pre_decision_context / thesis_before_action / evidence_used /
+    evidence_missing / emotion_or_state / method_version 六个字段。
+    未读取 actual_result / what_changed / what_would_have_prove_wrong / lesson_type / write_to。
+    "浮盈约 7.80%" 来自 pre_decision_context（许可字段），不构成将价格验证误当业务验证的依据。
+    判断 H_B unknown / H_R fail / action 不加仓 是 GROWTH_TECH + 四票自然推导结果，非事后归因。
+    未引用 2026-07-21 Positive Profit Alert 的 attempt 2 纠正（调整亏损扩大 5.1%-27.6%）——
+    那是 case 文件日期 2026-06-24 之后才发生的事件，若使用即属 hindsight 污染。
+  shallow_areas:
+    - "未独立验证当前 P/S 倍数与未盈利科技股坏情景下沿的赔率距离——H_R 标 fail 但缺少定量安全边际数字（HK$3.0-HK$3.6 区间或对应 P/S 8-10x）。"
+    - "未拆解 OEM 自研芯片（BYD 模式）扩散概率与时间窗——这是 H_B 最大单一风险但未给出可监测信号。"
+    - "未给出 grandfathered 框架下'换仓或减险'的具体执行清单——H_C 已 pass 但未提示超限仓位的减险路径。"
+    - "未列 Starry 6 主流车企定点的产业跟踪信号源（GGII/高工装机数据、车企 SOP 公告）。"
+  missing_experience:
+    - 未与同级未盈利智驾公司（Mobileye、黑芝麻、英飞凌 ADAS 部门）做横向 P/S 与毛利率对照。
+    - 未把"车企自研 vs 第三方芯片"产业分裂情景写成可证伪的分叉树。
+    - 港股未盈利科技股 1H 财报发布前后的历史波动率与赔率经验未调用。
+  incongruences:
+    - "case 文件 emotion_or_state = '浮盈状态，容易把价格验证误当业务验证' 与 method_version = '旧智驾/平台收费权框架' 在时间上略有错配：浮盈出现在 7-15，但 thesis 在 6-24 形成——case 的 pre_decision_context 横跨了两周时间，导致状态字段的'决策时点'不清晰。"
+    - "evidence_used 写'company_research、价格胜率、护城河验证和单日大涨归因'，但 evidence_missing 同时列产品毛利/软件占比/研发费用率/OCF——这说明买入决策本身就是建立在'产业位置+出货节奏'上而非'利润兑现'上，与 GROWTH_TECH 兑现阶梯不完全一致；BASELINE 应标注这是 thesis-level 而非 evidence-level 的买入。"
+  template_correct_but_hollow: |
+    本 BASELINE 输出结构完整、四票齐全、Reviewer verdict 合法，但存在两层 hollow：
+    (1) H_R 标 fail 缺少"赔率改善触发价格"或"P/S 倍数目标"定量锚；
+    (2) H_B 标 unknown 但未给出"在 1H26 财报前是否允许小幅验证仓换仓"的悬置容器（suspended container）配置。
+    这两点是 distillation 后版本应补强的方向，不属本次 BASELINE 缺陷。

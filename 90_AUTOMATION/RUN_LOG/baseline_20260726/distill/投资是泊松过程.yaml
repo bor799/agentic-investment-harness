@@ -1,0 +1,317 @@
+article_id: 投资是泊松过程
+article_path: /Users/murphy/Documents/Obsidian Vault/Clippings/投资是泊松过程.md
+article_dominant_type: principle
+article_one_line: 投资收益不是连续曲线而是稀疏跳变，应估计事件强度λ并在证据临界点前完成准备。
+
+distilled_units:
+  - unit_id: poisson-001
+    type: principle
+    claim: 投资收益服从稀疏事件驱动结构，不是连续积累曲线。
+    mechanism: 公司价值跃迁依赖少数关键状态（订单爆发、连续 beat、行业反转、指引上调、市场重定价）→ 这些事件随机稀疏到来 → 股价大部分涨幅集中在极短窗口完成 → 用"日度研究—日度兑现"心智模型会持续误判节奏。
+    prerequisites:
+      - 标的有可识别的状态跳变点（财报、订单、产能、政策）
+      - 投资人能用日/周时间尺度做行为决策
+    invalid_conditions:
+      - 纯套利、量化高频、做市等连续收益结构
+      - 已经在末端兑现阶段、剩余空间不足的状态迁移
+    signals:
+      - 长期持有后真实收益主要来自 2-3 个集中窗口
+      - 研究投入与短期价格变动相关性极低
+    counter_view: 部分资产（高息股、REITs、债券）收益确实是连续现金流，并非全部稀疏跳变。
+    confidence: medium
+    empirical_support: 启发式经验，作者用泊松过程做隐喻映射，未给具体样本统计。
+    source_refs:
+      article: 投资是泊松过程
+      location: 第28段（"投资更像一个泊松过程…少数几个关键事件突然到来"）
+    decision_use: 收益来源识别
+    forbidden_inference: 不能因"收益是稀疏跳变"就忽视日常证据维护；不能用以合理化任何长期套牢。
+    draft_state: candidate
+
+  - unit_id: poisson-002
+    type: heuristic
+    claim: 投资的核心估计对象是事件强度λ（向上状态跳变的概率密度），而非"明天涨不涨"。
+    mechanism: 把研究问题从"方向预测"重写为"单位时间内状态迁移强度估计" → 迫使拆解到可验证驱动（订单节奏、beat 频率、产能反转、客户验证） → λ 可分资产类型映射（财报型/AI receiver/周期/软件/事件驱动） → 估计结果直接驱动仓位准备度与时间分配。
+    prerequisites:
+      - 能写出该资产 λ 的具体载体（不是"看多"）
+      - 至少有 1 个可观察的代理变量
+    invalid_conditions:
+      - λ 载体无法观测（纯叙事股、无披露的早期标的）
+      - 资产已进入 λ 衰减或事件兑现后期
+    signals:
+      - 能用一句话回答"未来一段时间什么事件会让状态上跳"
+      - λ 代理变量近期斜率转正
+    counter_view: λ 在不同资产间不可直接比较，且估计本身受主观先验主导，缺乏校准机制。
+    confidence: medium
+    empirical_support: 启发式经验，作者给出 λ 映射表但无量化校准方法。
+    source_refs:
+      article: 投资是泊松过程
+      location: "投资不是每天预测，而是估计事件强度λ" 章节及 λ 含义映射表
+    decision_use: 收益来源识别
+    forbidden_inference: 不能把"λ 上升"等同于"股价即将上涨"；λ 描述事件密度，不直接定价。
+    draft_state: candidate
+
+  - unit_id: poisson-003
+    type: mechanism
+    claim: 高赔率出现在 λ 已明显上升、证据网络接近临界密度、市场尚未完全定价的窗口。
+    mechanism: λ 上升 → 单个证据开始出现 → 多个独立信号（客户/收入/毛利/订单/产业链/价格行为）互相印证 → 证据达到临界密度 → 但市场定价滞后尚未收敛 → 此区间 payoff × probability 乘积最大 → 一旦市场承认，赔率被压缩。
+    prerequisites:
+      - 至少 3 个独立根证据在交叉确认（同根信息不算）
+      - 市场定价仍未反映状态迁移
+      - 资产流动性允许建仓
+    invalid_conditions:
+      - 证据同根（多个媒体转述同一信源）
+      - 价格已先于证据大幅上行（slack 消失）
+      - λ 上升但 payoff 已被市场共识压缩
+    signals:
+      - 财报 beat + 客户公告 + 产业链数据 + 价格行为同向
+      - 卖方覆盖度仍低或评级未上调
+      - 估值分位仍在历史中低位
+    counter_view: 市场有时定价领先于显性证据（信息不对称被消化），所谓"未完全定价"可能是已定价的错觉。
+    confidence: medium
+    empirical_support: 启发式经验，框架性描述，未给案例统计。
+    source_refs:
+      article: 投资是泊松过程
+      location: 第42-44段（证据网络临界密度 + "投资里最好的时刻"）
+    decision_use: H_R
+    forbidden_inference: 不能因"证据多了"就跳过三层肉估值与定价语法检查；证据密度不等于赔率。
+    draft_state: candidate
+
+  - unit_id: poisson-004
+    type: anti_pattern
+    claim: 用"已经等了很久"作为机会即将到来的证据，是指数分布无记忆性下的认知幻觉。
+    mechanism: 指数分布等待时间具有无记忆性 → 过去等待时长不改变未来到达速率 → 投资人却把"等得久"误读为"该来了" → 触发加仓、抄底、补仓行为 → λ 与证据斜率并未上升 → 等待时间本身不产生任何预期收益。
+    prerequisites:
+      - 标的处于长期下跌或沉寂
+      - 投资人浮亏状态下寻找加仓理由
+    invalid_conditions:
+      - λ 真的同步上升且证据斜率转正（此时不是幻觉）
+      - 有显性的供给侧/政策/订单事件可观测
+    signals:
+      - 出现"跌这么久了该反弹""沉寂这么久了该轮到""讲这么多年该兑现"等语言
+      - 等待时长被列为加仓理由但无新增证据
+    counter_view: 部分均值回归类资产（深度价值、周期底部）确实存在时间衰减带来的概率恢复，不能完全否定等待价值。
+    confidence: medium
+    empirical_support: 启发式经验，作者用数学无记忆性论证，未提供行为金融样本。
+    source_refs:
+      article: 投资是泊松过程
+      location: "泊松过程最反人性的地方：等得久不代表更接近成功" 章节
+    decision_use: 行为阀
+    forbidden_inference: 不能用此规则否定所有长期持有；只能否定"仅凭等待时长"作为加仓理由。
+    draft_state: candidate
+
+  - unit_id: poisson-005
+    type: heuristic
+    claim: 高质量等待必须明确知道自己在等什么事件、退出条件是什么、仓位与等待期风险如何匹配。
+    mechanism: 等待前先定义 falsifier → 每个 review clock 检查 λ 斜率、证据密度、payoff slack → 证据恶化立即退出 / 证据临界敢于加码 / 噪音期不动 → 等待从被动变成主动研究行为。
+    prerequisites:
+      - 能写出"我在等 X 事件"（具体到财报/订单/毛利/产品采用率/价格反转）
+      - 能写出"Y 证据出现我就退出"
+      - 有 review clock 节奏（季度/事件驱动）
+    invalid_conditions:
+      - 无法命名等待的具体事件
+      - 没有预先定义的退出条件
+      - 没有周期性证据更新机制
+    signals:
+      - 持仓日志能写出等待对象与 falsifier
+      - review 触发时确实发生加仓/减仓/退出动作
+    counter_view: 过度结构化等待可能让人对真正意外的事件（黑天鹅）反应迟钝。
+    confidence: medium
+    empirical_support: 启发式经验，作者给出三个条件但未做对照研究。
+    source_refs:
+      article: 投资是泊松过程
+      location: "高质量等待有三个条件" 段落（第50-58段）
+    decision_use: 行为阀
+    forbidden_inference: 不能因"等待结构化"就跳过四票承保；等待质量本身不授权加仓。
+    draft_state: candidate
+
+  - unit_id: poisson-006
+    type: anti_pattern
+    claim: 在无事件期强行制造交易，是亏损主因之一，而非"错过机会"。
+    mechanism: 长期无反馈 → 投资人情绪焦虑 → 把小新闻当催化、用波动否定 thesis、因无聊换股、把低质量信号当状态跳变 → 在低 λ、低证据密度区间增加行动频率 → 摩擦成本 + 误判成本累积 → 净亏损。
+    prerequisites:
+      - 持仓处于长期横盘或小幅回撤
+      - 投资人有"必须做点什么"的冲动
+    invalid_conditions:
+      - λ 实际正在上升且新增证据合理（此时行动不是制造交易）
+      - 仓位结构本身需要再平衡
+    signals:
+      - 频繁加仓但每次理由不同
+      - 用单一新闻替代证据网络
+      - 持仓周转率显著高于策略基准
+    counter_view: 部分策略（事件驱动、并购套利）本身需要持续行动，"无事件期行动"是其业务本质。
+    confidence: medium
+    empirical_support: 启发式经验，作者列举典型表现但未做亏损归因统计。
+    source_refs:
+      article: 投资是泊松过程
+      location: "第四，最危险的是在无事件期过度行动" 段落（第282-295段）
+    decision_use: 行为阀
+    forbidden_inference: 不能用此规则否定所有调仓；只能否定"无新增证据下的强制行动"。
+    draft_state: candidate
+
+  - unit_id: poisson-007
+    type: heuristic
+    claim: 现金不是空仓，而是高 λ 事件出现时换座的选择权。
+    mechanism: 机会随机稀疏到来 → 现金保留快速反应能力 → 当高 λ + 高 payoff + 高 pricing slack 事件出现 → 现金可立即部署到新座位 → 持仓无神圣性，每时点重新拍卖 → 提升整体组合的事件捕获期望。
+    prerequisites:
+      - 当前持仓 λ / payoff / slack 已恶化
+      - 候选标的存在明确的事件驱动空间
+      - 投资人有事件触发的部署纪律
+    invalid_conditions:
+      - 候选标的已无事件驱动空间
+      - 投资人无法识别 λ 上升
+      - 现金被长期空置（机会成本累积超过选择权价值）
+    signals:
+      - 现金比例与候选池 λ 状态匹配
+      - 有明确的"什么事件触发部署"清单
+    counter_view: 在持续牛市或高通胀环境，持有现金的机会成本可能压倒选择权价值。
+    confidence: low
+    empirical_support: 启发式经验，作者未给出现金比例与机会成本的量化框架。
+    source_refs:
+      article: 投资是泊松过程
+      location: "第三，现金不是空仓，而是等待事件的选择权" 段落（第272-279段）
+    decision_use: H_C
+    forbidden_inference: 不能用"现金是选择权"为长期满仓现金辩护；选择权本身有时间衰减。
+    draft_state: candidate
+
+  - unit_id: poisson-008
+    type: principle
+    claim: 投资 EV 可近似为 λ × P(真状态迁移|事件) × Payoff 减去 Carry / Fragility / Opportunity / False Positive 多项成本。
+    mechanism: 把收益分解为概率密度 × 条件迁移概率 × 非线性赔率 → 同时显性化四类隐性成本（资金成本、脆弱性、机会成本、误判成本） → 决策从"看多看空"升级为期望值分解 → 任何一项恶化都会拉低净 EV。
+    prerequisites:
+      - 能分别估计四个正项与四个负项
+      - 各项有可观察的代理变量
+    invalid_conditions:
+      - 任一项无法估计（特别是 P(valid|event) 与 Fragility）
+      - 成本项不可比或量纲不一致
+    signals:
+      - 决策日志中出现完整的 EV 分解而非"看多/看空"陈述
+      - 机会成本与误判成本被显性计入
+    counter_view: 公式形式大于实质——各项估计误差叠加后净 EV 不可信，反而制造伪精确。
+    confidence: low
+    empirical_support: 启发式经验，作者给出公式但未提供参数估计方法或回测。
+    source_refs:
+      article: 投资是泊松过程
+      location: "Poisson Waiting Discipline" 公式段落（第226-248段）
+    decision_use: H_R
+    forbidden_inference: 不能把伪精确的 EV 数字当承保结论；公式是思维框架不是定价模型。
+    draft_state: candidate
+
+  - unit_id: poisson-009
+    type: signal
+    claim: 价格波动、回撤、被做空必须区分四类——价格噪音 / 证据恶化 / 状态迁移失败 / 机会成本上升——不能用"泊松等待"统一自我安慰。
+    mechanism: 价格异动出现 → 投资人倾向直接归因到 thesis 错或继续等 → 但实际有四种性质完全不同的归因 → 每种归因对应不同动作（等/减/退/换） → 错误归因导致错误动作。
+    prerequisites:
+      - 有显性 thesis 和 falsifier 清单
+      - 能持续跟踪证据斜率
+    invalid_conditions:
+      - thesis 本身模糊无法区分四类
+      - 证据更新机制缺失
+    signals:
+      - 价格异动后能写出"这是 X 类，对应 Y 动作"
+      - 持仓动作与归因分类一致
+    counter_view: 四类边界实际经常重叠，强行分类可能制造伪确定性。
+    confidence: medium
+    empirical_support: 启发式经验，作者给出四分类但未提供历史归因准确率。
+    source_refs:
+      article: 投资是泊松过程
+      location: "第二，等待期间不能用价格波动替代证据更新" 段落（第264-268段）
+    decision_use: 行为阀
+    forbidden_inference: 不能因"已分类"就跳过 BEHAVIOR_REVIEW 九问；分类是辅助工具不是结论。
+    draft_state: candidate
+
+  - unit_id: poisson-010
+    type: case_pattern
+    claim: 资产可按 λ（事件强度）× payoff（赔率）做四象限分类，错配象限是常见错误。
+    mechanism: 高 λ + 高 payoff = 真核心仓位机会 → 低 λ + 高 payoff 常被错配为核心 → 高 λ + 高 payoff 常被市场误判为普通周期 → 错配源于投资人无法区分"事件密度"与"赔率"两个维度。
+    prerequisites:
+      - 能独立估计 λ（而非依赖股价表现反推）
+      - 能独立估计 payoff（基于三层肉与估值语法）
+    invalid_conditions:
+      - λ 与 payoff 无法独立估计
+      - 市场已对高 λ + 高 payoff 充分定价
+    signals:
+      - 持仓分类与象限建议一致
+      - 低 λ + 高 payoff 标的未占据核心仓位
+    counter_view: 四象限边界模糊，且 λ 与 payoff 在时间维度上会快速迁移，分类稳定性有限。
+    confidence: low
+    empirical_support: 启发式经验，作者给出象限图但未提供分类规则或案例集。
+    source_refs:
+      article: 投资是泊松过程
+      location: "投资中的四类泊松机会" 章节（第187-194段）
+    decision_use: H_C
+    forbidden_inference: 不能用象限分类直接授权仓位大小；仓位仍需走 H_C 四票。
+    draft_state: candidate
+
+  - unit_id: poisson-011
+    type: principle
+    claim: 仓位必须在事件到来前准备好，等确定性出现时赔率已被压缩。
+    mechanism: 状态跳变是跳变式的 → 等财报爆/订单确认/市场承认后再追 → 价格已反映新状态 → payoff slack 消失 → 所以投资不是等确定性，而是在证据未完全显性化前用合理仓位买入"λ 正在上升"的过程。
+    prerequisites:
+      - λ 已明显上升且证据斜率转正
+      - 证据网络接近临界密度但市场未充分定价
+      - 已定义 falsifier 与退出条件
+    invalid_conditions:
+      - λ 未上升或下降
+      - 证据同根或孤立
+      - 价格已先行反映
+    signals:
+      - 建仓发生在证据临界但市场未承认的窗口
+      - 建仓理由不是"确定性"而是"λ 上升 + 证据密度"
+    counter_view: 提前建仓承担更高的 False Positive Cost，对识别能力要求极高，识别错误时亏损更重。
+    confidence: medium
+    empirical_support: 启发式经验，作者陈述逻辑但未提供提前建仓 vs 确认后追的对照样本。
+    source_refs:
+      article: 投资是泊松过程
+      location: "第一，仓位必须在事件到来前准备好" 段落（第252-261段）
+    decision_use: H_C
+    forbidden_inference: 不能用"提前建仓"为缺乏证据的赌博式买入辩护；前提是 λ 已上升。
+    draft_state: candidate
+
+  - unit_id: poisson-012
+    type: anti_pattern
+    claim: 低 λ + 低证据密度 + 低赔率的"等待"不是耐心，而是资本钝化。
+    mechanism: 持仓在三项都低的状态下持续不动 → 没有事件驱动 → 没有证据更新 → 没有赔率改善 → 资金占用、波动成本、机会成本累积 → 净 EV 持续为负 → 包装成"长期主义"自我安慰。
+    prerequisites:
+      - 持仓满足 λ 低 + 证据密度低 + 赔率低
+      - 投资人用"耐心/长期"语言包装不动决策
+    invalid_conditions:
+      - 三项中至少一项正在改善
+      - 等待有明确 falsifier 和时间窗
+    signals:
+      - 持仓长期不动且无 review 记录
+      - 加仓理由停留在"跌多了"或"长期看好"
+    counter_view: 部分深度价值策略确实需要长时间低 λ 等待，靠均值回归兑现。
+    confidence: medium
+    empirical_support: 启发式经验，作者陈述框架但未提供亏损归因统计。
+    source_refs:
+      article: 投资是泊松过程
+      location: 第58段 + "第一种低质量等待" 段落（第165-172段）
+    decision_use: 行为阀
+    forbidden_inference: 不能用此规则否定所有低 λ 持仓；只能否定"无 falsifier + 无证据更新"的低 λ 持仓。
+    draft_state: candidate
+
+self_audit:
+  total_units: 12
+  fabricate_probability_check: passed
+  all_units_have_prerequisites: true
+  all_units_have_invalid_conditions: true
+  source_refs_traceable: true
+  weakest_unit_id: poisson-008
+  overlap_with_canonical: |
+    高度重叠 BEHAVIOR_REVIEW：
+      - poisson-004（等待时间幻觉）≈ BEHAVIOR_REVIEW 触发词"已经跌很多"+"价格更低只允许改善赔率票"
+      - poisson-005（高质量等待三条件）≈ BEHAVIOR_REVIEW 九问 + review clock
+      - poisson-006（无事件期过度行动）≈ BEHAVIOR_REVIEW "想加仓冻结 24 小时"
+      - poisson-009（价格异动四分类）≈ BEHAVIOR_REVIEW "区分价格、价值、胜率、赔率"
+      - poisson-012（资本钝化）≈ BEHAVIOR_REVIEW "回本愿望/亏损后无新增经营证据"
+    部分重叠 EXPECTATIONS_VALUATION：
+      - poisson-003（证据网络临界密度）≈ 三层肉 + 市场在相信什么
+      - poisson-008（EV 公式）≈ 三层肉 + 反推情景
+    部分重叠 STRUCTURAL_CHANGE_BOTTLENECK：
+      - poisson-002（λ 作为状态迁移强度）≈ 必经点 + 瓶颈迁移
+    新增增量（canonical 较弱）：
+      - poisson-001（稀疏跳变 vs 连续曲线的心智模型）— canonical 未显性建模
+      - poisson-004（指数分布无记忆性作为反等待时长论证）— 数学锚点 canonical 缺失
+      - poisson-007（现金作为换座选择权）— H_C 层 canonical 未显性表达
+      - poisson-010（λ × payoff 四象限）— canonical 无此分类器
+      - poisson-011（仓位在事件前准备好 vs 确定性后追）— 时序策略 canonical 未显性

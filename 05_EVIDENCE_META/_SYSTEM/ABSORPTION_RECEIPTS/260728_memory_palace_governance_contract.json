@@ -1,0 +1,75 @@
+{
+  "contract_id": "MP-20260728-01",
+  "authorization": "PLEASE IMPLEMENT THIS PLAN",
+  "authorization_date": "2026-07-28",
+  "approved_plan_path": ".harness_backup/20260728_memory_palace_control/APPROVED_PLAN.md",
+  "approved_plan_sha256": "cfb97d9e19bdcf930369ad7900fe7dc25e7bddfd47dbe3cc9409af97dbc9699d",
+  "reviewer_verdict": "PASS",
+  "reviewer_scope": "exact governance control files only; no directory wildcard, trade, capital, or deletion authority",
+  "control_targets": [
+    {
+      "write_target": "AGENTS.md",
+      "operation": "modify",
+      "before_sha256": "afc63e873578fd7fe4691088ea2249c48ca8b4622c7e09e7cb9c3a9ee1e12c8d",
+      "after_sha256": "12ca4bc1a7442201678c318310b22ff9c2822c45e27f103acfd34f50d501531a",
+      "backup_path": ".harness_backup/20260728_memory_palace_control/AGENTS.md",
+      "restore_command": "cp -p '.harness_backup/20260728_memory_palace_control/AGENTS.md' 'AGENTS.md'"
+    },
+    {
+      "write_target": "00_HOME/HOME.md",
+      "operation": "modify",
+      "before_sha256": "b2e6b5fb443f9ca8de8b81d46152e193c134c74f6c99b9ec115cd277507b076e",
+      "after_sha256": "1d3d490ba4d1890ad4c6437a19187a61f63cb05d7954a97c7ce648d7df0fb338",
+      "backup_path": ".harness_backup/20260728_memory_palace_control/00_HOME/HOME.md",
+      "restore_command": "cp -p '.harness_backup/20260728_memory_palace_control/00_HOME/HOME.md' '00_HOME/HOME.md'"
+    },
+    {
+      "write_target": "00_HOME/CONTENT_ROUTER.md",
+      "operation": "modify",
+      "before_sha256": "95e8d3950d18041ad30d4be4372be3c050fc8a4d16831982fec36ca6df9eea27",
+      "after_sha256": "fc4a1331e57cdd8a6270ad607aca8f83561a72d449a21d596f47865f39f4f7ce",
+      "backup_path": ".harness_backup/20260728_memory_palace_control/00_HOME/CONTENT_ROUTER.md",
+      "restore_command": "cp -p '.harness_backup/20260728_memory_palace_control/00_HOME/CONTENT_ROUTER.md' '00_HOME/CONTENT_ROUTER.md'"
+    },
+    {
+      "write_target": "02_术/TRADING_SYSTEM/01_RESEARCH_FLOW.md",
+      "operation": "modify",
+      "before_sha256": "053e389bca67f20816d3c94f0ea6642b7f27b687c5cb540898f1c50e4dca6661",
+      "after_sha256": "573a4b4f2305b4eb7e32cc375d81b46497efe7d80d8f15e361698dbc3318dc90",
+      "backup_path": ".harness_backup/20260728_memory_palace_control/02_术/TRADING_SYSTEM/01_RESEARCH_FLOW.md",
+      "restore_command": "cp -p '.harness_backup/20260728_memory_palace_control/02_术/TRADING_SYSTEM/01_RESEARCH_FLOW.md' '02_术/TRADING_SYSTEM/01_RESEARCH_FLOW.md'"
+    },
+    {
+      "write_target": "90_AUTOMATION/PROMPTS/INVESTMENT_HARNESS.md",
+      "operation": "modify",
+      "before_sha256": "14a81677c00d6b19d8af106c7ea0eb63749a7c9d0aecf2fcafbdcf8fd2d8e6a0",
+      "after_sha256": "829b4e43d44c13e77c51f39963386196c0145b53109e6cb7ca5728058fbb5044",
+      "backup_path": ".harness_backup/20260728_memory_palace_control/90_AUTOMATION/PROMPTS/INVESTMENT_HARNESS.md",
+      "restore_command": "cp -p '.harness_backup/20260728_memory_palace_control/90_AUTOMATION/PROMPTS/INVESTMENT_HARNESS.md' '90_AUTOMATION/PROMPTS/INVESTMENT_HARNESS.md'"
+    },
+    {
+      "write_target": "90_AUTOMATION/PIPELINES/validate_investment_output.py",
+      "operation": "modify",
+      "before_sha256": "00a1aec7ac8fbe47ce4cad2b0b8c37ba6028f52de230b5af573acf291c94d9c7",
+      "after_sha256": "b61c6545b16cdce80e67447ca1e18d4407e15e10eec3f276fecaea57016a5713",
+      "backup_path": ".harness_backup/20260728_memory_palace_control/90_AUTOMATION/PIPELINES/validate_investment_output.py",
+      "restore_command": "cp -p '.harness_backup/20260728_memory_palace_control/90_AUTOMATION/PIPELINES/validate_investment_output.py' '90_AUTOMATION/PIPELINES/validate_investment_output.py'"
+    },
+    {
+      "write_target": "90_AUTOMATION/PIPELINES/validate_input_schema.json",
+      "operation": "create",
+      "before_sha256": "MISSING",
+      "after_sha256": "3e143c646f64dc83abee6e7bacfd0ccb1adb2a22c446c9fdcc22624101aadca8",
+      "backup_path": "",
+      "restore_command": "rm '90_AUTOMATION/PIPELINES/validate_input_schema.json'"
+    },
+    {
+      "write_target": "90_AUTOMATION/TESTS/test_investment_output.py",
+      "operation": "modify",
+      "before_sha256": "dafa84dbdbcc8366fa4140cdfc2709486b34ce7b78ea63300da16ef5868b098a",
+      "after_sha256": "5b1ff8a10176747e081fedbb7041469ddb624e747481d2ed7146437fae8eb93f",
+      "backup_path": ".harness_backup/20260728_memory_palace_control/90_AUTOMATION/TESTS/test_investment_output.py",
+      "restore_command": "cp -p '.harness_backup/20260728_memory_palace_control/90_AUTOMATION/TESTS/test_investment_output.py' '90_AUTOMATION/TESTS/test_investment_output.py'"
+    }
+  ]
+}

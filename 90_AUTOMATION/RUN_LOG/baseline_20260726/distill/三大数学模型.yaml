@@ -1,0 +1,530 @@
+article_id: 三大数学模型
+article_path: /Users/murphy/Documents/Obsidian Vault/Clippings/当我们无路可走时，觉投资三大底层数学模型之美？.md
+article_dominant_type: principle
+article_one_line: 投资是概率更新 + 跳跃等待 + 幂律配置的复合系统，三大数学模型分别对应认知纪律、时间纪律与仓位纪律。
+
+distilled_units:
+
+  # ============================================================
+  # 模型一：贝叶斯（Bayesian Updating）
+  # ============================================================
+
+  - unit_id: math-bayes-001
+    type: principle
+    claim: 持仓的本质不是某只股票，而是"该资产正从低价值状态迁移到高价值状态"的后验概率。
+    mechanism: 公司名/ticker 不变 → 但市场定价的"对象"已切换（如周期零部件 → AI 瓶颈节点；稳定软件 → 被颠覆的旧工作流）→ 投资价值 = 状态后验 × 赔率 × 路径可承受性 → 三项任一恶化，原 thesis 失效。
+    prerequisites:
+      - 能显性写出"原来的投资假设是什么"
+      - 能区分"独立证据"与"同一叙事的回声"
+      - 能分别估计状态后验、赔率、路径可承受性三个分量
+    invalid_conditions:
+      - 资产处于稳态无状态迁移（如纯息股、稳定公用事业）
+      - 投资人无法命名"市场当前定价的对象"
+    signals:
+      - 同一 ticker 但行业分类、竞争对手、客户结构发生切换
+      - 估值语法从一套框架换到另一套（如 PE 切到 PS 切到 EV/Sales）
+      - 公司公告中出现此前未出现的角色（新客户、新供应商、新监管）
+    counter_view: 多数公司确实还是同一个对象，状态迁移叙事常被用来为高估值辩护；需要警惕把任何变化都包装成"状态迁移"。
+    confidence: medium
+    empirical_support: 作者用框架性语言陈述，未提供状态迁移识别的样本统计或回测。
+    source_refs:
+      article: 三大底层数学模型
+      location: 第一节"投资不是证明自己正确"章节（第144-170段）
+    decision_use: H_B
+    forbidden_inference: 不能因"对象可能迁移"就跳过三层肉估值；状态迁移本身不授权任何仓位。
+    draft_state: candidate
+
+  - unit_id: math-bayes-002
+    type: anti_pattern
+    claim: 把先验当信仰（"我喜欢这家公司，它过去很优秀"）是投资者最常见错误；当证据斜率改变时仍死守旧先验，先验就从智慧变成执念。
+    mechanism: 过去优秀 → 给高先验 → 世界变了（客户预算、竞争方式、定价逻辑变化）→ 投资人维护自我一致性，继续合理化 → 先验与后验差距扩大 → 决策与真实世界脱钩。
+    prerequisites:
+      - 持仓已有较深认知投入或浮盈/浮亏锚定
+      - 公司经营环境出现可观察但被忽视的变化信号
+    invalid_conditions:
+      - 证据斜率并未改变，原 thesis 仍然成立
+      - 短期价格波动但经营证据反向强化
+    signals:
+      - 复盘时反复出现"市场不懂""别人不明白"等身份化语言
+      - 新增经营证据长期低于预期但 thesis 不更新
+      - 用"长期主义"包装不愿更新
+    counter_view: 部分真正长期复利公司（如伟大品牌）确实需要穿越多个被怀疑周期，过度更新会卖飞赢家。
+    confidence: medium
+    empirical_support: 作者用框架性描述，未提供"先验更新失败"的行为样本统计。
+    source_refs:
+      article: 三大底层数学模型
+      location: 第一节"投资者最大的错误…把先验当成信仰"段落（第127-141段）
+    decision_use: 行为阀
+    forbidden_inference: 不能用此规则要求每次负面信号都立即更新；只是反对"无视证据斜率变化"的信仰化持有。
+    draft_state: candidate
+
+  - unit_id: math-bayes-003
+    type: heuristic
+    claim: 评估证据时必须区分"独立证据"与"同一叙事的回声"，回声不应叠加提升后验。
+    mechanism: 多个独立根证据（客户/收入/毛利/订单/产业链/价格行为）→ 互相印证提升后验 → 同根信息（多家媒体转述同一信源）→ 实际是单一证据 → 投资人误把回声当多源确认 → 后验被高估。
+    prerequisites:
+      - 能追溯到每条证据的原始信源
+      - 能判断两条证据是否同根
+    invalid_conditions:
+      - 信源链无法追溯
+      - 证据来自同一公司公告的不同转述
+    signals:
+      - 证据清单中能标注"同根/独立"
+      - 同根证据合并后不重复计入后验更新
+    counter_view: 完全独立的证据在现实中很少，多数产业证据都共享上游信号源；强行二分可能制造伪精确。
+    confidence: medium
+    empirical_support: 作者在自检清单中列出但未提供分类方法或样本统计。
+    source_refs:
+      article: 三大底层数学模型
+      location: 第一节"贝叶斯思想要求我们不断问"列表（第161-169段）
+    decision_use: H_B
+    forbidden_inference: 不能因"无法证明独立"就否定所有证据；只能要求显性追溯。
+    draft_state: candidate
+
+  - unit_id: math-bayes-004
+    type: heuristic
+    claim: 投资价值由"状态后验 × 赔率 × 路径可承受性"三项乘积构成，只看第一项（公司好不好）会系统性误判。
+    mechanism: 公司好（状态后验高）但已被价格充分反映（赔率低）→ 净期望低；公司好但中间波动不可承受（路径风险高）→ 实际持仓期回报低 → 三项独立乘积而非加和。
+    prerequisites:
+      - 能分别评估三项而非合并判断
+      - 有路径可承受性的量化口径（最大回撤、波动、时间）
+    invalid_conditions:
+      - 三项无法独立估计
+      - 路径可承受性受投资人体量与心理阈值主导，不可比
+    signals:
+      - 决策日志中三项分别有数值或区间
+      - 路径风险有 stress test
+    counter_view: 三项乘积形式大于实质；估计误差叠加后净期望不可信。
+    confidence: low
+    empirical_support: 作者给出公式但未提供参数估计方法或回测。
+    source_refs:
+      article: 三大底层数学模型
+      location: 第一节"投资价值 = 状态后验×赔率×路径可承受性"段落（第170-194段）
+    decision_use: H_R
+    forbidden_inference: 不能用伪精确乘积为结论授权；公式是思维框架不是定价模型。
+    draft_state: candidate
+
+  - unit_id: math-bayes-005
+    type: principle
+    claim: 把错误归因为"先验被证伪 / 证据权重错误 / 触发器缺失 / 仓位过大 / 右尾识别不足 / 左尾防护不足"，可修复；归因为"我不行"，会崩溃。
+    mechanism: 错误发生 → 系统化分类归因 → 每类对应可改进的机制（更新先验、加权证据、设计触发器、调整仓位、强化右尾识别、左尾对冲）→ 错误变成信息 → 系统进化；归因到"人格失败" → 情绪溃败 → 行为变形。
+    prerequisites:
+      - 有显性的错误归因框架
+      - 决策日志能复盘到具体机制层
+    invalid_conditions:
+      - 错误源于纯随机性（黑天鹅、不可观测事件）
+      - 归因框架本身不完整
+    signals:
+      - 复盘记录能落到机制层而非"判断力问题"
+      - 同类错误频率下降
+    counter_view: 部分错误确实涉及认知能力天花板，纯机制归因会掩盖需要的能力建设。
+    confidence: medium
+    empirical_support: 作者陈述框架，无样本统计。
+    source_refs:
+      article: 三大底层数学模型
+      location: 第四节"真正伤人的不是错误…如果错误被拆解为…"段落（第416-419段）
+    decision_use: 行为阀
+    forbidden_inference: 不能用此规则否定情绪性复盘的合理性；只是反对停留在人格归因。
+    draft_state: candidate
+
+  - unit_id: math-bayes-006
+    type: anti_pattern
+    claim: 价格已经反映甚至过度反映某个后验时，继续加仓不是更新而是追涨。
+    mechanism: 状态后验上升 → 市场逐步定价 → 价格超过合理反映 → 后验改善已被透支 → 净期望从"状态改善 × 剩余赔率"变为"状态改善 × 已压缩赔率" → 加仓等同于押注市场继续过度定价。
+    prerequisites:
+      - 能评估当前价格对状态后验的反映程度
+      - 有估值语法和定价 slack 估计
+    invalid_conditions:
+      - 价格仍处于未反映区间
+      - 状态迁移仍在加速，后验仍在上升且未被充分定价
+    signals:
+      - 估值分位已达历史高位或与同类公司倒挂
+      - 卖方全面上调评级、叙事成为市场共识
+    counter_view: 真正的幂律赢家在长时间维度上会持续打破"已过度定价"的判断。
+    confidence: medium
+    empirical_support: 作者在自检列表中提出，未提供回测。
+    source_refs:
+      article: 三大底层数学模型
+      location: 第一节自检问"价格是否已经充分反映，甚至过度反映"（第168段）
+    decision_use: H_R
+    forbidden_inference: 不能用此规则否定所有追涨；前提是能识别"过度反映"vs"仍在合理反映"。
+    draft_state: candidate
+
+  # ============================================================
+  # 模型二：泊松过程（Poisson Process）
+  # ============================================================
+
+  - unit_id: math-poisson-001
+    type: principle
+    claim: 市场不是匀速河流，而是由跳跃事件组成的网络；信息传播加速使该特征强化。
+    mechanism: 财报/新闻/社媒/期权/ETF/量化/AI 摘要/机构仓位/主题资金 → 极短时间内形成共振 → 资产价格不连续积累而是跳跃 → 用"每天研究一点每天收益一点"的线性心智会持续误判节奏。
+    prerequisites:
+      - 资产价格受事件驱动（非纯息票类）
+      - 投资人用日/周时间尺度做决策
+    invalid_conditions:
+      - 资产收益结构是连续现金流（高息股、REITs、债券）
+      - 已在末端兑现阶段
+    signals:
+      - 持仓长期收益集中于少数跳跃窗口
+      - "刚开始理解一个主题时它已被定价"成为常态
+    counter_view: 部分资产（深度价值、长期复利）确实存在连续积累特征，不能完全用跳跃模型解释。
+    confidence: medium
+    empirical_support: 作者描述性陈述，未提供跳跃 vs 连续收益分布的样本统计。
+    source_refs:
+      article: 三大底层数学模型
+      location: 第二节"事件到来方式越来越跳跃"章节（第51-60段）
+    decision_use: 收益来源识别
+    forbidden_inference: 不能因"跳跃世界"否定日常证据维护；跳跃本身由前期证据积累触发。
+    draft_state: candidate
+
+  - unit_id: math-poisson-002
+    type: heuristic
+    claim: 系统应允许"行动 / 观察 / 等待"三种状态合法存在；只尊重行动、不尊重等待是行为缺陷。
+    mechanism: 机会稀疏跳跃到来 → 强制每天行动会制造误判 → 合法等待需要预先定义触发器、退出条件、仓位与等待期风险匹配 → 等待从被动焦虑转为主动研究行为。
+    prerequisites:
+      - 能命名等待的具体事件
+      - 有 falsifier 清单
+      - 有周期性 review clock
+    invalid_conditions:
+      - 无法命名等待事件
+      - 没有退出条件
+      - 没有 review 节奏
+    signals:
+      - 持仓日志能写出等待对象与 falsifier
+      - review 触发时确实发生加仓/减仓/退出动作
+    counter_view: 过度结构化等待可能让人对真正的意外事件反应迟钝。
+    confidence: medium
+    empirical_support: 作者陈述三状态框架，未提供对照样本。
+    source_refs:
+      article: 三大底层数学模型
+      location: 第二节"真正的系统应该允许三种状态合法存在"段落（第273-278段）
+    decision_use: 行为阀
+    forbidden_inference: 不能因"等待合法"包装无行动力的长期套牢；合法等待的前提是触发器与 falsifier 已定义。
+    draft_state: candidate
+
+  - unit_id: math-poisson-003
+    type: principle
+    claim: 耐心不是性格美德，而是对随机事件结构的数学适应。
+    mechanism: 事件以泊松过程稀疏到来 → 焦虑、强制行动不召唤事件 → 等待本身是数学上的最优策略 → 把等待合理化为系统状态而非情绪状态 → 减少情绪磨损与误判成本。
+    prerequisites:
+      - 投资人能识别 λ 与证据斜率
+      - 系统允许等待状态
+    invalid_conditions:
+      - λ 已下降或证据斜率为负仍坚持等待
+      - 等待无 falsifier
+    signals:
+      - 无事件期不发生强制交易
+      - 等待期不出现焦虑性换仓
+    counter_view: 耐心也可能源于懒惰或逃避决策，将"不行动"美化为"数学适应"会掩盖能力不足。
+    confidence: low
+    empirical_support: 作者哲学化陈述，未提供行为样本统计。
+    source_refs:
+      article: 三大底层数学模型
+      location: 第二节"耐心不是性格美德，而是对随机事件结构的数学适应"段落（第280-285段）
+    decision_use: 行为阀
+    forbidden_inference: 不能用此格言为不研究不更新辩护；前提是 λ 与证据仍在跟踪。
+    draft_state: candidate
+
+  - unit_id: math-poisson-004
+    type: signal
+    claim: "什么都看起来有点道理，但什么都不够确定"的状态不是失败，是泊松过程的合法中间态。
+    mechanism: 多事件可能但 λ 不足、证据密度未到临界 → 投资人面临"买怕追高、不买怕错过、卖怕卖飞、不卖怕回撤、对冲怕磨损、不对冲怕暴跌"的精神困境 → 这是事件未到达的合法状态 → 强行决策制造误判成本。
+    prerequisites:
+      - 有显性的触发器清单
+      - 能区分"证据未到临界"与"证据已恶化"
+    invalid_conditions:
+      - 证据已明显恶化仍坚持不行动
+      - 仓位结构本身需要再平衡
+    signals:
+      - 持仓在困境期保持稳定
+      - 触发器未到前不发生冲动交易
+    counter_view: 部分困境状态实际是能力不足（无法识别 λ），将其归因为"合法中间态"会掩盖识别短板。
+    confidence: low
+    empirical_support: 作者描述性陈述，无样本统计。
+    source_refs:
+      article: 三大底层数学模型
+      location: 第二节"很多投资者最不舒服的阶段…"段落（第255-265段）
+    decision_use: 行为阀
+    forbidden_inference: 不能用此规则否定调仓；前提是触发器清单与 falsifier 已存在。
+    draft_state: candidate
+
+  # ============================================================
+  # 模型三：幂律分布（Power Law）
+  # ============================================================
+
+  - unit_id: math-power-001
+    type: principle
+    claim: 投资结果服从幂律而非正态分布；少数右尾决定组合收益，少数左尾决定组合回撤。
+    mechanism: 公司间价值创造严重右偏（少数赢家占大部分利润池）→ 交易层面少数笔贡献大部分收益 → 错误层面少数次大错吞噬多次小正确 → 用平均思维（平均估值、平均增长、平均回撤、平均比较）会系统性误判。
+    prerequisites:
+      - 组合持有多个标的
+      - 资产类别确实呈现幂律特征（科技、VC、新兴产业）
+    invalid_conditions:
+      - 资产类别收益接近正态（成熟公用事业、债券组合）
+      - 投资人无识别右尾与左尾的能力
+    signals:
+      - 组合长期收益主要来自 2-3 个标的
+      - 单次大回撤吞噬全年收益的频率高于均值回归预期
+    counter_view: 多数主动管理组合长期结果更接近正态分布，幂律特征主要存在于 VC 与早期科技投资。
+    confidence: medium
+    empirical_support: 作者描述性陈述，未提供该投资者组合的分布统计。
+    source_refs:
+      article: 三大底层数学模型
+      location: 第三节"市场不是平均世界，而是极少数决定绝大多数"章节（第288-310段）
+    decision_use: 收益来源识别
+    forbidden_inference: 不能因"幂律世界"为追高辩护；幂律赢家识别需要供给/瓶颈/反馈机制支撑，不是"涨得多"。
+    draft_state: candidate
+
+  - unit_id: math-power-002
+    type: anti_pattern
+    claim: 用平均估值看幂律赢家（永远觉得贵）、用平均增长看状态迁移（觉得不可持续）、用平均回撤看泡沫（过早离场）、用平均公司比较（错过幂律生成器）是平均思维的四种典型错误。
+    mechanism: 平均估值假设均值回归 → 但幂律赢家定价语法已切换（PE→PS→EV/Sales）→ 一直"贵"但一直涨 → 平均增长假设线性外推 → 但状态迁移是非线性加速 → 平均回撤假设历史最大回撤是上限 → 但幂律赢家回撤后创新高 → 平均比较忽略结构稀缺性。
+    prerequisites:
+      - 标的处于状态迁移或产业加速期
+      - 投资人估值框架仍停留在旧语法
+    invalid_conditions:
+      - 资产确实处于均值回归区间（成熟周期股）
+      - 平均估值框架仍然适用
+    signals:
+      - 反复出现"太贵""不可能持续""比同类贵太多"但价格继续上行
+      - 历史估值分位失效
+    counter_view: 多数"贵"的公司确实最终均值回归，幂律赢家是少数；用此规则否定估值纪律会陷入泡沫。
+    confidence: medium
+    empirical_support: 作者陈述框架，未提供四种错误的历史频率统计。
+    source_refs:
+      article: 三大底层数学模型
+      location: 第三节"平均思维在投资中常常失效"四条（第305-310段）
+    decision_use: H_R
+    forbidden_inference: 不能用此规则否定估值纪律；前提是已识别为幂律赢家（见 power-003）。
+    draft_state: candidate
+
+  - unit_id: math-power-003
+    type: heuristic
+    claim: 幂律赢家的真正来源是七项结构条件，缺一不可；"涨得多"不等于幂律赢家。
+    mechanism: 需求函数巨大变化 + 供给短期无法弹性扩张 + 节点成为系统瓶颈 + 规模越大优势越强 + 客户验证形成正反馈 + 资本市场提高终局后验 + 叙事业绩资金流自强化 → 形成持续指数增长 → 而非情绪推动的短期上涨。
+    prerequisites:
+      - 能逐项评估七项条件
+      - 能区分结构条件 vs 短期情绪驱动
+    invalid_conditions:
+      - 七项中多项缺失
+      - 价格上涨主要由情绪与叙事推动而非结构条件
+    signals:
+      - 公司在产业链中确实是稀缺瓶颈（客户、竞争对手、供应商验证）
+      - 规模扩大后毛利率/市占率/议价权持续上升
+      - 资本市场终局假设持续上调
+    counter_view: 七项条件事后看清晰，事前识别困难；部分条件（如"叙事自强化"）本身就是泡沫特征。
+    confidence: medium
+    empirical_support: 作者列举七项条件，未提供识别准确率统计。
+    source_refs:
+      article: 三大底层数学模型
+      location: 第三节"幂律真正的来源是"列表（第318-326段）
+    decision_use: H_B
+    forbidden_inference: 不能用此规则为任何热门股辩护；七项条件需逐项验证而非笼统宣称。
+    draft_state: candidate
+
+  - unit_id: math-power-004
+    type: principle
+    claim: 幂律世界的核心策略不是"每件事都做对"，而是"不在左尾毁灭 + 能识别右尾 + 右尾出现时给足合法仓位 + 右尾衰减时贝叶斯更新 + 不把曾经右尾当永恒资产"。
+    mechanism: 幂律分布下平均努力无效 → 资源必须集中于关键变量 → 左尾防护（避免毁灭）+ 右尾识别（结构条件）+ 仓位勇气（合法仓位）+ 更新纪律（衰减时减仓）+ 去神圣化（不依赖单一赢家）→ 五项构成幂律投资闭环。
+    prerequisites:
+      - 有左尾防护机制（仓位上限、对冲、止损）
+      - 有右尾识别框架（power-003 七项）
+      - 有仓位与更新纪律
+    invalid_conditions:
+      - 任一环节缺失
+      - 仓位勇气脱离识别框架变成赌博
+    signals:
+      - 组合未出现毁灭性单笔损失
+      - 真正的大赢家仓位足够（非装饰性仓位）
+      - 赢家衰减时有减仓动作
+    counter_view: "给足合法仓位"在事前极难判断；过度集中可能放大错判成本。
+    confidence: medium
+    empirical_support: 作者陈述框架，未提供样本统计。
+    source_refs:
+      article: 三大底层数学模型
+      location: 第三节"你真正需要的是"列表（第347-353段）
+    decision_use: H_C
+    forbidden_inference: 不能用此规则为集中持仓辩护；前提是 power-003 七项已验证。
+    draft_state: candidate
+
+  - unit_id: math-power-005
+    type: anti_pattern
+    claim: 把曾经的右尾资产神圣化、把方法变成身份、把主题变成宗教，是市场最擅长惩罚的失败模式。
+    mechanism: 资产曾带来巨大收益 → 投资人将其身份化 → 即使结构条件变化仍死守 → 市场重新定价时不愿更新 → 类似信仰化持有（与 bayes-002 同构但更严重，因为右尾的财富记忆更深）。
+    prerequisites:
+      - 持仓曾是大赢家（带来主要组合收益）
+      - 公司基本面或产业结构出现变化
+    invalid_conditions:
+      - 公司仍是结构稀缺节点且产业加速持续
+      - 减仓只是因价格波动而非结构变化
+    signals:
+      - 反复用"它从来没让我失望过""这次也一样"等语言
+      - 即便结构条件恶化仍拒绝更新
+      - 把对该资产的信念作为自我认同的一部分
+    counter_view: 真正的长期赢家（伟大品牌）确实需要穿越多个被怀疑周期；过度更新会卖飞复利机器。
+    confidence: medium
+    empirical_support: 作者陈述模式，未提供样本统计。
+    source_refs:
+      article: 三大底层数学模型
+      location: 第三节"右尾给人财富，也给人执念"段落（第357-368段）
+    decision_use: 行为阀
+    forbidden_inference: 不能用此规则要求每次大赢家都更新；前提是结构条件已变化。
+    draft_state: candidate
+
+  - unit_id: math-power-006
+    type: heuristic
+    claim: 幂律投资的心法是"爱机制不爱资产，爱状态不爱标签，爱后验不爱过去的自己"。
+    mechanism: 资产/标签/过去的自己是身份锚 → 一旦锚定就难以更新 → 把锚从"具体资产"切换到"机制/状态/后验" → 持仓可换、方法可改、过去的判断可被证伪 → 系统保持进化能力。
+    prerequisites:
+      - 投资人能区分"机制"与"具体资产"
+      - 心理上能承受卖飞与认错
+    invalid_conditions:
+      - 投资人无法将身份与具体持仓分离
+      - 机制本身不清晰
+    signals:
+      - 大赢家减仓时无强烈情绪阻力
+      - 复盘能显性区分"过去的自己"与"现在的判断"
+    counter_view: 机制仍需通过具体资产兑现；过度抽象可能导致空谈方法论而无实际持仓。
+    confidence: low
+    empirical_support: 作者哲学化陈述，无样本统计。
+    source_refs:
+      article: 三大底层数学模型
+      location: 第三节"爱机制，不爱资产；爱状态，不爱标签；爱后验，不爱过去的自己"段落（第367-368段）
+    decision_use: 行为阀
+    forbidden_inference: 此为格言式提醒，不能作为具体决策依据；落地仍需走 H_B / H_R / H_C。
+    draft_state: candidate
+
+  # ============================================================
+  # 三模型合一
+  # ============================================================
+
+  - unit_id: math-unified-001
+    type: principle
+    claim: 长期结果 = 更新能力 × 等待能力 × 右尾捕捉能力 × 左尾毁灭风险（倒数）。
+    mechanism: 贝叶斯（更新）× 泊松（等待）× 幂律（右尾捕捉）× 左尾防护（避免毁灭）→ 四项乘积 → 任一项归零则长期结果归零 → 投资系统需同时建设四项能力而非偏废。
+    prerequisites:
+      - 四项能力分别有可衡量指标
+      - 任一项失败时不被其他项优势掩盖
+    invalid_conditions:
+      - 任一项不可观察或不可改进
+      - 投资人风格偏废某一项（如纯价值忽略更新）
+    signals:
+      - 系统四项分别有 review 机制
+      - 任一项退化能触发预警
+    counter_view: 乘积形式掩盖了四项之间的相关性与替代关系；纯加和或加权形式可能更接近真实。
+    confidence: low
+    empirical_support: 作者给出公式但未提供参数估计或回测。
+    source_refs:
+      article: 三大底层数学模型
+      location: 第四节"长期结果 = 更新能力×等待能力×右尾捕捉能力×左尾毁灭风险"段落（第391-393段）
+    decision_use: 收益来源识别
+    forbidden_inference: 公式是思维框架不是定价模型；不能伪精确化。
+    draft_state: candidate
+
+  - unit_id: math-unified-002
+    type: heuristic
+    claim: 用贝叶斯更新认知，用泊松心态等待事件，用幂律眼光配置资本。
+    mechanism: 三模型分别对应认知层、时间层、资本层 → 认知用贝叶斯（避免信仰化）→ 时间用泊松（合法等待）→ 资本用幂律（集中右尾）→ 三层独立但协同 → 形成投资纪律闭环。
+    prerequisites:
+      - 能在三个层面分别应用对应模型
+      - 三层之间不混淆（如用幂律心态更新认知会过度集中）
+    invalid_conditions:
+      - 三模型被笼统应用而不分层
+      - 单一模型压倒其他（如过度幂律化忽视更新）
+    signals:
+      - 认知决策、时间决策、资本决策分别有显性框架
+      - 三层框架互相校验
+    counter_view: 三层在实际决策中高度耦合，强行分层可能制造伪结构。
+    confidence: low
+    empirical_support: 作者哲学化总结，无样本统计。
+    source_refs:
+      article: 三大底层数学模型
+      location: 第四节"用贝叶斯更新认知，用泊松心态等待事件，用幂律眼光配置资本"段落（第398段）
+    decision_use: 行为阀
+    forbidden_inference: 此为格言式提醒；具体决策仍需分别走 H_B / H_R / H_L / H_C。
+    draft_state: candidate
+
+  - unit_id: math-unified-003
+    type: case_pattern
+    claim: 三类典型痛苦的归因可分别映射到三模型——买错=先验被证伪、卖飞=路径与仓位设计待更新、错过=右尾识别机制不敏感、等待=泊松合法状态、亏损=赔率/路径/时间窗不匹配。
+    mechanism: 痛苦发生 → 用对应模型归因 → 每类痛苦指向具体可改进机制（更新先验、设计路径仓位、提高右尾敏感度、合法等待、调整赔率路径时间）→ 痛苦转化为系统改进信号。
+    prerequisites:
+      - 投资人能识别痛苦类型并匹配到模型
+      - 有显性归因框架
+    invalid_conditions:
+      - 痛苦源于纯随机事件（无法归因到机制）
+      - 投资人无法识别痛苦类型
+    signals:
+      - 复盘记录能将痛苦映射到具体模型
+      - 同类痛苦频率下降
+    counter_view: 多数痛苦实际是多模型耦合结果，强行单一归因可能掩盖问题复杂性。
+    confidence: medium
+    empirical_support: 作者陈述映射表，未提供样本统计。
+    source_refs:
+      article: 三大底层数学模型
+      location: 第82-88段（"贝叶斯、泊松和幂律的角度看…"列表）
+    decision_use: 行为阀
+    forbidden_inference: 不能用此映射否定情绪性复盘；只是反对停留情绪层。
+    draft_state: candidate
+
+  - unit_id: math-unified-004
+    type: principle
+    claim: 投资不是预测游戏，而是生存与更新游戏；只要更新系统还在，就没有真正失败。
+    mechanism: 世界会变 / 主题会变 / 赢家会变 / 估值体系会变 / 资金偏好会变 → 单一预测会失效 → 但只要更新系统（证据→概率→赔率→仓位→复盘→方法后验更新）保持运作 → 投资人仍能持续靠近真实 → 失败可恢复。
+    prerequisites:
+      - 有显性的更新循环（证据→概率→赔率→仓位→复盘→方法更新）
+      - 循环每个环节有可执行机制
+    invalid_conditions:
+      - 任一环节缺失或卡死
+      - 更新循环被身份/情绪/外部压力阻断
+    signals:
+      - 决策日志能看到完整循环运转
+      - 错误后系统能恢复并改进
+    counter_view: 部分失败（如巨大左尾毁灭）不可恢复；"只要更新系统还在"是有条件的乐观主义。
+    confidence: low
+    empirical_support: 作者哲学化陈述，无样本统计。
+    source_refs:
+      article: 三大底层数学模型
+      location: 第四节"证据→概率→赔率→仓位→复盘→方法后验更新"段落（第436-454段）
+    decision_use: 行为阀
+    forbidden_inference: 此为信念支撑，不能作为放弃左尾防护的借口。
+    draft_state: candidate
+
+self_audit:
+  total_units: 19
+  fabricate_probability_check: passed
+  all_units_have_prerequisites: true
+  all_units_have_invalid_conditions: true
+  source_refs_traceable: true
+  weakest_unit_id: math-power-006
+  overlap_with_canonical: |
+    高度重叠 BEHAVIOR_REVIEW：
+      - math-bayes-002（先验信仰化）≈ BEHAVIOR_REVIEW "已经跌很多/想加仓冻结 24 小时"
+      - math-bayes-005（错误系统化归因）≈ BEHAVIOR_REVIEW 九问反方审查
+      - math-poisson-002（三合法状态）≈ BEHAVIOR_REVIEW review clock
+      - math-poisson-003（耐心是数学适应）≈ BEHAVIOR_REVIEW 冷静期
+      - math-power-005（右尾资产神圣化）≈ BEHAVIOR_REVIEW "回本愿望/连续亏损"
+      - math-power-006（爱机制不爱资产）≈ BEHAVIOR_REVIEW 身份化语言检测
+
+    高度重叠 投资是泊松过程 canonical（同作者、同主题）：
+      - math-poisson-001 ≈ poisson-001（稀疏跳变 vs 连续曲线）
+      - math-poisson-002 ≈ poisson-005（高质量等待三条件）
+      - math-poisson-003 ≈ poisson-004（等待时长幻觉的反面）
+      - math-poisson-004 ≈ poisson-009（区分价格异动性质）
+
+    部分重叠 EXPECTATIONS_VALUATION / 三层肉：
+      - math-bayes-001（状态迁移）≈ 三层肉 + 市场在相信什么
+      - math-bayes-004（投资价值三乘积）≈ 三层肉 + 反推情景
+      - math-power-002（平均估值四错）≈ 三层肉定价语法切换
+      - math-power-003（幂律七项条件）≈ STRUCTURAL_CHANGE_BOTTLENECK 必经点
+
+    部分重叠 STRUCTURAL_CHANGE_BOTTLENECK：
+      - math-bayes-001（状态迁移）≈ 瓶颈迁移 + 必经点
+      - math-power-003（七项结构条件）≈ 瓶颈节点 + 规模反馈
+
+    新增增量（canonical 较弱）：
+      - math-bayes-003（独立证据 vs 同根回声）— canonical 未显性建模"证据同根性"
+      - math-bayes-006（价格已过度反映后验时的加仓即追涨）— 显性锚定 H_R 层的"过度反映"概念
+      - math-power-004（幂律五项闭环：左尾防护 + 右尾识别 + 仓位勇气 + 更新 + 去神圣化）— canonical 未将幂律投资策略整合为单一闭环
+      - math-unified-001（更新 × 等待 × 右尾 × 左尾 四项乘积）— canonical 无统一公式
+      - math-unified-003（痛苦→模型映射表）— canonical 未将情绪性痛苦映射到三模型

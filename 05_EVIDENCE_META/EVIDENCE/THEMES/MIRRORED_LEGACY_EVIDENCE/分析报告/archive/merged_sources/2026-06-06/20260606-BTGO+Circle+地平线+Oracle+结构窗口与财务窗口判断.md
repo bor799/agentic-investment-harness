@@ -1,0 +1,276 @@
+---
+title: "20260606-BTGO+Circle+地平线+Oracle+结构窗口与财务窗口判断"
+date: 2026-07-24
+updated: 2026-07-24
+layer: EVIDENCE
+primary_role: legacy_analysis_evidence
+status: archived
+authored_by: human_ai
+source_type: PX
+human_reviewed: false
+decision_authority: none
+legacy_metadata_added: true
+legacy_path: "分析报告/archive/merged_sources/2026-06-06/20260606-BTGO+Circle+地平线+Oracle+结构窗口与财务窗口判断.md"
+migration_target: "05_EVIDENCE_META/EVIDENCE/THEMES"
+source_paths:
+  - 分析报告/archive/260723系统_Murphy投资系统工程重构方案.md
+---
+# BTGO / Circle / 地平线 / Oracle：结构窗口与财务窗口判断
+
+更新日期：2026-06-06  
+核心问题：这些标的是不是进入了“供给稀缺、估值尚未充分反映、需求逐渐变大”的结构窗口？如果是，财务窗口是否已经好到可以提前埋伏？
+
+结论先放前面：这四个标的不是同一种机会。
+
+Circle 是已经转起来的秩序机器，但价格不算便宜；BTGO 是最便宜的期权，但机器还没证明自己；地平线是产业结构最真实的候选，但财务窗口还不干净；Oracle 是老秩序重新长出 AI 云枝干的验证器，不是这轮最高赔率标的。
+
+真正适合“结构变化前埋伏”的不是看故事最顺的，而是看：需求已经开始挤压旧供给，但财务报表还没完全兑现，市场还没把它当成新秩序定价。按这个标准，排序是：
+
+| 排名 | 标的 | 结构窗口 | 财务窗口 | 价格窗口 | 动作 |
+|---|---|---|---|---|---|
+| 1 | Circle / CRCL | 已打开 | 已验证 | 不便宜，但仍有条件 | 核心候选，等价格纪律 |
+| 2 | BTGO / BitGo | 可能打开 | 未验证 | 便宜 | 小仓位期权，必须用信号买 |
+| 3 | 地平线 / 9660.HK | 已打开 | 未成熟 | 已预支一部分 | 观察或分段埋伏 |
+| 4 | Oracle / ORCL | 已成熟 | 强但资本开支重 | 不早 | 只做趋势验证 |
+
+## 一、这是什么
+
+| 维度 | BTGO / BitGo | Circle / CRCL | 地平线机器人 / 9660.HK | Oracle / ORCL |
+|---|---|---|---|---|
+| 自定义赛道定义 | 机构数字资产进入合规世界时需要的托管、钱包、交易、结算底座 | 链上美元的发行权、储备收益权和结算网络 | 智能驾驶从高端选配变成主流车标配时的计算平台和量产方案 | 企业关键数据和 AI 训练/推理工作负载的云化底座 |
+| 阶段 | 上市后早期，业务口径仍混乱 | 稳定币监管清晰后进入放量期 | NOA 普及前中期，L3/L4 仍是期权 | 成熟巨头进入 AI capex 周期 |
+| 数据快照 | Q1 2026 客户 5,569；assets on platform $63.0B；FY2025 subscriptions/services $121.5M；stablecoin-as-a-service $66.7M | Q1 2026 USDC 期末流通量 $77.0B；平均流通量 $75.2B；总收入和储备收入 $694M；adjusted EBITDA $151M | FY2025 收入 RMB3.758B；毛利 RMB2.426B；Journey 出货 4.01M 套；NOA-capable 出货占比 45% | Q3 FY2026 OCI revenue $4.9B，+84%；RPO $553B，+325%；TTM FCF -$24.7B |
+| 主要来源 | [BitGo Q1 2026 results](https://www.sec.gov/Archives/edgar/data/1740604/000174060426000028/btgo-exhibit991_2026x05x13.htm)、[BitGo FY2025 10-K](https://www.sec.gov/Archives/edgar/data/1740604/000174060426000020/btgo-form10xk.htm) | [Circle Q1 2026 results](https://www.circle.com/pressroom/circle-reports-first-quarter-2026-results)、[Circle Q1 2026 10-Q](https://www.sec.gov/Archives/edgar/data/1876042/000187604226000150/crcl-20260331.htm) | [地平线 2025 年度业绩公告](https://cdn.financialreports.eu/financialreports/media/filings/51126/2026/RNS/51126_rns_2026-03-19_1075f3cb-9531-4ffb-a1c7-93331d822bba.pdf)、[地平线投资者关系](https://www.horizon.auto/investor-relations) | [Oracle FY2026 Q3 results](https://investor.oracle.com/investor-news/news-details/2026/Oracle-Announces-Fiscal-Year-2026-Third-Quarter-Financial-Results/default.aspx) |
+
+一句话：这四家公司都在争“基础设施收费权”，但 Circle 已经在收费，地平线正在把方案变成量产规模，BTGO 还在从 crypto beta 中证明自己不是纯周期品，Oracle 已经是大机器。
+
+## 二、秩序创造机器判定
+
+### 1. Circle：已经转起来的链上美元机器
+
+**飞轮在转。**  
+USDC 流通量越大，交易所、钱包、开发者、RWA 平台越愿意接入；接入越多，USDC 越像默认结算资产；默认结算资产越强，储备资产越大，Circle 的 reserve income 越大。Q1 2026 平均 USDC 流通量 $75.2B，同比 +39%；链上交易量 $21.5T，同比 +263%；total revenue and reserve income $694M，同比 +20%。这些不是叙事，是已经进入报表的需求。
+
+**冲击后变强。**  
+稳定币经历过 2022 年 crypto 崩盘、2023 年银行风险、监管不确定性。Circle 没有消失，反而在美国稳定币法案和监管清晰后获得更强合法性。GENIUS Act 相关监管推进，强化的是合规发行方的供给稀缺，不是所有稳定币都平权。
+
+**资源在自己来，但需要分销成本。**  
+USDC 不是完全自然垄断，它要付渠道成本。Circle Q1 2026 distribution, transaction and other costs $407M，成本很高。这说明它有引力，但引力需要给渠道分钱。它不是 Visa 那种每笔抽税的纯网络，也不是银行那种完全吃息差的资产负债表；它是“稳定币 float + 合规品牌 + 分销网络”的混合机器。
+
+**判定：秩序创造机器。**  
+它不是搬运旧美元，而是把美元放进链上结算秩序里。问题不是机器转不转，而是当前价格是否已经把未来三年的增长提前吃掉。
+
+### 2. BTGO：可能是机器，也可能只是牛市上的零件
+
+**飞轮尚未证明。**  
+BitGo 有机构托管、钱包、交易、staking、stablecoin infrastructure、OCC national trust bank 这些位置。Q1 2026 客户数 5,569，同比 +42%，normalized assets on platform 同比 +29.4%，这是好的。但 FY2025 reported revenue $16.2B 主要来自 digital asset sales 的 gross accounting，毛利极薄；stablecoin-as-a-service FY2025 revenue $66.7M，但 sponsor fees $64.0M，净留存很小。
+
+**冲击后未充分验证。**  
+如果 crypto 牛市来，BitGo 会受益；如果币价跌、交易活跃度降、staking balances 下滑，它也会受伤。Q1 2026 actual assets on platform $63.0B，同比 -30.4%，但 normalized AoP +29.4%，说明经营增长和币价 beta 缠在一起。它还没把自己从“市场 beta”里拆出来。
+
+**资源有部分自己来，但不是不可替代。**  
+机构客户需要合规托管、审计、钱包权限、结算和交易通道，BitGo 在这一层有位置。但 Coinbase、Fireblocks、Anchorage、银行托管、自建钱包都能吃掉部分需求。BitGo 的稀缺性不是绝对网络效应，而是监管资质、客户集成、产品广度和信任累积。
+
+**判定：有潜力，不是已验证的秩序创造机器。**  
+它便宜，是因为市场还没有相信它能留住利润。这个便宜不是无风险折扣，而是证据不足折扣。
+
+### 3. 地平线：产业秩序在变，但财务机器还没顺滑
+
+**飞轮有结构。**  
+智能驾驶从高端车炫技配置下沉到 15-20 万元主流车，车厂需要更低成本、更快量产、更能通过工程验证的方案。地平线的 Journey 芯片、HSD、算法工具链、生态伙伴交付，正在试图成为这个下沉周期的默认平台。FY2025 Journey 出货 4.01M 套，NOA-capable 硬件出货占比 45%，NOA-capable 出货量约为 2024 年 4.8 倍，ASP 提升 75% 以上。
+
+**冲击后强弱取决于车厂自研。**  
+如果车厂都自研，地平线会被压成低端芯片供应商；如果车厂发现自研成本高、迭代慢、量产风险大，地平线会变强。现实更可能是混合结构：头部高端品牌自研更多，主流车型和出海车型更依赖外部平台。地平线在主流 NOA 价格带的机会比在最高端 L3/L4 更真实。
+
+**资源不是完全自己来，仍要打项目。**  
+>95% 出货来自生态伙伴交付，这是平台性；但汽车供应链的 design-win、定点、SOP、量产爬坡都要一单一单打，这是项目制。它不是互联网平台那种低摩擦扩散。
+
+**判定：有潜力，处于从“平台雏形”到“产业标准”的过渡。**  
+这是一台正在组装的秩序机器。需求真实，但利润留存还没证明。
+
+### 4. Oracle：老秩序重新获得增长，不是早期窗口
+
+**飞轮重新加速。**  
+Oracle 的数据库、OCI、multicloud database 和 AI 合同证明企业关键工作负载仍然会为稳定性、数据、合规和性能付费。Q3 FY2026 OCI revenue +84%，RPO $553B +325%，这是非常强的需求验证。
+
+**但这是资本开支换增长。**  
+TTM operating cash flow $23.5B，capex $48.25B，TTM FCF -$24.7B。Oracle 证明了 AI 云需求真实，也证明了这波基础设施扩张会吞现金。
+
+**判定：秩序创造机器，但不是这组里的高赔率埋伏对象。**  
+Oracle 适合当路标，不适合作为“结构变化前低位埋伏”的主角。
+
+## 三、创生公式
+
+### Circle 的公式
+
+稳定币合规化 -> USDC 流通量上升 -> 结算网络更强 -> 储备资产变大 -> reserve income 增加 -> 更多分销和产品投入 -> USDC 更像链上美元默认资产。
+
+这个公式已经被验证到报表层：USDC average circulation、on-chain transaction volume、reserve income、adjusted EBITDA 都在增长。它的弱点是利率和分销成本。短端利率下降会压 reserve return rate；渠道越强，Circle 留存越少。
+
+### BTGO 的公式
+
+机构进入 crypto/RWA -> 需要合规托管和钱包 -> assets on platform 增加 -> custody/services/trading/staking/stablecoin infra 收费 -> 产品更全、牌照更强 -> 更多机构接入。
+
+这个公式只验证了一半。客户增长和 normalized AoP 增长是真实信号，但 reported revenue 被 digital asset sales gross accounting 放大，stablecoin revenue 的净贡献很薄。BTGO 的核心任务是证明自己不是“牛市成交量的会计放大器”。
+
+### 地平线的公式
+
+主流车需要智驾 -> OEM 买不起也等不起完全自研 -> 地平线提供芯片+算法+工具链+生态交付 -> 出货放大、ASP 提升 -> 研发费用率下降 -> 平台利润释放。
+
+这个公式的前半段已经验证：收入 +57.7%，出货 4.01M 套，NOA-capable 占比大幅提升。后半段没有验证：FY2025 R&D/revenue 137.1%，adjusted operating loss 扩大。地平线的决定性窗口不是“收入高增”，而是“收入高增以后费用率开始塌下来”。
+
+### Oracle 的公式
+
+AI 需要算力和数据 -> 企业把关键负载放进 OCI 和 Oracle Database -> RPO 上升 -> 云收入增长 -> 数据库从存量软件重新变成云时代基础设施。
+
+公式成立，但市场已经知道 Oracle 是大机器，赔率不在“发现它”，而在判断 capex 高峰后 FCF 是否恢复。
+
+## 四、市场看见的 vs 我们看见的
+
+### 1. S 曲线位置
+
+| 标的 | S 曲线位置 | 拐点条件 |
+|---|---|---|
+| Circle | 拐点后早期加速 | USDC 平均流通量突破 $100B 后继续增长；RLDC margin 不被渠道吃掉；other revenue/CPN/Arc 开始贡献非利息收入 |
+| BTGO | 拐点前，证据不够 | subscriptions/services 连续高增；stablecoin net contribution 放大；economic gross contribution 增长快于 reported revenue；actual AoP 和 normalized AoP 同向增长 |
+| 地平线 | 产业拐点已到，财务拐点未到 | HSD/NOA 出货放量；product GM 回到 40%+；R&D/revenue 下破 100% 并继续下降 |
+| Oracle | 加速期，但不是早期 | RPO 转收入，capex/OCF 回落，FCF 修复 |
+
+这里要用你的周期框架：不要预测某月某年，而是识别阶段。结构变化前的好窗口通常不是“财报最漂亮”的时候，而是需求已经不可逆、供给还稀缺、市场还在用旧标签定价的时候。
+
+按这个标准：
+
+- Circle 已经过了“没人看懂”的阶段，但还没到稳定币完全金融基础设施化的成熟阶段。
+- BTGO 仍在“看起来便宜但不知道是不是好”的阶段，最像期权。
+- 地平线在“产业需求变强，但利润表难看”的阶段，典型硬科技拐点前后。
+- Oracle 已经过了“埋伏”阶段，是验证主线是否真实的仪表盘。
+
+### 2. 市场的旧眼睛
+
+**Circle 被市场看成利率敏感稳定币发行方。**  
+这个标签对，但不完整。真正更大的东西是链上美元结算网络。如果未来 RWA、跨境支付、交易所结算、链上金融都默认使用合规稳定币，Circle 吃到的不只是利息，而是美元流动性的网络位置。认知差在于：市场容易按短端利率折现它，却可能低估“合规美元在链上成为标准”的供给稀缺。
+
+**BTGO 被市场看成 crypto 服务商。**  
+这个标签也对，但可能遮住了机构进入数字资产世界时对托管、合规钱包、结算、交易、staking、stablecoin infra 的组合需求。问题是，BTGO 自己的报表也让市场不敢重估：收入大，毛利薄，净留存不清楚。认知差存在，但公司必须用数字把差距打开。
+
+**地平线被市场看成智驾芯片公司。**  
+更准确说，它在争的是“主流车智能驾驶量产操作系统”的位置。芯片只是入口，license/services 和工具链才是更像平台的部分。但汽车行业的价格压力会一直把它往零部件商方向拉。认知差在于：如果 HSD 成为主流价位 NOA 的默认方案，它不是单车卖芯片，而是在定义一层智驾量产标准。
+
+**Oracle 被市场看成老牌数据库公司。**  
+Oracle 正在证明老牌数据库不是夕阳资产，而是 AI 企业工作负载的重资产云入口。但这个认知差已经被 RPO 和股价部分反映。
+
+### 3. 它们控制了什么别人拿不走的东西
+
+| 标的 | 控制的东西 | 稀缺性是否动态增强 |
+|---|---|---|
+| Circle | 合规稳定币品牌、USDC 流动性、储备收益、分销网络 | 是。流通量越大，越像默认结算资产；但渠道会分走一部分权力 |
+| BTGO | 合规托管资质、机构客户集成、钱包/交易/结算产品组合 | 部分是。客户集成越深越黏，但功能可替代 |
+| 地平线 | 量产经验、芯片算法协同、生态伙伴交付、主流 NOA 车型定点 | 可能是。出货越多，工程反馈越多；但 OEM 自研和价格战会削弱 |
+| Oracle | 数据库存量、企业信任、OCI+database multicloud 绑定 | 是，但已成熟；增长需要大量 capex |
+
+## 五、换不换
+
+### 1. Circle：建议进入核心候选池，但必须有价格纪律
+
+**交换建议：建议投资，但不是无脑追。**
+
+Circle 是这组里最像“供给少、需求变大、收费权清晰”的标的。稳定币监管清晰后，合规发行方的供给不是无限的；USDC 的需求来自链上交易、RWA、支付、跨境结算、机构 treasury。Q1 2026 的 USDC circulation 和 transaction volume 已经证明需求不是纸面增长。
+
+但它不是“便宜到闭眼买”。当前市值约 $21B 量级，三年翻倍要到 $40B+。这要求 USDC 平均流通量大概率走向 $150B 以上，或者 other revenue / payment / network revenue 逐渐降低对利率的依赖。利率下行是最大敌人，渠道分成是第二敌人。
+
+**研究仓位建议：核心候选，1 个单位以内，分批。**  
+不是因为它最便宜，而是因为它最有资格成为新秩序里的收费口。好买点来自两种情况：价格回落但 USDC float 不坏；或 USDC float/RLDC 明显上修但市场还在用利率股定价。
+
+**核心假设与退出信号：**
+
+| 核心假设 | 退出信号 |
+|---|---|
+| USDC 会成为合规链上美元的核心结算资产之一 | 平均 USDC 流通量连续两个季度停滞或下滑，同时 Tether/银行稳定币抢走增量 |
+| Circle 能留住足够 RLDC，而不是把收益都交给渠道 | distribution/transaction costs 持续吃掉绝大部分 reserve income，RLDC margin 明显恶化 |
+| 非利息收入会逐渐长出来 | Other revenue/CPN/Arc 长期不能超过总收入 10%，公司仍完全像利率代理 |
+| 监管清晰强化头部，而不是让银行和交易所平权进入 | 法规或银行稳定币使 Circle 的合规优势消失 |
+
+### 2. BTGO：建议只当小仓位期权，不当核心仓
+
+**交换建议：建议观察性投资，不建议核心投资。**
+
+BTGO 的迷人之处是价格。约 $0.46B 市值下，只要经济毛利、subscriptions/services、stablecoin net contribution 有一个明显上台阶，市场就可能重估。它符合“便宜 + 潜在需求变大”的一半。
+
+但它还不符合“好公司”的完整标准。FY2025 $16.2B reported revenue 不能按平台收入看，因为主要来自低毛利 digital asset sales；stablecoin-as-a-service 已经有收入，但 sponsor fees 几乎吃掉 gross revenue；RWA/tokenization 收入没有单独证据。也就是说，它的位置像基础设施，但报表暂时还像交易周期品。
+
+**研究仓位建议：0.25-0.5 个单位，只买证据改善，不买故事。**  
+它适合提前埋伏，但仓位必须小，因为最大风险不是估值贵，而是它永远证明不了自己有高留存收费权。
+
+**核心假设与退出信号：**
+
+| 核心假设 | 退出信号 |
+|---|---|
+| 机构 crypto/RWA 会推高 custody、wallet、settlement 需求 | actual AoP 与 normalized AoP 长期背离，说明增长主要来自币价而非净流入 |
+| BTGO 能把 stablecoin infra 变成利润线 | stablecoin direct cost/sponsor fee 长期吃掉 80-90% 以上 revenue |
+| Trading/derivatives 能提高 take rate | digital asset sales margin 回落到 20 bps 附近，derivatives 无法贡献净收入 |
+| Subscriptions/services 是真正平台收入 | subscriptions/services 增速跌破 20%，且客户增长停滞 |
+
+### 3. 地平线：建议观察或小仓位分段埋伏，等待财务拐点
+
+**交换建议：建议观察，激进者可小仓位分段。**
+
+地平线的结构很强。智能驾驶变成买车必要条件，这个判断越来越真实；主流价位车不可能全部靠昂贵自研方案解决 NOA；地平线提供的芯片、算法、工具链和生态交付，正踩在“智驾平权”的周期上。
+
+但财务窗口还没有完全打开。FY2025 收入 +57.7%，毛利 +31.7%，这很好；但综合毛利率从 77.3% 降到 64.5%，product solutions 毛利率 34.5%，R&D/revenue 137.1%，adjusted operating loss 扩大。这说明它还处在“需求来了，但为了抢位置必须重投入和让利”的阶段。
+
+这类公司最容易出现两种错误：太早买，把三年研发投入和价格战都扛下来；太晚买，等费用率下降时股价已经完成主升段。更好的方法是用信号分段，不用日历预测。
+
+**研究仓位建议：0.5 个单位以内，等三类信号加仓。**  
+第一类是 HSD/NOA 出货继续超预期；第二类是 product GM 回升到 40%+；第三类是 R&D/revenue 从 137% 开始明显下降。如果三类同时出现，它就从“观察池”升到“核心候选”。
+
+**核心假设与退出信号：**
+
+| 核心假设 | 退出信号 |
+|---|---|
+| 主流价位 NOA 需求会快速普及 | NOA-capable 出货占比停滞，HSD 车型渗透不及预期 |
+| 地平线不是普通零部件商，而是平台型供应商 | license/services 占比快速跌破 30%，product solutions 低毛利成为主体 |
+| 规模能压低研发费用率 | R&D/revenue 在 FY2026/FY2027 仍无法明显下降 |
+| 生态伙伴交付增强平台性 | 出货增长必须靠公司自己重交付，生态伙伴无法承接 |
+| 海外和出海车型提供第二曲线 | 海外定点不转 SOP，不转收入 |
+
+### 4. Oracle：建议不换，只看它验证主线
+
+**交换建议：建议放弃作为本轮主标的。**
+
+Oracle 是好公司，但不是好窗口。它已经是成熟秩序机器，AI 云和数据库重新增长证明“关键基础设施仍有长期价值”。但 current opportunity 不在于发现它，而在于承受巨额 capex 后等待 FCF 修复。
+
+它对这次研究的价值是验证器：如果 Oracle 的 OCI、RPO、multicloud database 继续强，说明企业关键工作负载确实在向新基础设施迁移。这会间接支持我们对 Circle、BTGO、地平线的底层判断：真正关键的基础设施仍有收费权。但 Oracle 自己不是最好的三年翻倍赔率。
+
+**研究仓位建议：0 个单位，保留观察。**
+
+## 六、结构窗口总判断
+
+你的框架可以浓缩成一句话：
+
+供给短期不容易增加，需求开始慢慢变成刚需，价格还没按终局定价，中间那段就是埋伏窗口。
+
+把这个公式套到四个标的：
+
+| 标的 | 供给少吗 | 需求变大吗 | 价格便宜吗 | 财务承接了吗 | 结论 |
+|---|---|---|---|---|---|
+| Circle | 是，合规稳定币发行方稀缺 | 是，USDC 流通量和链上交易量已增长 | 不便宜 | 已承接 | 最像好公司，价格要挑 |
+| BTGO | 部分是，合规托管和机构基础设施稀缺 | 可能是，客户和 normalized AoP 增长 | 便宜 | 没承接干净 | 最像期权，不是核心 |
+| 地平线 | 是，量产级智驾平台稀缺 | 是，NOA 下沉明确 | 不算便宜 | 收入承接，利润未承接 | 好结构，等财务窗口 |
+| Oracle | 是，但已成熟 | 是，AI 云/RPO 强 | 不便宜 | 被 capex 压住 | 好公司，不是埋伏窗口 |
+
+最值得耐心的不是“现在财务最好”的 Oracle，也不是“最便宜”的 BTGO，而是结构和财务正在交叉的 Circle、以及等待财务拐点确认的地平线。BTGO 可以买小，但它是用不确定性换赔率；Circle 可以买重一点，但要用价格纪律防止确定性太贵；地平线要等费用率拐点，不要只被出货量兴奋；Oracle 不参与这一轮比较。
+
+## 七、未解问题
+
+| 优先级 | 问题 | 为什么关键 |
+|---|---|---|
+| 1 | Circle 的 USDC 平均流通量能否在未来 6-8 个季度持续高增，同时 RLDC margin 不恶化？ | 决定它是不是从利率股升级为链上美元网络 |
+| 2 | BTGO 的 stablecoin-as-a-service 能否从 gross revenue 变成 net contribution？ | 决定它是不是基础设施收费权，而不是渠道过路收入 |
+| 3 | BTGO 是否会披露 RWA/tokenized assets 的 AoP 或 revenue？ | 决定 RWA 叙事是否进入财务 |
+| 4 | 地平线 FY2026 的 product GM 和 R&D/revenue 是否出现反转？ | 决定它是平台还是低毛利汽车供应链 |
+| 5 | 地平线 HSD 是否能在主流车型中形成持续装配率和高使用率？ | 决定需求是试点热闹还是真实刚需 |
+
+## 最后一句
+
+Circle 是已经开始创造新结算秩序的机器；地平线是正在争夺智能驾驶量产秩序的机器；BTGO 是可能被新秩序带起来的便宜零件；Oracle 是旧秩序里重新证明自己有生命力的大机器。
+

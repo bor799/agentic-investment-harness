@@ -1,0 +1,8 @@
+.DS_Store
+.harness_backup/
+__pycache__/
+*.pyc
+*.pyo
+90_AUTOMATION/RUNTIME/STAGING/
+*.swp
+*~

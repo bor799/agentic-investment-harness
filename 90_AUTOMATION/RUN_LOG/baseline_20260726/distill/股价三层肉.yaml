@@ -1,0 +1,289 @@
+article_id: 股价三层肉
+article_path: /Users/murphy/Documents/Obsidian Vault/Clippings/股价三层肉和估值三段式 股价并非全由基本面的内在价值决定，估值方式也并非只有DCF一种。股价有三层肉：内在价值、流动性溢价、风险偏好。股价围绕内....md
+article_dominant_type: framework + case_pattern（核心是估值语法分层框架，配 PDD / 泡泡玛特 / 亚马逊 / 白酒片仔癀等多组 case）
+article_one_line: 股价 = 内在价值 + 流动性溢价 + 风险偏好，企业三阶段（0→1 / 1→10 / 10→100）分别对应市梦率 / PEG / DCF，三层肉厚度不同；短期股价方向由 EPS 边际变化驱动，不是由利润绝对值创新高驱动。
+
+distilled_units:
+
+- unit_id: stock-three-layer-001
+  type: principle
+  claim: 股价由内在价值、流动性溢价、风险偏好三层叠加而成；股价围绕内在价值波动，波动的主因是后两层而非内在价值本身。
+  mechanism: 内在价值是慢变量锚（FCF/ROIC/订单）→ 流动性溢价（利率/信用/ETF 流入/估值分位）和风险偏好（叙事/右尾想象/IV）作为快变量叠加在锚上 → 短期波动绝大部分来自快变量。
+  prerequisites:
+    - 资产在公开市场连续交易
+    - 三层各自存在可观测的代理变量（FCF/利率/IV 或倍数扩张）
+  invalid_conditions:
+    - 三层任一层无法观测（如纯一级市场、无流动性、无叙事）时退化
+    - 政策性停牌或固定汇率类资产不适用
+  signals:
+    - 内在价值锚 = 订单、毛利率、OCF/FCF、ROIC
+    - 流动性 = 利率、信用利差、ETF/基金流入、成交、融资余额、估值分位
+    - 风险偏好 = 倍数扩张、叙事热度、机构覆盖、期权 IV
+  counter_view: 三层并非正交可加；内在价值本身也依赖折现率（即流动性）。三层更多是分类镜，不是线性方程。
+  confidence: high
+  empirical_support: 作者举证 PDD、泡泡玛特、亚马逊、白酒/片仔癀四类资产在三层厚度不同时的不同股价行为
+  source_refs: { article: 股价三层肉, location: 引言 + "股价有三层肉"小节 }
+  decision_use: H_R | 收益来源（解释涨跌时先写哪层最厚）
+  forbidden_inference: 不能把三层当作可相加的精确数值；不能由"流动性宽松"直接推出"该买"——仓位仍需 H_B/H_C 通过
+  draft_state: candidate
+
+- unit_id: stock-three-layer-002
+  type: mechanism
+  claim: 企业生命周期阶段决定市场使用的估值语法；0→1 用市梦率、1→10 用 PEG、10→100 用 DCF，三层肉厚度随之变化。
+  mechanism: 阶段一没有 F/E/S → 无法 DCF/PEG/PS → 只能赌远期空间，风险偏好主导 → 阶段二有盈利但增速高 → PEG 把短期 EPS 增速映射为倍数 → 阶段三现金流可验证 → DCF 让内在价值主导。
+  prerequisites:
+    - 公司处于可识别的生命周期阶段
+    - 市场对该阶段形成了相容的估值语法共识
+  invalid_conditions:
+    - 阶段切换期（如 PEG 资产增速塌方但还未破产）估值语法会反复横跳
+    - 不同行业可比公司群不同，三段式时间长度差异极大
+  signals:
+    - 是否有营收 / 是否有利润 / 是否有正 FCF
+    - EPS 增速档位与是否仍在加速
+    - 资本开支是否已收敛
+  counter_view: 三段式是事后归纳；同一公司可能长期横跨两段（如亚马逊 20 年仍被当 PEG）。
+  confidence: medium
+  empirical_support: 作者列 PDD / 美团 / B站 / Boss 直聘 / 亚马逊均套用三段式；泡泡玛特两轮 PEG 循环
+  source_refs: { article: 股价三层肉, location: "市梦率" + "PEG 估值" + "DCF 估值" 三节 }
+  decision_use: 收益来源（先写市场在用什么语法给钱）
+  forbidden_inference: 不能用"阶段"自动授权仓位；不能用 DCF 给 0→1 公司定价，反之不能用市梦率给现金流资产定价
+  draft_state: candidate
+
+- unit_id: stock-three-layer-003
+  type: heuristic
+  claim: PEG 阶段市场的真实驱动是 EPS、EPS 增长率、EPS 增长率的边际变化这三件事（最终浓缩为 EPS 这一件事）；商业模式/护城河等价投变量在 PEG 阶段对短期股价权重极低。
+  mechanism: 业绩加速 → 市场把它线性外推 → 给更高 PEG → 业绩增速边际下行（哪怕绝对值仍在涨）→ 线性外推破裂 → 估值先杀。
+  prerequisites:
+    - 已进入 PEG 估值区间（有盈利且市场以 PEG 定价）
+    - 增速较高（一般 20%+），市场才会用 PEG 而非 PE
+  invalid_conditions:
+    - 增速已降到个位数 → 市场切回 PE / 股息率
+    - 商业模式出现结构性崩塌（如政策、技术替代）→ 增速之外变量突然权重抬升
+  signals:
+    - 季度营收/净利同比与环比
+    - 公司业绩指引 vs 一致预期
+    - 同行业可比公司增速对比
+  counter_view: 极短窗口下"边际变化"会被噪音主导；一些公司业绩节奏天然波动（如周期股、项目制公司），边际变化解读会失真。
+  confidence: high
+  empirical_support: 泡泡玛特 2023H1–2025 年报六次 EPS 边际变化对应六段股价弧线
+  source_refs: { article: 股价三层肉, location: "PEG 估值" 节 + 泡泡玛特 EPS 图 }
+  decision_use: 收益来源 | H_R（PEG 资产盯赔率的杠杆点）
+  forbidden_inference: 不能从"利润还在涨"推出"股价应该涨"；不能从 EPS 加速直接推出经营变好（可能是低基数/一次性）
+  draft_state: candidate
+
+- unit_id: stock-three-layer-004
+  type: signal
+  claim: PEG 资产的关键反转信号不是"利润下滑"，而是"利润仍在创新高但增速边际下行"。增速档位下降会触发估值倍数先杀。
+  mechanism: 增速从 100% → 60% → 30% → 15% → 市场把 PEG 倍数同步下调（100PE → 60PE → 30PE → 12PE）→ 即使利润绝对值新高，估值收缩幅度大于利润增长 → 股价下跌。
+  prerequisites:
+    - 已经被定价为 PEG 资产
+    - 增速出现可观测的边际下行（同比/环比双弱）
+  invalid_conditions:
+    - 增速波动但未破档位（如 50%↔70%）→ 仅是噪音
+    - 市场已切到 DCF 语法（成熟期后）→ 倍数不再线性跟随增速
+  signals:
+    - 连续两个季度同比增速下行
+    - 公司指引下修
+    - 卖方一致预期下修
+  counter_view: 部分高景气赛道（如早期 SaaS、AI Infra）增速档位切换会被市场当作"消化期"而非拐点，杀估值会迟到。
+  confidence: high
+  empirical_support: 作者"业绩增长 15%？先从 30PE 杀到 12PE 再说"；泡泡玛特 2025 年报"增速收敛反杀"
+  source_refs: { article: 股价三层肉, location: PEG 节 + 泡泡玛特弧线尾部 }
+  decision_use: H_R | 行为阀（防"利润新高所以应该涨"的惯性）
+  forbidden_inference: 不能从"增速下行"直接推出"做空"——流动性/风险偏好可能在档位切换时反而抬升
+  draft_state: candidate
+
+- unit_id: stock-three-layer-005
+  type: case_pattern
+  claim: 中概互联网（PDD 为代表）经典估值三段式：市梦率（叙事拉高）→ PEG（业绩兑现）→ 杀估值（情绪退潮 + 业绩兑现错位）。
+  mechanism: 上市初期无盈利靠市梦率拉估值 → 业绩开始兑现切到 PEG → 增速见顶后即使利润绝对值仍涨，估值先杀 → 业绩兑现期与情绪退潮期错位 → 双杀。
+  prerequisites:
+    - 0→1 阶段有强叙事（中概 / 互联网 / 新消费）
+    - 公司最终能跑出真实业绩（否则止步于第一段，无三段式）
+  invalid_conditions:
+    - 叙事破灭（乐视网、暴风影音）→ 永远不会进入第二段
+    - 业绩始终未到拐点 → 不会经历第三段的"业绩兑现但杀估值"
+  signals:
+    - 上市初期 PE 极高或无 PE
+    - 营收增速出现明显拐点
+    - 资金流向（南向 / 外资）拐头
+  counter_view: 同期上市的优酷 / 当当等并未完整走完三段；三段式是幸存者归纳。
+  confidence: medium
+  empirical_support: PDD / 美团 / B站 / Boss 直聘四家中概；亚马逊 2000 年前后股价和 PE-TTM 走势
+  source_refs: { article: 股价三层肉, location: "市梦率" 节末尾 + 中概三段式配图 }
+  decision_use: 收益来源（识别自己持有的标的现在在哪一段）
+  forbidden_inference: 不能用三段式直接判断"现在该买/卖"——需配合 H_B/H_R
+  draft_state: candidate
+
+- unit_id: stock-three-layer-006
+  type: case_pattern
+  claim: 泡泡玛特 2023H1–2025 年报六阶段完整演示 EPS 边际变化驱动股价：拐点 → 双击 → 加速跳升 → 量级跃迁重估 → 极致加速 → 增速收敛反杀。
+  mechanism: 2023H1 拐点确认 → 市场逐步上调 PEG 倍数（双击）→ 加速期业绩超预期触发倍数再扩张 → 量级跃迁时市场把公司当新量级重估 → 极致加速期估值见顶 → 2025 年报增速收敛触发估值反杀。
+  prerequisites:
+    - 公司处于 PEG 估值区间
+    - 半年报/年报可观测、市场跟踪密度高
+    - 存在明确的"增速拐点"叙事
+  invalid_conditions:
+    - 公司业绩节奏天然季度波动（如项目制）→ 单期增速变化不可信
+    - 流动性/风险偏好极端时期（如 2020 中概普涨）→ EPS 边际变化被流动性盖过
+  signals:
+    - 半年净利润同比增速与环比增速
+    - 市场对下一年增速的一致预期
+    - 业绩指引
+  counter_view: 单案例；其他消费股（如名创优品、海底捞）股价节奏与此不完全一致。泡泡玛特本身有 IP 周期性，并非纯 PEG 资产。
+  confidence: medium
+  empirical_support: 作者列出六期净利润与增速对应六段股价表现（图中数据）
+  source_refs: { article: 股价三层肉, location: PEG 节泡泡玛特 EPS 表 + 半年报/年报交易逻辑表 }
+  decision_use: 收益来源 | H_R（PEG 资产的赔率杠杆）
+  forbidden_inference: 不能把"六段弧线"当作机械时序——拐点何时出现需要独立证据
+  draft_state: candidate
+
+- unit_id: stock-three-layer-007
+  type: anti_pattern
+  claim: 用 DCF 模型给 0→1 阶段（无 F）或 1→10 高增速阶段（F 不稳）估值，是错配语法；调整 DCF 参数假装"严肃"会更糟。
+  mechanism: DCF 需要 FCF 可预测 → 0→1 无 F、1→10 的 F 高度不稳定 → 调整折现率/永续增长率把目标价调到市梦率水平 → 模型精确性掩盖假设不稳 → 决策被误导。
+  prerequisites:
+    - 资产处于早期或高增速但现金流不稳阶段
+    - 用 DCF 而非 PEG / 市梦率
+  invalid_conditions:
+    - 1→10 后期 FCF 已稳定 → DCF 反而更合适
+    - 仅作反推（implied）而非正推（target）→ DCF 仍可作诊断工具
+  signals:
+    - 目标价对应永续增长率 > GDP
+    - 折现率微调 100bp 导致目标价变动 > 30%
+    - 研报 PE/DCF 给出但实际推票逻辑是叙事
+  counter_view: 部分早期 SaaS / 资源类公司用 DCF 反推可以校验市场预期，并非全错。
+  confidence: medium
+  empirical_support: 作者评论"满嘴仁义道德、满腹男盗女娼"——大机构推票时用市梦率但包装为 DCF；并引温斯坦 / 茨威格 / 欧奈尔的鄙夷
+  source_refs: { article: 股价三层肉, location: 文章末尾总结段 }
+  decision_use: 行为阀（防模型精确性掩盖假设不稳）
+  forbidden_inference: 不能从"用了 DCF"推出"严肃"——必须看输入假设
+  draft_state: candidate
+
+- unit_id: stock-three-layer-008
+  type: anti_pattern
+  claim: 在 PEG 阶段用"商业模式 / 护城河 / 文化"等价投变量来解释或预测短期股价是错配——这些变量在 PEG 阶段权重低，最终都通过 EPS 增长率及边际变化才传导到短期股价。
+  mechanism: 价投变量 → 长期影响 EPS 路径 → PEG 阶段市场只看短期 EPS 增长率及边际变化 → 价投变量被市场"折叠"为 EPS 一件事 → 用价投语言解释短期股价会脱节。
+  prerequisites:
+    - 资产处于 PEG 阶段（短期 EPS 增速是市场主要变量）
+  invalid_conditions:
+    - 资产已切到 DCF/PE 语法 → 价投变量权重回升
+    - 短期窗口失效（持有期 5 年+）→ 价投变量重新主导
+  signals:
+    - 市场讨论焦点（如果都在聊"故事"或"增速"，是 PEG；聊"现金流"和"分红"，是 DCF）
+    - 卖方研报估值方法
+  counter_view: 长期持有收益仍由价投变量决定；这是"短期 vs 长期"的错配而非"对错"。
+  confidence: medium
+  empirical_support: 作者"市场给商业模式、企业文化、组织能力、进入壁垒、竞争格局的权重是很低"——PEG 节
+  source_refs: { article: 股价三层肉, location: PEG 节 }
+  decision_use: 行为阀（防用错框架解释短期波动）
+  forbidden_inference: 不能从"价投变量短期权重低"推出"价投无效"——是时间尺度问题
+  draft_state: candidate
+
+- unit_id: stock-three-layer-009
+  type: case_pattern
+  claim: 2020–2021 年白酒、片仔癀演示 DCF/PE 资产被风险偏好和流动性主导的极端情形：预期增速仅 10–15% 的公司被给到 60PE。
+  mechanism: DCF/PE 资产内在价值锚稳定 → 流动性泛滥（利率低位、资金流入消费白马 ETF）+ 风险偏好极高（核心资产叙事）→ 倍数扩张到与基本面不匹配 → 流动性反转时倍数杀回。
+  prerequisites:
+    - 资产已切到 DCF/PE 语法
+    - 出现集体性流动性泛滥 + 风险偏好极端
+  invalid_conditions:
+    - 流动性正常 → 倍数应回到与基本面匹配
+    - 公司出现经营性问题 → 不能仅用流动性解释下跌
+  signals:
+    - PE/PE-forward 远超历史中枢
+    - 资金流向（消费 ETF、外资持股比例）
+    - 无风险利率位置
+  counter_view: 部分 60PE 反映的是当时对"永续增速"的过度乐观，并非纯流动性；其中片仔癀有提价权溢价。
+  confidence: medium
+  empirical_support: 作者白酒/片仔癀 2020-2021 PE 图
+  source_refs: { article: 股价三层肉, location: DCF 节末尾配图 }
+  decision_use: 收益来源 | 行为阀（防在 DCF 资产上把流动性溢价当内在价值）
+  forbidden_inference: 不能从"PE 高"直接推出"泡沫"——需分离流动性与经营假设
+  draft_state: candidate
+
+- unit_id: stock-three-layer-010
+  type: heuristic
+  claim: 决定 PEG 资产短期股价方向的是"市场信不信下一年的增速还能撑住当前估值"，不是"利润是否创新高"。
+  mechanism: 持有 PEG 资产的本质是持有"未来加速/持续"的预期 → 当前利润是否新高只影响基数 → 市场定价的是下一期增速的概率分布 → 增速可信度掉，估值先于利润反应。
+  prerequisites:
+    - PEG 估值区间
+    - 市场对下一年增速有明确一致预期
+  invalid_conditions:
+    - 公司切换到 DCF 语法（成熟后）→ 短期增速不再是核心
+    - 极端流动性环境 → 增速可信度被掩盖
+  signals:
+    - 公司下一年指引
+    - 卖方一致预期变化
+    - 业绩电话会管理层语气
+  counter_view: "市场信不信"难以直接观测；用一致预期修正作代理时存在滞后。
+  confidence: medium
+  empirical_support: 泡泡玛特 2025 年报"利润又创新高但增速收敛"对应股价反杀
+  source_refs: { article: 股价三层肉, location: PEG 节末尾"决定股价方向"段 }
+  decision_use: H_R | 行为阀
+  forbidden_inference: 不能从"市场不信"直接推出"做空"——可能只是短期噪音
+  draft_state: candidate
+
+- unit_id: stock-three-layer-011
+  type: principle
+  claim: 估值方式按风险偏好由高到低形成连续光谱：市梦率 → PEG → PE → 股息率；投资者按光谱分段，可单段或跨段（如一半高股息 + 一半高成长）。
+  mechanism: 资产阶段对应不同风险敞口 → 投资者按自身风险偏好选择光谱位置 → 跨段配置可平滑组合波动但牺牲锐度。
+  prerequisites:
+    - 投资者对自己的风险偏好与持有期有清醒认知
+  invalid_conditions:
+    - 投资者把跨段当"对冲"但两段在同一宏观因子下同步崩（如利率冲击同时杀高股息和高成长）
+  signals:
+    - 组合中各资产的估值语法分布
+    - 各资产对利率/流动性/叙事的敏感度
+  counter_view: 光谱化会让投资者误以为"分散"等于"安全"；不同段可能共享隐藏因子。
+  confidence: medium
+  empirical_support: 作者"按照风险偏好由高到低排列，依次是市梦率、PEG、PE、股息率"
+  source_refs: { article: 股价三层肉, location: 总结节 }
+  decision_use: 收益来源（组合层面认清楚自己在赚哪段的钱）
+  forbidden_inference: 不能从"光谱上某段历史回报高"推出"该段适合所有人"——投资体系匹配是前置条件
+  draft_state: candidate
+
+- unit_id: stock-three-layer-012
+  type: heuristic
+  claim: 用"研报使用的估值法"反推市场真实定价逻辑时，要警惕机构包装——研报写 DCF 不代表市场真的在用 DCF，可能只是给市梦率定价披严肃外衣。
+  mechanism: 推票机构需要维持"严肃金融分析师"标签 → 实际推票逻辑是市梦率/PEG → 调整 DCF 参数（折现率/永续增长率）让目标价落到市梦率水平 → 研报标称方法 ≠ 实际定价方法。
+  prerequisites:
+    - 看卖方研报时
+    - 目标价对应的参数显著偏离常识
+  invalid_conditions:
+    - 部分机构/独立研究员如实披露估值法 → 反推无意义
+  signals:
+    - 目标价对折现率/永续增长率的敏感度异常
+    - 推荐逻辑（叙事）与标称估值法（DCF）不一致
+    - 多家机构目标价高度一致但参数各异（说明是先有目标价再调参数）
+  counter_view: 不是所有研报都包装；蓝筹/成熟期公司的研报 DCF 更接近实际。
+  confidence: medium
+  empirical_support: 作者引温斯坦 / 茨威格 / 欧奈尔对"心口不一的赌狗"的鄙夷；截图中的大机构推市梦率资产却写 DCF
+  source_refs: { article: 股价三层肉, location: 文末"满嘴仁义道德"段 }
+  decision_use: 行为阀（防被研报标签误导）
+  forbidden_inference: 不能从"研报写 DCF"直接推出"研报不可信"——需看参数
+  draft_state: candidate
+
+self_audit:
+  total_units: 12
+  fabricate_probability_check: passed（未编造概率；confidence 仅用 low/medium/high，且 medium 集中在单案例或推论性主张）
+  all_units_have_prerequisites: true
+  all_units_have_invalid_conditions: true
+  source_refs_traceable: true（每条 unit 均标注 article + location，可回查到原文小节）
+  weakest_unit_id: stock-three-layer-011
+    # 理由：光谱化框架描述性强但可证伪性弱；缺少独立证据表明跨段配置的实际收益分布。建议未来用组合回测补强或降级为 reference。
+  overlap_with_canonical:
+    method_redundant（与 EXPECTATIONS_VALUATION 高度重叠）:
+      - stock-three-layer-001：三层肉拆分（内在价值 + 流动性溢价 + 风险偏好）—— canonical 已用同一公式 + 同一三列表格（含主要验证数字与常见幻觉）承接
+      - stock-three-layer-002：估值语法分层（市梦率 / PEG / DCF / PE / 股息率）—— canonical "估值语法" 表已覆盖五种语法 + 适用资产 + 核心变量 + 最大风险
+      - stock-three-layer-003：PEG 阶段盯 EPS / 增长率 / 边际变化 —— canonical 估值语法表 PEG 行已明列"EPS、增长率、增长率边际变化"为核心变量
+      - stock-three-layer-004：PEG 资产"利润新高但增速下行"杀估值 —— canonical "PEG 资产重点看 EPS、EPS 增长率和增长率的边际变化；利润创新高但增速边际下行时，先防估值收缩" 已一字不差承接
+      - stock-three-layer-007：错配语法 + 模型精确性掩盖假设不稳 —— canonical 不做清单 + "用精确模型掩盖假设不稳" 已是 DCF 行最大风险
+      - stock-three-layer-010：决定股价的是"下一年增速可信度"而非"利润新高" —— canonical EXPECTATIONS_VALUATION 输出格式中 market_implied_expectation / next_expectation_event 已机制化
+    genuinely_new（canonical 未机制化或仅暗示，可作为 case_pattern / signal 补强）:
+      - stock-three-layer-005：中概互联网（PDD/美团/B站/Boss）估值三段式弧线 —— canonical 有概念但无具体 case 模板
+      - stock-three-layer-006：泡泡玛特 2023H1–2025 年报六阶段完整 EPS 边际变化弧线 —— canonical 无此具体案例
+      - stock-three-layer-008：PEG 阶段价投变量被市场"折叠为 EPS"的反模式 —— canonical 提到 PEG 阶段价投变量权重低，但未机制化"价投变量 → 长期影响 EPS → 短期被折叠"的传导链
+      - stock-three-layer-009：2020–2021 白酒 / 片仔癀 DCF 资产被流动性 + 风险偏好推到 60PE 的具体案例 —— canonical 表格只列"流动性"为风险，无具体历史案例
+      - stock-three-layer-011：风险偏好光谱（市梦率 → PEG → PE → 股息率）作为组合层描述 —— canonical 仅在估值语法表隐含，未做光谱化机制化（最弱 unit）
+      - stock-three-layer-012：研报标称估值法 ≠ 实际定价逻辑的识别信号 —— canonical 未涉及卖方研报可信度诊断

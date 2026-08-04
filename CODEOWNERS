@@ -1,0 +1,5 @@
+# CODEOWNERS for agentic-investment-harness
+# AI agents may open draft PRs from agent/* branches,
+# but only the human owner can merge to main.
+
+* @bor799

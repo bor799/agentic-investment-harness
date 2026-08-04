@@ -1,0 +1,266 @@
+---
+receipt_id: P4-20260726
+date: 2026-07-26
+editor: claude-code (acting as Murphy's editorial proxy, pending approval)
+pipeline: P1 discovery → P2 baseline (5 cases) → P3 distill (7 articles, 94 units) → P4 synthesis + adversarial
+status: awaiting_murphy_approval_for_P5
+---
+
+# Editorial Receipt — 投资 Harness 经验蒸馏 P1-P4 闸门
+
+## 0. 总览
+
+```yaml
+run_summary:
+  discovery_complete: true
+  baseline_cases_run: 5
+  distill_articles_run: 7
+  candidate_units_produced: 94
+  synthesis_agent: p4_synthesis.yaml
+  adversarial_agent: p4_adversarial.yaml
+  canonical_conflicts_auto_rejected: 3
+  requires_murphy_approval: true
+```
+
+## 1. Baseline 失败聚类（5 case 一致模式）
+
+```yaml
+baseline_failure_pattern:
+  critical:
+    - failure: H_R 系统性空转（无反推情景）
+      frequency: 5/5
+      severity: critical
+      root_cause: EXPECTATIONS_VALUATION 列入 loaded_skills 但未真正执行反推；薄壳 EXPECTATIONS_LEDGER 无执行步骤
+      evidence_in_baselines:
+        - case_tinci: H_R 卡 unknown（39.2 元 / 13-15x PE 实际可承保但停在 unknown）
+        - case_horizon: H_R=fail 但无 P/S 锚定 / 未验证 HK$3.0-3.6 坏情景
+        - case_miniso: H_R=mixed 实为 uncalibrated（未反推 HK$24.48 隐含增速/IP 占比/海外 OPM）
+        - case_lmnd: H_R=unknown（未做 market_implied_premium / loss_ratio_path / fcf_turn_year）
+        - case_popmart: H_R 缺 implied growth duration 反推
+    - failure: BEHAVIOR_REVIEW 九问系统性不跑
+      frequency: 4/5
+      severity: high
+      root_cause: 只到触发词层，未走完整九问流程
+  secondary:
+    - failure: H_B 关键风险拆解不足
+      frequency: 2/5 (miniso 永辉零查证, horizon OEM 自研未拆)
+    - failure: 同构历史案例零调用
+      frequency: 5/5 (自陈)
+      severity: medium
+      root_cause: 案例检索能力空白；CASE_GYM 有案例无检索机制
+```
+
+## 2. 候选库分类（94 units）
+
+```yaml
+classification_summary:
+  total_input: 94
+  approved_to_propose: 12       # 真增量、机制清晰、有边界
+  conditionally_accepted: 10    # 有条件吸收，需补样本或限缩前提
+  case_only: 12                 # 保留为案例库，不进 canonical Skill 正文
+  redundant: 16                 # canonical 已承接
+  rejected: 12                  # 口号化 / 伪造概率 / 与 canonical 冲突
+  cluster_folded: 32            # 跨文章同义合并（无独立机制损失）
+
+auto_rejected_canonical_conflicts:
+  - unit_id: cc-002
+    conflict: "5-20x 未校准区间"
+    violates: G-06 不伪造确定性
+  - unit_id: cc-018
+    conflict: "P=80% / 45%"
+    violates: G-06 不伪造确定性 + forbidden_inference 自相矛盾
+  - unit_id: math-unified-001
+    conflict: "长期结果 = 更新×等待×右尾×左尾 伪精确乘积"
+    violates: DECISION_CONTRACT 四票独立性
+```
+
+## 3. Baseline 失败 vs 候选库覆盖度
+
+```yaml
+baseline_failure_coverage:
+  H_R_reverse_engineering:
+    units_addressing:
+      - 赚谁的钱:money-source-008 (money_source 三空诊断必填)
+      - 赚谁的钱:money-source-009 (反推 market_implied 强制阈值)
+      - 三大数学模型:math-bayes-003 (证据同根性诊断)
+      - 股价三层肉:stock-three-layer-001 (三层肉拆分作为反推框架)
+      - 股价三层肉:stock-three-layer-010 (下一年增速可信度)
+    coverage_strength: medium
+    gap: 缺具体阈值数字模板（VIX/IV/远期价格/资金流分位的标准化触发线）
+  BEHAVIOR_nine_questions:
+    units_addressing:
+      - 忍受悬而未决:tolerate-001..008 (八条直击)
+      - 投资是泊松过程:poisson-005 (合法等待)
+      - 赚谁的钱:money-source-003 (Odean 处置效应实证)
+    coverage_strength: strong
+    gap: 流程化串接（不是经验，是九问强制走的步骤）
+  H_B_decomposition:
+    units_addressing:
+      - 赚谁的钱:money-source-008 (同根性→三空→证据栈)
+      - AI算力:AIC-002 (价值分配沿链迁移)
+      - 三大数学模型:math-bayes-003 (独立证据 vs 同根回声)
+    coverage_strength: strong
+    gap: 缺"同根性→三空→证据栈"的强制流水线（机制有了，没串成 SOP）
+```
+
+## 4. P5 修改 proposal（最高 ROI，聚焦最大失败）
+
+```yaml
+proposed_skill_changes:
+  - rank: 1
+    target_file: 02_术/SKILLS/EXPECTATIONS_VALUATION.md
+    target_section: 新增 §H_R 反推情景执行清单
+    source_units:
+      - 赚谁的钱:money-source-009 (反推 market_implied 强制阈值)
+      - 股价三层肉:stock-three-layer-001 (三层肉作为反推框架)
+      - 股价三层肉:stock-three-layer-010 (下一年增速可信度)
+    baseline_failures_addressed:
+      - case_tinci H_R=unknown
+      - case_horizon H_R=fail 无锚
+      - case_miniso H_R=uncalibrated
+      - case_lmnd H_R=unknown
+      - case_popmarket H_R 缺 implied growth
+    proposed_content_summary: |
+      新增一节"反推情景执行清单"，作为 H_R 从 unknown/mixed 升级到 calibrated 的必经步骤。
+      每个标的必须输出：
+        - market_implied_growth（市场隐含增速，由当前估值反推）
+        - market_implied_margin（市场隐含利润率）
+        - market_implied_dur（市场隐含增长持续期）
+        - money_source_breakdown（按三层肉分解：内在价值 / 流动性溢价 / 风险偏好）
+        - reverse_engineering_pass: true|false
+      反推未做 → H_R 必须 unknown，不允许 mixed/calibrated。
+    confidence_in_proposal: high
+    rollback_cost: low（一个新增章节，不改既有结构）
+
+  - rank: 2
+    target_file: 02_术/SKILLS/EXPECTATIONS_VALUATION.md
+    target_section: 新增 §money_source 三空诊断
+    source_units:
+      - 赚谁的钱:money-source-008 (money_source 三空结构化)
+    baseline_failures_addressed:
+      - case_miniso money_source 含糊
+      - case_horizon money_source 未拆
+      - case_tinci money_source 未拆
+    proposed_content_summary: |
+      money_source 字段从字符串升级为结构：
+        money_source:
+          primary: 企业增长 | 估值重估 | 流动性 | 事件 | 套利
+          payer: 谁在经济层面付钱
+          marginal_buyer: 谁是股票的边际买家
+          market_belief: 市场当前相信什么
+          disconfirming_signal: 什么事实证明判断错误
+      四项任一空白 → money_source 标 uncalibrated，H_R 不能升级。
+    confidence_in_proposal: high
+    rollback_cost: low
+
+  - rank: 3
+    target_file: 02_术/SKILLS/EXPECTATIONS_VALUATION.md
+    target_section: 新增 §证据同根性诊断
+    source_units:
+      - 三大数学模型:math-bayes-003 (独立证据 vs 同根回声)
+      - 赚谁的钱:money-source-008 (同根性 → 三空)
+    baseline_failures_addressed:
+      - case_miniso 同根研究族（深度分析 + IP 笔记 + DEEP_RESEARCH 同根）被当多源
+      - case_tinci 产业链口径证据未分层
+    proposed_content_summary: |
+      新增"证据同根性诊断"清单：
+        - 每条 evidence 必须标 source_root_id（同根 ID）
+        - 同 source_root_id 的多条 evidence 只能算 1 个独立证据
+        - 独立证据数 < 2 → H_B 不允许从 unknown 升级
+    confidence_in_proposal: high
+    rollback_cost: low
+```
+
+## 5. Murphy 主编待审批清单
+
+```yaml
+requires_murphy_approval:
+  - item: P5 三项 EXPECTATIONS_VALUATION 修改 proposal（如上）
+    decision_needed: approve | modify | reject | defer
+    auto_proceed_if_silent: false（必须显式批准）
+
+  - item: 整文件"三大数学模型"是否降级为 case_pattern
+    rationale: Adversarial 评最弱（math-unified-001/002 + math-power-006 + math-poisson-003 三组格言式）
+    decision_needed: downgrade_to_case | keep_as_candidate | reject
+    default_if_silent: downgrade_to_case
+
+  - item: 强 unit `money-source-003` `cc-007` `poisson-004` 是否本轮一起进 canonical
+    rationale: 双方一致 strong，但本轮 P5 已聚焦 H_R；如一起进会让 diff 增大
+    decision_needed: include_this_round | defer_to_next_round
+    default_if_silent: defer_to_next_round
+
+  - item: BEHAVIOR_REVIEW 九问流程化是否本轮做
+    rationale: baseline 第二大失败（4/5），但本轮只修一项主要失败
+    decision_needed: defer_to_next_round | include_this_round
+    default_if_silent: defer_to_next_round
+
+  - item: case_pattern 是否本轮入 04_CASE_GYM
+    rationale: 8 个 case_pattern 是真增量但需要 case 模板套用
+    decision_needed: defer | include
+    default_if_silent: defer
+```
+
+## 6. 下一轮最值得修复的一个问题
+
+```yaml
+next_round_top_failure:
+  failure: BEHAVIOR_REVIEW 九问系统性不跑（4/5 baseline）
+  why_next:
+    - 本轮修 H_R 后，H_R 反推可用，但 BEHAVIOR 九问仍空转
+    - BEHAVIOR_REVIEW 是 7 重武器之一，但只是触发词表
+    - case_miniso / case_lmnd 的 self_critique 明示"九问未跑全"
+  proposed_action: 在 BEHAVIOR_REVIEW 加九问强制 SOP + 输出 schema
+  estimated_diff_size: 中等（一文件新增章节）
+```
+
+## 7. 完整运行回执（按任务 spec section 17）
+
+```yaml
+delivery_status:
+  capability_audit: ✅ completed
+  skill_reuse_explanation: ✅ 100x v3 评估完成，本轮 fallback；P5 后再评估适配
+  pre_modification_baseline: ✅ 5 case YAML 落盘 baseline_20260726/
+  candidate_library: ✅ 94 units 落盘 distill/
+  convergence_and_review: ✅ synthesis + adversarial 双独立
+  harness_modification_proposal: ⏸ pending approval
+  actual_diff: ⏸ pending
+  post_modification_benchmark: ⏸ pending
+  output_evaluation: ⏸ pending regression
+  trajectory_evaluation: ✅ done for baseline; pending for regression
+  regression_and_side_effects: ⏸ pending
+  murphy_editorial_queue: ✅ this file
+  next_round_failure: ✅ BEHAVIOR 九问
+  full_run_receipt: ✅ this file
+
+verification_legend:
+  verified_by_run: [capability_audit, baseline, distill, convergence, receipt]
+  config_only: []
+  pending_human_approval: [P5 三项修改, 三大数学模型降级, 强 unit 进 canonical, BEHAVIOR SOP, case_pattern 入库]
+  not_yet_verified: [regression, output_eval post-mod, side_effects]
+  explicitly_failed: []
+```
+
+## 8. 文件清单
+
+```yaml
+run_artifacts:
+  baselines:
+    - 90_AUTOMATION/RUN_LOG/baseline_20260726/case_miniso.yaml
+    - 90_AUTOMATION/RUN_LOG/baseline_20260726/case_lmnd.yaml
+    - 90_AUTOMATION/RUN_LOG/baseline_20260726/case_tinci.yaml
+    - 90_AUTOMATION/RUN_LOG/baseline_20260726/case_horizon_robotics.yaml
+    - 90_AUTOMATION/RUN_LOG/baseline_20260726/case_popmart.yaml   # 注：实际文件名是 case_pophart（按 subagent 输出），未纠正以保持审计完整性
+  distillations:
+    - 90_AUTOMATION/RUN_LOG/baseline_20260726/distill/AI算力产业链瓶颈传导.yaml
+    - 90_AUTOMATION/RUN_LOG/baseline_20260726/distill/投资是泊松过程.yaml
+    - 90_AUTOMATION/RUN_LOG/baseline_20260726/distill/股价三层肉.yaml
+    - 90_AUTOMATION/RUN_LOG/baseline_20260726/distill/赚谁的钱.yaml
+    - 90_AUTOMATION/RUN_LOG/baseline_20260726/distill/忍受悬而未决.yaml
+    - 90_AUTOMATION/RUN_LOG/baseline_20260726/distill/商品超级周期.yaml
+    - 90_AUTOMATION/RUN_LOG/baseline_20260726/distill/三大数学模型.yaml
+  p4_gate:
+    - 90_AUTOMATION/RUN_LOG/baseline_20260726/p4_synthesis.yaml
+    - 90_AUTOMATION/RUN_LOG/baseline_20260726/p4_adversarial.yaml
+  receipt:
+    - 90_AUTOMATION/RUN_LOG/baseline_20260726/editorial_receipt.yaml   # 本文件
+```

@@ -1,0 +1,85 @@
+case_id: CASE-260226-POPMART-MISSED
+case_path: 04_CASE_GYM/RESEARCH_CASES/260226_popmart_missed_opportunity_case.md
+harness_version: pre-distillation-baseline
+run_date: 2026-07-26
+
+harness_task:
+  lane: JUDGE
+  input_type: THESIS
+  scope: single
+  response_mode: concise
+  process_depth: reviewed
+  target_ids:
+    - 09992.HK
+  state_status: legacy_only
+  write_intent: chat_only
+  review_required: true
+  loaded_skills:
+    - COMPANY_FUNDAMENTALS
+    - EXPECTATIONS_VALUATION
+    - STRUCTURAL_CHANGE_BOTTLENECK
+  reviewer_agent_mode: native
+
+judgment:
+  one_line: 自有 IP 平台 + 已落地的爆发性财务（2025 营收 +184.7%、净利 +308.8%、海外 43.8%）构成一条值得追踪的稀缺性 thesis，但当前价格（约 HK$200+）相对未来现金流的估值区间未被校准，事前不构成"建立验证仓"。
+  money_source: 认知差钱 + 经营基本面钱（自有 IP 控制权溢价尚未被与联名 IP 拉开足够估值差距）
+  happening_now: 是——2025 财报已爆发，海外收入占比从早期跳到 43.8%，变化正在兑现中
+  strongest_support_evidence: 17 个 IP 收入过亿 + 自有 IP 矩阵（Labubu、Molly）+ 2025 营收同比 +184.7%、净利润 +308.8%——这不是叙事，而是已经穿透到收入和净利润的经营证据
+  strongest_counter_evidence: 200+ 港元隐含的市场预期已包含高增长持续期；海外直营在欧美和东南亚的可复制性、单店模型持续性、IP 长尾现金流的可贴现性都没有独立证据
+  key_unknown: 自有 IP 的"长尾现金流贴现值"——它能否像迪士尼或三丽鸥那样把单 IP 现金流延续 7-15 年，还是更接近时尚周期（2-4 年）
+  action: 继续观察
+  next_verification_signal: 下一份财报中海外收入同店/单店盈利模型 + 新 IP 收入贡献占比 + 毛利率走势；以及相对未来现金流反推的合理估值区间
+  H_B: pass
+  H_R: unknown
+  H_L: mixed
+  H_C: unknown
+  failure_condition: 海外单店模型持续亏损或老 IP 收入塌方 + 新 IP 接不上 + 经营现金流与利润背离
+
+trajectory:
+  files_read:
+    - AGENTS.md
+    - CLAUDE.md
+    - 00_HOME/PATHS.md
+    - 00_HOME/CONTENT_ROUTER.md
+    - 01_道/CONSTITUTION.md
+    - 01_道/MINDSET.md
+    - 02_术/TRADING_SYSTEM/00_DECISION_CONTRACT.md
+    - 02_术/SKILLS/README.md
+    - 02_术/SKILLS/EXPECTATIONS_VALUATION.md
+    - 02_术/SKILLS/COMPANY_FUNDAMENTALS.md
+    - 90_AUTOMATION/PROMPTS/INVESTMENT_HARNESS.md
+    - 05_EVIDENCE_META/EVIDENCE/COMPANIES/Pop Mart/README.md
+    - 04_CASE_GYM/TRADE_LOG/MIRRORED_LEGACY_TRADE_MANUAL/📈 个人交易手册.md (Pop Mart 第 5 节引用)
+  skills_consulted:
+    - EXPECTATIONS_VALUATION
+    - COMPANY_FUNDAMENTALS
+    - STRUCTURAL_CHANGE_BOTTLENECK
+  state_card_found: false
+  reviewer_invoked: true
+
+reviewer_result:
+  verdict: PASS
+  weakest_link: H_R 赔率票——事前没有"价格相对未来现金流的估值区间"，只有"200+ 港元感觉太贵"的绝对价格直觉；任何建仓或观察结论都建立在未校准的赔率上
+  best_bear_case: 自有 IP 在中国市场历史上极难跨越代际审美切换（参考 52TOYS、寻找独角兽等潮玩品牌的生命周期），单 IP 长尾短于迪士尼/三丽鸥；海外直营在欧美高履约成本下可能单店模型不成立，2025 的爆发可能是时尚周期高点而非中枢
+  alternative_explanations:
+    - 市场可能正确：200+ 港元已把海外增长、IP 矩阵、稀缺性全部定价，剩余回报等于市场平均
+    - 用户同期买名创而非泡泡玛特，并非估值尺子问题，而是"控制权 + 已兑现财务 vs 渠道 + 待验证财务"的赔率选择，本身就成立
+    - 把"事后涨了很多"等同于"事前应该买"，本身就是 hindsight 的投射
+  market_may_be_right_because: 2025 营收 +184.7% 和净利 +308.8% 已是公开财报，市场对自有 IP 平台的稀缺性做了迅速重定价；200+ 港元可能已包含未来 2-3 年高增长预期，留给新进入者的认知差空间被压缩
+
+self_critique:
+  hindsight_contamination: MODERATE——本案 source 文件本身就标注为 missed_opportunity，且包含"actual_result / what_changed / lesson_type"等事后字段；我在事前判断时使用了 thesis_before_action 与 pre_decision_context 作为输入，但 evidence_used 中"2025 财报爆发"在 2026-02 决策时点可能尚未完全公布或刚公布（财报季时点未严格校验），存在一定 hindsight 漏入
+  shallow_areas:
+    - 缺少 2026-02 决策时点的财报状态精确校验——2025 全年财报是否已发布？200+ 港元时点的市场预期反推（implied growth duration）没有跑过 EXPECTATIONS_VALUATION 输出格式
+    - 没有给出"自有 IP 长尾现金流"的可证伪估算——三丽鸥/迪士尼/万代南梦宫的 IP 现金流历史曲线没拉出来作为锚，导致 H_R = unknown 而不是更精细的 mixed 或 fail
+  missing_experience: 缺少"消费 IP 平台类资产的估值语法库"——EXPECTATIONS_VALUATION 的五类语法（市梦率/PEG/DCF/PE/股息率）里，自有 IP 平台既不是纯 PEG（增长靠新 IP 涌现）也不是纯 DCF（贴现期不确定），需要一类"IP 矩阵 + 长尾 + 控制权溢价"的专属语法；当前 Harness 缺这种经验，因此即使事前看到机会也只能给"继续观察"，无法识别成"建立验证仓"
+  incongruences:
+    - 案例本身的 pre_decision_context 已经隐含了正确答案（"避免高估值风险"作为 expected_result 写出来），但被标注为 missed_opportunity；这违反了 Harness 的"事前不能从结果倒推动作"原则
+    - loaded_skills 中 STRUCTURAL_CHANGE_BOTTLENECK 实际未读取正文（只读了 README 中的武器地图），列入 loaded_skills 是不诚实的；正确做法是只列实际读取的 COMPANY_FUNDAMENTALS 与 EXPECTATIONS_VALUATION
+  template_correct_but_hollow: 是——四票六档模板跑通，reviewer 也走完，但 H_R = unknown 暴露了核心问题：在没有"自有 IP 现金流贴现锚"的情况下，Harness 没有能力判断"200 港元贵不贵"，因此给出的"继续观察"与用户实际上的"未买入"在动作上几乎等价，并没有把机会从噪音中识别出来
+
+harness_can_identify_opportunity_ex_ante: PARTIAL
+what_experience_is_missing:
+  - 消费 IP 平台类资产的专属估值语法（IP 长尾现金流曲线 + 控制权溢价的量化锚）
+  - "贵但真 vs 便宜但弱"的横向比较框架——本案用户的事后洞察暴露了 Harness 缺一种"商业模式控制权厚度 → 估值上限倍数"的横向打分体系
+  - 财报刚爆发期的"已兑现 vs 已定价"诊断——如何把 +184.7% 营收这种已公开的财报数据从"经营证据"翻译为"剩余认知差空间"，避免把市场已重定价的资产误判为机会

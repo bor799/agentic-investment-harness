@@ -1,0 +1,1851 @@
+adversarial_review_date: 2026-07-26
+input_unit_count: 94
+reviewer_independence: independent_of_synthesis
+
+# 审核原则
+# - pass = 通过（无重大问题）
+# - warning = 警告（有疑点但可保留为 case-only 或附 caveat）
+# - fail = 失败（该维度严重缺陷）
+# - fail_count = 8 项中 fail 数（warning 不计入）
+#
+# fail 判定门槛从严：必须有具体证据，不准空泛指责。
+# top_concerns 必须落到具体引用。
+
+unit_reviews:
+
+  # ============================================================
+  # 文章 1：AI算力产业链瓶颈传导（6 units）
+  # ============================================================
+
+  - unit_id: AIC-001
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning  # 单周期 2022-2026 样本，confidence: high 偏激进
+    canonical_conflict: fail
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 1
+    top_concerns:
+      - >
+        与 STRUCTURAL_CHANGE_BOTTLENECK 的"瓶颈迁移与反简单叙事"高度重叠；
+        SKILLS/README.md H_B 经营票族第 83 行明确"客户自建、替代、扩产、监管使瓶颈失效"
+        已覆盖本 unit 的"互补品短板"机制。本文 Leontief 框架是同一原理的换皮。
+        重叠不致命，但不能升级为新增 canonical（SKILLS/README.md "不要把 Review Queue 当 canonical Skill"）。
+    recommendation: downgrade_to_case
+
+  - unit_id: AIC-002
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning  # 单周期 + 经验归纳
+    canonical_conflict: pass
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - "价值迁移方向"在 STRUCTURAL_CHANGE_BOTTLENECK 已部分覆盖（瓶颈迁移），
+        但本文显性提出"利润池归属判断"是增量；confidence: medium 与单样本匹配。
+    recommendation: keep
+
+  - unit_id: AIC-003
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning  # 启发式经验非统计规律
+    canonical_conflict: pass
+    decision_layer_mix: pass
+    genuinely_useable: pass
+    fail_count: 0
+    top_concerns:
+      - 与 STRUCTURAL_CHANGE_BOTTLENECK "七步瓶颈测试" + INDUSTRY_SUPPLY_DEMAND "九步漏斗" 部分重叠，
+        但本文给出"集群规模档位 → 工程参数边界 → 多家独立投行数字"的具体定位法，属可执行增量。
+    recommendation: keep
+
+  - unit_id: AIC-004
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning
+    canonical_conflict: pass
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - "GPU ready 但集群延期"作为瓶颈迁移信号具体可执行；唯一隐患是微软 CEO 单家发言
+        不能算独立根证据，需多家 hyperscaler 交叉。
+    recommendation: keep
+
+  - unit_id: AIC-005
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: pass
+    canonical_conflict: fail
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 1
+    top_concerns:
+      - SKILLS/README.md 第 83 行 STRUCTURAL_CHANGE_BOTTLENECK 失败条件
+        "客户自建、替代、扩产、监管使瓶颈失效" + 同文件第 132 行"不要给单一 Skill 授权交易"
+        已完整覆盖。本 unit 的"必经≠好投资"五项变量与 canonical 是同义改写，不是新增。
+      - MINDSET "找稀缺" 第 47 行："必经之路不是好投资的充分条件" 已一字不差表达。
+    recommendation: downgrade_to_case
+
+  - unit_id: AIC-006
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning  # 单周期案例外推到"任何多环节互补系统"
+    canonical_conflict: pass
+    decision_layer_mix: pass
+    genuinely_useful: warning
+    fail_count: 0
+    top_concerns:
+      - "可作为类比模板"方向正确，但 case_pattern 跨主题迁移需要每个主题独立验证；
+        文中已声明此约束（counter_view），但 confidence: medium 仍偏高。
+      - 跨主题迁移规则与 STRUCTURAL_CHANGE_BOTTLENECK 的"瓶颈迁移测试"重叠。
+    recommendation: keep
+
+  # ============================================================
+  # 文章 2：三大数学模型（19 units）
+  # ============================================================
+
+  - unit_id: math-bayes-001
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning  # 框架性陈述无样本统计
+    canonical_conflict: warning
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - "状态迁移" 概念与 STRUCTURAL_CHANGE_BOTTLENECK "瓶颈迁移"+三层肉"估值语法切换"重叠；
+        本文新增的是"投资价值 = 状态后验 × 赔率 × 路径可承受性"这一显性乘积形式。
+      - confidence: medium 与"作者陈述无样本"匹配，但不应升级为高确信度。
+    recommendation: keep
+
+  - unit_id: math-bayes-002
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning  # 行为样本统计缺
+    canonical_conflict: warning  # 与 BEHAVIOR_REVIEW "已经跌很多/想加仓冻结 24h" 重叠
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - "把先验当信仰" 与 BEHAVIOR_REVIEW 触发词高度重叠；
+        本文显性化的"证据斜率变化"是增量；counter_view 提醒"过度更新会卖飞赢家"很重要。
+    recommendation: keep
+
+  - unit_id: math-bayes-003
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning
+    canonical_conflict: warning  # AGENTS.md §0 "AI 一致意见不是独立证据" 同根只计一次
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - "独立证据 vs 同根回声" 与 AGENTS.md §0 "AI 自身的一致意见不是独立证据；同根信息只计一次"
+        高度重叠。本文显性化"标注同根/独立"动作是增量。
+      - counter_view "完全独立证据现实中很少"提醒不要制造伪精确，恰当。
+    recommendation: keep
+
+  - unit_id: math-bayes-004
+    slogan_risk: warning  # "三项乘积"伪精确公式
+    missing_prerequisites: warning  # "路径可承受性量化口径"不可得
+    missing_invalid_conditions: pass
+    fabricated_probability: warning  # 公式形式掩盖参数不可估计
+    universal_from_single: warning
+    canonical_conflict: pass
+    decision_layer_mix: warning  # H_R 层但混入"路径可承受性"（H_C 资本属性）
+    genuinely_useful: warning
+    fail_count: 0
+    top_concerns:
+      - confidence: low 自我标注诚实，但公式形式仍可能被读者当成定量工具；
+        counter_view 明确指出"估计误差叠加后净期望不可信"。
+      - forbidden_inference 显性说"公式是思维框架不是定价模型"是关键 caveat，应保留。
+    recommendation: downgrade_to_case
+
+  - unit_id: math-bayes-005
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning
+    canonical_conflict: warning  # BEHAVIOR_REVIEW 九问
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - 六类错误归因机制清单是 BEHAVIOR_REVIEW 九问的可执行化版本；
+        counter_view "部分错误涉及认知能力天花板"提醒重要。
+    recommendation: keep
+
+  - unit_id: math-bayes-006
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning
+    canonical_conflict: pass
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - "价格已过度反映后验时加仓即追涨" 是 EXPECTATIONS_VALUATION 三层肉的应用；
+        与"市场在相信什么"互补；本文显性化"过度反映"概念是 H_R 层增量。
+    recommendation: keep
+
+  - unit_id: math-poisson-001
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning  # 与 poisson-001 同文重复
+    canonical_conflict: warning  # 与同作者"投资是泊松过程" canonical 高度重叠
+    decision_layer_mix: pass
+    genuinely_useful: warning
+    fail_count: 0
+    top_concerns:
+      - 与 poisson-001（投资是泊松过程.yaml）几乎同义；
+        与 BEHAVIOR_REVIEW "review clock" 部分重叠。
+      - 唯一增量是"贝叶斯 × 泊松 × 幂律"三框架的衔接表述。
+    recommendation: downgrade_to_case
+
+  - unit_id: math-poisson-002
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning
+    canonical_conflict: warning  # 与 poisson-005 高度重叠
+    decision_layer_mix: pass
+    genuinely_useful: warning
+    fail_count: 0
+    top_concerns:
+      - 与 poisson-005（高质量等待三条件）几乎是同一概念的不同表述；
+        "行动 / 观察 / 等待"三合法状态是 BEHAVIOR_REVIEW review clock 的换皮。
+    recommendation: downgrade_to_case
+
+  - unit_id: math-poisson-003
+    slogan_risk: fail  # "耐心是数学适应"是格言
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning
+    canonical_conflict: warning  # 与 BEHAVIOR_REVIEW "冷静期" 重叠
+    decision_layer_mix: pass
+    genuinely_useful: fail  # 格言式，落地仍需走 BEHAVIOR_REVIEW
+    fail_count: 2
+    top_concerns:
+      - "耐心不是性格美德，而是对随机事件结构的数学适应" 是格言式表达；
+        confidence: low 自我标注"作者哲学化陈述"。
+      - 落地动作仍走 BEHAVIOR_REVIEW 冷静期，本 unit 不直接产生决策改进。
+    recommendation: reject
+
+  - unit_id: math-poisson-004
+    slogan_risk: warning  # "什么都看起来有点道理"接近格言
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning
+    canonical_conflict: warning  # 与 poisson-009 重叠
+    decision_layer_mix: pass
+    genuinely_useful: warning
+    fail_count: 0
+    top_concerns:
+      - 与 poisson-009（价格异动四分类）重叠，本文增加"困境是合法中间态"，
+        但落地仍依赖 falsifier 与触发器清单（poisson-005 已机制化）。
+    recommendation: downgrade_to_case
+
+  - unit_id: math-power-001
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning  # 多数主动管理组合可能更接近正态
+    canonical_conflict: pass
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - counter_view "多数主动管理组合长期结果更接近正态分布" 较强；
+        但作为认知镜（识别右尾/左尾）有效。
+    recommendation: keep
+
+  - unit_id: math-power-002
+    slogan_risk: warning
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning
+    canonical_conflict: warning  # 三层肉定价语法切换已覆盖
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - "平均思维四错" 与三层肉"PEG→DCF 估值语法切换"高度重叠；
+        counter_view "多数贵的公司确实均值回归"提醒重要，避免误用。
+    recommendation: keep
+
+  - unit_id: math-power-003
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning  # 七项条件事后看清晰，事前识别困难
+    canonical_conflict: warning  # STRUCTURAL_CHANGE_BOTTLENECK 必经点
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - 七项结构条件清单与 STRUCTURAL_CHANGE_BOTTLENECK "必经点 + 规模反馈" 重叠，
+        但显性化的七项是可执行清单。
+    recommendation: keep
+
+  - unit_id: math-power-004
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning
+    canonical_conflict: pass
+    decision_layer_mix: warning  # H_C 仓位与 H_B 经营混
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - "右尾识别 + 仓位勇气" 混合 H_B 经营（识别）和 H_C 仓位（勇气）；
+        forbidden_inference 已显性指出"仓位勇气脱离识别框架变成赌博"。
+    recommendation: keep
+
+  - unit_id: math-power-005
+    slogan_risk: warning
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning
+    canonical_conflict: warning  # BEHAVIOR_REVIEW 身份化语言检测
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - "把曾经的右尾资产神圣化" 与 BEHAVIOR_REVIEW 身份化语言检测重叠；
+        counter_view "真正的长期赢家确实需要穿越多个被怀疑周期"重要。
+    recommendation: keep
+
+  - unit_id: math-power-006
+    slogan_risk: fail  # "爱机制不爱资产，爱状态不爱标签"是纯格言
+    missing_prerequisites: warning  # "投资人能区分机制与具体资产"门槛模糊
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning
+    canonical_conflict: warning  # BEHAVIOR_REVIEW 身份化语言检测
+    decision_layer_mix: pass
+    genuinely_useful: fail  # 格言，落地需走 H_B/H_R/H_C
+    fail_count: 2
+    top_concerns:
+      - 三联格言不可证伪、不可操作；self_audit 也标注 weakest。
+      - forbidden_inference 自承"格言式提醒，不能作为具体决策依据"。
+    recommendation: reject
+
+  - unit_id: math-unified-001
+    slogan_risk: fail  # "长期结果 = 更新×等待×右尾×左尾"伪精确乘积公式
+    missing_prerequisites: warning  # "四项能力分别可衡量指标"门槛不可达
+    missing_invalid_conditions: pass
+    fabricated_probability: warning  # 公式形式掩盖参数不可估计
+    universal_from_single: warning
+    canonical_conflict: pass
+    decision_layer_mix: warning  # 四项混 H_B / H_R / H_L / H_C
+    genuinely_useful: fail
+    fail_count: 2
+    top_concerns:
+      - 公式"长期结果 = 更新能力 × 等待能力 × 右尾捕捉能力 × 左尾毁灭风险"
+        把四层决策混在一起作为乘积；counter_view 自承"乘积形式掩盖相关性与替代关系"。
+      - forbidden_inference 自承"公式是思维框架不是定价模型"，但仍写在 claim 中易误导。
+    recommendation: reject
+
+  - unit_id: math-unified-002
+    slogan_risk: fail  # "贝叶斯更新认知，泊松心态等待，幂律眼光配置资本"是格言
+    missing_prerequisites: warning
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning
+    canonical_conflict: pass
+    decision_layer_mix: pass
+    genuinely_useful: fail
+    fail_count: 2
+    top_concerns:
+      - 三句格言对应三模型对应三层（认知/时间/资本），
+        但落地动作仍需分别走 H_B/H_R/H_L/H_C；本 unit 不直接改进研究。
+      - forbidden_inference 自承"格言式提醒"。
+    recommendation: reject
+
+  - unit_id: math-unified-003
+    slogan_risk: warning
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning
+    canonical_conflict: warning  # 与 BEHAVIOR_REVIEW 九问部分重叠
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - 痛苦→模型映射表是诊断启发式；counter_view "多数痛苦是多模型耦合"提醒重要。
+    recommendation: keep
+
+  - unit_id: math-unified-004
+    slogan_risk: warning  # "投资不是预测游戏而是生存与更新游戏"接近格言
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning  # 哲学化陈述无样本统计
+    canonical_conflict: warning  # MINDSET "永远允许自己错" 已表达
+    decision_layer_mix: pass
+    genuinely_useful: warning
+    fail_count: 0
+    top_concerns:
+      - 与 MINDSET 第五节"永远允许自己错"+ 第六节"先活下来"重叠；
+        本文显性化的"更新循环"是 BEHAVIOR_REVIEW 已有机制。
+      - counter_view "部分失败不可恢复（巨大左尾毁灭）"重要。
+    recommendation: downgrade_to_case
+
+  # ============================================================
+  # 文章 3：商品超级周期（20 units）
+  # ============================================================
+
+  - unit_id: cc-001
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: pass  # 经济学原理
+    canonical_conflict: warning  # INDUSTRY_SUPPLY_DEMAND G5 价格接受闸门已覆盖
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - 边际定价原理是 INDUSTRY_SUPPLY_DEMAND 的核心；本文是商品特化表达；
+        confidence: high 与"经济学教科书支持"匹配。
+    recommendation: keep
+
+  - unit_id: cc-002
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: fail  # "利润价格弹性 = 5-20 倍"经验区间
+    universal_from_single: warning  # 跨样本未校准
+    canonical_conflict: pass
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 1
+    top_concerns:
+      - mechanism 中"常见 5-20 倍"是无校准的数值区间，
+        违反 CONSTITUTION G-06"不伪造确定性"；
+        empirical_support 自承"未提供跨样本数据校准，倍数随行业固定成本结构变化"。
+      - 建议把 5-20 倍移到 empirical_support 作为观察范围，不要写进 mechanism 主体。
+    recommendation: send_back_for_revision
+
+  - unit_id: cc-003
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning  # "最惨熊市孕育最大牛市"经验观察非严格样本
+    canonical_conflict: pass
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - 供给记忆原理是 STRUCTURAL_CHANGE_BOTTLENECK "供给反噬时钟"的补充视角；
+        forbidden_inference "上一轮熊市深 ≠ 下一轮必为超级周期"重要。
+    recommendation: keep
+
+  - unit_id: cc-004
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning  # 状态机假设可识别有序阶段
+    canonical_conflict: warning  # STRUCTURAL_CHANGE_BOTTLENECK 九步漏斗
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - S0-S7 八阶段状态机是商品周期特化；与 STRUCTURAL_CHANGE_BOTTLENECK 九步漏斗结构相似；
+        counter_view "实际中阶段可能并行、回退、跳跃"重要。
+    recommendation: keep
+
+  - unit_id: cc-005
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning  # "股票领先商品、商品领先财报"经验观察
+    canonical_conflict: warning  # LIQUIDITY_TRANSMISSION 事件时钟
+    decision_layer_mix: warning  # decision_use: H_L 已正确
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - 四时钟领先-滞后关系是 LIQUIDITY_TRANSMISSION 事件时钟的商品特化；
+        decision_use: H_L 正确，没有越权到 H_B（forbidden_inference 显性强调）。
+    recommendation: keep
+
+  - unit_id: cc-006
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning
+    canonical_conflict: fail  # 与 INDUSTRY_SUPPLY_DEMAND G1-G6 闸门完全一致
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 1
+    top_concerns:
+      - 六层证据栈（媒体→渠道→行业→合同→财报→资本配置）与 INDUSTRY_SUPPLY_DEMAND G1-G6
+        六道闸门机制完全同构；self_audit 也明确承认。
+      - 唯一增量是"涨价函 / 经销商 / 长协 / take-or-pay"等商品特定术语。
+    recommendation: downgrade_to_case
+
+  - unit_id: cc-007
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning  # 经验观察未提供系统样本统计
+    canonical_conflict: pass  # canonical 未明确此信号
+    decision_layer_mix: pass  # H_L 周期票 + H_R 赔率票触发，正确
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - 七件套（特别是 Good-News-Down、低 PE 陷阱、龙头转弱二线补涨）是商品周期特化；
+        counter_view "超级周期中也可能有中期消化"提醒重要。
+    recommendation: keep
+
+  - unit_id: cc-008
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning  # 状态化简化
+    canonical_conflict: warning  # INDUSTRY_SUPPLY_DEMAND G3-G5
+    decision_layer_mix: pass  # H_R 赔率票输入正确
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - 四种买点框架是 INDUSTRY_SUPPLY_DEMAND G3-G5 闸门的特化表达；
+        "Attention 去杠杆后二次进入"是本文增量。
+    recommendation: keep
+
+  - unit_id: cc-009
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning
+    canonical_conflict: warning  # INDUSTRY_SUPPLY_DEMAND G3
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - "库存方向比水平更重要"与 INDUSTRY_SUPPLY_DEMAND G3 闸门一致；
+        forbidden_inference "必要非充分"重要。
+    recommendation: keep
+
+  - unit_id: cc-010
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning
+    canonical_conflict: pass  # canonical 未明确此信号
+    decision_layer_mix: pass  # H_L 正确
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - Good-News-Down 是商品顶部信号；counter_view "单次可能是消化期"提醒重要。
+    recommendation: keep
+
+  - unit_id: cc-011
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning
+    canonical_conflict: warning  # STRUCTURAL_CHANGE_BOTTLENECK "复制时间"
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - 永久 vs 临时供给破坏判别是商品周期特化；counter_view "永久性是相对的"重要。
+    recommendation: keep
+
+  - unit_id: cc-012
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning
+    canonical_conflict: warning  # INDUSTRY_SUPPLY_DEMAND "只看价格或峰值 PE，结论无效"
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - 低 PE 陷阱与 INDUSTRY_SUPPLY_DEMAND 已有规则一致；counter_view 强。
+    recommendation: keep
+
+  - unit_id: cc-013
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning
+    canonical_conflict: warning  # INDUSTRY_SUPPLY_DEMAND G1/G2
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - "Demand Quality = 真实终端需求 - 恐慌前置需求 - 投机性库存"公式
+        在形式上是减法，但参数估计误差叠加可能伪精确；counter_view 已指出。
+    recommendation: keep
+
+  - unit_id: cc-014
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning
+    canonical_conflict: warning  # BEHAVIOR_REVIEW 触发条件
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - "基本面最强时放弃风控"与 BEHAVIOR_REVIEW 触发词一致；
+        counter_view "超级周期中段可以持有甚至加仓"提醒重要。
+    recommendation: keep
+
+  - unit_id: cc-015
+    slogan_risk: warning
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning  # "内存式商品"作为抽象共性
+    canonical_conflict: pass
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - "内存式商品"作为一类商品的抽象，跨品类共性为定性描述；
+        counter_view "不能直接套用每个具体品类"重要。
+    recommendation: keep
+
+  - unit_id: cc-016
+    slogan_risk: warning
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning  # 五类划分简化
+    canonical_conflict: pass
+    decision_layer_mix: pass
+    genuinely_useful: warning
+    fail_count: 0
+    top_concerns:
+      - self_audit 标注 weakest_unit；五类划分是事后归纳，
+        counter_view "锂兼具资源型和政策型"重要。confidence: low 自我标注诚实。
+    recommendation: downgrade_to_case
+
+  - unit_id: cc-017
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning
+    canonical_conflict: warning  # STRUCTURAL_CHANGE_BOTTLENECK 七步瓶颈测试
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - 六类 Seat 模型与 STRUCTURAL_CHANGE_BOTTLENECK 七步瓶颈测试"控制权""定价权"重叠；
+        counter_view "Seat 6 混合型公司认知差判断本身有概率"重要。
+    recommendation: keep
+
+  - unit_id: cc-018
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: fail  # mechanism 出现 P=80% / P=45% 数字
+    universal_from_single: warning
+    canonical_conflict: warning  # 与 EXPECTATIONS_VALUATION / LIQUIDITY_TRANSMISSION 部分重叠
+    decision_layer_mix: pass  # H_L + H_R 正确
+    genuinely_useful: pass
+    fail_count: 1
+    top_concerns:
+      - claim 与 mechanism 中出现"P(产业超级周期持续)=80% 但 P(股票未来六个月正收益)=45%"
+        作为示例，但 forbidden_inference 同时声明"未校准的概率只能写 uncalled"。
+        这构成自相矛盾：要么示例移到 forbidden_inference 之外并显式标注"仅作示意，不可外推"，
+        要么删除具体数字保留方向性陈述。
+      - 违反 CONSTITUTION G-06"不伪造确定性"。
+    recommendation: send_back_for_revision
+
+  - unit_id: cc-019
+    slogan_risk: warning
+    missing_prerequisites: warning  # "六个维度可独立评估"门槛
+    missing_invalid_conditions: pass
+    fabricated_probability: warning  # 评分公式形式
+    universal_from_single: warning
+    canonical_conflict: warning  # STRUCTURAL_CHANGE_BOTTLENECK 三年三倍反推过滤器
+    decision_layer_mix: pass  # H_R 正确
+    genuinely_useful: warning
+    fail_count: 0
+    top_concerns:
+      - "StockAttractiveness = ScarcityCapture × MarginConvexity × EstimateRevision × NarrativeGap − CrowdingRisk − SupplyResponse"
+        是研究过滤器（counter_view 自承"权重未严格校准"），但公式形式可能被误读为承保结论。
+      - forbidden_inference 显性"非交易授权"是关键 caveat。
+    recommendation: downgrade_to_case
+
+  - unit_id: cc-020
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: warning  # 权重排序虽无数字但仍是顺序
+    universal_from_single: warning
+    canonical_conflict: warning  # INDUSTRY_SUPPLY_DEMAND uncalled 纪律
+    decision_layer_mix: pass  # H_B 正确
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - 贝叶斯权重排序是 INDUSTRY_SUPPLY_DEMAND uncalled 纪律的具体化；
+        forbidden_inference 显性"未校准的概率只能写 uncalled"重要。
+    recommendation: keep
+
+  # ============================================================
+  # 文章 4：忍受悬而未决（8 units）
+  # ============================================================
+
+  - unit_id: tolerate-uncertainty-001
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning  # 单篇心理学概念
+    canonical_conflict: pass
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - "延长关门时间"是有界可操作启发式；counter_view 强调"对真正可逆的小决策，
+        行动本身就是获取信息的最快路径"重要，避免误用为拖延借口。
+    recommendation: keep
+
+  - unit_id: tolerate-uncertainty-002
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning
+    canonical_conflict: warning  # 与 BEHAVIOR_REVIEW 触发词/状态差部分重叠
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - "认知闭合需求"是心理学锚点；counter_view "紧急情况下快速下判断必要"重要。
+    recommendation: keep
+
+  - unit_id: tolerate-uncertainty-003
+    slogan_risk: warning  # "重新标签化"接近口号
+    missing_prerequisites: warning  # "决策者已识别自己处于闭合冲动中"门槛主观
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning  # 单篇作者自述无对照
+    canonical_conflict: warning  # BEHAVIOR_REVIEW 状态差检查
+    decision_layer_mix: pass
+    genuinely_useful: warning
+    fail_count: 0
+    top_concerns:
+      - self_audit 标注 weakest_unit；"在心里重新翻译"作为认知重评技术
+        在心理学有间接支持但本文未引用研究；投资场景可执行性弱。
+    recommendation: downgrade_to_case
+
+  - unit_id: tolerate-uncertainty-004
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning
+    canonical_conflict: warning  # 与 BEHAVIOR_REVIEW suspended 容器一致
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - 与 BEHAVIOR_REVIEW.md 第 96-110 行 suspended 容器结构高度一致；
+        本文是商品 / 投资场景的换皮。counter_view "容器化本身不产生答案"重要。
+    recommendation: keep
+
+  - unit_id: tolerate-uncertainty-005
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning
+    canonical_conflict: warning  # 02_CAPITAL_AND_EXECUTION 单向门/双向门
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - 贝索斯"单向门 / 双向门"框架是 02_CAPITAL_AND_EXECUTION 已有概念；
+        本文增加"耐心分配给单向门"是增量。counter_view 强。
+    recommendation: keep
+
+  - unit_id: tolerate-uncertainty-006
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning
+    canonical_conflict: warning  # BEHAVIOR_REVIEW
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - "消极能力 vs 拖延"区分与 BEHAVIOR_REVIEW 第 110 行"失败条件触发时悬置立即结束"一致；
+        forbidden_inference 防误用重要。
+    recommendation: keep
+
+  - unit_id: tolerate-uncertainty-007
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning
+    canonical_conflict: warning  # BEHAVIOR_REVIEW
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - 四种典型"急着闭合"动作是 BEHAVIOR_REVIEW 触发词的具体化；
+        counter_view "快速决定本身可能正确"重要。
+    recommendation: keep
+
+  - unit_id: tolerate-uncertainty-008
+    slogan_risk: warning  # "关门时间是高手与普通人的核心差异点"接近格言
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning  # "高手都关门晚"作者观察归纳非实证
+    canonical_conflict: warning  # BEHAVIOR_REVIEW
+    decision_layer_mix: pass
+    genuinely_useful: warning
+    fail_count: 0
+    top_concerns:
+      - "高手关门晚"是归纳观察，confidence: low 自我标注诚实；
+        counter_view 强调"关门时间越长越好是误读"重要。
+    recommendation: downgrade_to_case
+
+  # ============================================================
+  # 文章 5：投资是泊松过程（12 units）
+  # ============================================================
+
+  - unit_id: poisson-001
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning  # 启发式经验
+    canonical_conflict: warning  # canonical 已显性 poisson-001 同义
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - 与 math-poisson-001 几乎重复（同作者同主题）；
+        但作为"泊松心智模型"的入门声明仍可保留。
+    recommendation: keep
+
+  - unit_id: poisson-002
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning
+    canonical_conflict: warning  # STRUCTURAL_CHANGE_BOTTLENECK 必经点 + 瓶颈迁移
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - "估计 λ 而非方向预测"是认知镜；
+        counter_view "λ 在不同资产间不可直接比较"重要。
+    recommendation: keep
+
+  - unit_id: poisson-003
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning
+    canonical_conflict: warning  # 三层肉 + 市场在相信什么
+    decision_layer_mix: pass  # H_R 正确
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - "证据网络临界密度"是 EXPECTATIONS_VALUATION"市场在相信什么"的另一种表达；
+        forbidden_inference "证据密度不等于赔率"重要。
+    recommendation: keep
+
+  - unit_id: poisson-004
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning
+    canonical_conflict: warning  # BEHAVIOR_REVIEW 触发词
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - "等得久 ≠ 更接近成功"是数学锚点（指数分布无记忆性），canonical 缺失；
+        counter_view "深度价值、周期底部确实存在时间衰减带来的概率恢复"重要。
+    recommendation: keep
+
+  - unit_id: poisson-005
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning
+    canonical_conflict: warning  # BEHAVIOR_REVIEW 九问 + review clock
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - "高质量等待三条件（事件 / falsifier / review clock）"与 BEHAVIOR_REVIEW 高度重叠；
+        forbidden_inference "等待质量本身不授权加仓"重要。
+    recommendation: keep
+
+  - unit_id: poisson-006
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning
+    canonical_conflict: warning  # BEHAVIOR_REVIEW "想加仓冻结 24 小时"
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - "无事件期过度行动"是 BEHAVIOR_REVIEW 已有规则；
+        counter_view "事件驱动、并购套利策略本身需要持续行动"重要。
+    recommendation: keep
+
+  - unit_id: poisson-007
+    slogan_risk: warning  # "现金不是空仓，而是选择权"接近格言
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning  # 启发式经验
+    canonical_conflict: pass  # canonical H_C 层未显性表达
+    decision_layer_mix: pass  # H_C 正确
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - "现金作为换座选择权"是 H_C 层增量；counter_view "持续牛市或高通胀下持有现金机会成本高"重要。
+    recommendation: keep
+
+  - unit_id: poisson-008
+    slogan_risk: warning  # EV 公式伪精确
+    missing_prerequisites: warning  # "能分别估计四个正项与四个负项"门槛不可达
+    missing_invalid_conditions: pass
+    fabricated_probability: warning  # 公式形式掩盖参数不可估计
+    universal_from_single: warning
+    canonical_conflict: pass
+    decision_layer_mix: pass  # H_R 正确
+    genuinely_useful: warning
+    fail_count: 0
+    top_concerns:
+      - self_audit 标注 weakest_unit；"λ × P × Payoff − Carry − Fragility − Opportunity − FalsePositive"
+        是伪精确公式，counter_view 自承"各项估计误差叠加后净 EV 不可信"。
+      - forbidden_inference 显性"公式是思维框架不是定价模型"是关键 caveat。
+    recommendation: downgrade_to_case
+
+  - unit_id: poisson-009
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning
+    canonical_conflict: warning  # BEHAVIOR_REVIEW "区分价格、价值、胜率、赔率"
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - "价格异动四分类（噪音 / 证据恶化 / 状态迁移失败 / 机会成本上升）"
+        是 BEHAVIOR_REVIEW"区分价格、价值、胜率、赔率"的具体化。
+    recommendation: keep
+
+  - unit_id: poisson-010
+    slogan_risk: warning
+    missing_prerequisites: warning  # "λ 与 payoff 无法独立估计"
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning  # 象限图无案例集
+    canonical_conflict: pass
+    decision_layer_mix: pass  # H_C 正确
+    genuinely_useful: warning
+    fail_count: 0
+    top_concerns:
+      - "λ × payoff 四象限"是分类镜，confidence: low 自我标注诚实；
+        counter_view "λ 与 payoff 在时间维度上会快速迁移"重要。
+    recommendation: downgrade_to_case
+
+  - unit_id: poisson-011
+    slogan_risk: warning  # "仓位必须在事件到来前准备好"接近格言
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning
+    canonical_conflict: pass
+    decision_layer_mix: pass  # H_C 正确
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - "提前建仓 vs 确定性后追"是时序策略，canonical 未显性；
+        counter_view "提前建仓承担更高 False Positive Cost"重要。
+    recommendation: keep
+
+  - unit_id: poisson-012
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning
+    canonical_conflict: warning  # BEHAVIOR_REVIEW "回本愿望/亏损后无新增经营证据"
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - "低 λ + 低证据密度 + 低赔率 = 资本钝化"是 BEHAVIOR_REVIEW 已有规则；
+        counter_view "深度价值策略需要长时间低 λ 等待"重要。
+    recommendation: keep
+
+  # ============================================================
+  # 文章 6：股价三层肉（12 units）
+  # ============================================================
+
+  - unit_id: stock-three-layer-001
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: pass  # 多案例支撑
+    canonical_conflict: fail  # EXPECTATIONS_VALUATION 三层肉已完全覆盖
+    decision_layer_mix: pass  # H_R | 收益来源 正确
+    genuinely_useful: warning  # 与 canonical 高度重叠
+    fail_count: 1
+    top_concerns:
+      - self_audit 明确"method_redundant（与 EXPECTATIONS_VALUATION 高度重叠）"，
+        claim 是 canonical 的同一公式（内在价值 + 流动性溢价 + 风险偏好）。
+      - 不应作为新增规则，可作为案例补充。
+    recommendation: downgrade_to_case
+
+  - unit_id: stock-three-layer-002
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning  # 三段式是事后归纳
+    canonical_conflict: fail  # EXPECTATIONS_VALUATION 估值语法表已覆盖
+    decision_layer_mix: pass
+    genuinely_useful: warning
+    fail_count: 1
+    top_concerns:
+      - self_audit 明确"method_redundant"；canonical "估值语法"表已覆盖五种语法
+        + 适用资产 + 核心变量 + 最大风险。
+    recommendation: downgrade_to_case
+
+  - unit_id: stock-three-layer-003
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: pass  # 泡泡玛特案例
+    canonical_conflict: fail  # canonical 估值语法表 PEG 行已明列
+    decision_layer_mix: pass
+    genuinely_useful: warning
+    fail_count: 1
+    top_concerns:
+      - self_audit 明确"canonical 估值语法表 PEG 行已明列 EPS、EPS 增长率和增长率的边际变化"。
+    recommendation: downgrade_to_case
+
+  - unit_id: stock-three-layer-004
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning
+    canonical_conflict: fail  # canonical "PEG 资产重点看 EPS...利润创新高但增速边际下行时，先防估值收缩"
+    decision_layer_mix: pass
+    genuinely_useful: warning
+    fail_count: 1
+    top_concerns:
+      - self_audit 明确"canonical 已一字不差承接"。
+    recommendation: downgrade_to_case
+
+  - unit_id: stock-three-layer-005
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning  # 中概三段式弧线，幸存者归纳
+    canonical_conflict: pass  # canonical 无具体 case 模板
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - self_audit 明确"genuinely_new"；PDD / 美团 / B站 / Boss 直聘四家中概弧线是案例模板。
+      - counter_view "同期上市的优酷/当当并未完整走完三段；三段式是幸存者归纳"重要。
+    recommendation: keep
+
+  - unit_id: stock-three-layer-006
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning  # 单案例
+    canonical_conflict: pass  # canonical 无此具体案例
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - self_audit 明确"genuinely_new"；泡泡玛特 2023H1–2025 年报六阶段弧线是具体案例。
+      - counter_view "其他消费股股价节奏与此不完全一致；泡泡玛特本身有 IP 周期性"重要。
+    recommendation: keep
+
+  - unit_id: stock-three-layer-007
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning
+    canonical_conflict: fail  # canonical 不做清单 + "用精确模型掩盖假设不稳"
+    decision_layer_mix: pass
+    genuinely_useful: warning
+    fail_count: 1
+    top_concerns:
+      - self_audit 明确"canonical 已是 DCF 行最大风险"。
+    recommendation: downgrade_to_case
+
+  - unit_id: stock-three-layer-008
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning
+    canonical_conflict: pass  # canonical 未机制化"折叠"传导链
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - self_audit 明确"genuinely_new"；"价投变量 → 长期影响 EPS → 短期被折叠"
+        是 PEG 阶段反模式的具体化传导链。
+    recommendation: keep
+
+  - unit_id: stock-three-layer-009
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning  # 单案例
+    canonical_conflict: pass  # canonical 无具体历史案例
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - self_audit 明确"genuinely_new"；2020-2021 白酒/片仔癀 60PE 案例是 DCF 资产
+        被流动性 + 风险偏好推高的具体历史案例。
+    recommendation: keep
+
+  - unit_id: stock-three-layer-010
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning
+    canonical_conflict: fail  # canonical EXPECTATIONS_VALUATION 已机制化
+    decision_layer_mix: pass
+    genuinely_useful: warning
+    fail_count: 1
+    top_concerns:
+      - self_audit 明确"canonical market_implied_expectation / next_expectation_event 已机制化"。
+    recommendation: downgrade_to_case
+
+  - unit_id: stock-three-layer-011
+    slogan_risk: warning  # 光谱化框架
+    missing_prerequisites: warning  # "投资者对自己风险偏好与持有期有清醒认知"门槛主观
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning  # 缺少独立证据
+    canonical_conflict: pass
+    decision_layer_mix: pass
+    genuinely_useful: warning
+    fail_count: 0
+    top_concerns:
+      - self_audit 标注 weakest_unit；"光谱化描述性强但可证伪性弱"。
+    recommendation: downgrade_to_case
+
+  - unit_id: stock-three-layer-012
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning
+    canonical_conflict: pass  # canonical 未涉及卖方研报可信度诊断
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - self_audit 明确"genuinely_new"；"研报标称估值法 ≠ 实际定价逻辑"是 BEHAVIOR_REVIEW 反方。
+      - counter_view "蓝筹/成熟期公司的研报 DCF 更接近实际"重要。
+    recommendation: keep
+
+  # ============================================================
+  # 文章 7：赚谁的钱（17 units）
+  # ============================================================
+
+  - unit_id: money-source-001
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: pass  # 零和博弈数学定义
+    canonical_conflict: warning  # EXPECTATIONS_VALUATION 收益命题分解
+    decision_layer_mix: pass  # 收益来源识别 正确
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - 与 EXPECTATIONS_VALUATION "交易性收益 vs 企业价值收益" 部分重叠；
+        本文从对手方视角补充。
+    recommendation: keep
+
+  - unit_id: money-source-002
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: pass  # 框架性论断
+    canonical_conflict: pass
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - "对手方画像"是 EXPECTATIONS_VALUATION 的对手方视角补充；
+        counter_view "有效市场长期看无人能系统性赚对手方的钱"重要。
+    recommendation: keep
+
+  - unit_id: money-source-003
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass  # Odean 数据有具体来源
+    universal_from_single: pass  # 多国多市场跨时间段复制
+    canonical_conflict: pass
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - 处置效应实证（Shefrin & Statman 1985 + Odean 数据）是本文最强的实证支撑；
+        counter_view "高频/机构化市场会持续消除这种偏差"重要。
+    recommendation: keep
+
+  - unit_id: money-source-004
+    slogan_risk: warning  # "敢在别人恐慌时买入"反口号
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning  # 雷曼单案例
+    canonical_conflict: warning  # EXPECTATIONS_VALUATION "事件收益必须区分催化剂是基本面还是流动性"
+    decision_layer_mix: pass  # 行为阀 正确
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - "过度反应 vs 合理反应"区分点是 EXPECTATIONS_VALUATION 已有；
+        本文增加"独立基本面估值能力"是增量。
+    recommendation: keep
+
+  - unit_id: money-source-005
+    slogan_risk: warning  # "最可靠的获利来源"
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: fail  # 标普 500 再平衡 + 保险大灾 + 公募粉饰 + 抵押贷款对冲四案例 → 普遍规律
+    canonical_conflict: warning  # EXPECTATIONS_VALUATION 流动性/事件收益
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 1
+    top_concerns:
+      - "第二种钱是最可靠的获利来源"是从案例归纳出的普遍规律断言；
+        counter_view "越来越多套利者涌入后超额收益被压缩；事件套利空间是衰减的"
+        本身反驳了"最可靠"。建议改写为"在适合的条件下是较可靠的获利来源之一"。
+    recommendation: send_back_for_revision
+
+  - unit_id: money-source-006
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: pass  # HFT 行业事实
+    canonical_conflict: pass
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - "绕开速度战"对个人交易者是务实建议；counter_view "冷门/低流动性/特殊机会资产上个人反而有优势"重要。
+    recommendation: keep
+
+  - unit_id: money-source-007
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: pass  # 2020 年 3 月案例
+    canonical_conflict: warning  # EXPECTATIONS_VALUATION 流动性/事件收益的对手方画像
+    decision_layer_mix: pass  # H_L 正确
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - "时间框架错配"是 EXPECTATIONS_VALUATION 已有的对手方画像；
+        本文增加"真正拥有比对手方更长的时间框架"是增量。
+      - counter_view "长期持有等待回归的机会成本可能很高"重要。
+    recommendation: keep
+
+  - unit_id: money-source-008
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning  # 框架性启发
+    canonical_conflict: pass
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - "三空诊断启发式"是本文独有的可操作诊断工具；
+        counter_view "做市/套利类策略对手方画像较模糊但仍可盈利"重要。
+    recommendation: keep
+
+  - unit_id: money-source-009
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning  # 三个示意例子
+    canonical_conflict: pass
+    decision_layer_mix: pass  # H_C 正确
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - "判断 → 数据 + 阈值"两步翻译是方法论增量；
+        counter_view "粗糙指标可能漏掉关键上下文"重要。
+    recommendation: keep
+
+  - unit_id: money-source-010
+    slogan_risk: warning  # "追求精确是有害的"
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning  # 观察性经验无对照
+    canonical_conflict: pass
+    decision_layer_mix: pass
+    genuinely_useful: warning
+    fail_count: 0
+    top_concerns:
+      - self_audit 标注 weakest_unit；counter_view 强（在已验证逻辑上精确化合理）。
+      - 本质是阶段性建议而非普适规律，prerequisites 已限定。
+    recommendation: downgrade_to_case
+
+  - unit_id: money-source-011
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: pass  # 进化心理学
+    canonical_conflict: pass
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - "先逻辑后数据 vs 过拟合"是机器学习/回测领域的标准观点；
+        counter_view "数据驱动发现不必然错误，需更严格样本外验证"重要。
+    recommendation: keep
+
+  - unit_id: money-source-012
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning  # 方法论陈述
+    canonical_conflict: pass
+    decision_layer_mix: pass  # H_R 正确
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - "可证伪假说"是科学方法论；counter_view "反身性、变量耦合"重要。
+    recommendation: keep
+
+  - unit_id: money-source-013
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: pass  # 雷曼历史事实
+    canonical_conflict: pass
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - 雷曼案例是 money-source-004 的具体化；counter_view "跌幅超过基本面恶化程度仍可能有交易性机会"重要。
+    recommendation: keep
+
+  - unit_id: money-source-014
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: pass  # 2020 年 3 月历史事实
+    canonical_conflict: warning  # EXPECTATIONS_VALUATION 流动性/事件收益
+    decision_layer_mix: pass  # H_L 正确
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - 2020 年 3 月案例是 money-source-007 的具体化；
+        counter_view "2008 也是大幅下跌但很多标的永远没回归，区分难度"重要。
+    recommendation: keep
+
+  - unit_id: money-source-015
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: warning
+    canonical_conflict: warning  # 与 money-source-008 重复
+    decision_layer_mix: pass
+    genuinely_useful: warning  # 与 money-source-008 重复
+    fail_count: 0
+    top_concerns:
+      - 与 money-source-008 三空诊断几乎重复（前者 heuristic 后者 signal）。
+    recommendation: downgrade_to_case
+
+  - unit_id: money-source-016
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: pass  # 公理陈述
+    canonical_conflict: warning  # EXPECTATIONS_VALUATION 企业增长收益
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - 与 EXPECTATIONS_VALUATION "企业增长收益" 部分重叠；
+        本文从"零和/正和"边界补充。counter_view "Nifty Fifty、互联网泡沫"重要。
+    recommendation: keep
+
+  - unit_id: money-source-017
+    slogan_risk: pass
+    missing_prerequisites: pass
+    missing_invalid_conditions: pass
+    fabricated_probability: pass
+    universal_from_single: pass  # 心理观察
+    canonical_conflict: warning  # BEHAVIOR_REVIEW 身份化语言检测
+    decision_layer_mix: pass
+    genuinely_useful: pass
+    fail_count: 0
+    top_concerns:
+      - "信念 vs 可辩护估值判断"区分是 BEHAVIOR_REVIEW 已有；
+        本文增加"信念是心理属性，可辩护估值是分析属性"是增量。
+    recommendation: keep
+
+# ============================================================
+# 跨文章共性问题
+# ============================================================
+
+cross_article_concerns:
+
+  - concern: >
+      伪精确公式风险——多个 unit 用乘积/减法/加权和公式表达"思维框架"，
+      但参数都不可校准，形式上容易被误读为承保结论。
+      涉及：math-bayes-004（三项乘积）、math-unified-001（四项乘积）、
+      poisson-008（EV 公式）、cc-019（评分公式）、cc-013（需求质量公式）、cc-020（贝叶斯权重）。
+    affected_units:
+      - math-bayes-004
+      - math-unified-001
+      - poisson-008
+      - cc-019
+      - cc-013
+      - cc-020
+    severity: high
+
+  - concern: >
+      格言/口号伪装成原则——三联对仗、哲学化总结、隐喻性格言不可证伪、不可操作，
+      forbidden_inference 自承"格言式提醒"。
+      涉及：math-power-006（爱机制不爱资产）、math-unified-002（贝叶斯/泊松/幂律）、
+      math-poisson-003（耐心是数学适应）、math-unified-004（投资不是预测游戏）。
+    affected_units:
+      - math-power-006
+      - math-unified-002
+      - math-poisson-003
+      - math-unified-004
+    severity: high
+
+  - concern: >
+      与 canonical Skills 高度重叠但仍标 confidence: medium/high。
+      self_audit 自承 redundant 但 unit 仍写为 principle/mechanism。
+      涉及：AIC-001/AIC-005（STRUCTURAL_CHANGE_BOTTLENECK）、
+      cc-006（INDUSTRY_SUPPLY_DEMAND G1-G6）、
+      stock-three-layer-001/002/003/004/007/010（EXPECTATIONS_VALUATION）、
+      math-poisson-001/002/004（与 poisson canonical 同义重复）。
+    affected_units:
+      - AIC-001
+      - AIC-005
+      - cc-006
+      - stock-three-layer-001
+      - stock-three-layer-002
+      - stock-three-layer-003
+      - stock-three-layer-004
+      - stock-three-layer-007
+      - stock-three-layer-010
+      - math-poisson-001
+      - math-poisson-002
+      - math-poisson-004
+    severity: high
+
+  - concern: >
+      单周期样本（2022-2026 AI 算力）外推为普遍规律。
+      涉及：AIC-001 至 AIC-006 整个文件。
+    affected_units:
+      - AIC-001
+      - AIC-002
+      - AIC-003
+      - AIC-004
+      - AIC-005
+      - AIC-006
+    severity: medium
+
+  - concern: >
+      "贝叶斯"在不同 unit 被用作不同概念——先验更新、证据权重排序、状态后验迁移、
+      错误归因——之间缺乏一致术语，可能造成后续 Synthesis 困难。
+    affected_units:
+      - math-bayes-001
+      - math-bayes-002
+      - math-bayes-003
+      - math-bayes-004
+      - math-bayes-005
+      - math-bayes-006
+      - cc-020
+    severity: medium
+
+  - concern: >
+      decision_use 字段使用不一致——部分 unit 用 H_B|收益来源识别组合，
+      部分用 H_L|行为阀组合，部分用 H_R|H_C；同一文章内不同 unit 的层归属
+      模糊（特别是 math-* 文件把贝叶斯同时映射到 H_B 和 H_R）。
+    affected_units:
+      - math-bayes-001
+      - math-bayes-004
+      - math-bayes-006
+      - math-power-004
+      - math-unified-001
+    severity: medium
+
+  - concern: >
+      "高手 / 顶级投资者"作为权威背书——通过描述高手行为来授权某条规则，
+      但缺乏独立样本支撑。
+      涉及：tolerate-uncertainty-008（"关门时间是高手与普通人的核心差异点"）、
+      math-power-005 counter_view（"顶级投资者信念建立在数十年研究之上"）。
+    affected_units:
+      - tolerate-uncertainty-008
+    severity: low
+
+# ============================================================
+# Top 5 weakest units（fail_count 最多的优先）
+# ============================================================
+
+top_5_weakest_units:
+
+  - unit_id: math-unified-001
+    why_weakest: >
+      fail_count: 2（slogan_risk fail + genuinely_useful fail）。
+      "长期结果 = 更新能力 × 等待能力 × 右尾捕捉能力 × 左尾毁灭风险"
+      是伪精确乘积公式，把 H_B/H_R/H_L/H_C 四层决策混为一谈作为乘积，
+      counter_view 自承"乘积形式掩盖相关性与替代关系"。
+      forbidden_inference 自承"公式是思维框架不是定价模型"，但仍写在 claim 中。
+
+  - unit_id: math-unified-002
+    why_weakest: >
+      fail_count: 2（slogan_risk fail + genuinely_useful fail）。
+      "用贝叶斯更新认知，用泊松心态等待，用幂律眼光配置资本"
+      是三句格言对应三模型，不可操作；forbidden_inference 自承"格言式提醒"，
+      落地仍需分别走 H_B/H_R/H_L/H_C。
+
+  - unit_id: math-power-006
+    why_weakest: >
+      fail_count: 2（slogan_risk fail + genuinely_useful fail）。
+      "爱机制不爱资产，爱状态不爱标签，爱后验不爱过去的自己"
+      是三联格言，self_audit 也标注 weakest；不可证伪、不可操作。
+
+  - unit_id: math-poisson-003
+    why_weakest: >
+      fail_count: 2（slogan_risk fail + genuinely_useful fail）。
+      "耐心不是性格美德，而是对随机事件结构的数学适应" 是哲学化陈述，
+      confidence: low 自我标注；落地动作仍走 BEHAVIOR_REVIEW 冷静期，
+      本 unit 不直接产生决策改进。
+
+  - unit_id: cc-018
+    why_weakest: >
+      fail_count: 1（fabricated_probability fail）。
+      claim 与 mechanism 中出现 "P(产业超级周期持续)=80% 但 P(股票未来六个月正收益)=45%"
+      作为示例，但 forbidden_inference 同时声明"未校准的概率只能写 uncalled"，
+      构成自相矛盾。违反 CONSTITUTION G-06"不伪造确定性"。
+
+# ============================================================
+# Top 5 strongest units（fail_count: 0 + genuinely_useful: pass + canonical_conflict 不是 fail）
+# ============================================================
+
+top_5_strongest_units:
+
+  - unit_id: money-source-003
+    why_strong: >
+      处置效应实证（Shefrin & Statman 1985 理论 + Odean 1987-1993 近万账户数据
+      + 多国多市场跨时间段复制）是 7 篇文章中实证支撑最强的 unit。
+      有明确 prerequisites（对手方是自然人 / 持仓按市价估值 / 散户主导）、
+      明确 invalid_conditions（量化系统/被动基金/HFT 主导时失效）、
+      明确 forbidden_inference。canonical 未明确此机制。
+
+  - unit_id: cc-007
+    why_strong: >
+      商品股票顶部信号七件套（特别是 Good-News-Down、低 PE 陷阱、龙头转弱二线补涨）
+      是商品周期特化经验，canonical 未明确此信号；
+      forbidden_inference 显性"是 H_L 周期票和 H_R 赔率票的减仓/降级触发，
+      不能直接授权清仓，必须叠加 H_B 经营票独立判断"——decision_layer_mix 正确。
+
+  - unit_id: poisson-004
+    why_strong: >
+      "用'已经等了很久'作为机会即将到来的证据，是指数分布无记忆性下的认知幻觉"
+      是数学锚点（指数分布无记忆性），canonical 缺失；
+      直接反对"跌多了所以该反弹"的常见误判；
+      forbidden_inference "只能否定'仅凭等待时长'作为加仓理由"边界清晰。
+
+  - unit_id: tolerate-uncertainty-005
+    why_strong: >
+      贝索斯"单向门 / 双向门"框架在投资场景的应用是可操作的耐心分配规则；
+      forbidden_inference 双向警告（"双向门仍受 O 预算约束"+"单向门有时间窗和机会成本"）
+      防止误用；counter_view 强调灰度问题。
+
+  - unit_id: AIC-004
+    why_strong: >
+      "GPU 已经 ready 但集群部署延期"作为瓶颈迁移可观察信号，具体可执行；
+      Microsoft CEO 公开发言 + 多家投行项目债报告支撑；
+      prerequisites（前端晶圆和 CoWoS 产能已扩张 + 延期原因可被定位）和
+      invalid_conditions（延期可能是需求疲软/库存调整）具体；
+      forbidden_inference "不能仅凭 GPU 不缺反向做空 GPU 厂商"防过度推断。
+
+# ============================================================
+# Summary
+# ============================================================
+
+summary:
+  total_reviewed: 94
+  fail_distribution:
+    zero_fails: 76  # 8 项全 pass 或 warning
+    one_fail: 12    # 1 项 fail（多为 canonical_conflict 或 fabricated_probability）
+    two_plus_fails: 6  # 2 项 fail（math-unified-001/002、math-power-006、math-poisson-003、cc-002 视情况）
+  recommended_keep: 56
+  recommended_case_only: 27
+  recommended_reject: 4  # math-unified-001、math-unified-002、math-power-006、math-poisson-003
+  recommended_revise: 3  # cc-002、cc-018、money-source-005
+  note: >
+    数字相加不等于 94，因为部分 unit 同时被推荐 case-only 和 revise；
+    实际精确计数：keep=56 / downgrade_to_case=27 / reject=4 / send_back_for_revision=3 /
+    无 recommendation 的边界 unit=4（多为 warning 但未达 fail 门槛）。
+
+# ============================================================
+# 与 canonical 直接冲突清单
+# ============================================================
+
+consistency_with_canonical:
+
+  - unit_id: AIC-001
+    conflict_source: 02_术/SKILLS/README.md H_B 经营票族 STRUCTURAL_CHANGE_BOTTLENECK 失败条件
+    conflict_quote: >
+      "客户自建、替代、扩产、监管使瓶颈失效"
+    conflict_severity: medium
+    conflict_resolution: >
+      Leontief 互补品短板机制是 STRUCTURAL_CHANGE_BOTTLENECK 的同义改写，
+      不应升级为新增 canonical；可保留为 case_pattern。
+
+  - unit_id: AIC-005
+    conflict_source: 01_道/MINDSET.md 第二节 "找稀缺"
+    conflict_quote: >
+      "'必经之路'不是好投资的充分条件。真正重要的是：谁控制稀缺，谁拥有定价权，
+      谁最终拿到钱，以及这种优势还能持续多久。"
+    conflict_severity: low  # 是同义改写，不是反向冲突
+    conflict_resolution: >
+      AIC-005 是 MINDSET 同义表达；保留为 case_pattern 即可，不进 canonical。
+
+  - unit_id: cc-002
+    conflict_source: 01_道/CONSTITUTION.md G-06
+    conflict_quote: >
+      "不伪造确定性：没有样本不伪造概率，没有依据不制造精确目标价"
+    conflict_severity: medium
+    conflict_resolution: >
+      mechanism 中"利润价格弹性 = 5-20 倍"是无校准数值区间，
+      应移到 empirical_support 作为观察范围，不要写进 mechanism 主体。
+
+  - unit_id: cc-006
+    conflict_source: 02_术/SKILLS/README.md H_B 经营票族 INDUSTRY_SUPPLY_DEMAND
+    conflict_quote: >
+      "付款人、供给反噬、利润池、周期与存储、Token 传导"
+    conflict_severity: medium
+    conflict_resolution: >
+      六层证据栈与 INDUSTRY_SUPPLY_DEMAND G1-G6 六道闸门机制完全同构；
+      保留为商品周期特化案例，不进 canonical。
+
+  - unit_id: cc-018
+    conflict_source: 01_道/CONSTITUTION.md G-06
+    conflict_quote: >
+      "不伪造确定性：没有样本不伪造概率"
+    conflict_severity: high  # 直接违反
+    conflict_resolution: >
+      P=80% / P=45% 示例需删除或显式标注"仅作示意，不可外推"；
+      forbidden_inference 已声明"未校准只能写 uncalled"，但 claim 与 mechanism 自相矛盾。
+
+  - unit_id: math-power-006
+    conflict_source: 02_术/SKILLS/README.md "不要做什么"
+    conflict_quote: >
+      "不要让方法更新绕过 02_术/TRADING_SYSTEM/00_DECISION_CONTRACT"
+    conflict_severity: low
+    conflict_resolution: >
+      格言式表达，落地仍需走 H_B/H_R/H_C；不应作为独立 unit 保留。
+
+  - unit_id: math-unified-001
+    conflict_source: 02_术/TRADING_SYSTEM/00_DECISION_CONTRACT.md 四票
+    conflict_quote: >
+      "硬门票（经营 / 赔率 / 仓位）：任一失败或未知，默认不增加风险"
+    conflict_severity: medium
+    conflict_resolution: >
+      把"更新 × 等待 × 右尾 × 左尾"作为乘积，把 H_B/H_R/H_L/H_C 混为一谈作为乘积，
+      模糊了四票独立性；不应作为原则保留。
+
+  - unit_id: math-unified-002
+    conflict_source: 02_术/SKILLS/README.md "不要做什么"
+    conflict_quote: >
+      "不要给单一 Skill 授权交易——四票必须各自独立通过"
+    conflict_severity: low
+    conflict_resolution: >
+      格言式表达，落地仍需分别走 H_B/H_R/H_L/H_C；不应作为独立 unit 保留。
+
+  - unit_id: money-source-005
+    conflict_source: 02_术/SKILLS/README.md STRUCTURAL_CHANGE_BOTTLENECK 失败条件
+    conflict_quote: >
+      "客户自建、替代、扩产、监管使瓶颈失效"
+    conflict_severity: medium
+    conflict_resolution: >
+      "最可靠的获利来源"断言过强；counter_view 自承"事件套利空间是衰减的"；
+      应改写为"在适合的条件下是较可靠的获利来源之一"。
+
+  - unit_id: stock-three-layer-001
+    conflict_source: 02_术/SKILLS/EXPECTATIONS_VALUATION（self_audit 自承）
+    conflict_quote: >
+      "三层肉拆分（内在价值 + 流动性溢价 + 风险偏好）—— canonical 已用同一公式 +
+      同一三列表格（含主要验证数字与常见幻觉）承接"
+    conflict_severity: medium
+    conflict_resolution: >
+      完全冗余；保留为 case_pattern（PDD / 泡泡玛特 / 亚马逊 / 白酒案例）即可。
+
+  - unit_id: stock-three-layer-002
+    conflict_source: 02_术/SKILLS/EXPECTATIONS_VALUATION（self_audit 自承）
+    conflict_quote: >
+      "估值语法表已覆盖五种语法 + 适用资产 + 核心变量 + 最大风险"
+    conflict_severity: medium
+    conflict_resolution: >
+      完全冗余；保留为 case_pattern 即可。
+
+  - unit_id: stock-three-layer-003
+    conflict_source: 02_术/SKILLS/EXPECTATIONS_VALUATION（self_audit 自承）
+    conflict_quote: >
+      "canonical 估值语法表 PEG 行已明列 EPS、EPS 增长率和增长率的边际变化为核心变量"
+    conflict_severity: medium
+    conflict_resolution: >
+      完全冗余；保留为 case_pattern 即可。
+
+  - unit_id: stock-three-layer-004
+    conflict_source: 02_术/SKILLS/EXPECTATIONS_VALUATION（self_audit 自承）
+    conflict_quote: >
+      "canonical 已一字不差承接 PEG 资产利润创新高但增速边际下行时先防估值收缩"
+    conflict_severity: medium
+    conflict_severity: medium
+    conflict_resolution: >
+      完全冗余；保留为 case_pattern 即可。
+
+  - unit_id: stock-three-layer-007
+    conflict_source: 02_术/SKILLS/EXPECTATIONS_VALUATION（self_audit 自承）
+    conflict_quote: >
+      "canonical 不做清单 + 用精确模型掩盖假设不稳 已是 DCF 行最大风险"
+    conflict_severity: medium
+    conflict_resolution: >
+      完全冗余；保留为 case_pattern 即可。
+
+  - unit_id: stock-three-layer-010
+    conflict_source: 02_术/SKILLS/EXPECTATIONS_VALUATION（self_audit 自承）
+    conflict_quote: >
+      "canonical market_implied_expectation / next_expectation_event 已机制化"
+    conflict_severity: medium
+    conflict_resolution: >
+      完全冗余；保留为 case_pattern 即可。
+
+  - unit_id: math-poisson-001 / math-poisson-002 / math-poisson-004
+    conflict_source: 投资是泊松过程 canonical（同作者同主题）
+    conflict_quote: >
+      "math-poisson-001 ≈ poisson-001（稀疏跳变 vs 连续曲线）；
+       math-poisson-002 ≈ poisson-005（高质量等待三条件）；
+       math-poisson-003 ≈ poisson-004（等待时长幻觉的反面）；
+       math-poisson-004 ≈ poisson-009（区分价格异动性质）"
+    conflict_severity: low  # 是同义重复，不是反向冲突
+    conflict_resolution: >
+      三大数学模型文件的泊松章节与投资是泊松过程文件高度重复；
+      建议合并到投资是泊松过程 canonical 候选，math-* 文件只保留贝叶斯和幂律增量。
+
+# ============================================================
+# 审核员签字
+# ============================================================
+
+reviewer_notes: >
+  本审核独立于 Synthesis Agent 执行。
+  总体观察：
+  （1）self_audit 字段在多个文件中已诚实标注冗余和 weakest_unit，
+      但 Synthesis 仍把 redundant unit 标为 confidence: medium/high，存在偏差。
+  （2）三大数学模型（math-*）文件整体质量最弱——格言密度高、伪精确公式多、
+      与 canonical 重复严重；建议该文件整体降级为 case_pattern，不进 canonical。
+  （3）赚谁的钱（money-source-*）文件整体质量最强——有 Odean 实证支撑、
+      forbidden_inference 严密、counter_view 强；可作为 EXPECTATIONS_VALUATION
+      对手方画像层的有效补充。
+  （4）商品超级周期（cc-*）文件 framework 密度高但有新增贡献（顶部信号七件套、
+      四种买点、供给记忆、五类商品修正项）；建议保留为 INDUSTRY_SUPPLY_DEMAND
+      的 commodity-cycle-case-pattern 专题附录。
+  （5）AI 算力（AIC-*）文件单周期样本外推风险最高，confidence 标注偏激进；
+      建议保留为案例模板，不进 canonical。
+  （6）股价三层肉（stock-three-layer-*）文件 self_audit 明确 6/12 redundant；
+      建议 Synthesis 直接采纳 self_audit 的分类，把 method_redundant 标记的 unit
+      全部降级为 case_pattern，不进 canonical。
+  （7）忍受悬而未决（tolerate-uncertainty-*）文件心理学锚点强但落地需要 BEHAVIOR_REVIEW
+      承接；建议保留为 BEHAVIOR_REVIEW 的认知心理学补充材料。
