@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="330" viewBox="0 0 1200 330" role="img" aria-labelledby="title desc">
+  <title id="title">投资 Agent Harness:人的目标经过系统约束,回到人的决策</title>
+  <desc id="desc">人的目标与方法进入 Main Agent,由 Harness 提供上下文、状态与工具约束,结果经过 Reviewer 与 Validator 双重审查(196 项机械校验),最终由人做决策;失败案例进入案例库,驱动下一轮系统。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4E8C7F"/>
+    </marker>
+    <marker id="arrowDash" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#86ACA4"/>
+    </marker>
+  </defs>
+
+  <rect x="1" y="1" width="1198" height="328" rx="18" fill="#F5FAF9" stroke="#CFE4E0" stroke-width="2"/>
+
+  <text x="48" y="54" fill="#17332F" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="650">把投资纪律做进系统,而不是依赖意志力</text>
+  <text x="48" y="82" fill="#5C7B76" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Noto Sans SC',sans-serif" font-size="14">Discipline lives in the system, not in willpower.</text>
+
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Noto Sans SC',sans-serif" text-anchor="middle">
+    <rect x="45" y="118" width="190" height="112" rx="12" fill="#E9F4F2" stroke="#A9CFC8" stroke-width="2"/>
+    <text x="140" y="156" fill="#1C3B36" font-size="16.5" font-weight="650">人的目标</text>
+    <text x="140" y="180" fill="#6E8D88" font-size="11" letter-spacing="0.5">HUMAN GOAL</text>
+    <text x="140" y="205" fill="#5F7F7A" font-size="12.5">方法 · 风险偏好</text>
+
+    <rect x="275" y="118" width="190" height="112" rx="12" fill="#E9F4F2" stroke="#A9CFC8" stroke-width="2"/>
+    <text x="370" y="156" fill="#1C3B36" font-size="16.5" font-weight="650">Main Agent</text>
+    <text x="370" y="180" fill="#6E8D88" font-size="11" letter-spacing="0.5">AI CAPABILITY</text>
+    <text x="370" y="205" fill="#5F7F7A" font-size="12.5">研究 · 反证 · 监控</text>
+
+    <rect x="505" y="118" width="190" height="112" rx="12" fill="#DCEFEA" stroke="#37907F" stroke-width="3"/>
+    <text x="600" y="156" fill="#0F3D33" font-size="16.5" font-weight="700">Harness</text>
+    <text x="600" y="180" fill="#2F6B5F" font-size="12">Context · State · Tools</text>
+    <text x="600" y="202" fill="#2F6B5F" font-size="12">权限边界 · 时间锁</text>
+
+    <rect x="735" y="118" width="190" height="112" rx="12" fill="#E9F4F2" stroke="#A9CFC8" stroke-width="2"/>
+    <text x="830" y="156" fill="#1C3B36" font-size="16.5" font-weight="650">双重审查</text>
+    <text x="830" y="180" fill="#6E8D88" font-size="11" letter-spacing="0.5">REVIEWER · VALIDATOR</text>
+    <text x="830" y="205" fill="#5F7F7A" font-size="12.5">语义审查 + 196 项校验</text>
+
+    <rect x="965" y="118" width="190" height="112" rx="12" fill="#E9F4F2" stroke="#A9CFC8" stroke-width="2"/>
+    <text x="1060" y="156" fill="#1C3B36" font-size="16.5" font-weight="650">人的决策</text>
+    <text x="1060" y="180" fill="#6E8D88" font-size="11" letter-spacing="0.5">HUMAN DECISION</text>
+    <text x="1060" y="205" fill="#5F7F7A" font-size="12.5">最终责任 · 资本权限</text>
+  </g>
+
+  <g fill="none" stroke="#4E8C7F" stroke-width="2.5" marker-end="url(#arrow)">
+    <path d="M235 174 H269"/>
+    <path d="M465 174 H499"/>
+    <path d="M695 174 H729"/>
+    <path d="M925 174 H959"/>
+  </g>
+
+  <path d="M 1060 230 C 1060 288, 600 292, 600 234" fill="none" stroke="#86ACA4" stroke-width="2" stroke-dasharray="7 7" marker-end="url(#arrowDash)"/>
+  <rect x="624" y="262" width="308" height="30" rx="15" fill="#F5FAF9"/>
+  <text x="778" y="282" text-anchor="middle" fill="#5C7B76" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Noto Sans SC',sans-serif" font-size="13">失败案例 → Case Gym → 下一轮系统</text>
+</svg>

@@ -1,15 +1,31 @@
-# agentic-investment-harness
+<div align="center">
 
-> 把投资纪律做成系统，而不是依赖意志力。
-> 人类保留最终决策权，AI 负责研究、反证、监控与执行纪律。
->
-> **Discipline lives in the system, not in willpower.**
+# 投资 Agent Harness
 
----
+**把投资纪律做成系统，而不是依赖意志力。**
+
+*Discipline lives in the system, not in willpower.*
+
+</div>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/harness-map-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/harness-map-light.svg">
+  <img alt="投资 Agent Harness 架构：人的目标 → Main Agent → Harness（Context、State、Tools、权限边界、时间锁）→ Reviewer 与 Validator 双重审查（196 项校验）→ 人的决策；失败案例进入 Case Gym 驱动下一轮" src="./assets/harness-map-light.svg">
+</picture>
 
 ## 先说结论
 
-这是一个以个人投资为实验场的 **AI Harness Engineering 项目**。
+这是一个以个人投资为实验场的 **AI Harness Engineering 项目**：让通用大模型在明确的 Context、State、权限与校验之下，长期稳定地服务于一个真实目标。人类保留最终决策权，AI 负责研究、反证、监控与执行纪律。
+
+| 主张 | 证据 |
+|---|---|
+| 纪律不靠意志，靠结构 | 时间锁 · 四票分立 · Maker–Checker |
+| 每次输出可机械校验 | Validator **196 项测试**，CI 持续检查 |
+| 错误成为系统资产 | Case Gym：失败案例 → 规则 → 自动检查 |
+| 权限属于人 | AI 无资本决策权，merge 必须由人执行 |
+
+边界：不预测市场，不保证收益，不自动交易。
 
 我真正想解决的并不是"让 AI 帮我炒股"，而是一个更一般的问题：
 
