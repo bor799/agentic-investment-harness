@@ -387,10 +387,20 @@ def _strip_dot_slash(path):
     return path
 
 
+def _has_unsafe_relative_segments(path):
+    """Reject traversal and ambiguous separators before checking an allowlist."""
+    if not path:
+        return False
+    norm = _strip_dot_slash(path)
+    return "\\" in norm or any(part in {"", ".", ".."} for part in norm.split("/"))
+
+
 def _is_canonical_sink(path):
     if not path:
         return False
     norm = _strip_dot_slash(path)
+    if _has_unsafe_relative_segments(norm):
+        return False
     if norm in CANONICAL_SINK_EXACT:
         return True
     for prefix in CANONICAL_SINK_PREFIXES:
@@ -472,6 +482,8 @@ def v1_write_path(payload, today):
     """V-1 写入路径必须属于 canonical sink。"""
     write_intent = payload.get("harness_task", {}).get("write_intent")
     target = payload.get("write_target")
+    if target and _has_unsafe_relative_segments(target):
+        return _fail("V-1", f"write_target 含不安全相对路径片段：{target}")
     if write_intent == "governance_migration":
         if not target or not _governance_entry(payload):
             return _fail("V-1", "governance_migration 未命中冻结 contract 精确目标")
@@ -493,6 +505,11 @@ def v1_write_path(payload, today):
                    {"write_intent": write_intent})
     if not target:
         return _fail("V-1", f"{write_intent} 缺少 write_target")
+    if write_intent == "automation_stage" and not (
+        _strip_dot_slash(target).startswith("90_AUTOMATION/RUNTIME/STAGING/")
+        or _strip_dot_slash(target).startswith("90_AUTOMATION/RUN_LOG/")
+    ):
+        return _fail("V-1", f"automation_stage 只能写隔离 Staging 或 Run Log：{target}")
     if _is_protected(target):
         return _fail("V-1", f"write_target 命中 canonical 保护：{target}")
     if not _is_canonical_sink(target):

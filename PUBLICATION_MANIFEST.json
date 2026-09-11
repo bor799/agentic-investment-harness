@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-08-05",
+  "generated_at": "2026-09-11",
   "repo": "bor799/agentic-investment-harness",
-  "total_files": 1581,
+  "total_files": 1585,
   "files": [
     {
       "path": ".claude/agents/investment-reviewer.md",
@@ -177,7 +177,7 @@
       "include": true,
       "rights": "own",
       "reason": "Original content by Murphy or AI-assisted through author interactions",
-      "sha256": "95ac481c776ccdb5f46cb0cb3241a74dde0f4fcb4deec60c6e2b840a1b49e9c0"
+      "sha256": "5a852082cf685a59a7478ceed7207279fc459b881626e5849d479011e59a7263"
     },
     {
       "path": "02_术/SKILLS/EXPECTATIONS_LEDGER.md",
@@ -5847,7 +5847,7 @@
       "include": true,
       "rights": "own",
       "reason": "Original content by Murphy or AI-assisted through author interactions",
-      "sha256": "6408d9b595d06539738e9b85d1ddb67d4d44d349fc0b1ae5f70c529ff288c7db"
+      "sha256": "b06ff70479661cc11e1823f470636d7ae4ee30482af796bbc819dd8de033750c"
     },
     {
       "path": "90_AUTOMATION/PROMPTS/AI_BELIEF_LOOP.md",
@@ -5896,7 +5896,7 @@
       "include": true,
       "rights": "own",
       "reason": "Original content by Murphy or AI-assisted through author interactions",
-      "sha256": "829b4e43d44c13e77c51f39963386196c0145b53109e6cb7ca5728058fbb5044"
+      "sha256": "8b5b57d2d1f3ec5280c8773f955b4c91923b86f95e651d9035aeb94fd2ed0abd"
     },
     {
       "path": "90_AUTOMATION/PROMPTS/INVESTMENT_REVIEWER.md",
@@ -5910,7 +5910,7 @@
       "include": true,
       "rights": "own",
       "reason": "Original content by Murphy or AI-assisted through author interactions",
-      "sha256": "363ed9868e3fc7f46f2bf72b868d387f82c64aa55f951def11f5601945899dba"
+      "sha256": "b5ebd7e0f86e9293db67f5e71508d30f07edf627ca2279231a1398b35ddf9bba"
     },
     {
       "path": "90_AUTOMATION/PROMPTS/REVIEW_QUEUE/.claude/commands/ai-research-loop-pro.md",
@@ -6589,7 +6589,7 @@
       "include": true,
       "rights": "own",
       "reason": "Original content by Murphy or AI-assisted through author interactions",
-      "sha256": "4e1386d60875684c72dcb1a86ebbdf25bc26225c25b45baca4cc98342dd0c289"
+      "sha256": "25698424952ef4afd9343c647290645049915616748c013e984f68d694c6b7ee"
     },
     {
       "path": "99_ARCHIVE/LEGACY_LAYOUT/README.md",
@@ -6666,14 +6666,14 @@
       "include": true,
       "rights": "own",
       "reason": "Original content by Murphy or AI-assisted through author interactions",
-      "sha256": "9105b1f965053920fc106005ad96aa0e584ebbaa831c84a91547a242d6705c20"
+      "sha256": "30eb3df4415f35e4832904bc37a947b3c3fa02af4075d3d914f85035b20f0e3c"
     },
     {
       "path": "ROADMAP.md",
       "include": true,
       "rights": "own",
       "reason": "Original content by Murphy or AI-assisted through author interactions",
-      "sha256": "5f0d1e80ef0ae874390d3f088bbcb7a1517ec1dbb8b84e3ed47e0d6fc0a300cd"
+      "sha256": "085a6f368040394c48417c1691cc72b85d9e2dece3198d977170ba10f24a55aa"
     },
     {
       "path": "SECURITY.md",
@@ -11070,6 +11070,34 @@
       "rights": "own",
       "reason": "Original content by Murphy or AI-assisted through author interactions",
       "sha256": "aadd399dae043aa50c8cffc8721d1cdbc664213ab129cb8f03aa7954c7eda574"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/trade-log.md",
+      "include": true,
+      "rights": "own",
+      "reason": "Existing published project documentation or architecture illustration",
+      "sha256": "2721ea80ce32be136f988de6d8b948db412105b02b9a53252fc0af314ce10c6e"
+    },
+    {
+      "path": "04_CASE_GYM/TRADE_JOURNAL.md",
+      "include": true,
+      "rights": "own",
+      "reason": "Existing published project documentation or architecture illustration",
+      "sha256": "daac7cf622644f7f1472883d032d86fd45affadff262a77c1b0904b4615989c9"
+    },
+    {
+      "path": "assets/harness-map-dark.svg",
+      "include": true,
+      "rights": "own",
+      "reason": "Existing published project documentation or architecture illustration",
+      "sha256": "7c7285e443d99b9a74599892787d9971d05e494c85fc920ff78002c1ec388c3c"
+    },
+    {
+      "path": "assets/harness-map-light.svg",
+      "include": true,
+      "rights": "own",
+      "reason": "Existing published project documentation or architecture illustration",
+      "sha256": "5d38c66ad6000990cf63dc1a004f082f88548bceb98d7daae3441c12be66d15d"
     }
   ]
 }
