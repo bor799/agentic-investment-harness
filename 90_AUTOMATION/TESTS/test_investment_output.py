@@ -419,6 +419,46 @@ class TestV7CanonicalProtection(unittest.TestCase):
         self.assertEqual(r["status"], "FAIL")
 
 
+class TestWriteScopeRegression(unittest.TestCase):
+    def test_automation_cannot_promote_research(self):
+        for target in (
+            "05_EVIDENCE_META/SOURCES/2026/example.md",
+            "05_EVIDENCE_META/MOMENTS/example.md",
+            "03_STATE/HYPOTHESIS_QUEUE/CURRENT/COIN.md",
+        ):
+            with self.subTest(target=target):
+                p = _payload(harness_task={"write_intent": "automation_stage"},
+                             write_target=target, review_result={"verdict": "PASS"})
+                self.assertEqual(v.v1_write_path(p, None)["status"], "FAIL")
+
+    def test_automation_can_stage_only(self):
+        for target in ("90_AUTOMATION/RUNTIME/STAGING/x.json",
+                       "./90_AUTOMATION/RUN_LOG/x.json"):
+            with self.subTest(target=target):
+                p = _payload(harness_task={"write_intent": "automation_stage"}, write_target=target)
+                self.assertEqual(v.v1_write_path(p, None)["status"], "OK")
+
+    def test_traversal_and_ambiguous_paths_fail(self):
+        for intent, target in (
+            ("explicit_persist", "05_EVIDENCE_META/SOURCES/2026/../../outside.md"),
+            ("explicit_persist", "05_EVIDENCE_META/SOURCES//x.md"),
+            ("automation_stage", "90_AUTOMATION/RUN_LOG/../outside.json"),
+            ("repository_publish", ".github/../01_道/MINDSET.md"),
+            ("repository_publish", ".github/./workflow.yml"),
+        ):
+            with self.subTest(intent=intent, target=target):
+                p = _payload(harness_task={"write_intent": intent}, write_target=target)
+                self.assertEqual(v.v1_write_path(p, None)["status"], "FAIL")
+
+    def test_reviewer_does_not_grant_canonical_method_permission(self):
+        for target in ("02_术/SKILLS/README.md", "02_术/SKILLS/ETF_LOF_FUND.md"):
+            with self.subTest(target=target):
+                p = _payload(harness_task={"write_intent": "explicit_persist"},
+                             write_target=target, review_result={"verdict": "PASS"})
+                self.assertEqual(v.v1_write_path(p, None)["status"], "FAIL")
+                self.assertEqual(v.v7_canonical_protection(p, None)["status"], "FAIL")
+
+
 class TestV8Backup(unittest.TestCase):
     def test_pass_new_file(self):
         r = v.v8_backup(_payload(

@@ -101,13 +101,9 @@ research_trigger:
   current_validation_question:
 ```
 
-硬边界：
-
-- `murphy_prior` 只收录 Murphy 在当前或历史对话中明确表达、确认的判断；
-- `authored_by: human_ai`、文件存在、AI 多次重复、旧报告写有“已吸收”都不能推出 Murphy 已确认；
-- 旧报告中的推演、产品选择、概率、排序和目标价统一进入 `ai_extensions`；
-- 如果“为什么研究它”仍不清楚，只问一个能改变验证路径的高价值问题，并把 `recovery_status` 保持为 `needs_murphy_confirmation`；
-- 触发原因未确认时可以继续查证，但不能把 AI 猜测补写成 Murphy 观点，也不能增加风险。
+`murphy_prior` 只收录用户明确表达或确认的判断；文件存在、`human_ai`、AI 重复或旧“已吸收”标签都不是确认。
+旧 AI 概率、排序、目标价和推演只进入 `ai_extensions`。触发原因不清时，保持
+`needs_murphy_confirmation`，问一个能改变验证路径的问题；可继续查证，不能代填用户观点或增加风险。
 
 ### 60 秒结构先验（仅 TARGET / 新标的）
 
@@ -132,15 +128,10 @@ structural_prior:
   next_step: proceed_to_verify | ask_identity | out_of_scope
 ```
 
-约束：
-
-- `structural_prior` 不是 Current、四票、六档动作或交易意见；
-- 有效投资标的必须 `proceed_to_verify`，继续读取 Current 与新 Source；
-- `ask_identity` 只用于身份或研究触发不清；
-- `out_of_scope` 只用于 Murphy 明确排除或明显不是投资对象；
-- 历史反模式不得阻止新证据进入；
-- 只有领域地图标记为 `qualified` 的模式可进入列表；没有时输出 `unknown`；
-- 一屏输出，不得出现价格、概率、仓位、目标价、H_B/H_R/H_L/H_C 或动作。
+结构先验只用领域地图中 `qualified` 模式；无合格模式就写 `unknown`。一屏内完成，
+不含价格、概率、目标价、仓位、四票或动作；它不是 Current 或交易意见。
+有效标的继续 `proceed_to_verify`，历史反模式不能阻断新证据；身份/触发不清才用
+`ask_identity`，用户明确排除或非投资对象才用 `out_of_scope`。
 
 ### 资产类型与验证路径
 
@@ -173,35 +164,13 @@ unknown_resolution:
 
 ---
 
-## 5. 加载顺序（固定）
+## 5. 按需执行
 
-```text
-1. 识别输入与标的
-2. 恢复研究触发链并区分 Murphy 判断与 AI 延伸
-3. 选择资产类型；触发原因不清时提出一个高价值问题
-4. TARGET 读取稳定 Entity / Domain Knowledge 与已结算 Case，形成 `structural_prior`
-5. 读取命中的道（CONSTITUTION / MINDSET）
-6. 读取 02_术/TRADING_SYSTEM/00_DECISION_CONTRACT.md
-7. 查询 03_STATE/HYPOTHESIS_QUEUE/CURRENT/<target_id>.md → state_status
-8. 从 02_术/SKILLS/README.md 选择 1–3 个 Skill
-9. 按任务读取必要 Source；旧 Evidence 只作兼容来源
-10. 必要时回到根来源（年报、公告、券商事实）
-11. 只验证能改变当前判断的最小证据
-12. 形成判断（内部四票、对外自然语言、六档动作）
-13. 完成 H_R 赔率校准门；不能校准时明确降级
-14. review_required == true 时调用 Reviewer
-15. 生成用户回答（先 concise）
-16. 用户要求深入再展开
-17. write_intent == explicit_persist 时跑 Validator，再写入 canonical sink
-```
-
-禁止：
-
-- 每次加载全部道和术；
-- 机械启动完整研究流程；
-- 把旧报告视为当前判断；
-- 复制道或 Skill 形成第二套摘要体系。
-- 把 `structural_prior` 当成已验证 Current 或跳过新 Source。
+文件加载顺序唯一见 `AGENTS.md §2`，本文件不再维护第二套顺序。
+同一任务中已读且未变化的规则不重复加载；从已有上下文继续，只补当前判断所需证据。
+仅 TARGET / 新标的判断：先用稳定 Knowledge 与已结算 Case 形成未校准结构先验，再读 Current 和新来源验证。
+默认简洁回答；字段是内部检查清单，不是必须逐项展示的报告目录。
+Reviewer 硬触发唯一见 `AGENTS.md §4.1`；简洁回答、探索或批量任务均不豁免。
 
 ---
 
@@ -228,30 +197,26 @@ unknown_resolution:
 
 ## 7. JUDGE 简洁输出（concise）
 
-`response_mode: concise` 时默认输出：
+`response_mode: concise` 使用 `AGENTS.md §5` 的七项输出，每项通常一句话。
+将研究触发、Murphy 原判断、AI 核验结果和市场预期融入相关句子；没有用户原判断时不代填。
+结论应指出最关键证据与缺口，不以报告完整为目标。
 
-```text
-一句话判断
-为什么研究它
-Murphy 怎么看
-AI 验证了什么
-这次赚什么钱
-为什么是现在
-赔率与市场预期
-最大反方
-当前六档动作
-下一项唯一验证信号
-```
+### 半年、本周、当下
 
-用户可见正文不得出现 `H_B / H_R / H_L / H_C`、`state_status`、`process_depth` 等内部代码。必须翻译为：
+用户问不同时间跨度时，用同一赚钱逻辑的三个视图回答；只展示用户所问的跨度。
 
-- 行业方向是否成立；
-- 公司能否留下利润，或 ETF 是否买对行业；
-- 当前价格是否有赔率；
-- 账户是否允许承担风险；
-- 还缺哪一项具体证据。
+| 时间 | 回答什么 | 最小验证 |
+|---|---|---|
+| 半年 | 谁付钱，谁留下利润，利润怎样成为每股现金；赚经营增长、预期修复还是资产趋势的钱 | 截止日期内能兑现的订单、利润或现金流事件，以及供给反噬/摊薄反证 |
+| 本周 | 哪个新事件能确认或推翻半年逻辑；市场原先预期什么 | 具体事件日期、原预期、实际结果；无新证据就明确说无变化 |
+| 当下 | 证据是否仍有效，当前价格已反映多少，工具与账户条件是否齐全 | 行情时间与币种、赔率依据、执行条件；缺失项保持未知 |
 
-“整体胜率乘以赔率”是定性优化目标。没有可校准样本时，不制造概率、不计算 EV、不输出仓位参数。
+跨度是观察窗口，不是持仓指令。注明资料截止时间；未刷新历史研究不能回答“正在发生”。
+不要用一天涨跌确认半年经营，也不要用半年想象代替本周催化。用户指定截止日期时，
+将窗口内验证与更长期潜力分开。最后只保留一个最能改变判断的下一验证信号。
+
+不展示内部契约代码；用自然语言说明经营、价格、账户条件和最关键缺口。
+没有可校准样本时，不制造概率、不计算 EV、不输出仓位参数。
 
 ### H_R 赔率校准门
 
@@ -274,29 +239,9 @@ odds_calibration:
 
 用户只看到一行自然语言“赔率与市场预期”：先说状态，再说当前价格已反映什么；若不能反推，就说缺哪一个最小输入。研究判断与资本授权分开：只有完成校准才有资格讨论 `H_R` 是否通过，仍须独立通过 `H_B/H_C` 才能增加风险。
 
-六档动作必须使用 `02_术/TRADING_SYSTEM/00_DECISION_CONTRACT.md` 定义：
-
-```
-不投入 / 继续观察 / 建立验证仓 / 升级确认仓 / 不加仓 / 降级或退出
-```
-
-不允许出现：
-
-- "维持甚至加仓"
-- "降低权重"
-- "适当参与"
-- "谨慎乐观"
-- "逢低吸纳"
-- "波段操作"
-- 或任何模糊、组合、越权表达。
-
-简洁输出不得暴露内部 `harness_task` 字段名。`state_status`、`process_depth`、`review_required`、`loaded_skills`、`lane`、`input_type`、`scope`、`response_mode`、`write_intent` 等字段属于契约层，不展示给用户。需要表达相同含义时改用自然语言：
-
-- 不写 `State legacy_only` → 写"当前证据为历史研究，未刷新"
-- 不写 `process_depth reviewed` → 写"已过反方审查"
-- 不写 `write_intent chat_only` → 直接不提及
-
-动作字段只输出六档动作名称本身，可在其后用一句话补充动作理由（事实层），但不附加内部状态字段名或英文枚举值。
+六档动作与资本条件唯一见 `02_术/TRADING_SYSTEM/00_DECISION_CONTRACT.md`。
+动作名称后最多补一句事实理由，不使用“逢低吸纳、适当参与、维持甚至加仓”等模糊或组合动作。
+内部状态翻译为“历史研究未刷新”“缺少当前价格”等自然语言，不展示 YAML。
 
 ---
 
@@ -314,15 +259,7 @@ odds_calibration:
 下一步验证什么
 ```
 
-路由结果只能是以下之一：
-
-| `absorption` | 含义 |
-|---|---|
-| `SOURCE_CAPTURE` | 新的原文、事实或数据，写入 Source |
-| `MOMENT_CAPTURE` | 判断发生变化，但尚待吸收 |
-| `KNOWLEDGE_UPDATE` | 领域/实体 working belief 发生变化 |
-| `STATE_UPDATE` | 冻结预期或当前 thesis 发生变化 |
-| `NO_INCREMENT` | 同根重复或无决策增量，不落盘 |
+吸收类型与写入路径唯一见 `00_HOME/CONTENT_ROUTER.md`；没有增量就不落盘。
 
 ---
 
@@ -333,7 +270,7 @@ odds_calibration:
 禁止：
 
 - 把证据方向机械加总成概率、分数或 weight；
-- 同根来源重复增强；
+- 同根来源重复增强；AI 一致意见不构成独立证据；
 - 用价格/资金流更新经营 belief；
 - 用正式融资更新客户需求、利用率或利润；
 - 把 RPO、ARR 当客户现金。
@@ -342,49 +279,17 @@ Active Expectation 必须包含 `claim_ids`、`forecast_version`、`frozen_as_of
 
 ---
 
-## 10. 批量标的输出（scope: batch）
+## 10. 批量与深入
 
-用户输入标的清单时：
+批量默认简洁比较，不逐家生成长报告；每个标的给一句判断、六档动作和关键缺口，
+主输出最多五个。按当前确定性、赔率、催化、证据完整度、最大风险确定研究优先级。
+批量产生投资优先级时必须 `reviewed`，简洁呈现不取消独立审查。
 
-1. 对每个标的完成最小判断（一句话判断 + 六档动作 + 关键 unknown）；
-2. **不为每个标的生成长报告**；
-3. 最后按以下维度排序：
+用户要求深入、解释财务估值/产业链、正式报告，或重大冲突无法简述时用 `deep`：
+先给结论，再展开。四票分立、根来源与日期、失败条件、“市场为什么可能正确”必须保留，
+不复制道或 Skill 正文。仅要求比较多个标的不自动触发长报告。
 
-```text
-当前确定性
-赔率
-关键催化
-证据完整度
-最大风险
-下一步研究优先级
-```
-
-默认只展示最值得继续研究的少数标的（≤ 5 个）。`process_depth` 必须为 `reviewed`，因为批量比较直接产生投资优先级建议——满足 Reviewer 硬触发。
-
----
-
-## 11. 深入模式（deep）
-
-满足以下任一条件时进入 `response_mode: deep`：
-
-- 用户明确要求深入研究、完整报告或继续展开；
-- 用户要求比较多个标的；
-- 用户要求解释估值、财务、产业链或资金行为；
-- 用户要求生成正式投资报告；
-- 当前问题存在重大证据冲突，简短回答无法表达清楚。
-
-深入模式仍需**先给结论**（concise 模板），再展开分析。展开时遵循：
-
-- 经营 / 赔率 / 周期 / 仓位 四票分立；
-- 关键证据标根来源与发布日期；
-- 失败条件明确；
-- 写明"市场为什么可能正确"；
-- 写明"什么情况说明我错了"；
-- 不复制道或 Skill 正文，只引用。
-
----
-
-## 12. 写入与 Reviewer / Validator
+## 11. 写入与 Reviewer / Validator
 
 `write_intent: chat_only` 是默认。只有以下两种情况进入 `explicit_persist`：
 
@@ -418,20 +323,11 @@ Active Expectation 必须包含 `claim_ids`、`forecast_version`、`frozen_as_of
 - 一个最重要的待验证问题；
 - 当前动作与失败条件。
 
-任何写入都不允许：
-
-- 直接修改 `01_道/` 正文；
-- 直接修改 `02_术/` canonical Skill 正文；
-- 修改 `02_术/TRADING_SYSTEM/00_DECISION_CONTRACT.md` 的 `H_L` 软探测器语义；
-- 修改 `03_STATE/PORTFOLIO_LEDGER.md` 的持仓数据；
-- 重写 `04_CASE_GYM/` 既有内容；
-- 覆盖 `05_EVIDENCE_META/` 既有 Source、Knowledge 与 Archive 正文；
-- 覆盖 frozen expectation；
-- 自动应用 `belief_update.proposed_state`。
+写入权限、禁止覆盖的正文与资本边界唯一见 `AGENTS.md §0–4`。
 
 ---
 
-## 13. 自动化权限
+## 12. 自动化权限
 
 `actor: automation` 只能以 exclusive-create 暂存：
 
@@ -447,22 +343,7 @@ Knowledge、Current、已冻结预期的结算、资本与主账也不能由自�
 
 ---
 
-## 14. 禁止事项
-
-- 禁止用旧 `/70` scorecard、旧 `交易宪法/CONSTITUTION.md`、旧长报告"已吸收/最高效力"标签授权当前判断；
-- 禁止把价格下降写成 `H_B` 经营胜率提高；
-- 禁止把同根信息多次计入证据；
-- 禁止把"AI 共识"作为独立证据；
-- 禁止跳过 Reviewer 完成正式写入；
-- 禁止跳过 Validator 完成正式写入；
-- 禁止在没有失败条件的情况下输出结论；
-- 禁止用未校准概率（`50%`、`区间中点`、`多 AI 平均`）进入 EV 或仓位；
-- 禁止给单一 Skill 授权交易——四票必须各自独立通过。
-- 禁止把 `ljg-invest` 的新秩序叙事直接升级成 Knowledge 或动作。
-
----
-
-## 15. 不在本 Prompt 定义的内容
+## 13. 不在本 Prompt 定义的内容
 
 - Skills 职责与失败条件 → `02_术/SKILLS/README.md` 与各 Skill 文件；
 - 决策合同细节 → `02_术/TRADING_SYSTEM/00_DECISION_CONTRACT.md`；
