@@ -1,0 +1,227 @@
+{
+  "contract_id": "IH-20260913-01",
+  "authorization": "PLEASE IMPLEMENT THIS PLAN",
+  "authorization_date": "2026-09-13",
+  "approved_plan_path": ".harness_backup/20260913_individual_harness_simplification/APPROVED_PLAN.md",
+  "approved_plan_sha256": "e60301c0df6fdb807ec3c65ae93b193a23a5f2bc8d6615f9eeeaee503a28c0ec",
+  "reviewer_verdict": "PASS",
+  "reviewer_scope": "exact 27-file individual Harness simplification candidate reviewed 2026-09-14; no directory wildcard, trade, capital, or deletion authority",
+  "control_targets": [
+    {
+      "write_target": "00_HOME/PATHS.md",
+      "operation": "modify",
+      "before_sha256": "b59f3968aac7ddae8e85ec51ddc8f5fb1bcf2dd3b36173d776184dcaace9dd37",
+      "after_sha256": "fa0b539e49272774a5be3fd60051addec3eaabeaf9730cf45853637f30eed2e2",
+      "backup_path": ".harness_backup/20260913_individual_harness_simplification/before/00_HOME/PATHS.md",
+      "restore_command": "cp -p \".harness_backup/20260913_individual_harness_simplification/before/00_HOME/PATHS.md\" \"00_HOME/PATHS.md\""
+    },
+    {
+      "write_target": "02_术/SKILLS/COMPANY_FUNDAMENTALS.md",
+      "operation": "modify",
+      "before_sha256": "ab0327ffa7fa1ebe683e2ccd2cde1bc2b370697e5bc51d6d1b9ded34a946e2d9",
+      "after_sha256": "1daae21f7cf1bdd5fc6c0df12d50cf81b455a3a304af949b6ff4c256a18aa83e",
+      "backup_path": ".harness_backup/20260913_individual_harness_simplification/before/02_术/SKILLS/COMPANY_FUNDAMENTALS.md",
+      "restore_command": "cp -p \".harness_backup/20260913_individual_harness_simplification/before/02_术/SKILLS/COMPANY_FUNDAMENTALS.md\" \"02_术/SKILLS/COMPANY_FUNDAMENTALS.md\""
+    },
+    {
+      "write_target": "02_术/SKILLS/README.md",
+      "operation": "modify",
+      "before_sha256": "7a44209ab31f248056c98681569b264f0126438c1c628ec3a34b0fa35f205d15",
+      "after_sha256": "890d5a18f6df1c227df91aabaffae8a54d0c870f9c78f89614077a4126305320",
+      "backup_path": ".harness_backup/20260913_individual_harness_simplification/before/02_术/SKILLS/README.md",
+      "restore_command": "cp -p \".harness_backup/20260913_individual_harness_simplification/before/02_术/SKILLS/README.md\" \"02_术/SKILLS/README.md\""
+    },
+    {
+      "write_target": "02_术/TRADING_SYSTEM/00_DECISION_CONTRACT.md",
+      "operation": "modify",
+      "before_sha256": "3a4bcdfd166e88c5e33d3c76ba9211e43aa4f06ed87f58c036f42b64fb1fe350",
+      "after_sha256": "755c34450111a10aa77fb439cd8451494f34bb6b0aa8c8c52e6a4c76aa387c94",
+      "backup_path": ".harness_backup/20260913_individual_harness_simplification/before/02_术/TRADING_SYSTEM/00_DECISION_CONTRACT.md",
+      "restore_command": "cp -p \".harness_backup/20260913_individual_harness_simplification/before/02_术/TRADING_SYSTEM/00_DECISION_CONTRACT.md\" \"02_术/TRADING_SYSTEM/00_DECISION_CONTRACT.md\""
+    },
+    {
+      "write_target": "02_术/TRADING_SYSTEM/01_RESEARCH_FLOW.md",
+      "operation": "modify",
+      "before_sha256": "573a4b4f2305b4eb7e32cc375d81b46497efe7d80d8f15e361698dbc3318dc90",
+      "after_sha256": "b0180477dc55e249c3b0071b69ddae571f988aa11a9204e0829445c1df1211e4",
+      "backup_path": ".harness_backup/20260913_individual_harness_simplification/before/02_术/TRADING_SYSTEM/01_RESEARCH_FLOW.md",
+      "restore_command": "cp -p \".harness_backup/20260913_individual_harness_simplification/before/02_术/TRADING_SYSTEM/01_RESEARCH_FLOW.md\" \"02_术/TRADING_SYSTEM/01_RESEARCH_FLOW.md\""
+    },
+    {
+      "write_target": "02_术/TRADING_SYSTEM/04_RUN_MODES.md",
+      "operation": "modify",
+      "before_sha256": "84eb7baba27ed17b88dfeace840612b0580021d950b4f0d8580eda47fea1e16b",
+      "after_sha256": "eacb58b073ee9e07c3845dfb388c8eea7f1a522593432f630e919c0e01287763",
+      "backup_path": ".harness_backup/20260913_individual_harness_simplification/before/02_术/TRADING_SYSTEM/04_RUN_MODES.md",
+      "restore_command": "cp -p \".harness_backup/20260913_individual_harness_simplification/before/02_术/TRADING_SYSTEM/04_RUN_MODES.md\" \"02_术/TRADING_SYSTEM/04_RUN_MODES.md\""
+    },
+    {
+      "write_target": "90_AUTOMATION/EVALS/README.md",
+      "operation": "modify",
+      "before_sha256": "3d5b3e17296afacf29d92023af03e943f7f24701e2ec431487372ed3a884bd79",
+      "after_sha256": "711f8b5dff3ccede78d6b60118e54e7c24cd0094b103417e8a839730f5a1b901",
+      "backup_path": ".harness_backup/20260913_individual_harness_simplification/before/90_AUTOMATION/EVALS/README.md",
+      "restore_command": "cp -p \".harness_backup/20260913_individual_harness_simplification/before/90_AUTOMATION/EVALS/README.md\" \"90_AUTOMATION/EVALS/README.md\""
+    },
+    {
+      "write_target": "90_AUTOMATION/EVALS/cases/EVAL-260224-LMND.md",
+      "operation": "modify",
+      "before_sha256": "ac0328b0ba0abe07c451107ff9befa92ccfa6d2cc1e20cfaed87b1d2f1d50398",
+      "after_sha256": "fe8ab10c33f427bfd735e4f3fba9b928926eca214a85d7c052c0f375725816ee",
+      "backup_path": ".harness_backup/20260913_individual_harness_simplification/before/90_AUTOMATION/EVALS/cases/EVAL-260224-LMND.md",
+      "restore_command": "cp -p \".harness_backup/20260913_individual_harness_simplification/before/90_AUTOMATION/EVALS/cases/EVAL-260224-LMND.md\" \"90_AUTOMATION/EVALS/cases/EVAL-260224-LMND.md\""
+    },
+    {
+      "write_target": "90_AUTOMATION/EVALS/cases/EVAL-260226-MINISO.md",
+      "operation": "modify",
+      "before_sha256": "b98cce784bcede11667505b3bb3649bbab9fd3e3722d8a57784bc9ed37d8f270",
+      "after_sha256": "406f7bf99898ac363fef689a1591bb6e16dc9612518d281b96c01e0e9df8f3af",
+      "backup_path": ".harness_backup/20260913_individual_harness_simplification/before/90_AUTOMATION/EVALS/cases/EVAL-260226-MINISO.md",
+      "restore_command": "cp -p \".harness_backup/20260913_individual_harness_simplification/before/90_AUTOMATION/EVALS/cases/EVAL-260226-MINISO.md\" \"90_AUTOMATION/EVALS/cases/EVAL-260226-MINISO.md\""
+    },
+    {
+      "write_target": "90_AUTOMATION/EVALS/cases/EVAL-260226-POPMART.md",
+      "operation": "modify",
+      "before_sha256": "721d8e17d69a0b9de04069de6ac6afa2f09ed91bc46f5a09618ad33b5cd670e2",
+      "after_sha256": "d775770803f71c2ef88a40ab8403aef5acf5ba01c204e821d69b7f93984f4fc0",
+      "backup_path": ".harness_backup/20260913_individual_harness_simplification/before/90_AUTOMATION/EVALS/cases/EVAL-260226-POPMART.md",
+      "restore_command": "cp -p \".harness_backup/20260913_individual_harness_simplification/before/90_AUTOMATION/EVALS/cases/EVAL-260226-POPMART.md\" \"90_AUTOMATION/EVALS/cases/EVAL-260226-POPMART.md\""
+    },
+    {
+      "write_target": "90_AUTOMATION/EVALS/cases/EVAL-260624-HORIZON.md",
+      "operation": "modify",
+      "before_sha256": "751ccc2f5a930a135bbd70c44661574466fa13861bce2a855e02a3e8f463d512",
+      "after_sha256": "900a194702519556fce80d7c4506cb539db9ae5e8370e2835578be62037711f4",
+      "backup_path": ".harness_backup/20260913_individual_harness_simplification/before/90_AUTOMATION/EVALS/cases/EVAL-260624-HORIZON.md",
+      "restore_command": "cp -p \".harness_backup/20260913_individual_harness_simplification/before/90_AUTOMATION/EVALS/cases/EVAL-260624-HORIZON.md\" \"90_AUTOMATION/EVALS/cases/EVAL-260624-HORIZON.md\""
+    },
+    {
+      "write_target": "90_AUTOMATION/EVALS/cases/EVAL-260709-TINCI.md",
+      "operation": "modify",
+      "before_sha256": "9c236abea8471b86e0178441a98c48916982a435ccabb4c8436e164458393c61",
+      "after_sha256": "e0f2c9bf322363fc6453810919f0b389d49626e95476de263a2c82e6975efe35",
+      "backup_path": ".harness_backup/20260913_individual_harness_simplification/before/90_AUTOMATION/EVALS/cases/EVAL-260709-TINCI.md",
+      "restore_command": "cp -p \".harness_backup/20260913_individual_harness_simplification/before/90_AUTOMATION/EVALS/cases/EVAL-260709-TINCI.md\" \"90_AUTOMATION/EVALS/cases/EVAL-260709-TINCI.md\""
+    },
+    {
+      "write_target": "90_AUTOMATION/EVALS/cases/EVAL-260717-501096.md",
+      "operation": "modify",
+      "before_sha256": "39e04ce4b7f36819aa056fa7616f20a941b2d79c2f204cf3cc2050ae69152ba1",
+      "after_sha256": "8b9a8f3830594c8387baebc4916f891b8bbff1ba255057aa7d4214f4c795e066",
+      "backup_path": ".harness_backup/20260913_individual_harness_simplification/before/90_AUTOMATION/EVALS/cases/EVAL-260717-501096.md",
+      "restore_command": "cp -p \".harness_backup/20260913_individual_harness_simplification/before/90_AUTOMATION/EVALS/cases/EVAL-260717-501096.md\" \"90_AUTOMATION/EVALS/cases/EVAL-260717-501096.md\""
+    },
+    {
+      "write_target": "90_AUTOMATION/EVALS/cases/EVAL-260808-BTGO.md",
+      "operation": "modify",
+      "before_sha256": "dddc01a666e66a0c607b60d7f55f4ca2fa3048af8bc869abdf0e25b488726b5c",
+      "after_sha256": "54a09066b31fd6396a8967d80533773504b94850a0df2aaaf653bdeb446d44c5",
+      "backup_path": ".harness_backup/20260913_individual_harness_simplification/before/90_AUTOMATION/EVALS/cases/EVAL-260808-BTGO.md",
+      "restore_command": "cp -p \".harness_backup/20260913_individual_harness_simplification/before/90_AUTOMATION/EVALS/cases/EVAL-260808-BTGO.md\" \"90_AUTOMATION/EVALS/cases/EVAL-260808-BTGO.md\""
+    },
+    {
+      "write_target": "90_AUTOMATION/EVALS/cases/EVAL-260811-ZIJIN.md",
+      "operation": "modify",
+      "before_sha256": "9c45124fd697702cd0a8e09f72d5cdd8e2cb7e160846a73bdd750d195874db1b",
+      "after_sha256": "3d86e5c9150d7942982c51ad5ca6652249f6b28bb999a80e06bb9a9418f2a754",
+      "backup_path": ".harness_backup/20260913_individual_harness_simplification/before/90_AUTOMATION/EVALS/cases/EVAL-260811-ZIJIN.md",
+      "restore_command": "cp -p \".harness_backup/20260913_individual_harness_simplification/before/90_AUTOMATION/EVALS/cases/EVAL-260811-ZIJIN.md\" \"90_AUTOMATION/EVALS/cases/EVAL-260811-ZIJIN.md\""
+    },
+    {
+      "write_target": "90_AUTOMATION/EVALS/cases/EVAL-COMPANY-ONLY.md",
+      "operation": "create",
+      "before_sha256": "MISSING",
+      "after_sha256": "3b0619dbba5c726b387568a2ca53500aad89194edad2be0e4a4271fe86fbdd68",
+      "backup_path": "",
+      "restore_command": "rm \"90_AUTOMATION/EVALS/cases/EVAL-COMPANY-ONLY.md\""
+    },
+    {
+      "write_target": "90_AUTOMATION/EVALS/cases/EVAL-DELTA-CONFLICT.md",
+      "operation": "create",
+      "before_sha256": "MISSING",
+      "after_sha256": "7fd4a8cefb0442fe749befc266ccf426cc86962bcd389aa5bc3872d266af970d",
+      "backup_path": "",
+      "restore_command": "rm \"90_AUTOMATION/EVALS/cases/EVAL-DELTA-CONFLICT.md\""
+    },
+    {
+      "write_target": "90_AUTOMATION/EVALS/cases/EVAL-INDIVIDUAL-BRIEF.md",
+      "operation": "create",
+      "before_sha256": "MISSING",
+      "after_sha256": "af9fbe2f5443455bb8ea01d0cefe3abce114b88a851672f477da931ee4710af3",
+      "backup_path": "",
+      "restore_command": "rm \"90_AUTOMATION/EVALS/cases/EVAL-INDIVIDUAL-BRIEF.md\""
+    },
+    {
+      "write_target": "90_AUTOMATION/EVALS/cases/EVAL-OWNERSHIP-DELTA.md",
+      "operation": "create",
+      "before_sha256": "MISSING",
+      "after_sha256": "73a9b4926967093a9d6ab9ace0df906c8a724f12b0e06f5931d0f03b05cdabb6",
+      "backup_path": "",
+      "restore_command": "rm \"90_AUTOMATION/EVALS/cases/EVAL-OWNERSHIP-DELTA.md\""
+    },
+    {
+      "write_target": "90_AUTOMATION/EVALS/cases/EVAL-ROUTING-CONTENT.md",
+      "operation": "modify",
+      "before_sha256": "39a07edd0190526223ef4639640a4738807318d60eb83488662eaf9eaa6b9b59",
+      "after_sha256": "046c29e8e9e32963286d1289c1625911c4adcacecf85281730926f11dac63981",
+      "backup_path": ".harness_backup/20260913_individual_harness_simplification/before/90_AUTOMATION/EVALS/cases/EVAL-ROUTING-CONTENT.md",
+      "restore_command": "cp -p \".harness_backup/20260913_individual_harness_simplification/before/90_AUTOMATION/EVALS/cases/EVAL-ROUTING-CONTENT.md\" \"90_AUTOMATION/EVALS/cases/EVAL-ROUTING-CONTENT.md\""
+    },
+    {
+      "write_target": "90_AUTOMATION/EVALS/cases/EVAL-ROUTING-EARNINGS.md",
+      "operation": "modify",
+      "before_sha256": "a15a1c10bc84db8343d1d6e9e1357efe342fe394e248a4da427aca710c56b99f",
+      "after_sha256": "ab5abb8e2f9a81b29f408c103d32dd08e0336ce70e050dc67050fbd8c47e8b92",
+      "backup_path": ".harness_backup/20260913_individual_harness_simplification/before/90_AUTOMATION/EVALS/cases/EVAL-ROUTING-EARNINGS.md",
+      "restore_command": "cp -p \".harness_backup/20260913_individual_harness_simplification/before/90_AUTOMATION/EVALS/cases/EVAL-ROUTING-EARNINGS.md\" \"90_AUTOMATION/EVALS/cases/EVAL-ROUTING-EARNINGS.md\""
+    },
+    {
+      "write_target": "90_AUTOMATION/EVALS/run_evals.py",
+      "operation": "modify",
+      "before_sha256": "0eca822557213b0bbd261ef22737c8cfa701177cbf6ec897a26ffab560b957a0",
+      "after_sha256": "7f55efb70418aa1a493d468c9f283e4ffe1b136ef8afdb07bf4e6940c454dfa7",
+      "backup_path": ".harness_backup/20260913_individual_harness_simplification/before/90_AUTOMATION/EVALS/run_evals.py",
+      "restore_command": "cp -p \".harness_backup/20260913_individual_harness_simplification/before/90_AUTOMATION/EVALS/run_evals.py\" \"90_AUTOMATION/EVALS/run_evals.py\""
+    },
+    {
+      "write_target": "90_AUTOMATION/EVALS/selftest/samples.json",
+      "operation": "modify",
+      "before_sha256": "8daaf6c9ddc829c094d1dcff01ccb34f44b71b4f2fbe015875b338b3abe13e12",
+      "after_sha256": "b95afb0e4717f83bc6a0cdc1345e34c54f3bed17bae61993c548b92d310675e6",
+      "backup_path": ".harness_backup/20260913_individual_harness_simplification/before/90_AUTOMATION/EVALS/selftest/samples.json",
+      "restore_command": "cp -p \".harness_backup/20260913_individual_harness_simplification/before/90_AUTOMATION/EVALS/selftest/samples.json\" \"90_AUTOMATION/EVALS/selftest/samples.json\""
+    },
+    {
+      "write_target": "90_AUTOMATION/PIPELINES/validate_investment_output.py",
+      "operation": "modify",
+      "before_sha256": "b06ff70479661cc11e1823f470636d7ae4ee30482af796bbc819dd8de033750c",
+      "after_sha256": "afc0a4c10520d4eaa13f1b9097933b35317cc2f5b40e68134fd4f6189d43e970",
+      "backup_path": ".harness_backup/20260913_individual_harness_simplification/before/90_AUTOMATION/PIPELINES/validate_investment_output.py",
+      "restore_command": "cp -p \".harness_backup/20260913_individual_harness_simplification/before/90_AUTOMATION/PIPELINES/validate_investment_output.py\" \"90_AUTOMATION/PIPELINES/validate_investment_output.py\""
+    },
+    {
+      "write_target": "90_AUTOMATION/PROMPTS/INVESTMENT_HARNESS.md",
+      "operation": "modify",
+      "before_sha256": "8b5b57d2d1f3ec5280c8773f955b4c91923b86f95e651d9035aeb94fd2ed0abd",
+      "after_sha256": "6fe378d97b6447bdb66fbcdb058c42f65abd99dea9bf196ff8b3f9382443272c",
+      "backup_path": ".harness_backup/20260913_individual_harness_simplification/before/90_AUTOMATION/PROMPTS/INVESTMENT_HARNESS.md",
+      "restore_command": "cp -p \".harness_backup/20260913_individual_harness_simplification/before/90_AUTOMATION/PROMPTS/INVESTMENT_HARNESS.md\" \"90_AUTOMATION/PROMPTS/INVESTMENT_HARNESS.md\""
+    },
+    {
+      "write_target": "90_AUTOMATION/TESTS/test_investment_output.py",
+      "operation": "modify",
+      "before_sha256": "25698424952ef4afd9343c647290645049915616748c013e984f68d694c6b7ee",
+      "after_sha256": "e078ed1fa177520c7feb85fdcbd016d0a3dbad2d409f1b102de1c67b93136c33",
+      "backup_path": ".harness_backup/20260913_individual_harness_simplification/before/90_AUTOMATION/TESTS/test_investment_output.py",
+      "restore_command": "cp -p \".harness_backup/20260913_individual_harness_simplification/before/90_AUTOMATION/TESTS/test_investment_output.py\" \"90_AUTOMATION/TESTS/test_investment_output.py\""
+    },
+    {
+      "write_target": "AGENTS.md",
+      "operation": "modify",
+      "before_sha256": "12ca4bc1a7442201678c318310b22ff9c2822c45e27f103acfd34f50d501531a",
+      "after_sha256": "dc36f7dc056dc34fb949b8f0628c0c50b04bf8eb69bd70ef9e160cb4e61d6d90",
+      "backup_path": ".harness_backup/20260913_individual_harness_simplification/before/AGENTS.md",
+      "restore_command": "cp -p \".harness_backup/20260913_individual_harness_simplification/before/AGENTS.md\" \"AGENTS.md\""
+    }
+  ]
+}

@@ -19,23 +19,73 @@ source_paths:
 
 ## 职责
 
-公司怎么真正赚钱。
+公司怎么真正赚钱。`ljg-invest` 在本 Skill 内只作为 Business Engine 镜头：
+解释客户为何付钱、赚钱机制、竞争优势、再投资和机器失效条件，再用财务事实验证
+利润、现金与每股价值。它不判断市场是否错定价，不给资本动作或金额建议。
 
 ## 输入
 
-收入、直接成本、毛利、经营费用、经营利润、净利润、现金流、股数和资本配置。
+客户付费、赚钱机制、收入、直接成本、毛利、经营费用、经营利润、净利润、现金流、
+股数、资本配置、主要持有人与管理层历史承诺。
 
 ## 输出
 
-`H_B` 经营结论、证据缺口和反证。
+商业机器判断、关键命题证据表、证据缺口和反证。只有进入个股投资判断时，才把这些
+输出交给决策合同形成 `H_B`；完成公司研究不自动代表 `H_B: pass`。
 
 ## 不能证明什么
 
-高收入、高增长和好创始人不能替代股东现金。
+高收入、高增长、好创始人、飞轮叙事或知名持有人都不能替代股东现金，也不能直接
+证明当前价格有赔率。
 
 ## 失败条件
 
-增长不能留下利润和现金，或每股价值被稀释。
+客户付费不能穿透为利润和现金，竞争或资本投入使机器反向旋转，或每股价值被稀释。
+
+## Business Engine
+
+先用一句话说清“谁为什么付钱，公司怎样留下钱”，再检查：
+
+- 赚钱机制是否已经运行，还是只有结构想象；
+- 竞争优势如何形成，冲击后变强还是变弱；
+- 利润再投资能否转成新收入、效率或壁垒；
+- 哪个变量会让机器停转或反向旋转。
+
+飞轮是可选机制，不是所有公司的硬门。资源周期公司、公用事业和资本结构载体按真实
+收益结构验证，不能因“没有飞轮”直接判定失败。
+
+## 股东结构
+
+首次研究经营公司时检查主要持有人、创始人或产业资本、控制权、融资与稀释；后续只在
+新披露或相关风险变化时做差分更新。每条变化必须同时记录：
+
+```yaml
+ownership_change:
+  position_as_of:
+  disclosed_at:
+  shares_change:
+  ownership_percentage_change:
+  market_value_change:
+  capital_type:
+  inferred_motive: unknown
+```
+
+股数、持股比例和市值变化必须分开。被动配置、主动策略、组合对冲和期限约束不得混为
+同一种资本；公开披露不能证明实时资金流或持有人真实动机。资本性质可以生成控制权、
+融资或拥挤问题，但不能直接提高 `H_B`。
+
+## 管理层核验
+
+财报和公告中的经营事实应尽早读取；先形成独立的 Business Engine 与毁损变量判断，
+再核对管理层对未来的解释。只检查三件事：增长来自哪里、承认了什么风险、过去承诺
+兑现了多少。管理层叙事是待验证解释，不是根证据的替代品。
+
+风险、管理层和多空材料共用一张证据表，不重复写三套报告：
+
+| 关键命题 | 支持事实 | 最强反证或替代解释 | 下一判定事件 |
+|---|---|---|---|
+
+只保留能改变结论的命题，致命问题最多三个且不凑数；同一根来源只计一次。
 
 ## 执行步骤
 
@@ -101,6 +151,23 @@ earnings_baseline:
 
 ```yaml
 company_fundamentals:
+  business_engine:
+    payer_and_reason:
+    money_mechanism:
+    competitive_advantage:
+    reinvestment_conversion:
+    break_condition:
+  ownership:
+    baseline_or_delta:
+    position_as_of:
+    disclosed_at:
+    capital_type:
+    control_financing_dilution_effect:
+    inferred_motive: unknown
+  management_check:
+    claimed_growth_source:
+    admitted_risks:
+    promise_delivery_record:
   revenue_quality:
   direct_cost_pressure:
   gross_margin_or_take_rate:
@@ -109,6 +176,7 @@ company_fundamentals:
   operating_cash_flow:
   capex_and_free_cash_flow:
   dilution:
+  disputed_claims: []
   H_B: pass | mixed | fail | unknown
   next_number:
   what_would_prove_wrong:

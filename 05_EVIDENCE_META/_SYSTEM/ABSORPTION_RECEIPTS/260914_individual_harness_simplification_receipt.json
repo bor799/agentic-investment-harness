@@ -1,0 +1,36 @@
+{
+  "receipt_id": "IH-20260914-01",
+  "created_at": "2026-09-14",
+  "change": "individual_stock_harness_simplification",
+  "contract_path": "05_EVIDENCE_META/_SYSTEM/ABSORPTION_RECEIPTS/260913_individual_harness_simplification_contract.json",
+  "contract_sha256": "df35c75df4b89aec0aecd727c295991637e7a533693b0b0ded9004400a11353d",
+  "approved_plan_sha256": "e60301c0df6fdb807ec3c65ae93b193a23a5f2bc8d6615f9eeeaee503a28c0ec",
+  "reviewer_verdict": "PASS",
+  "control_targets": 27,
+  "pre_validation": "27/27 PASS",
+  "post_validation": "27/27 PASS",
+  "verification": {
+    "validator_unit_tests": "197/197 PASS",
+    "eval_selftest": "17/17 PASS",
+    "eval_cards_loaded": 14,
+    "diff_check": "PASS",
+    "after_hashes": "27/27 match"
+  },
+  "scope_preserved": [
+    "ETF route",
+    "content interpretation route",
+    "trade record entry",
+    "four-ticket meanings and capital limits",
+    "global ljg-invest skill",
+    "historical report bodies"
+  ],
+  "efficiency_evidence": {
+    "status": "unmeasured",
+    "reason": "No same-model, same-input live paired replay was available in this migration run; shorter output and passing mechanical checks are not treated as speed evidence.",
+    "next_verification": "Run paired live research replays with the same model, evidence cutoff and target, then compare loaded context, repeated calls, elapsed time and red-line quality."
+  },
+  "limitations": [
+    "Mechanical tests do not establish real-research omission rate or counterevidence quality.",
+    "The retired run-mode file remains readable only as historical text."
+  ]
+}
