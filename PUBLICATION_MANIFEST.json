@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-11",
+  "generated_at": "2026-09-14",
   "repo": "bor799/agentic-investment-harness",
-  "total_files": 1585,
+  "total_files": 1605,
   "files": [
     {
       "path": ".claude/agents/investment-reviewer.md",
@@ -170,7 +170,7 @@
       "include": true,
       "rights": "own",
       "reason": "Original content by Murphy or AI-assisted through author interactions",
-      "sha256": "ab0327ffa7fa1ebe683e2ccd2cde1bc2b370697e5bc51d6d1b9ded34a946e2d9"
+      "sha256": "1daae21f7cf1bdd5fc6c0df12d50cf81b455a3a304af949b6ff4c256a18aa83e"
     },
     {
       "path": "02_术/SKILLS/ETF_LOF_FUND.md",
@@ -562,7 +562,7 @@
       "include": true,
       "rights": "own",
       "reason": "Original content by Murphy or AI-assisted through author interactions",
-      "sha256": "6b285410e78d1a72f79ebe8004d62c340a98cd1336142199e07a8ada2e48bb87"
+      "sha256": "890d5a18f6df1c227df91aabaffae8a54d0c870f9c78f89614077a4126305320"
     },
     {
       "path": "02_术/SKILLS/STRUCTURAL_CHANGE_BOTTLENECK.md",
@@ -576,14 +576,14 @@
       "include": true,
       "rights": "own",
       "reason": "Original content by Murphy or AI-assisted through author interactions",
-      "sha256": "3a4bcdfd166e88c5e33d3c76ba9211e43aa4f06ed87f58c036f42b64fb1fe350"
+      "sha256": "755c34450111a10aa77fb439cd8451494f34bb6b0aa8c8c52e6a4c76aa387c94"
     },
     {
       "path": "02_术/TRADING_SYSTEM/01_RESEARCH_FLOW.md",
       "include": true,
       "rights": "own",
       "reason": "Original content by Murphy or AI-assisted through author interactions",
-      "sha256": "573a4b4f2305b4eb7e32cc375d81b46497efe7d80d8f15e361698dbc3318dc90"
+      "sha256": "b0180477dc55e249c3b0071b69ddae571f988aa11a9204e0829445c1df1211e4"
     },
     {
       "path": "02_术/TRADING_SYSTEM/02_CAPITAL_AND_EXECUTION.md",
@@ -5847,7 +5847,7 @@
       "include": true,
       "rights": "own",
       "reason": "Original content by Murphy or AI-assisted through author interactions",
-      "sha256": "b06ff70479661cc11e1823f470636d7ae4ee30482af796bbc819dd8de033750c"
+      "sha256": "afc0a4c10520d4eaa13f1b9097933b35317cc2f5b40e68134fd4f6189d43e970"
     },
     {
       "path": "90_AUTOMATION/PROMPTS/AI_BELIEF_LOOP.md",
@@ -5896,7 +5896,7 @@
       "include": true,
       "rights": "own",
       "reason": "Original content by Murphy or AI-assisted through author interactions",
-      "sha256": "8b5b57d2d1f3ec5280c8773f955b4c91923b86f95e651d9035aeb94fd2ed0abd"
+      "sha256": "6fe378d97b6447bdb66fbcdb058c42f65abd99dea9bf196ff8b3f9382443272c"
     },
     {
       "path": "90_AUTOMATION/PROMPTS/INVESTMENT_REVIEWER.md",
@@ -6589,7 +6589,7 @@
       "include": true,
       "rights": "own",
       "reason": "Original content by Murphy or AI-assisted through author interactions",
-      "sha256": "25698424952ef4afd9343c647290645049915616748c013e984f68d694c6b7ee"
+      "sha256": "e078ed1fa177520c7feb85fdcbd016d0a3dbad2d409f1b102de1c67b93136c33"
     },
     {
       "path": "99_ARCHIVE/LEGACY_LAYOUT/README.md",
@@ -6610,7 +6610,7 @@
       "include": true,
       "rights": "own",
       "reason": "Original content by Murphy or AI-assisted through author interactions",
-      "sha256": "12ca4bc1a7442201678c318310b22ff9c2822c45e27f103acfd34f50d501531a"
+      "sha256": "dc36f7dc056dc34fb949b8f0628c0c50b04bf8eb69bd70ef9e160cb4e61d6d90"
     },
     {
       "path": "CLAUDE.md",
@@ -11098,6 +11098,146 @@
       "rights": "own",
       "reason": "Existing published project documentation or architecture illustration",
       "sha256": "5d38c66ad6000990cf63dc1a004f082f88548bceb98d7daae3441c12be66d15d"
+    },
+    {
+      "path": "02_术/TRADING_SYSTEM/04_RUN_MODES.md",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "eacb58b073ee9e07c3845dfb388c8eea7f1a522593432f630e919c0e01287763"
+    },
+    {
+      "path": "05_EVIDENCE_META/_SYSTEM/ABSORPTION_RECEIPTS/260913_individual_harness_simplification_contract.json",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "df35c75df4b89aec0aecd727c295991637e7a533693b0b0ded9004400a11353d"
+    },
+    {
+      "path": "05_EVIDENCE_META/_SYSTEM/ABSORPTION_RECEIPTS/260914_individual_harness_simplification_receipt.json",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "805ad52d15037525505254567ee4b77ce356cc2fff9cf5fbc08677fca0a4e192"
+    },
+    {
+      "path": "90_AUTOMATION/EVALS/README.md",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "711f8b5dff3ccede78d6b60118e54e7c24cd0094b103417e8a839730f5a1b901"
+    },
+    {
+      "path": "90_AUTOMATION/EVALS/cases/EVAL-260224-LMND.md",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "fe8ab10c33f427bfd735e4f3fba9b928926eca214a85d7c052c0f375725816ee"
+    },
+    {
+      "path": "90_AUTOMATION/EVALS/cases/EVAL-260226-MINISO.md",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "406f7bf99898ac363fef689a1591bb6e16dc9612518d281b96c01e0e9df8f3af"
+    },
+    {
+      "path": "90_AUTOMATION/EVALS/cases/EVAL-260226-POPMART.md",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "d775770803f71c2ef88a40ab8403aef5acf5ba01c204e821d69b7f93984f4fc0"
+    },
+    {
+      "path": "90_AUTOMATION/EVALS/cases/EVAL-260624-HORIZON.md",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "900a194702519556fce80d7c4506cb539db9ae5e8370e2835578be62037711f4"
+    },
+    {
+      "path": "90_AUTOMATION/EVALS/cases/EVAL-260709-TINCI.md",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "e0f2c9bf322363fc6453810919f0b389d49626e95476de263a2c82e6975efe35"
+    },
+    {
+      "path": "90_AUTOMATION/EVALS/cases/EVAL-260717-501096.md",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "8b9a8f3830594c8387baebc4916f891b8bbff1ba255057aa7d4214f4c795e066"
+    },
+    {
+      "path": "90_AUTOMATION/EVALS/cases/EVAL-260808-BTGO.md",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "54a09066b31fd6396a8967d80533773504b94850a0df2aaaf653bdeb446d44c5"
+    },
+    {
+      "path": "90_AUTOMATION/EVALS/cases/EVAL-260811-ZIJIN.md",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "3d86e5c9150d7942982c51ad5ca6652249f6b28bb999a80e06bb9a9418f2a754"
+    },
+    {
+      "path": "90_AUTOMATION/EVALS/cases/EVAL-COMPANY-ONLY.md",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "3b0619dbba5c726b387568a2ca53500aad89194edad2be0e4a4271fe86fbdd68"
+    },
+    {
+      "path": "90_AUTOMATION/EVALS/cases/EVAL-DELTA-CONFLICT.md",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "7fd4a8cefb0442fe749befc266ccf426cc86962bcd389aa5bc3872d266af970d"
+    },
+    {
+      "path": "90_AUTOMATION/EVALS/cases/EVAL-INDIVIDUAL-BRIEF.md",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "af9fbe2f5443455bb8ea01d0cefe3abce114b88a851672f477da931ee4710af3"
+    },
+    {
+      "path": "90_AUTOMATION/EVALS/cases/EVAL-OWNERSHIP-DELTA.md",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "73a9b4926967093a9d6ab9ace0df906c8a724f12b0e06f5931d0f03b05cdabb6"
+    },
+    {
+      "path": "90_AUTOMATION/EVALS/cases/EVAL-ROUTING-CONTENT.md",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "046c29e8e9e32963286d1289c1625911c4adcacecf85281730926f11dac63981"
+    },
+    {
+      "path": "90_AUTOMATION/EVALS/cases/EVAL-ROUTING-EARNINGS.md",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "ab5abb8e2f9a81b29f408c103d32dd08e0336ce70e050dc67050fbd8c47e8b92"
+    },
+    {
+      "path": "90_AUTOMATION/EVALS/run_evals.py",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "7f55efb70418aa1a493d468c9f283e4ffe1b136ef8afdb07bf4e6940c454dfa7"
+    },
+    {
+      "path": "90_AUTOMATION/EVALS/selftest/samples.json",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "b95afb0e4717f83bc6a0cdc1345e34c54f3bed17bae61993c548b92d310675e6"
     }
   ]
 }
