@@ -1,7 +1,7 @@
 ---
 title: skills_index
 date: 2026-07-24
-updated: 2026-07-25
+updated: 2026-09-03
 layer: METHOD
 primary_role: skills_index
 status: active
@@ -17,9 +17,9 @@ source_paths:
 
 ## 先说人话
 
-**目标：**把任何研究问题、信息素材、市场事件转化为 [[02_术/TRADING_SYSTEM/00_DECISION_CONTRACT|四票承保结论]] 和六档动作。Skill 提供目标和边界，不规定具体路径——路径由 AI 自主探索。
+**目标：**把研究问题、信息素材和市场事件转化为可验证判断；只有进入投资判断或资本动作时，才交给 [[02_术/TRADING_SYSTEM/00_DECISION_CONTRACT|四票承保结论]] 和六档动作。纯公司分析可以在商业判断结束。Skill 提供目标和边界，不规定具体路径——路径由 AI 自主探索。
 
-**怎么用：**拿到素材先判断属于哪一类（经营 / 赔率 / 周期 / 仓位 / 行为），打开对应 Skill 读它的职责、失败条件、"不能证明什么"，然后回到决策合同过四票。**没有任何 Skill 能直接授权交易**。
+**怎么用：**拿到素材先判断属于哪一类（经营 / 赔率 / 周期 / 仓位 / 行为），打开对应 Skill 读它的职责、失败条件、"不能证明什么"。纯分析可以在形成商业判断后结束；进入投资判断或资本动作时，再回到决策合同过四票。**没有任何 Skill 能直接授权交易**。
 
 ## 武器地图
 
@@ -35,10 +35,10 @@ flowchart TB
 
     D["道 MINDSET<br/>五条长期认知"]:::dao
 
-    subgraph Skills["术 SKILLS — 11 把武器（7 重 + 4 薄）"]
+    subgraph Skills["术 SKILLS — 11 把武器（9 重 + 2 薄）"]
         direction TB
         HB["H_B 经营票<br/>COMPANY_FUNDAMENTALS · GROWTH_TECH<br/>INDUSTRY_SUPPLY_DEMAND · STRUCTURAL_CHANGE_BOTTLENECK"]:::hb
-        HR["H_R 赔率票<br/>EXPECTATIONS_VALUATION<br/>EXPECTATIONS_LEDGER 薄 · ETF_LOF_FUND 薄"]:::hr
+        HR["H_R 赔率票<br/>EXPECTATIONS_VALUATION · ETF_LOF_FUND<br/>EXPECTATIONS_LEDGER 薄"]:::hr
         HL["H_L 周期票（软探测器）<br/>LIQUIDITY_TRANSMISSION · MACRO_REGIME 薄"]:::hl
         HC["H_C 仓位票<br/>OPTIONS 定义最大损失"]:::hc
         BR["行为阀（跨四票）<br/>BEHAVIOR_REVIEW 九问 · 冷静期"]:::beh
@@ -65,11 +65,17 @@ flowchart TB
 ```text
 1. 定向 → 素材属于哪类？（经营 / 赔率 / 周期 / 仓位 / 行为）
 2. 调用 → 打开对应 Skill，读职责、失败条件、不能证明什么
-3. 承保 → 把 Skill 输出过 [[02_术/TRADING_SYSTEM/00_DECISION_CONTRACT]] 四票
-4. 输出 → 六档动作之一
+3. 判断 → 纯分析可以停在商业结论；投资判断继续进入承保
+4. 承保 → 把投资判断过 [[02_术/TRADING_SYSTEM/00_DECISION_CONTRACT]] 四票，输出六档动作之一
 ```
 
 具体怎么调研、怎么组合、怎么深挖，由 AI 自主判断。**Skill 给边界，不给配方。**
+
+## 快速交易记录入口（不参与四票）
+
+当 Murphy 说“记录一下、写入交易手册、复盘”，或口述挂单、成交、退出和不行动时，先调用 [[02_术/SKILLS/TRADE_REVIEW_CAPTURE]] 保存决策现场。它优先记录心境、依据、工具选择、券商事实状态和待核对项，不因缺截图而阻塞，也不机械启动完整研究。一轮完整交易（事前判断→执行→退出→复盘）可开 GitHub Issue 作为活日志容器，标题格式与处理流程见 [[02_术/SKILLS/TRADE_REVIEW_CAPTURE]] 的「GitHub Issue 交易日志容器」一节。
+
+`TRADE_REVIEW_CAPTURE` 不是第 12 把武器，不投四票、不产生资本动作。用户同时要求下一步买卖时，仍须回到行为审查、对应研究 Skill 与决策合同。
 
 ## 11 把武器
 
@@ -88,7 +94,7 @@ flowchart TB
 |---|---|---|
 | [[02_术/SKILLS/EXPECTATIONS_VALUATION]] | 三层肉、五种估值语法、市场在相信什么、反推情景 | 估值依赖伪概率、旧成本价或未校准目标价 |
 | [[02_术/SKILLS/EXPECTATIONS_LEDGER]] 薄壳 | 市场当前隐含预期、证伪事件日程 | 无法写清预期分母或证伪事件 |
-| [[02_术/SKILLS/ETF_LOF_FUND]] 薄壳 | ETF/LOF 折溢价、包装层分账、申赎路径 | 无法验收持仓、申赎、退出深度 |
+| [[02_术/SKILLS/ETF_LOF_FUND]] | ETF/LOF 底层与包装层分账、历史溢价分位、申赎路径 | 历史分布失真，或无法验收持仓、申赎、退出深度 |
 
 ### H_L 周期票族 — 软探测器（权重弱于其他三票）
 
@@ -109,6 +115,12 @@ flowchart TB
 |---|---|---|
 | [[02_术/SKILLS/BEHAVIOR_REVIEW]] | 情绪触发词、亏损、踏空、AI 共识、抄底、卖 Put 降成本 | 顺着找理由、亏损后无新增经营证据却加风险 |
 
+### 快速记录入口 — 先保留现场，再进入研究
+
+| Skill | 去哪里用 | 失败条件 |
+|---|---|---|
+| [[02_术/SKILLS/TRADE_REVIEW_CAPTURE]] | 挂单、成交、退出、不行动、心境与交易复盘 | 把口述当券商事实、把事后结果倒灌进事前 thesis、为记录而机械启动完整研究 |
+
 ## 入口表（旧方法合并用）
 
 | 入口 | 用途 |
@@ -124,7 +136,7 @@ flowchart TB
 - 不要让方法更新绕过 [[02_术/TRADING_SYSTEM/00_DECISION_CONTRACT]]
 - 不要在没有失败条件的情况下输出结论
 - 不要在同根信息被多个 AI 或媒体重复时提高置信度——同根只计一次
-- 不要把薄壳（MACRO_REGIME / EXPECTATIONS_LEDGER / ETF_LOF_FUND）当作已 canonical 使用——它们目前只声明职责，没有执行步骤和验证清单
+- 不要把薄壳（MACRO_REGIME / EXPECTATIONS_LEDGER）当作已 canonical 使用——它们目前只声明职责，没有执行步骤和验证清单
 - 不要给单一 Skill 授权交易——四票必须各自独立通过
 - 不要把 H_L 周期票当硬门——它是软探测器，权重弱于其他三票
 - 不要把价格下降写成 H_B 经营胜率提高——价格下降只允许改善 H_R 赔率票

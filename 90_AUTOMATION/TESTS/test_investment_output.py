@@ -6,6 +6,7 @@ Investment Harness Validator 单元测试。
 """
 
 import json
+import hashlib
 import os
 import subprocess
 import sys
@@ -1735,6 +1736,89 @@ class TestK2PatternMapCompatibility(unittest.TestCase):
             write_target="05_EVIDENCE_META/KNOWLEDGE/DOMAINS/README.md",
         ), None)
         self.assertEqual(r["status"], "OK")
+
+
+class TestG1ExactGovernanceContract(unittest.TestCase):
+    PLAN_HASH = "e60301c0df6fdb807ec3c65ae93b193a23a5f2bc8d6615f9eeeaee503a28c0ec"
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.root = Path(self.tmp.name)
+        self.old_root = v.REPO_ROOT
+        self.old_contract = v.GOVERNANCE_CONTRACT_PATH
+        v.REPO_ROOT = self.root
+        v.GOVERNANCE_CONTRACT_PATH = self.root / "contract.json"
+        (self.root / "AGENTS.md").write_text("before\n", encoding="utf-8")
+        (self.root / "backup").mkdir()
+        (self.root / "backup/AGENTS.md").write_text("before\n", encoding="utf-8")
+        self.before_hash = hashlib.sha256(b"before\n").hexdigest()
+        self.after_hash = hashlib.sha256(b"after\n").hexdigest()
+        self.contract = {
+            "contract_id": "IH-20260913-01",
+            "authorization": "PLEASE IMPLEMENT THIS PLAN",
+            "approved_plan_sha256": self.PLAN_HASH,
+            "control_targets": [{
+                "write_target": "AGENTS.md",
+                "before_sha256": self.before_hash,
+                "after_sha256": self.after_hash,
+                "backup_path": "backup/AGENTS.md",
+                "restore_command": "cp -p 'backup/AGENTS.md' 'AGENTS.md'",
+            }],
+        }
+        self._write_contract()
+
+    def tearDown(self):
+        v.REPO_ROOT = self.old_root
+        v.GOVERNANCE_CONTRACT_PATH = self.old_contract
+        self.tmp.cleanup()
+
+    def _write_contract(self):
+        v.GOVERNANCE_CONTRACT_PATH.write_text(
+            json.dumps(self.contract), encoding="utf-8"
+        )
+
+    def _governance_payload(self, **overrides):
+        payload = _payload(
+            harness_task={"write_intent": "governance_migration"},
+            governance_contract_id="IH-20260913-01",
+            write_target="AGENTS.md",
+            before_sha256=self.before_hash,
+            after_sha256=self.after_hash,
+            backup_path="backup/AGENTS.md",
+            migration_phase="pre",
+        )
+        payload.update(overrides)
+        return payload
+
+    def test_pass_exact_registered_target(self):
+        self.assertEqual(v.g1_governance_migration_contract(
+            self._governance_payload(), None
+        )["status"], "OK")
+
+    def test_fail_unregistered_target(self):
+        result = v.g1_governance_migration_contract(
+            self._governance_payload(write_target="02_术/UNREGISTERED.md"), None
+        )
+        self.assertEqual(result["status"], "FAIL")
+
+    def test_fail_wrong_hash(self):
+        result = v.g1_governance_migration_contract(
+            self._governance_payload(before_sha256="0" * 64), None
+        )
+        self.assertEqual(result["status"], "FAIL")
+
+    def test_fail_old_authorization_or_plan(self):
+        self.contract["authorization"] = "OLD AUTHORIZATION"
+        self._write_contract()
+        self.assertEqual(v.g1_governance_migration_contract(
+            self._governance_payload(), None
+        )["status"], "FAIL")
+        self.contract["authorization"] = "PLEASE IMPLEMENT THIS PLAN"
+        self.contract["approved_plan_sha256"] = "0" * 64
+        self._write_contract()
+        self.assertEqual(v.g1_governance_migration_contract(
+            self._governance_payload(), None
+        )["status"], "FAIL")
 
 
 if __name__ == "__main__":

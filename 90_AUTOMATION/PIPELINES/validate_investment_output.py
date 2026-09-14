@@ -36,7 +36,7 @@ REPO_ROOT = Path(
 GOVERNANCE_CONTRACT_PATH = (
     REPO_ROOT
     / "05_EVIDENCE_META/_SYSTEM/ABSORPTION_RECEIPTS/"
-      "260728_memory_palace_governance_contract.json"
+      "260913_individual_harness_simplification_contract.json"
 )
 
 CANONICAL_SINK_PREFIXES = [
@@ -1635,7 +1635,7 @@ def g1_governance_migration_contract(payload, today):
     if contract.get("authorization") != "PLEASE IMPLEMENT THIS PLAN":
         return _fail("G-1", "用户授权语句不匹配")
     if contract.get("approved_plan_sha256") != (
-        "cfb97d9e19bdcf930369ad7900fe7dc25e7bddfd47dbe3cc9409af97dbc9699d"
+        "e60301c0df6fdb807ec3c65ae93b193a23a5f2bc8d6615f9eeeaee503a28c0ec"
     ):
         return _fail("G-1", "完整计划 SHA256 不匹配")
     target = _strip_dot_slash(payload.get("write_target") or "")

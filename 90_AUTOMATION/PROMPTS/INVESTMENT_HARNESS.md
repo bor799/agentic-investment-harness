@@ -28,12 +28,14 @@ Harness 收到用户输入后，先识别属于哪一类：
 
 | `knowledge_operation` | 作用 |
 |---|---|
-| `NARRATIVE_CAPTURE` | 用 `ljg-invest` 只读 Lens 生成新秩序、飞轮、权力迁移和市场旧眼睛 |
 | `BELIEF_UPDATE` | 形成唯一 `belief_update` 建议 |
 | `EXPECTATION_CREATE` | 创建并冻结带版本的事件前预期 |
 | `EXPECTATION_RESOLVE` | 用正式结果结算已冻结预期 |
 
-`NARRATIVE_CAPTURE` 不能输出金额、资本动作、旧路径或 `murphy_confirmed`。它只生成候选叙事，必须继续拆成可证伪 belief。
+`ljg-invest` 只在经营公司研究内作为只读 Business Engine 镜头，不是
+`knowledge_operation`。它只解释客户付费、赚钱机制、竞争优势、再投资与失效条件；
+不能输出金额、资本动作、旧路径、`murphy_confirmed`，也不能冒充根来源。纯分析使用
+`not_applicable`；只有实际提出判断变化时才进入 `BELIEF_UPDATE`。
 
 ---
 
@@ -69,7 +71,7 @@ harness_task:
   reviewer_agent_mode: native | injected
   asset_types: [operating_company | resource_cycle_company | utility | capital_structure_vehicle | etf, ...]
   research_trigger_status: recovered | needs_murphy_confirmation
-  knowledge_operation: NARRATIVE_CAPTURE | BELIEF_UPDATE | EXPECTATION_CREATE | EXPECTATION_RESOLVE | not_applicable
+  knowledge_operation: BELIEF_UPDATE | EXPECTATION_CREATE | EXPECTATION_RESOLVE | not_applicable
 ```
 
 派生规则：
@@ -172,6 +174,23 @@ unknown_resolution:
 默认简洁回答；字段是内部检查清单，不是必须逐项展示的报告目录。
 Reviewer 硬触发唯一见 `AGENTS.md §4.1`；简洁回答、探索或批量任务均不豁免。
 
+### 个股统一主线
+
+先判断用户要的是纯公司分析，还是包含当前价格与资本动作的个股投资判断：
+
+1. **看公司：**用 `COMPANY_FUNDAMENTALS` 拆客户付费、赚钱机制、竞争优势、再投资、
+   毁损变量及利润现金转化。首次研究检查股东结构，后续只做披露差分。没有飞轮不直接
+   否定资源、公用事业或资本结构载体；它们继续走各自资产路径。
+2. **看分歧：**财报与公告事实尽早读取；形成独立判断后，再核对管理层增长解释、风险
+   承认和承诺兑现。风险、多空和管理层材料共用“关键命题｜支持事实｜最强反证或替代
+   解释｜下一判定事件”证据表，致命问题最多三个且不凑数，同根来源只计一次。
+3. **看交易：**只有投资判断或资本动作才进入市场隐含预期、收益来源、期限、失败条件、
+   四票与六档动作。公司研究完成不自动代表 `H_B: pass`；缺价格或账户条件不得升级风险。
+
+纯公司分析可以在商业判断结束，`odds_calibration.status: not_applicable`，不强制生成
+六问或动作。已有 Current 或 Knowledge 时只报告 delta。关键未知解决却不改变命题、
+来源同根重复、只增加故事丰富度，或只能等待新事件时，停止扩展研究。
+
 ---
 
 ## 6. 状态识别（state_status）
@@ -197,9 +216,19 @@ Reviewer 硬触发唯一见 `AGENTS.md §4.1`；简洁回答、探索或批量�
 
 ## 7. JUDGE 简洁输出（concise）
 
-`response_mode: concise` 使用 `AGENTS.md §5` 的七项输出，每项通常一句话。
-将研究触发、Murphy 原判断、AI 核验结果和市场预期融入相关句子；没有用户原判断时不代填。
-结论应指出最关键证据与缺口，不以报告完整为目标。
+个股投资判断使用 `AGENTS.md §5` 的六问首页，每问通常一句话，随后固定一行：
+
+```text
+当前动作：〈六档之一〉｜下一验证：〈一个关键信号〉｜复查时间：〈日期〉
+```
+
+“市场错在哪里”允许回答“尚未证明市场错”。关键证据、来源与日期嵌入相关句子；
+第六问的可核验条件区分经营证伪、验证期限落空和资本约束触发，不把研究输出写成
+即时成交承诺。将研究触发、Murphy 原判断、AI 核验结果和市场预期融入相关句子；没有
+用户原判断时不代填。结论只保留一个最能改变判断的验证信号。
+
+纯公司分析只输出 Business Engine 判断、关键证据表、最大反证与下一验证；不强制生成
+六问、动作或赔率结论。其他 `JUDGE` 类型沿用其资产与任务路由，不套个股模板。
 
 ### 半年、本周、当下
 
