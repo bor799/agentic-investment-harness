@@ -1,7 +1,7 @@
 ---
 title: sources_index
 date: 2026-07-28
-updated: 2026-07-28
+updated: 2026-10-13
 layer: SOURCE
 primary_role: sources_index
 status: active
@@ -14,6 +14,16 @@ decision_authority: none
 # Sources
 
 Sources 只保存可追溯材料，按年份组织。原文、用户逐字判断、公司披露和数据必须分开标注；Source 不会自动升级为 Knowledge 或 State。
+
+## 当前投资手册与快照
+
+- [2026-10-13 嘉信原始XML复核与GitHub同步状态](2026/261013组合_嘉信XML复核与GitHub同步状态.md)：补发文件已重读，原快照数字通过复算；含44条流水及Issue处理边界。
+
+- [[05_EVIDENCE_META/SOURCES/2026/261012组合_投资状态与投资手册时点快照|2026-10-12 投资手册当下快照]]：当前已知持仓、收益、账户缺口、手册状态与复查事项的统一入口。
+- [[05_EVIDENCE_META/SOURCES/2026/261012组合_场内基金持仓截图与A股个股状态更正_Murphy来源|境内基金截图来源]]、[[05_EVIDENCE_META/SOURCES/2026/261011组合_VST反弹兑现与CRWV建仓_券商回报与复盘来源|嘉信交易窗口来源]]：逐项查回根材料。
+- [[归档/📈 个人交易手册|旧交易手册（历史版本；不代表当前）]]：保留旧交易现场，持仓与现金不再代表当前。
+
+快照保存收到材料的时点；各账户行情与回报时点不同，账户总资产、总仓位占比和累计收益率尚未完成对账。Current 目录中的旧研究不因账户快照更新而续期。
 
 ## 2026
 
