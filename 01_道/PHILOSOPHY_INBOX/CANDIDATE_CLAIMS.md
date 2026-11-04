@@ -1,7 +1,7 @@
 ---
 title: philosophy_inbox
 date: 2026-07-23
-updated: 2026-07-23
+updated: 2026-11-05
 layer: MINDSET
 primary_role: philosophy_inbox
 status: active
@@ -44,3 +44,7 @@ source_paths:
 | C-16 | AI 只有研究、反证、计算、记录和提醒权 | strong | operational | 留在 AGENTS，不写个人 Constitution |
 | C-17 | 身体经验和类比可以生成研究假设，但不能证明产业结论 | mixed | candidate | 进入方法边界 |
 | C-18 | 能力圈内深耕，能力圈外用工具表达，不确定时保持耐心 | mixed | unreviewed | 旧根框架提供候选表达；执行规则已入术，不自动进入 MINDSET |
+| C-19 | 叙事考古：前高只是叙事遗迹，不是买入证据 | strong | candidate | 详见 [[01_道/PHILOSOPHY_INBOX/NARRATIVE_CYCLE_CANDIDATE]]；2026-11-01 Murphy 原话已逐字落盘 |
+| C-20 | 命名周期 E1–E5：溢价衰减源于内涵清晰化（E4/E5）而非命名本身 | weak | candidate | 详见 [[01_道/PHILOSOPHY_INBOX/NARRATIVE_CYCLE_CANDIDATE]]；n=5 待检验；AI 修正发现 a 与 Murphy 原话的分歧点待裁决 |
+| C-21 | 国家叙事只作候选生成过滤器，用数据核验方向，不当买入理由 | mixed | candidate | 详见 [[01_道/PHILOSOPHY_INBOX/NARRATIVE_CYCLE_CANDIDATE]]；与 C-07 同向延伸 |
+| C-22 | 叙事观测只更新 H_L 与候选生成，永不直接抬 H_B | operational | candidate | 不可拆分条款，详见 [[01_道/PHILOSOPHY_INBOX/NARRATIVE_CYCLE_CANDIDATE]] |
