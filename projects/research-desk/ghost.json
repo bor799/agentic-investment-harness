@@ -5,7 +5,7 @@
   "name": "投资 Research Desk",
   "description": "复用本机既有 Alpaca 只读行情连接，分层观察全市场风险、金银铜驱动与 JNK–SPY 经验规则。",
   "whenToUse": "分层观察全市场风险、金银铜驱动与JNK–SPY经验规则；追踪异常、来源和待验证解释。",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "entry": "main.js",
   "tools": [
     {
