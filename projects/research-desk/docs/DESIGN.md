@@ -58,6 +58,8 @@ Cindy 主视图（唯一入口）
 | 宿主真实刷新 | PASS | `refresh_market` 经已安装插件返回 21 标的、asOf 2026-11-13 |
 | 重开缓存 | PASS | `get_snapshot` 返回相同 fetchedAt 的 KV 快照 |
 | 来源失败态 | 已验证 | 见 LOCAL-SETUP「已知限制」 |
+| 900px 双栏常驻 | PASS | 地图+详情同排，详情 sticky；`node .verification/visual-mid.cjs` |
+| 自动刷新可见化 | PASS | 倒计时+暂停开关（localStorage 记忆）；同上脚本 |
 
 ## 迭代方向（未承诺）
 

@@ -6967,14 +6967,14 @@
       "include": true,
       "rights": "own",
       "reason": "Original content by Murphy or AI-assisted through author interactions",
-      "sha256": "1a86adb7c79d5cf45c24b67a6aed1e2d3f904119330306377f6767ef9750d464"
+      "sha256": "23a33f0274370bef855699c41cca1096067dd6af01efcec69471d1fd0f3cea9e"
     },
     {
       "path": "projects/research-desk/desk.js",
       "include": true,
       "rights": "own",
       "reason": "Original content by Murphy or AI-assisted through author interactions",
-      "sha256": "12abe5a1d75dcf6a7c33f635be1def6577d2a384a872272b2bd16b0ffae5d074"
+      "sha256": "5b2e5c5fbfd3d8f3741b2ba7b04dc737f4a39fa787c8ccc545de8dce9442b5ba"
     },
     {
       "path": "projects/research-desk/docs/DESIGN.md",
@@ -7002,7 +7002,7 @@
       "include": true,
       "rights": "own",
       "reason": "Original content by Murphy or AI-assisted through author interactions",
-      "sha256": "ae8e26a1a5d70d10fa004f9ac392d9576c47ad366dc3dae2a1ad46f4863fa47f"
+      "sha256": "06596a2833396bb4b955e6fd342f167a05d443f8a2b73a0dc01abc01fa6c272d"
     },
     {
       "path": "projects/research-desk/main.js",

@@ -85,23 +85,39 @@ async function refresh(action = 'refresh') {
     state.snapshot = await requestSnapshot(action);
     const errors = state.snapshot.errors?.length || 0;
     setStatus(`${errors ? `${errors} 个来源请求未成功，保留可用旧值；可稍后重试。` : '快照已读取。'} ${state.snapshot.note || '公开日线，不是实时盘口。'} ${state.snapshot.storageWarning || ''}`);
-    renderSummary(); render();
+    nextRefreshAt = Date.now() + REFRESH_INTERVAL;
+    renderSummary(); render(); updateAutoStatus();
   } catch (error) { setStatus(error.message); }
   finally { state.busy = false; $('#refresh').disabled = false; $('#refresh').textContent = '刷新日线'; }
 }
 $('#refresh').addEventListener('click', () => refresh());
+const REFRESH_INTERVAL = 15 * 60 * 1000;
+let autoOn = true;
+try { autoOn = localStorage.getItem('desk-auto') !== 'off'; } catch (_) {}
+let nextRefreshAt = Date.now() + REFRESH_INTERVAL;
+function describeInterval(ms) {
+  const minutes = Math.max(0, Math.round(ms / 60000));
+  return minutes >= 60 ? `${Math.floor(minutes / 60)} 小时 ${minutes % 60} 分` : minutes > 0 ? `${minutes} 分钟` : '不到 1 分钟';
+}
+function updateAutoStatus() {
+  const button = $('#auto');
+  button.textContent = autoOn ? '自动刷新 开' : '自动刷新 停';
+  button.setAttribute('aria-pressed', String(autoOn));
+  $('#next-refresh').textContent = autoOn ? `下次自动刷新 · 约 ${describeInterval(nextRefreshAt - Date.now())}后（仅页面可见时）` : '自动刷新 · 已暂停';
+}
+$('#auto').addEventListener('click', () => { autoOn = !autoOn; try { localStorage.setItem('desk-auto', autoOn ? 'on' : 'off'); } catch (_) {} if (autoOn) nextRefreshAt = Date.now() + REFRESH_INTERVAL; updateAutoStatus(); });
 function renderSummary() {
   if (!state.catalog) return;
   const quotes = state.snapshot.quotes;
   const available = quotes.filter(quote => quoteStatus(quote) === 'available').length;
   const stale = quotes.filter(quote => quoteStatus(quote) === 'stale').length;
   const cards = [
-    [state.catalog.metrics.length, '研究指标', `${state.catalog.metrics.filter(metric => metric.core).length} 项核心 · 8 个研究分组`],
-    [available, '可用行情代理', `${stale} 项陈旧 · 可用性不代表市场安全`],
-    [Math.max(0,21 - available - stale), '行情代理缺失', '21 个计划行情代理 · 不等于71项指标覆盖'],
-    [state.catalog.history?.items?.length || 0, '历史字段', `${state.catalog.history?.asOf || '无历史时点'} · 独立快照`]
+    [state.catalog.metrics.length, '研究指标', `${state.catalog.metrics.filter(metric => metric.core).length} 项核心 · 8 个研究分组`, ''],
+    [available, '可用行情代理', `${stale} 项陈旧 · 可用性不代表市场安全`, 'ok'],
+    [Math.max(0,21 - available - stale), '行情代理缺失', '21 个计划行情代理 · 不等于71项指标覆盖', 'none'],
+    [state.catalog.history?.items?.length || 0, '历史字段', `${state.catalog.history?.asOf || '无历史时点'} · 独立快照`, 'hist']
   ];
-  $('#summary').innerHTML = cards.map(([value,label,note]) => `<article class="stat"><strong>${value}</strong><span>${label}</span><p>${escapeHTML(note)}</p></article>`).join('');
+  $('#summary').innerHTML = cards.map(([value,label,note,dot]) => `<article class="stat">${dot ? `<i class="dot ${dot}" aria-hidden="true"></i>` : ''}<strong>${value}</strong><span>${label}</span><p>${escapeHTML(note)}</p></article>`).join('');
   const dates = quotes.map(quote => quote.asOf).filter(Boolean).sort();
   $('#data-time').textContent = dates.length ? `数据时点 · ${dates[0]}${dates.at(-1) !== dates[0] ? ' 至 ' + dates.at(-1) : ''}` : '数据时点 · 尚未接入';
   $('#refresh-time').textContent = `最近刷新 · ${state.snapshot.fetchedAt ? new Date(state.snapshot.fetchedAt).toLocaleString('zh-CN') : '尚无记录'}`;
@@ -143,15 +159,16 @@ function graphHTML() {
     base += `<path class="connector" d="M370 285 L${groupX} ${groupY}"/>`;
     titles += `<text class="group-label" x="${groupX}" y="${groupY - 45}" text-anchor="middle">${escapeHTML(group.id + ' · ' + group.name.slice(0,8))}</text>`;
     const metrics = state.catalog.metrics.filter(metric => metric.groupId === group.id);
+    const ringX = Math.min(78, 56 + metrics.length * 2), ringY = Math.min(40, 30 + metrics.length * 0.9);
     metrics.forEach((metric,index) => {
       const notice=metricNotice(metric.id);
       const localAngle = index / metrics.length * Math.PI * 2;
-      const nodeX = groupX + Math.cos(localAngle) * 60, nodeY = groupY + Math.sin(localAngle) * 31;
+      const nodeX = groupX + Math.cos(localAngle) * ringX, nodeY = groupY + Math.sin(localAngle) * ringY;
       base += `<path class="connector" d="M${groupX} ${groupY} L${nodeX} ${nodeY}"/>`;
-      nodes += `<g class="node ${notice.partial ? 'partial' : ''} ${notice.attention ? 'attention' : ''} ${state.selected === metric.id ? 'selected' : ''}" role="button" tabindex="0" aria-label="${escapeHTML(metric.id + ' ' + metric.name)}" aria-pressed="${state.selected === metric.id}" data-metric="${escapeHTML(metric.id)}"><title>${escapeHTML(metric.name)} · ${escapeHTML(notice.text)}</title><circle cx="${nodeX}" cy="${nodeY}" r="${metric.core ? 7 : 5}"/><text x="${nodeX}" y="${nodeY + 18}" text-anchor="middle">${escapeHTML(metric.id)}</text></g>`;
+      nodes += `<g class="node ${notice.partial ? 'partial' : ''} ${notice.attention ? 'attention' : ''} ${state.selected === metric.id ? 'selected' : ''}" role="button" tabindex="0" aria-label="${escapeHTML(metric.id + ' ' + metric.name)}" aria-pressed="${state.selected === metric.id}" data-metric="${escapeHTML(metric.id)}"><title>${escapeHTML(metric.name)} · ${escapeHTML(notice.text)}</title><circle cx="${nodeX}" cy="${nodeY}" r="${metric.core ? 7 : 5}"/><text x="${nodeX}" y="${nodeY + (index % 2 ? -12 : 18)}" text-anchor="middle">${escapeHTML(metric.id)}</text></g>`;
     });
   });
-  titles += '<circle class="hub" cx="370" cy="285" r="77"/><text class="hub-title" x="370" y="280" text-anchor="middle">研究地图</text><text class="hub-subtitle" x="370" y="303" text-anchor="middle">71 指标 · 证据优先</text>';
+  titles += '<circle class="hub-ring" cx="370" cy="285" r="94"/><circle class="hub" cx="370" cy="285" r="77"/><text class="hub-title" x="370" y="280" text-anchor="middle">研究地图</text><text class="hub-subtitle" x="370" y="303" text-anchor="middle">71 指标 · 证据优先</text>';
   return `<div class="map-stage" id="map-stage"><svg class="base-layer" viewBox="0 0 740 570" aria-hidden="true">${base}</svg><svg class="label-layer" viewBox="0 0 740 570" aria-hidden="true">${titles}</svg><svg class="metric-layer" viewBox="0 0 740 570" aria-label="71项研究指标节点">${nodes}</svg></div>`;
 }
 function renderMap() {
@@ -247,8 +264,15 @@ $('#workspace').addEventListener('change', event => {
   else return;
   $('#metric-list').innerHTML = metricListHTML();
 });
-const autoRefresh = setInterval(() => { if (!document.hidden && state.catalog) refresh(); }, 15 * 60 * 1000);
-window.addEventListener('pagehide', () => { clearInterval(autoRefresh); for (const finish of [...requests.values()]) finish(new Error('页面已关闭，已停止等待。')); channel?.close(); });
+const autoTick = setInterval(() => {
+  if (autoOn && !document.hidden && state.catalog && Date.now() >= nextRefreshAt && !state.busy) refresh();
+  if (!document.hidden) updateAutoStatus();
+}, 30 * 1000);
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden) { if (autoOn && state.catalog && Date.now() >= nextRefreshAt && !state.busy) refresh(); updateAutoStatus(); }
+});
+updateAutoStatus();
+window.addEventListener('pagehide', () => { clearInterval(autoTick); for (const finish of [...requests.values()]) finish(new Error('页面已关闭，已停止等待。')); channel?.close(); });
 async function initialize() {
   try {
     const response = await fetch('./data/catalog.json');
