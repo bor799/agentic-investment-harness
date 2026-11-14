@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 3,
+  "minCindyVersion": "0.1.136",
+  "id": "murphy-research-desk",
+  "name": "投资 Research Desk",
+  "description": "复用本机既有 Alpaca 只读行情连接，分层观察全市场风险、金银铜驱动与 JNK–SPY 经验规则。",
+  "whenToUse": "分层观察全市场风险、金银铜驱动与JNK–SPY经验规则；追踪异常、来源和待验证解释。",
+  "version": "1.0.0",
+  "entry": "main.js",
+  "tools": [
+    {
+      "name": "get_snapshot",
+      "description": "读取投资观察台已缓存日线快照；包含数据时点与缺失状态，不刷新、不推导交易。",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "refresh_market",
+      "description": "读取本机既有 Alpaca 连接刷新19个ETF日线，另尝试公开VIX日线；只读金融数据，不访问账户、订单和交易。",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  ],
+  "command": "research-desk",
+  "launch": "on-demand",
+  "mainView": {
+    "title": "Research Desk",
+    "icon": "chart-column",
+    "html": "main-view.html"
+  },
+  "network": {
+    "hosts": [
+      "query1.finance.yahoo.com",
+      "data.alpaca.markets"
+    ]
+  },
+  "node": {
+    "entry": "node/market.cjs",
+    "protocol": "json-rpc-stdio",
+    "lifecycle": "on-demand",
+    "idleTimeoutSeconds": 120
+  }
+}

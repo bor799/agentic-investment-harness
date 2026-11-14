@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Research Desk · 投资观察台</title>
+  <link rel="stylesheet" href="desk.css">
+  <script src="desk.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#workspace">跳至研究内容</a>
+  <header class="masthead">
+    <div class="brand"><span class="brand-mark" aria-hidden="true">◈</span><div><p class="eyebrow">RESEARCH DESK</p><h1>投资观察台<span>从异常出发，回到证据。</span></h1></div></div>
+    <div class="header-actions"><div class="timestamps"><span id="data-time">数据时点 · 尚未接入</span><span id="refresh-time">最近刷新 · 尚无记录</span></div><button id="refresh" class="primary">刷新日线</button><button id="motion" aria-pressed="false">停止动画</button></div>
+  </header>
+  <nav class="tabs" aria-label="研究视图" role="tablist">
+    <button id="tab-map" role="tab" aria-selected="true" aria-controls="workspace" data-tab="map">全市场地图</button>
+    <button id="tab-metals" role="tab" aria-selected="false" aria-controls="workspace" data-tab="metals" tabindex="-1">金银铜</button>
+    <button id="tab-rules" role="tab" aria-selected="false" aria-controls="workspace" data-tab="rules" tabindex="-1">JNK–SPY</button>
+    <button id="tab-library" role="tab" aria-selected="false" aria-controls="workspace" data-tab="library" tabindex="-1">指标库</button>
+    <button id="tab-history" role="tab" aria-selected="false" aria-controls="workspace" data-tab="history" tabindex="-1">历史监测卡</button>
+  </nav>
+  <div class="statusline" id="status" role="status" aria-live="polite">正在载入研究目录…</div>
+  <section class="summary" id="summary" aria-label="数据覆盖情况"></section>
+  <main id="workspace" role="tabpanel" aria-labelledby="tab-map" tabindex="0"><div class="empty">正在打开研究地图…</div></main>
+  <footer>研究路径 ≠ 已验证因果 · 数据可用 ≠ 市场安全 · 不计算风险总分，不生成交易指令</footer>
+  <dialog id="copy-dialog"><h2>讨论问题</h2><p>自动复制不可用，请选择下方文本手动复制。</p><textarea id="copy-text" aria-label="可复制的讨论问题" rows="12"></textarea><button id="close-copy">关闭</button></dialog>
+</body>
+</html>
