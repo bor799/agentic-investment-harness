@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-10-13",
+  "generated_at": "2026-11-14",
   "repo": "bor799/agentic-investment-harness",
   "total_files": 1619,
   "files": [
@@ -6947,6 +6947,97 @@
       "rights": "own",
       "reason": "Existing published project documentation or architecture illustration",
       "sha256": "5d38c66ad6000990cf63dc1a004f082f88548bceb98d7daae3441c12be66d15d"
+    },
+    {
+      "path": "projects/research-desk/README.md",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "a6a1de618c0af61a315979541fbd29743de6b32f868646b79bdf063c90e3692b"
+    },
+    {
+      "path": "projects/research-desk/data/catalog.json",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "cb7ba42913452d0e87a9ea3a3f95ebe8fc64d06ff54ed5a75f75466d2fd4a1e4"
+    },
+    {
+      "path": "projects/research-desk/desk.css",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "1a86adb7c79d5cf45c24b67a6aed1e2d3f904119330306377f6767ef9750d464"
+    },
+    {
+      "path": "projects/research-desk/desk.js",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "12abe5a1d75dcf6a7c33f635be1def6577d2a384a872272b2bd16b0ffae5d074"
+    },
+    {
+      "path": "projects/research-desk/docs/DESIGN.md",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "52290c59cdb218e4bfb8cb483dbf4b9ed72653ce3cc8af9d32549f264dc9838a"
+    },
+    {
+      "path": "projects/research-desk/docs/LOCAL-SETUP.md",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "aa786a48c19e71580a8244286ead1323ae23de18ca4cd7ef007ae8521b71764f"
+    },
+    {
+      "path": "projects/research-desk/ghost.json",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "3db3968c03bfd0900be1dcccc91801fe7eb86a2c7a7ae71d67feba1540437ec0"
+    },
+    {
+      "path": "projects/research-desk/main-view.html",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "ae8e26a1a5d70d10fa004f9ac392d9576c47ad366dc3dae2a1ad46f4863fa47f"
+    },
+    {
+      "path": "projects/research-desk/main.js",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "5dfc9db3e0031df5a1f8462f442f3dc2cae12335df82688e60a0084b5c093426"
+    },
+    {
+      "path": "projects/research-desk/market.js",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "c58e4e1df4130131ba9e6c1d4a00feda39049ae0386d7cad2fa1ff3dc065ff1c"
+    },
+    {
+      "path": "projects/research-desk/node/market.cjs",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "4fe60b4bc5f527b23ee21cd3b1890631de96d9cd85c5e3f16f36270385ecd0f6"
+    },
+    {
+      "path": "projects/research-desk/tests/edge-cases.test.cjs",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "eef315e4b233b7bdab5751fff5c05add656758699a4b8874a78e5028fdfa9fe4"
+    },
+    {
+      "path": "projects/research-desk/tests/market.test.cjs",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "9be5518d0a150c063a3cc7dc2b68e6927dfa62e3c7f0fe3d634534769aecc977"
     },
     {
       "path": "归档/AI周期探索/01_赛道研究/A_AI企业效率与上下文入口.md",
