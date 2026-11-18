@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-10-13",
+  "generated_at": "2026-11-18",
   "repo": "bor799/agentic-investment-harness",
-  "total_files": 1619,
+  "total_files": 1637,
   "files": [
     {
       "path": ".claude/agents/investment-reviewer.md",
@@ -6947,6 +6947,132 @@
       "rights": "own",
       "reason": "Existing published project documentation or architecture illustration",
       "sha256": "5d38c66ad6000990cf63dc1a004f082f88548bceb98d7daae3441c12be66d15d"
+    },
+    {
+      "path": "projects/research-desk/README.md",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "47d94e8be6568a34403bd965e8fedcaa9100c493a576305737b473ce3a8307b8"
+    },
+    {
+      "path": "projects/research-desk/data/catalog.json",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "cb7ba42913452d0e87a9ea3a3f95ebe8fc64d06ff54ed5a75f75466d2fd4a1e4"
+    },
+    {
+      "path": "projects/research-desk/desk-core.js",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "937e8c3acc7122394453eb16307f408db9de8b937c2b62ac8d544769e7415357"
+    },
+    {
+      "path": "projects/research-desk/desk.css",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "43d71a4cf854d53ae5cdd9f2e9f95c50ae99f1e9a8fd8b497fd1cc3417d5e1b2"
+    },
+    {
+      "path": "projects/research-desk/desk.js",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "1649a93434fc203d6ea9723853a7b77eed4daf88014510f11b72c91782f09447"
+    },
+    {
+      "path": "projects/research-desk/docs/DESIGN.md",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "6c45122d221c43058152dd29d784e7881cdb88c09c4b08a430ece229daf98831"
+    },
+    {
+      "path": "projects/research-desk/docs/LOCAL-SETUP.md",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "f753c72408bd4a3ff886f24c2cc85e46e5ab1a732a49033255b95f86bd6c011f"
+    },
+    {
+      "path": "projects/research-desk/ghost.json",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "621e37061b9aeeb1668272898fdd8a1b1d1b3f09a3f60858c0d1008fceacf83e"
+    },
+    {
+      "path": "projects/research-desk/main-view.html",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "59194c1744c51206feefbc9c399933b3ee2a724cf7417892ce445a96219a553a"
+    },
+    {
+      "path": "projects/research-desk/main.js",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "35b256c57024718ac32f2e7666831bd86e217c38e12c2501343c3caf681832f4"
+    },
+    {
+      "path": "projects/research-desk/market.js",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "fd9e357d0b9135b1c358eb5c15e1ad7cd3288c1771e021cbfe937ad7f6ef85d7"
+    },
+    {
+      "path": "projects/research-desk/node/market.cjs",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "fb9ddff5cba393feca02a7bd683b82cdb52f6515ee4926f785cc9c23cc13302c"
+    },
+    {
+      "path": "projects/research-desk/tests/desk-core.test.cjs",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "953c064e71127308503c260e17c74970a783a035456715cc5c7cae8057b1e8ba"
+    },
+    {
+      "path": "projects/research-desk/tests/main-harness.test.cjs",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "d220d6038a7f1939d60bb4575b2488e88092a7ff147937398188c32032a2a269"
+    },
+    {
+      "path": "projects/research-desk/tests/market.test.cjs",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "40be27f0d992a006d6f32e92ae2670952d00a321895752f2fd88e5621dc8d64d"
+    },
+    {
+      "path": "projects/research-desk/x-consensus/DESK_TWITTER_CONSENSUS.md",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "1ecfc469d3f5c73852164de9cb5635ca3691eb80562facc758b867346c62b2c7"
+    },
+    {
+      "path": "projects/research-desk/x-consensus/README.md",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "280d0c416832cb1d87adc8b124094907e9d99dbcdfe00b7f0f1791744976a3f8"
+    },
+    {
+      "path": "projects/research-desk/x-consensus/desk_twitter_pipeline.py",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "e3507d8081e3c0dbecccd1a011143932c73cb6f87c78c3bee422242f6c45849d"
     },
     {
       "path": "归档/AI周期探索/01_赛道研究/A_AI企业效率与上下文入口.md",

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Research Desk · 投资工作台</title>
+  <link rel="stylesheet" href="desk.css">
+  <script src="desk.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#center">跳至研究内容</a>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">◈</span>
+      <div>
+        <h1>Research Desk</h1>
+        <p class="sub">看核心趋势 → 找到变化 → 查证据 → 记判断 → 到期复查</p>
+      </div>
+    </div>
+    <div class="timestamps" id="timestamps">
+      <span>数据时点 <b id="data-time">尚未接入</b></span>
+      <span>最近刷新 <b id="refresh-time">无记录</b></span>
+    </div>
+    <div class="actions">
+      <button id="motion" aria-pressed="false">停止动画</button>
+      <button id="refresh" class="btn-primary">刷新数据</button>
+    </div>
+  </header>
+  <div class="frame" id="frame">
+    <nav class="rail" id="rail" aria-label="研究导航"></nav>
+    <main class="center" id="center" tabindex="-1"><p class="muted">正在载入工作台…</p></main>
+    <aside class="side" id="side" aria-label="操作台"></aside>
+  </div>
+  <footer>研究路径 ≠ 已验证因果 · 数据可用 ≠ 市场安全 · 研究池 ≠ 持仓 · 不生成交易指令 · AI 解释不当作官方事实</footer>
+</body>
+</html>
