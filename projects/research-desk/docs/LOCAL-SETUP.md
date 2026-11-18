@@ -46,3 +46,7 @@ node tests/market.test.cjs && node tests/edge-cases.test.cjs
 ## 脱敏清单（发布前检查）
 
 排除：`.env`、`.verification/`（日志与截图）、构建产物 `.cindy`、内部交接文档、绝对私人路径（已转 `local://`）、持仓与交易记录。保留：目录定义、代码、测试、验收与限制说明。
+
+## 2026-11-18 · 2.0.1 同步
+
+本目录源码已与本机在用版本 2.0.1 对齐（desk-core 契约层、消息看板四视图、日记草稿、运行健康、X 共识差可选接入）。上文的安装与验证步骤不变；`tests/` 以 `market / desk-core / main-harness` 三套为准（1.1.0 的 `edge-cases.test.cjs` 已并入 `market.test.cjs`）。

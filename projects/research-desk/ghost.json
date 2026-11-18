@@ -3,14 +3,15 @@
   "minCindyVersion": "0.1.136",
   "id": "murphy-research-desk",
   "name": "投资 Research Desk",
-  "description": "复用本机既有 Alpaca 只读行情连接，分层观察全市场风险、金银铜驱动与 JNK–SPY 经验规则。",
-  "whenToUse": "分层观察全市场风险、金银铜驱动与JNK–SPY经验规则；追踪异常、来源和待验证解释。",
-  "version": "1.1.0",
+  "description": "统一投资工作台：12 个固定观察槽位、图表与事件联动、消息看板、投资日记与验证提醒；行情来自本机 Alpaca 连接、Yahoo 兜底、CBOE 官方指数 CSV 与 FRED 宏观序列。",
+  "whenToUse": "查看投资观察台快照与数据缺口、刷新行情与指数、把研究结果批次入库、查询消息看板与待验证事项、给投资日记提交 AI 整理草稿、同步定时任务运行状态时使用。",
+  "version": "2.0.1",
+  "releaseNotes": "修复三个半导体观察槽位未关联 SEMIS_AI / SEMIS_BROAD / SEMIS_CYCLE 序列、入库后仍显示缺失的问题；保留来源口径和观测日期。",
   "entry": "main.js",
   "tools": [
     {
       "name": "get_snapshot",
-      "description": "读取投资观察台已缓存日线快照；包含数据时点与缺失状态，不刷新、不推导交易。",
+      "description": "读取投资观察台已缓存日线快照（ETF 代理 + CBOE 指数 + FRED 宏观）；包含数据时点与缺失状态，不刷新、不推导交易。",
       "parameters": {
         "type": "object",
         "properties": {},
@@ -19,10 +20,433 @@
     },
     {
       "name": "refresh_market",
-      "description": "读取本机既有 Alpaca 连接刷新19个ETF日线，另尝试公开VIX日线；只读金融数据，不访问账户、订单和交易。",
+      "description": "刷新行情：本机 Alpaca 连接优先、Yahoo 兜底、CBOE 官方指数 CSV、FRED 宏观；完成后把观测写入 Library 持久库并返回覆盖率。只读金融数据，不访问账户、订单和交易。",
       "parameters": {
         "type": "object",
         "properties": {},
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "get_desk_context",
+      "description": "返回工作台上下文：12 个槽位状态与数据截止、研究池版本、待验证与消息计数、最近失败。不包含私人日记正文。",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "ingest_batch",
+      "description": "把一批研究结果（指标观测序列、事件、观点、报告、健康记录）写入持久库。批次必须带稳定 batch_id：同 ID 重复导入幂等返回原回执；同事件内容变化生成新版本；序列按 (key,date) 去重。返回真实持久化回执（写入/重复/拒绝及原因）。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "batch": {
+            "type": "object",
+            "properties": {
+              "batch_id": {
+                "type": "string",
+                "description": "稳定批次标识，如 market-2026-11-17 或 twitter-weekly-20261116"
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "market",
+                  "metals",
+                  "semis",
+                  "pool",
+                  "sentinel",
+                  "calendar",
+                  "earnings",
+                  "aicapex",
+                  "power",
+                  "twitter",
+                  "expiry",
+                  "diary-clock",
+                  "material-gap",
+                  "health",
+                  "report",
+                  "manual"
+                ],
+                "description": "业务批次类型"
+              },
+              "job_id": {
+                "type": "string"
+              },
+              "run_id": {
+                "type": "string",
+                "description": "宿主调度运行 ID（若有），入库后可在运行健康中追溯"
+              },
+              "window": {
+                "type": "object",
+                "properties": {
+                  "start": {
+                    "type": "string"
+                  },
+                  "end": {
+                    "type": "string"
+                  }
+                }
+              },
+              "data_cutoff": {
+                "type": "string",
+                "description": "数据截止时间（ISO）"
+              },
+              "coverage": {
+                "type": "object",
+                "properties": {
+                  "denominator": {
+                    "type": "number"
+                  },
+                  "succeeded": {
+                    "type": "number"
+                  },
+                  "missing": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "errors": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "sources": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "root_id": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string"
+                    },
+                    "provider": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "root_id"
+                  ]
+                }
+              },
+              "series": {
+                "type": "array",
+                "description": "指标观测序列",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "key": {
+                      "type": "string"
+                    },
+                    "label": {
+                      "type": "string"
+                    },
+                    "provider": {
+                      "type": "string"
+                    },
+                    "unit": {
+                      "type": "string"
+                    },
+                    "basis": {
+                      "type": "string"
+                    },
+                    "source_url": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "observations": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "date": {
+                            "type": "string"
+                          },
+                          "value": {
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "date",
+                          "value"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "key",
+                    "observations"
+                  ]
+                }
+              },
+              "items": {
+                "type": "array",
+                "description": "消息条目（事件/观点/报告/健康/验证）",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "logical_id": {
+                      "type": "string"
+                    },
+                    "root_source_id": {
+                      "type": "string"
+                    },
+                    "kind": {
+                      "type": "string",
+                      "enum": [
+                        "event",
+                        "fact",
+                        "opinion",
+                        "report",
+                        "health",
+                        "verify"
+                      ]
+                    },
+                    "category": {
+                      "type": "string",
+                      "enum": [
+                        "fact",
+                        "external_opinion",
+                        "ai_explainer"
+                      ]
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "body": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string"
+                    },
+                    "author": {
+                      "type": "string"
+                    },
+                    "stance": {
+                      "type": "string",
+                      "enum": [
+                        "bull",
+                        "bear",
+                        "mixed",
+                        "unknown"
+                      ]
+                    },
+                    "event_time": {
+                      "type": "string"
+                    },
+                    "published_at": {
+                      "type": "string"
+                    },
+                    "topics": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "symbols": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "importance": {
+                      "type": "number"
+                    },
+                    "actionable": {
+                      "type": "boolean"
+                    },
+                    "coverage_note": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "logical_id",
+                    "kind",
+                    "category",
+                    "title"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "batch_id",
+              "kind"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "batch"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "list_updates",
+      "description": "按视图（needs=需我处理 / updates=重点更新 / opinions=观点流 / health=运行健康）或 kind、topic、symbol、日期区间查询消息；每个逻辑事件返回最新版本，附已读/已处理状态。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "view": {
+            "type": "string",
+            "enum": [
+              "needs",
+              "updates",
+              "opinions",
+              "health"
+            ]
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "event",
+              "fact",
+              "opinion",
+              "report",
+              "health",
+              "verify"
+            ]
+          },
+          "topic": {
+            "type": "string"
+          },
+          "symbol": {
+            "type": "string"
+          },
+          "from": {
+            "type": "string"
+          },
+          "to": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "number"
+          },
+          "offset": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "submit_note_draft",
+      "description": "为投资日记生成 AI 整理草稿（观察/解释/待验证/对策）。草稿独立保存，不覆盖用户原文；用户在页面接受后才产生新版本。可锚定已有日记（传 note_id）或生成待采纳草稿。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string",
+            "description": "草稿正文（整理后的结构化文本）"
+          },
+          "observation": {
+            "type": "string"
+          },
+          "interpretation": {
+            "type": "string"
+          },
+          "to_verify": {
+            "type": "string"
+          },
+          "counter_move": {
+            "type": "string"
+          },
+          "verify_hint": {
+            "type": "string",
+            "description": "建议复查日期 YYYY-MM-DD"
+          },
+          "topics": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "symbols": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "text"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "sync_automation_status",
+      "description": "导入经宿主核实的定时任务与运行回执（来自宿主调度工具的读回，不是插件缓存）。页面自动化视图显示最后核验时间。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "tasks": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "task_key": {
+                  "type": "string"
+                },
+                "group_id": {
+                  "type": "string",
+                  "description": "A/B/C/D/E/F 六组之一"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "schedule_id": {
+                  "type": "string"
+                },
+                "cron": {
+                  "type": "string"
+                },
+                "timezone": {
+                  "type": "string"
+                },
+                "execution": {
+                  "type": "string",
+                  "description": "agent 或 script"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "device": {
+                  "type": "string"
+                },
+                "last_run": {
+                  "type": "object"
+                },
+                "source": {
+                  "type": "string",
+                  "description": "host-verified 等"
+                }
+              },
+              "required": [
+                "task_key",
+                "name"
+              ]
+            }
+          }
+        },
+        "required": [
+          "tasks"
+        ],
         "additionalProperties": false
       }
     }
@@ -37,9 +461,12 @@
   "network": {
     "hosts": [
       "query1.finance.yahoo.com",
-      "data.alpaca.markets"
+      "data.alpaca.markets",
+      "cdn-api.cboe.com",
+      "fred.stlouisfed.org"
     ]
   },
+  "library": true,
   "node": {
     "entry": "node/market.cjs",
     "protocol": "json-rpc-stdio",
