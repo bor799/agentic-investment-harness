@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-11-18",
+  "generated_at": "2026-11-19",
   "repo": "bor799/agentic-investment-harness",
   "total_files": 1637,
   "files": [
@@ -7058,14 +7058,14 @@
       "include": true,
       "rights": "own",
       "reason": "Original content by Murphy or AI-assisted through author interactions",
-      "sha256": "1ecfc469d3f5c73852164de9cb5635ca3691eb80562facc758b867346c62b2c7"
+      "sha256": "fdb6225855dbb0aaf32600f8465dbfc42c833ebd708aed66565f6c3dbf5667a6"
     },
     {
       "path": "projects/research-desk/x-consensus/README.md",
       "include": true,
       "rights": "own",
       "reason": "Original content by Murphy or AI-assisted through author interactions",
-      "sha256": "280d0c416832cb1d87adc8b124094907e9d99dbcdfe00b7f0f1791744976a3f8"
+      "sha256": "3b1936be7157f49de749ebd088b85445b95216929e733a4de9708e1473013e4a"
     },
     {
       "path": "projects/research-desk/x-consensus/desk_twitter_pipeline.py",

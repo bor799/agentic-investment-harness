@@ -7,3 +7,5 @@
 - 采集目录契约 — 脚本只认「完成标记」：`<root>/<YYYYMMDD>/DONE.json`（status=complete）、`manifest.json`（accounts/summary 或 expected_accounts/as_of）、`posts/<handle>.json`（ok=true + data[]）。任何适配器（如 agent-reach）只要落成这个格式即可接入。
 
 三步接线：采集器落盘 → `prepare` → AI 按 `DESK_TWITTER_CONSENSUS.md` 分析（引用 post_id）→ `build` → 经 Research Desk `ingest_batch` 入库回读。反私货约束都在脚本里：原帖不存在即拒绝、同作者同论题只计一次、无完整采集回执不发布观点。
+
+提示词按作者本机 vault 布局书写（如 `90_AUTOMATION/PIPELINES/...` 与 `03_STATE/...`）；在自己的环境使用时，把其中的脚本路径替换为本目录 `desk_twitter_pipeline.py`，标的池接你自己的研究清单。
