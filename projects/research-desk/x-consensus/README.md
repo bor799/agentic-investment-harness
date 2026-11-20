@@ -2,7 +2,8 @@
 
 把一组公开投资者的帖子变成「论题 × 多空计数 × 代表原帖 × 待验证数字」的共识差报告。采集账号名单与日程由使用者自持，本目录只提供可移植的三件东西：
 
-- `desk_twitter_pipeline.py` — 确定性两步脚本：`prepare` 归一化七天采集并输出窗口内原帖；`build` 校验 AI 分析 JSON 并组装 Desk 批次。无网络、无数据库、无硬编码账号。
+- `desk_twitter_pipeline.py` — 确定性两步脚本：`prepare` 归一化七天采集并输出窗口内原帖；`build` 校验 AI 分析 JSON 并组装 Desk 批次。无网络、无数据库、无硬编码账号。兼容三代采集目录格式（现行 accounts-manifest／上代 expected_accounts／更早无 DONE 目录自动跳过并上报）；`build` 写盘前镜像 Board 校验自检；items 的 topics 统一 `X 关注圈`/`周报` 口径，与既有入库批次连续。
+- `tests/test_desk_twitter_pipeline.py` — 20 个用例，全合成数据，无网络、不依赖真实采集目录。
 - `DESK_TWITTER_CONSENSUS.md` — 周报提示词：指导 Agent 只引用窗口内真实原帖、按独立作者计数、给经营判断附同口径数字与来源，并产出覆盖缺口。
 - 采集目录契约 — 脚本只认「完成标记」：`<root>/<YYYYMMDD>/DONE.json`（status=complete）、`manifest.json`（accounts/summary 或 expected_accounts/as_of）、`posts/<handle>.json`（ok=true + data[]）。任何适配器（如 agent-reach）只要落成这个格式即可接入。
 
