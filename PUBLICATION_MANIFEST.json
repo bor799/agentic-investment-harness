@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "generated_at": "2026-11-20",
   "repo": "bor799/agentic-investment-harness",
-  "total_files": 1637,
+  "total_files": 1638,
   "files": [
     {
       "path": ".claude/agents/investment-reviewer.md",
@@ -7072,7 +7072,14 @@
       "include": true,
       "rights": "own",
       "reason": "Original content by Murphy or AI-assisted through author interactions",
-      "sha256": "e3507d8081e3c0dbecccd1a011143932c73cb6f87c78c3bee422242f6c45849d"
+      "sha256": "7f730e563c5ac29840a3558e5da27e2b293510cfbed91e05afd70ab793955453"
+    },
+    {
+      "path": "projects/research-desk/x-consensus/tests/test_desk_twitter_pipeline.py",
+      "include": true,
+      "rights": "own",
+      "reason": "Original content by Murphy or AI-assisted through author interactions",
+      "sha256": "5096ba5585ac67d6167817d32a47d807ca4871cafa00f5be8525c0a272bafde3"
     },
     {
       "path": "归档/AI周期探索/01_赛道研究/A_AI企业效率与上下文入口.md",
