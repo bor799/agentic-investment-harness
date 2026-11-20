@@ -49,7 +49,7 @@ decision_authority: none
    覆盖不足时为 `x-consensus-health-<YYYYMMDD>`。同 ID 重复导入幂等安全，
    与上周真实批次 x-consensus-20261118 命名一致）。
 7. **周报摘要条目**：由你按第八节撰写正文；若 build 输出未含报告条目，
-   以 `batch_id=twitter-consensus-<YYYYMMDD>-digest` 单独 `ingest_batch`。
+   以 `batch_id=x-consensus-<YYYYMMDD>-digest` 单独 `ingest_batch`（同前缀加 -digest 后缀）。
 8. **回读验证**：`list_updates` 核对本批 logical_id 条数、覆盖率与覆盖注记。
    **只有插件回执且回读都完成，才可以报告"已入库"**；任一步失败，
    如实报命令、最相关错误行和已产生的文件路径，不粉饰。
