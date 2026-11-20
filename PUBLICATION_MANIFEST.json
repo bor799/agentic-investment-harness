@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-11-19",
+  "generated_at": "2026-11-20",
   "repo": "bor799/agentic-investment-harness",
   "total_files": 1637,
   "files": [
@@ -7058,7 +7058,7 @@
       "include": true,
       "rights": "own",
       "reason": "Original content by Murphy or AI-assisted through author interactions",
-      "sha256": "fdb6225855dbb0aaf32600f8465dbfc42c833ebd708aed66565f6c3dbf5667a6"
+      "sha256": "c66c8720d9dd30804da3dee2cf3383ad6587d9e1a15e218aef363f5190b288e9"
     },
     {
       "path": "projects/research-desk/x-consensus/README.md",
